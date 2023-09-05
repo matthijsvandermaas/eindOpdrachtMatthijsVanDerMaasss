@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import './App.css';
+import './constants/background.css'
+import './helpers/Helpers.js'; // Voeg deze import toe
+import logoImage from './assets/b & b logo.png';
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <>
+            <div className="outer-outer-container">
+                <div className="outer-container">
+                    <div className="header-container">
+                        <img src={logoImage} alt="B&B Logo" />
+                        {/*<div>*/}
+                        {/*<h1 className="title1">beers &</h1><h1 className="title2">broskys</h1>*/}
+                        {/*</div>*/}
+                        {/*<div>*/}
+                        {/*<h1 className="title3">Beers &</h1><h1 className="title4">sʎʞsoɹq</h1>*/}
+                        {/*</div>*/}
+
+                    </div>
+                    <div className="main-container">
+                        {/*<div className="background"></div>*/}
+
+                    </div>
+                    <div className="footer-container">
+
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 }
 
-export default App
+export default App;

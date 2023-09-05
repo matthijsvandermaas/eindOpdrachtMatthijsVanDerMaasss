@@ -54,8 +54,7 @@ Table of Contents:
 /*-colors-*/
 
 :root {
-    --gradient: radial-gradient(circle farthest-side at center center, #fdf699 80%, #ffed2d 95%, rgba(255, 237, 45, 0.9));
-    --background-gradient: radial-gradient(circle farthest-side at center center, rgba(253, 246, 153, 0.12) 80%, rgba(255, 237, 45, 0.12) 95%, rgba(255, 237, 45, 0.12));
+    --background-gradient: radial-gradient(circle farthest-side at center center, #fdf699 80%, #ffed2d 95%, rgba(255, 237, 45, 0.9));
 }
 /*-font-size-*/
 /*:root {*/
@@ -108,13 +107,26 @@ Table of Contents:
     margin: 0;
     padding: 0;
 
-
+    background-color: rgba(255, 255, 255, 0.7);
 }
- .header-container img{
-     height: 60px;
-     width: 50%;
 
- }
+.title1{
+    color: red;
+}
+.title2 {
+    color: deepskyblue;
+}
+.title3{
+    color: transparent;
+}
+.title4{
+    color: deepskyblue;
+}
+
+.title1, .title2, .title3, .title4 {
+    white-space: nowrap;
+}
+
 
 
 /*.header-container img{*/

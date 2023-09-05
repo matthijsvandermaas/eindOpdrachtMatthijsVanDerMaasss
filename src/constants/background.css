@@ -1,0 +1,33 @@
+@import "App.css"; /* Importeer het app.css-bestand */
+/**/
+/*=ctrl /
+      ctr f voor zoeken in css
+      id (#) kan 1 keer voor komen
+      class (.) meerdere
+      browser(rechtermuis -> inspecteren) - inspecteren/tijdelijke aanpassing code
+                                                -element selecteren zie stijlen:  aan uit zetten
+                                                -stijlen/nieuwe stijlen testen
+      ctrl u voor html code
+      px altijd deelbaar door 4
+      door een foto in een span(inline element) of div(block element) een height en width te geven van 100% zal deze mee groeien met de parentelement
+      gebruik div en span icm flexbox om elementen uit te lijnen
+      met flex-basic:; beperkte je een element
+*/
+/*///
+Table of Contents:
+    1. link to the repository
+    2. Global Styles
+        2.1 variable styles
+    3. Typografie*/
+/*  4. roots styles*/
+/*  5. utility/reusable
+    6. Areas
+        6.1 background
+        5.2 area 2
+        6.3 Support
+        6.4 Faq
+        6.5 Footer*/
+
+
+/*6.1 background*/
+
