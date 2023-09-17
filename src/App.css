@@ -1,36 +1,21 @@
-/*Koppel het CSS-bestand aan `index.html` (<link rel="stylesheet" type="text/css" href="../.css");
-- [ ] Zet alvast drie semantische elementen (`<header>`-, `<main>`- en `<footer>`) klaar in de body van het
-                                                                                   HTML-bestand, zodat het duidelijk is hoe de pagina in stukjes verdeeld gaat worden;
-- [ ] Voorzie jouw CSS-bestand van een complete CSS-reset;*/
-/**/
-/*=ctrl /
-      ctr f voor zoeken in css
-      id (#) kan 1 keer voor komen
-      class (.) meerdere
-      browser(rechtermuis -> inspecteren) - inspecteren/tijdelijke aanpassing code
-                                                -element selecteren zie stijlen:  aan uit zetten
-                                                -stijlen/nieuwe stijlen testen
-      ctrl u voor html code
-      px altijd deelbaar door 4
-      door een foto in een span(inline element) of div(block element) een height en width te geven van 100% zal deze mee groeien met de parentelement
-      gebruik div en span icm flexbox om elementen uit te lijnen
-      met flex-basic:; beperkte je een element
-*/
+
 /*///
 Table of Contents:
     1. link to the repository
     2. Global Styles
         2.1 variable styles
     3. Typografie*/
-@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,500;0,700;0,800;1,100;1,600;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,500;0,700;0,800;1,100;1,600;1,800&family=Roboto:ital,wght@0,100;0,400;0,500;1,100&display=swap');
 /*  4. roots styles*/
 /*  5. utility/reusable
     6. Areas
         6.1 background
-        5.2 area 2
+        5.2 2
         6.3 Support
         6.4 Faq
-        6.5 Footer*/
+        6.5 Footer
+        6.6 Main*/
 
 /*  4. roots styles*/
 /*-colors-*/
@@ -56,6 +41,9 @@ Table of Contents:
 :root {
     --gradient: radial-gradient(circle farthest-side at center center, #fdf699 80%, #ffed2d 95%, rgba(255, 237, 45, 0.9));
     --background-gradient: radial-gradient(circle farthest-side at center center, rgba(253, 246, 153, 0.12) 80%, rgba(255, 237, 45, 0.12) 95%, rgba(255, 237, 45, 0.12));
+    --line-blue: rgb(68, 88, 132);
+    --titles: #efcb23;
+
 }
 /*-font-size-*/
 /*:root {*/
@@ -72,6 +60,13 @@ Table of Contents:
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: 0;
+}
+.navBar-bttn{
+    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
 }
 
 .outer-outer-container {
@@ -79,7 +74,9 @@ Table of Contents:
     width: 100%;
     background: var(--background-gradient);
     backdrop-filter: blur(5px);
-}/* Pas hier de gewenste vervaging (blur) waarde aan */
+    border: 3px solid black;
+    overflow: hidden;
+}
 
 
 .outer-container {
@@ -87,34 +84,78 @@ Table of Contents:
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
-    max-height: 2000px;
-    max-width: 100vw;
+    height: 100%;
+    width: 100%;
+    max-height: 1800px;
+    max-width: 98vw;
     margin: 0 auto;
     border: 3px solid greenyellow;
-
 }
 
+
 .header-container {
-    border: 3px solid red;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between; /* Plaats de elementen aan beide uiteinden van de container */
     align-items: center;
-    height: 50vh;
+    height: 30vh;
     width: 100%;
     max-height: 40vh;
     margin: 0;
     padding: 0;
+}
 
+.header-container {
+    border:  3px solid darkred;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 12vh;
+    width: 100%;
+    max-height: 20vh;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Voeg deze regel toe */
+}
+
+.headerlogo-container {
+    flex: 1;
+}
+
+
+.logo-img{
+    height: 10vh;
+    width: 60vw;
+    max-height: 400px;
+    max-width: 20000px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 58px 4px rgb(255, 255, 255), 2px 2px 58px 4px rgb(255, 253, 229);
+    margin: 10px 10px;
+}
+.wheat_logo{
+    width: 70px; /* Pas dit aan naar de gewenste breedte */
+    height: 70px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 90px;
+    max-height: 90px;
+
+    /*max-width: none; !* Hiermee wordt de maximale breedte opgeheven, als dat nodig is *!*/
+    /*max-height: none; !* Hiermee wordt de maximale hoogte opgeheven, als dat nodig is *!*/
+    border-radius: 30px;
+    transform: rotatey(180deg) translateX(-9px);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 200px;
 
 }
- .header-container img{
-     height: 60px;
-     width: 50%;
-
- }
 
 
 /*.header-container img{*/
@@ -125,7 +166,7 @@ Table of Contents:
     justify-content: center;
     align-content: center;
     border: 2px solid black;
-    height: 80vh;
+    height: 50vh;
     width: 100%;
     max-height: 90vh;
     min-height: 75vh;
@@ -133,100 +174,81 @@ Table of Contents:
     padding: 0;
 }
 
+
 .footer-container {
     flex-direction: row;
     width: 100%;
+    height: 25vh;
     max-height: 20vh;
     min-height: 10vh;
     border: 3px solid #ff7592;
+    /*background-image: url('assets/footer.svg');*/
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    /*object-fit: contain*/
 }
 
-
-
+.header-logo-container{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 /*///2.1 variable styles///*/
 
 /*///2. Typography///*/
-h1, h2, h3, h4, h5, h6, div {
-    font-family: Georgia, serif, "Times New Roman", Times, serif;
+h1, h2 {
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 1em;
-    font-size: 1em;
-    color: black;
+    font-size: 3em;
+    color: var(--line-blue)
 }
 
 h1 {
-    font-size: 1.5em; /*16px is de standaard van "em"*/
+    font-size: 4em; /*16px is de standaard van "em"*/
 }
-
-p,
-link,
-label,
-fieldset,
-section,
-input,
-select,
-textarea,
-option,
-legend,
-table,
-tfoot,
-thead,
-tr,
-th {
-    font-family: Georgia, serif, "Times New Roman", Times, serif;
-}
-
-/*///3. roots style///*/
 
 
 /*///4. utility///*/
-/*.spacing-margin-top { !*class*!*/
-/*    margin-top: 16px; !*of gab*!*/
-/*}*/
 
-/*.spacing-margin-bottom { !*class*!*/
-/*    margin-bottom: 16px; !*of gab*!*/
-/*}*/
-
-/*.spacing-margin-left { !*class*!*/
-/*    margin-left: 16px; !*of gab*!*/
-/*}*/
-
-/*.spacing-margin-right { !*class*!*/
-/*    margin-right: 16px; !*of gab*!*/
-/*}*/
-
-/*.spacing-margin { !*class*!*/
-/*margin: 16px; !*of gab*!*/
-/*margin: 10px 20px; !*(vert-hor) of gab*!*/
-/*margin: 10px 20px 10px 20px; !*(boven-recht-onder-links) of gab*!*/
-/*}*/
-
-/*.spacing-padding-top { !*class*!*/
-/*    padding-top: 16px; !*of gab*!*/
-/*}*/
-
-/*.spacing-padding-bottom { !*class*!*/
-/*    padding-bottom: 16px; !*of gab*!*/
-/*}*/
-
-/*.spacing-padding-left { !*class*!*/
-/*    padding-left: 16px; !*of gab*!*/
-/*}*/
-
-/*.spacing-padding-right { !*class*!*/
-/*    padding-right: 16px; !*of gab*!*/
-/*}*/
-
-/*.spacing-padding { !*class*!*/
-
-/*(boven-recht-onder-links) of gab*/
 .debug {
     border: 2px solid red;
 }
 
-
 /*///5. Areas///*/
+
+/*navbar*/
+
 /*footer {*/
+
+/*Main*/
+.text {
+    text-align: center; /* Tekst in het midden uitlijnen */
+}
+
+.text-content {
+    display: flex;
+    align-items: center; /* Verticaal centreren */
+    justify-content: center; /* Horizontaal centreren */
+    margin-top: 20px; /* Ruimte boven de content */
+}
+
+.text-text, .welcome-image {
+    margin: 0 10px; /* Ruimte tussen tekst en afbeelding */
+}
+.text-image img {
+    max-width: 100%; /* Zorg ervoor dat de afbeelding niet breder is dan de container */
+    height: auto; /* Behoud de aspectverhouding van de afbeelding */
+}
+
+
+/*.logo-img {*/
+/*    justify-items: space-around;*/
+/*    align-content: center;*/
+/*    width: 90%;*/
+/*    height: 30%;*/
+/*    !* Hiermee wordt de afbeelding volledig in de container weergegeven en bijgesneden indien nodig *!*/
+/*}*/
 
 
 /*}*/
@@ -254,10 +276,3 @@ th {
 /*width: 100%;*/
 /*display: block /inline/ 100%; !*ipv flexbox*!*/
 /*}*/
-
-
-
-
-
-
-

@@ -1,0 +1,97 @@
+.navBar-container {
+    display: flex;
+    flex-direction: column; /* Plaats in een rij */
+    align-items: flex-end; /* Verticaal*/
+    justify-content: flex-end; /* Uitlijnen naar rechts */
+    /* Voeg tussenruimte toe tussen de elementen */
+    width: 10%;
+    height: 50%;
+    max-height: 50vh;
+    min-height: 10vh;
+    border: 3px solid #ff7592;
+    padding: 30px 30px;
+
+}
+.dropdown {
+    position: absolute;
+    width: 8px;
+    display: flex; /* Gebruik flexbox om de dropdown en de dropdown-content te beheren */
+    flex-direction: column; /* Plaats de items onder elkaar */
+    align-items: center; /* Centreer items horizontaal */
+    top: 50%; /* Plaats de dropdown in het midden van de header-container */
+    transform: translateY(30px) translateX(70px); /* Middelste uitlijning verticaal en iets naar links verschoven */
+    right: 10px; /* Plaats de dropdown 10px vanaf de rechterkant */
+    box-shadow: inset 3px 3px rgba(243, 243, 243, 0.5),3px 3px rgba(243, 243, 243, 0.5);
+}
+.navBar-bttn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /* Verticaal centreren */
+    position: relative;
+    transform: translateY(-76px) translateX(-120px);
+    margin-right: 0px; /* Voeg een kleine ruimte tussen de afbeelding en de tekst toe */
+    margin-left:  -20px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--line-blue);
+    font-size: 1.2em;
+
+}
+
+
+.dropdown-content {
+    justify-content: flex-start;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.06);
+    min-width: 16px;
+    box-shadow: inset 3px 3px rgba(243, 243, 243, 0.5),3px 3px rgba(243, 243, 243, 0.5);
+    border-radius: 20px;
+    z-index: 1;
+    opacity: 0; /* Begin met een onzichtbare inhoud */
+    transform: translateY(-76px) translateX(-130px);
+    transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Voeg overgangen toe aan opacity en transform */
+    padding: 10px 30px;
+    position: absolute;
+    top: 100%;
+    list-style-type: none;
+    font-size: 1.5em;
+
+}
+.navBar-bttn {
+    background: transparent;
+    border: none;
+}
+.navBar-bttn:hover{
+    text-decoration: underline;
+}
+
+.navList {
+    list-style-type: none; /* Verwijder opsommingstekens */
+    padding: 0; /* Verwijder standaard lijst opvulling */
+    margin: 0; /* Verwijder standaard lijstmarges */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    background: rgba(255, 255, 255, 0.12);
+    opacity: 1; /* Maak de inhoud zichtbaar */
+
+}
+
+.dropdown-content a {
+    background: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    color: black;
+    /*padding: 12px 16px;*/
+    display: block;
+    border-radius: 30px;
+}
+
+.dropdown-content a:hover {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;}
+
+.dropdown:hover .dropbtn {
+}
