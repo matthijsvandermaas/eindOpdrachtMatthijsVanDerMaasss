@@ -11,7 +11,7 @@ Table of Contents:
 /*  5. utility/reusable
     6. Areas
         6.1 background
-        5.2 2
+        5.2 img
         6.3 Support
         6.4 Faq
         6.5 Footer
@@ -44,6 +44,9 @@ Table of Contents:
     --line-blue: rgb(68, 88, 132);
     --titles: #efcb23;
 
+}
+:root{
+    --border-radius: 20px;
 }
 /*-font-size-*/
 /*:root {*/
@@ -129,10 +132,12 @@ Table of Contents:
     width: 60vw;
     max-height: 400px;
     max-width: 20000px;
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
-    box-shadow: 2px 2px 58px 4px rgb(255, 255, 255), 2px 2px 58px 4px rgb(255, 253, 229);
-    margin: 10px 10px;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(30px);
+    box-shadow: 5px 5px 5px 5px rgb(255, 255, 255), 10px 10px 10px 10px rgba(255, 253, 229, 0.7), 10px 10px 10px 10px #fffde5;
+    margin: 20px 20px;
+    background-color: #fffde5;
+
 }
 .wheat_logo{
     width: 70px; /* Pas dit aan naar de gewenste breedte */
@@ -152,10 +157,25 @@ Table of Contents:
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
+    max-width: 99vw;
     max-height: 200px;
+    border-radius: var(--border-radius);
 
 }
+.footer-background {
+    background-image: url(./assets/footer.svg);
+    width: 100vw;
+    height: 100%;
+    background-repeat: repeat;
+    background-size: auto 100%; /* Hiermee wordt de breedte op 'auto' gezet en de hoogte op '100%' */
+    filter: blur(1px) contrast(40%);
+    border-radius: var(--border-radius);
+}
+
+
+
+
+
 
 
 /*.header-container img{*/
@@ -166,7 +186,7 @@ Table of Contents:
     justify-content: center;
     align-content: center;
     border: 2px solid black;
-    height: 50vh;
+    height: 30vh;
     width: 100%;
     max-height: 90vh;
     min-height: 75vh;
@@ -215,9 +235,11 @@ h1 {
     border: 2px solid red;
 }
 
-/*///5. Areas///*/
-
-/*navbar*/
+/*.custom-cursor {*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    cursor: url('./assets/B_&_B_logo2.jpg'), auto;*/
+/*}*/
 
 /*footer {*/
 
@@ -237,10 +259,17 @@ h1 {
     margin: 0 10px; /* Ruimte tussen tekst en afbeelding */
 }
 .text-image img {
-    max-width: 100%; /* Zorg ervoor dat de afbeelding niet breder is dan de container */
-    height: auto; /* Behoud de aspectverhouding van de afbeelding */
+    max-width: 90%;
+    height: calc(100% - 10px);
 }
 
+
+
+/*///5. Areas///*/
+
+/*navbar*/
+
+/*img*/
 
 /*.logo-img {*/
 /*    justify-items: space-around;*/

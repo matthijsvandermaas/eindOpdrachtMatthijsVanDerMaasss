@@ -1,5 +1,5 @@
+// In Text.jsx
 import React from "react";
-import './Text-component.css';
 
 function Text_component({ Text_Title, Text_message }) {
     return (
@@ -8,10 +8,8 @@ function Text_component({ Text_Title, Text_message }) {
                 <div>
                     <h1>{Text_Title}</h1>
                 </div>
-                <div className="inner-welcome-container">
+                <div className="inner-text-container">
                     <p>{Text_message}</p>
-
-
                 </div>
             </div>
         </>
