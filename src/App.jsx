@@ -8,6 +8,7 @@ import footer from './assets/footer.svg';
 import Navbar from "./components/navBar/Navbar.jsx";
 import Inschrijf_Form from "./components/inschrijfform/Inschrijf_Form.jsx";
 import Text from "./components/texts/Text.jsx";
+import Bier_inschrijf_form from './components/inschrijfform/Product_Inschrijf_Form.jsx';
 import './App.css';
 
 function App() {
