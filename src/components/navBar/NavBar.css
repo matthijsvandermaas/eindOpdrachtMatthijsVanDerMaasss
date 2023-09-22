@@ -22,6 +22,7 @@
     transform: translateY(30px) translateX(70px); /* Middelste uitlijning verticaal en iets naar links verschoven */
     right: 10px; /* Plaats de dropdown 10px vanaf de rechterkant */
     box-shadow: inset 3px 3px rgba(243, 243, 243, 0.5),3px 3px rgba(243, 243, 243, 0.5);
+    transition: 0.5s ease-in-out;
 }
 .navBar-bttn {
     display: flex;
@@ -65,16 +66,19 @@
 }
 
 .navList {
-    list-style-type: none; /* Verwijder opsommingstekens */
-    padding: 0; /* Verwijder standaard lijst opvulling */
-    margin: 0; /* Verwijder standaard lijstmarges */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
     background: rgba(255, 255, 255, 0.12);
     opacity: 1; /* Maak de inhoud zichtbaar */
-
+}
+.dropdown-content li:hover {
+    transform: scale(1.1);
+    text-decoration: underline;
 }
 
 .dropdown-content a {

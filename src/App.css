@@ -154,6 +154,7 @@ Table of Contents:
     align-items: center;
     max-width: 100%;
     max-height: 200px;
+    background: url("./assets/footer.svg");
 
 }
 
@@ -162,15 +163,16 @@ Table of Contents:
 /*    margin: 50px;*/
 /*}*/
 .main-container {
+    display: flex;
     flex-direction: row;
     justify-content: center;
-    align-content: center;
+    align-items: flex-start;
     border: 2px solid black;
-    height: 50vh;
+    height: 40vh;
     width: 100%;
     max-height: 90vh;
     min-height: 75vh;
-    margin: 0 0 10px 0 ;
+    margin: 0;
     padding: 0;
 }
 
@@ -182,11 +184,13 @@ Table of Contents:
     max-height: 20vh;
     min-height: 10vh;
     border: 3px solid #ff7592;
-    /*background-image: url('assets/footer.svg');*/
-    /*background-size: cover;*/
-    /*background-position: center;*/
-    /*object-fit: contain*/
+    background-image: url('assets/footer.svg');
+    background-size: cover;
+    background-position: center;
+    object-fit: contain;
+    filter: blur(1px) opacity(20%);
 }
+
 
 .header-logo-container{
     height: 100%;
@@ -222,24 +226,7 @@ h1 {
 /*footer {*/
 
 /*Main*/
-.text {
-    text-align: center; /* Tekst in het midden uitlijnen */
-}
 
-.text-content {
-    display: flex;
-    align-items: center; /* Verticaal centreren */
-    justify-content: center; /* Horizontaal centreren */
-    margin-top: 20px; /* Ruimte boven de content */
-}
-
-.text-text, .welcome-image {
-    margin: 0 10px; /* Ruimte tussen tekst en afbeelding */
-}
-.text-image img {
-    max-width: 100%; /* Zorg ervoor dat de afbeelding niet breder is dan de container */
-    height: auto; /* Behoud de aspectverhouding van de afbeelding */
-}
 
 
 /*.logo-img {*/

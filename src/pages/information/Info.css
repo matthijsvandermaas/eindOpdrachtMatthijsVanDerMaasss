@@ -1,0 +1,26 @@
+.text {
+    text-align: center; /* Tekst in het midden uitlijnen */
+}
+
+.text-content {
+    display: flex;
+    align-items: center; /* Verticaal centreren */
+    justify-content: center; /* Horizontaal centreren */
+}
+
+.text-text, .welcome-image {
+    margin: 0 10px; /* Ruimte tussen tekst en afbeelding */
+
+}
+.text-image img {
+    max-width: 90%; /* Zorg ervoor dat de afbeelding niet breder is dan de container */
+    height: 90%; /* Behoud de aspectverhouding van de afbeelding */
+    z-index: 1;
+    transition: 0.5s ease-in-out;
+}
+.text-image img:hover {
+    position: relative;
+    transform:  translatex(-60px) scale(1.4);
+}
+
+

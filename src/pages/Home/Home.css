@@ -1,0 +1,32 @@
+.text {
+    text-align: center;
+}
+
+.text-content {
+    display: flex;
+    flex-direction: row; /* Plaats de inhoud naast elkaar in een rij */
+    align-items: center;
+    justify-content: center;
+}
+
+.text-text,
+.welcome-image {
+    margin: 0 10px;
+}
+.text-imag{
+    display: flex;
+    flex-direction: row; /* Plaats de inhoud naast elkaar in een rij */
+    align-items: center;
+    justify-content: center;
+}
+.text-image img {
+    max-width: 50%;
+    height: 90%;
+    z-index: 1;
+    transition: 0.5s ease-in-out;
+    transform: translateY(60px);
+}
+
+.text-image img:hover {
+    transform: translateX(-60px) scale(1.4); /* Aangepaste horizontale verschuiving */
+}
