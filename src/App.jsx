@@ -8,6 +8,8 @@ import Inschrijf_Form from "./components/inschrijfform/Inschrijf_Form.jsx";
 import Text from "./components/texts_components/Text-component.jsx";
 import Home from "./pages/Home/Home.jsx";
 import {Route, Routes} from "react-router-dom";
+import User from "./pages/user/User.jsx";
+import Inschrijf_Navigatie from "./pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 
 
 function App() {
@@ -36,7 +38,7 @@ function App() {
                 <div className="main-container">
                         <Routes>
                             <Route path="/" element={<Home/>}/>
-                            <Route path="/inschrijfformulier" element={<Inschrijf_Form/>}/>
+                            <Route path="/inschrijfformulier" element={<Inschrijf_Navigatie/>}/>
                         </Routes>
                 </div>
                 <div className="footer-container">
