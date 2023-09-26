@@ -1,28 +1,26 @@
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import './inschrijf_Navigatie.css';
+import Inschrijf_Form from "./inschrijf_Navigatie.css";
 
 function Inschrijf_Navigatie() {
+    const navigate = useNavigate(); // Haal de navigate-functie op
+
+
     return (
         <>
             <div className="text">
                 <h1>inschrijving</h1>
                 <div className="inschrijving_Content">
-                    <div className="inschrijving_bttns">
                         <p>
                             Contrary to popular belief, Lorem Ipsum is not simply random text... Het is de gecorrigeerde tekst van je welkomstboodschap.
                         </p>
-                    </div>
-                    <form className="verwijzings_form">
                         <div className="inschrijving_content">
-                            <Link to="/inschrijven/particulier">
-                                <button type="button" className="bttn">Particulier</button>
-                            </Link>
+                            <button type="button" className="bttn" onClick={() => navigate("/inschrijf_Form")}>Particulier</button>
                         </div>
                         <div className="inschrijving_content">
-                            <Link to="/inschrijven/zakelijk">
-                                <button type="button" className="bttn">Zakelijk</button>
-                            </Link>
+                            <button type="button" className="bttn" onClick={() => navigate("/inschrijf_Form")}>Zakelijk</button>
                         </div>
-                    </form>
                 </div>
             </div>
         </>
