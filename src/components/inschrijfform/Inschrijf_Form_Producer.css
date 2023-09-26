@@ -1,0 +1,31 @@
+/* Voeg deze CSS toe aan je stijlblad (bijvoorbeeld Inschrijf_Form.css) */
+
+/* Stijl voor de form-container */
+.form-container {
+    margin: 10px 20px;
+    border: green 3px solid;
+}
+
+/* Stijl voor de formuliervelden */
+form div {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap; /* Hiermee wordt de inhoud van het formulier binnen de hoofdcontainer gehouden */
+    border: green 3px solid;
+}
+
+label {
+    font-weight: bold;
+    flex: 1; /* Hiermee krijgt het label de helft van de beschikbare ruimte */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    flex: 1; /* Hiermee krijgt het invoerveld de andere helft van de beschikbare ruimte */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
