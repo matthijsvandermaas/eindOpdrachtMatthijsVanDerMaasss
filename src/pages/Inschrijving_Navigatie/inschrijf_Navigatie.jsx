@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './inschrijf_Navigatie.css';
 import '../../components/inschrijfform/Inschrijf_Form_Producer.jsx';
 import '../../components/inschrijfform/Inschrijf_Form_Particulier.jsx';
+import '../../components/inschrijfform/Inschrijf_Form_Product.jsx';
 
 
 function Inschrijf_Navigatie() {
@@ -19,6 +20,7 @@ function Inschrijf_Navigatie() {
                         </p>
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_particulier")}>Particulier</button>
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_producer")}>Zakelijk</button>
+                    <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_product")}>product</button>
 
                 </div>
             </div>
