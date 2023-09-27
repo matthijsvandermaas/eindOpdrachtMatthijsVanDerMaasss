@@ -1,23 +1,27 @@
 import React from 'react';
-import { NavLink, Routes, Route } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './inschrijf_Navigatie.css';
-import Inschrijf_Form_Particulier from '../../../src/components/inschrijfform/Inschrijf_Form_Particulier';
-import Inschrijf_Form_Producer from '../../../src/components/inschrijfform/Inschrijf_Form_Producer';
-import Home from '../Home/Home.jsx';
+import '../../components/inschrijfform/Inschrijf_Form_Producer.jsx';
+import '../../components/inschrijfform/Inschrijf_Form_Particulier.jsx';
+
 
 function Inschrijf_Navigatie() {
+    const navigate = useNavigate(); // Haal de navigate-functie op
+
+
     return (
         <>
             <div className="text">
                 <h1>inschrijving</h1>
-                <ul className="navList">
-                    <li><NavLink to="/inschrijf_form_particulier">particulier</NavLink></li>
-                    <li><NavLink to="/inschrijf_form_producers">producers</NavLink></li>
-                </ul>
-            </div>
-            <Routes>
+                <div className="inschrijving_Content">
+                        <p>
+                            Contrary to popular belief, Lorem Ipsum is not simply random text... Het is de gecorrigeerde tekst van je welkomstboodschap.
+                        </p>
+                    <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_particulier")}>Particulier</button>
+                    <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_producer")}>Zakelijk</button>
 
-            </Routes>
+                </div>
+            </div>
         </>
     );
 }

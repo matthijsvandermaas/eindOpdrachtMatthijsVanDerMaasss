@@ -40,6 +40,7 @@ function Inschrijf_Form_Particulier() {
     };
 
     return (
+        <>
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Voornaam:</label>
@@ -83,6 +84,7 @@ function Inschrijf_Form_Particulier() {
             </div>
             <button type="submit">Inschrijven</button>
         </form>
+        </>
     );
 }
 

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import './constants/background.css';
 import logoImage from './assets/B & B logo2.jpg';
 import wheat from './assets/wheat.png';
 import Navbar from "./components/navBar/Navbar.jsx";
+import Home from "./pages/Home/Home.jsx";
+import {Route, Routes} from "react-router-dom";
+import Inschrijf_Navigatie from "./pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 import Inschrijf_Form_Particulier from "./components/inschrijfform/Inschrijf_Form_Particulier.jsx";
 import Inschrijf_Form_Producer from "./components/inschrijfform/Inschrijf_Form_Producer.jsx";
-import Text from "./components/texts_components/Text-component.jsx";
-import Home from "./pages/Home/Home.jsx";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Inschrijf_Navigatie from "./pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
+
 
 function App() {
     const [activeTab, setActiveTab] = useState('Home');
@@ -36,10 +36,10 @@ function App() {
 
                 <div className="main-container">
                     <Routes>
-                        <Route path="/" element={<Home/>}/>
+                        <Route path="/" element={<Home />} />
                         <Route path="/inschrijfformulier" element={<Inschrijf_Navigatie />} />
-                        <Route path="/inschrijf_form_particulier" element={<Inschrijf_Form_Particulier />} />
-                        <Route path="/inschrijf_form_producers" element={<Inschrijf_Form_Producer />} />
+                        <Route path="/inschrijfformulier_particulier" element={<Inschrijf_Form_Particulier />} />
+                        <Route path="/inschrijfformulier_producer" element={<Inschrijf_Form_Producer />} />
                     </Routes>
                 </div>
                 <div className="footer-container">

@@ -87,6 +87,7 @@ function Inschrijf_Form_Producer() {
     };
 
     return (
+        <>
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Voornaam:</label>
@@ -194,6 +195,7 @@ function Inschrijf_Form_Producer() {
             </div>
             <button type="submit">Inschrijven</button>
         </form>
+        </>
     );
 }
 
