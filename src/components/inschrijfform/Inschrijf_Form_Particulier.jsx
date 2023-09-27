@@ -41,6 +41,7 @@ function Inschrijf_Form_Particulier() {
 
     return (
         <>
+            <h3>inschrijf formulier voor bierliefhebbers</h3>
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Voornaam:</label>

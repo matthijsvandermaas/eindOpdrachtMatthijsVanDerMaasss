@@ -3,7 +3,7 @@
 /* Stijl voor de form-container */
 .form-container {
     margin: 10px 20px;
-    border: green 3px solid;
+
 }
 
 /* Stijl voor de formuliervelden */
@@ -13,7 +13,6 @@ form div {
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap; /* Hiermee wordt de inhoud van het formulier binnen de hoofdcontainer gehouden */
-    border: green 3px solid;
 }
 
 label {
