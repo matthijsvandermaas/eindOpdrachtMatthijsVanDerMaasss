@@ -11,6 +11,7 @@ function Navbar({ activeTab, handleTabChange }) {
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/inschrijfformulier">Inschrijfformulier</NavLink>
                     <NavLink to="/product_informatie">product informatie</NavLink>
+                    <NavLink to="/productie_informatie">hoe maak je bier</NavLink>
                 </li>
 
         </ul>
