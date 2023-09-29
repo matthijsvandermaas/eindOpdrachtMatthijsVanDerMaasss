@@ -9,8 +9,6 @@ import {Route, Routes} from "react-router-dom";
 import Inschrijf_Navigatie from "./pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 import Inschrijf_Form_Particulier from "./components/inschrijfform/Inschrijf_Form_Particulier.jsx";
 import Inschrijf_Form_Producer from "./components/inschrijfform/Inschrijf_Form_Producer.jsx";
-import Inschrijf_Form_Product from "./components/inschrijfform/Inschrijf_Form_Product.jsx";
-import Productie_Informatie from "./pages/information/Productie_Informatie.jsx";
 
 
 function App() {
@@ -42,8 +40,6 @@ function App() {
                         <Route path="/inschrijfformulier" element={<Inschrijf_Navigatie />} />
                         <Route path="/inschrijfformulier_particulier" element={<Inschrijf_Form_Particulier />} />
                         <Route path="/inschrijfformulier_producer" element={<Inschrijf_Form_Producer />} />
-                        <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
-                        <Route path="/product_informatie" element={<Productie_Informatie  />} />
                     </Routes>
                 </div>
                 <div className="footer-container">
