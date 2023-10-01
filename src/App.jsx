@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
 import './App.css';
-import './constants/background.css';
+import './constants/back;
 import logoImage from './assets/B & B logo2.jpg';
 import wheat from './assets/wheat.png';
 import Navbar from "./components/navBar/Navbar.jsx";
 import Home from "./pages/Home/Home.jsx";
-import {Route, Routes} from "react-router-dom";
+import {NavLink, Route, Routes} from "react-router-dom";
 import Inschrijf_Navigatie from "./pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 import Inschrijf_Form_Particulier from "./components/inschrijfform/Inschrijf_Form_Particulier.jsx";
 import Inschrijf_Form_Producer from "./components/inschrijfform/Inschrijf_Form_Producer.jsx";
 import Productie_Informatie from "./pages/information/Productie_Informatie.jsx";
+import Inschrijf_Form_Product from "./components/inschrijfform/Inschrijf_Form_Product.jsx";
+import Footer from "./pages/footer/Footer.jsx";
 
 
 function App() {
@@ -24,7 +26,11 @@ function App() {
             <div className="outer-container">
                 <div className="header-container">
                     <div className="headerlogo-container">
-                        <img className="logo-img" src={logoImage} alt="B&B Logo"/>
+                        {/*<img className="logo-img" src={logoImage} alt="B&B Logo"/>*/}
+                        <NavLink to="/">
+                            <img className="logo-img" src={logoImage} alt="B&B Logo"/>
+
+                        </NavLink>
 
                         <div className="dropdown">
                             <button className="navBar-bttn"><img className="wheat_logo" src={wheat} alt="wheat-logo"/>
@@ -40,14 +46,19 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/inschrijfformulier" element={<Inschrijf_Navigatie />} />
                         <Route path="/inschrijfformulier_particulier" element={<Inschrijf_Form_Particulier />} />
-                        <Route path="/product_informatie" element={<Inschrijf_Form_Producer />} />
+                        <Route path="/inschrijfformulier_producent" element={<Inschrijf_Form_Producer />} />
+                        <Route path="/product_informatie" element={<Inschrijf_Form_Product />} />
                         <Route path="/productie_informatie" element={<Productie_Informatie />} />
                     </Routes>
                 </div>
+
                 <div className="footer-container">
-                    <div className="footer-background">
+                    <div className="footer_content">
+                        <Footer></Footer>
                     </div>
+
                 </div>
+
             </div>
         </div>
     );

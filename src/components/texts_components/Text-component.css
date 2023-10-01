@@ -1,0 +1,30 @@
+.text-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Verticaal centreren */
+    justify-content: center; /* Horizontaal centreren */
+    border-top: 3px solid var(--line-blue); /* Bovenste rand */
+    border-bottom: 3px solid var(--line-blue); /* Onderste rand */
+    box-shadow: inset 20px 20px 10px 10px var(--titles);
+    border-radius: var(--border-radius);
+    z-index: 1;
+    margin-bottom: 20px;
+    padding: 20px 20px;
+}
+.text-content:hover {
+    box-shadow: inset 10px 10px 20px 20px var(--titles);
+
+}
+
+.text-content.text_1 {
+    flex-direction: row;
+}
+
+.text-content.text_2 {
+    flex-direction: row-reverse;
+}
+
+.text-content .text-component,
+.text-content .text-image {
+    margin: 0 10px; /* Ruimte tussen tekst en afbeelding */
+}

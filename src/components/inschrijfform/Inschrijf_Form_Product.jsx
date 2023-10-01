@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Inschrijf_Form_Product.css';
+import './Inschrijf_Form.css';
 
 function Inschrijf_Form_Product() {
     const [Name_Product, setName_Product] = useState('');
@@ -57,8 +57,8 @@ function Inschrijf_Form_Product() {
 
     return (
         <>
-            <h3>inschrijf formulier voor product</h3>
             <form onSubmit={handleSubmit}>
+                <h1>inschrijf formulier voor product</h1>
                 <div>
                     <label>Productnaam:</label>
                     <input
@@ -129,7 +129,7 @@ function Inschrijf_Form_Product() {
                         onChange={handleLocation_ProducerChange}
                     />
                 </div>
-                <button type="submit">Inschrijven</button>
+                <button className="bttn" type="submit">Inschrijven</button>
             </form>
         </>
     );

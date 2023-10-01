@@ -9,12 +9,18 @@ function Navbar({ activeTab, handleTabChange }) {
             <ul className="navList">
                 <li>
                     <NavLink to="/">Home</NavLink>
+                    <NavLink to="/">inloggen</NavLink>
+                    <NavLink to="/">mijn gegevens</NavLink>
+                    <NavLink to="/">alle bieren</NavLink>
+                    <NavLink to="/">mijn bieren</NavLink>
+                    <NavLink to="/productie_informatie">hoe wordt bier gemaakt?</NavLink>
                     <NavLink to="/inschrijfformulier">Inschrijfformulier</NavLink>
-                    <NavLink to="/product_informatie">product informatie</NavLink>
-                    <NavLink to="/productie_informatie">hoe maak je bier</NavLink>
+
+
                 </li>
 
         </ul>
+
         </div>
     );
 }

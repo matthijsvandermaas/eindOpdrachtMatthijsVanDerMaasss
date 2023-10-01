@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Inschrijf_Form_Particulier.css';
+import './Inschrijf_Form.css';
 
 function Inschrijf_Form_Particulier() {
 
@@ -41,8 +41,8 @@ function Inschrijf_Form_Particulier() {
 
     return (
         <>
-            <h3>inschrijf formulier voor bierliefhebbers</h3>
         <form onSubmit={handleSubmit}>
+            <h1>inschrijf formulier voor bierliefhebbers</h1>
             <div>
                 <label>Voornaam:</label>
                 <input
@@ -83,7 +83,7 @@ function Inschrijf_Form_Particulier() {
                     onChange={handlePasswordChange}
                 />
             </div>
-            <button type="submit">Inschrijven</button>
+            <button className="bttn" type="submit">Inschrijven</button>
         </form>
         </>
     );

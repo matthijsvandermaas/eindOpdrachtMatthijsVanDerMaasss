@@ -1,0 +1,52 @@
+/* Algemene stijl voor formulieren */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontaal centreren */
+    text-align: center; /* Tekst in het midden uitlijnen */
+    margin-top: 20px; /* Ruimte boven de titel */
+    box-shadow: inset 20px 20px 10px 10px var(--titles);
+    transition: 3s ease-in-out;
+}
+.form-container:hover{
+    box-shadow: inset 10px 10px 20px 20px var(--titles);
+}
+
+/* Stijl voor de formuliervelden */
+form div {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row; /* Formuliervelden onder elkaar plaatsen */
+    align-items: center; /* Horizontaal centreren */
+    width: 50%;
+    max-width: 800px;
+}
+
+label {
+    font-weight: bold;
+    flex: 1; /* Hiermee krijgt het label de helft van de beschikbare ruimte */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    flex: 1; /* Hiermee krijgt het invoerveld de andere helft van de beschikbare ruimte */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Achtergrondkleur van de knop */
+    color: white; /* Tekstkleur van de knop */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Vloeiende overgang voor achtergrondkleur */
+}
+
+button:hover {
+    background-color: #0056b3; /* Achtergrondkleur van de knop bij hover */
+}

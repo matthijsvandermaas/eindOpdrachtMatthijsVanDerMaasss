@@ -44,11 +44,13 @@
     display: none;
     background-color: rgba(255, 255, 255, 0.06);
     min-width: 16px;
-    box-shadow: inset 3px 3px rgba(243, 243, 243, 0.5),3px 3px rgba(243, 243, 243, 0.5);
-    border-radius: 20px;
+    border-top: 3px solid var(--line-blue); /* Bovenste rand */
+    border-bottom: 3px solid var(--line-blue); /* Onderste rand */
+    box-shadow: inset 20px 20px 10px 10px var(--titles);
     z-index: 1;
+    border-radius: var(--border-radius);
     opacity: 0; /* Begin met een onzichtbare inhoud */
-    transform: translateY(-76px) translateX(-130px);
+    transform: translateY(-76px) translateX(-150px);
     transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Voeg overgangen toe aan opacity en transform */
     padding: 10px 30px;
     position: absolute;
@@ -57,7 +59,14 @@
     font-size: 1.5em;
 
 }
+.dropdown-content:hover {
+    box-shadow: inset 10px 10px 20px 20px var(--titles);
+}
 .navBar-bttn {
+    background: transparent;
+    border: none;
+}
+.navBar-bttn:hover {
     background: transparent;
     border: none;
 }
@@ -82,9 +91,10 @@
     display: block;
     border-radius: 30px;
 }
-
 .dropdown-content a:hover {
     display: block;
+    text-decoration: underline;
+    transform: scale(1.1);
 }
 
 .dropdown:hover .dropdown-content {

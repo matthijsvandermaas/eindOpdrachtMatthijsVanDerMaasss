@@ -2,26 +2,47 @@
     text-align: center; /* Tekst in het midden uitlijnen */
 }
 
-.text-content {
-    display: flex;
-    align-items: center; /* Verticaal centreren */
-    justify-content: center; /* Horizontaal centreren */
-}
+/*.text-content {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    align-items: center; !* Verticaal centreren *!*/
+/*    justify-content: center; !* Horizontaal centreren *!*/
+/*    border-top: 3px solid var(--line-blue); !* Bovenste rand *!*/
+/*    border-bottom: 3px solid var(--line-blue); !* Onderste rand *!*/
+/*    box-shadow: inset 10px 10px 10px 22px var(--titles);*/
+/*    border-radius: var(--border-radius);    */
+/*    z-index: 1;*/
+/*    margin-bottom: 20px;*/
+/*    padding: 20px 20px;*/
+/*}*/
 
-.text-text, .welcome-image {
-    margin: 0 10px; /* Ruimte tussen tekst en afbeelding */
+/*.text-content.text_1 {*/
+/*    flex-direction: row;*/
+/*}*/
 
-}
+/*.text-content.text_2 {*/
+/*    flex-direction: row-reverse;*/
+/*}*/
+
+/*.text-content .text-component,*/
+/*.text-content .text-image {*/
+/*    margin: 0 10px; !* Ruimte tussen tekst en afbeelding *!*/
+/*}*/
+
 .text-image img {
     max-width: 90%; /* Zorg ervoor dat de afbeelding niet breder is dan de container */
     height: 90%; /* Behoud de aspectverhouding van de afbeelding */
     z-index: 1;
     transition: 0.5s ease-in-out;
 }
+
 .text-image img:hover {
     position: relative;
-    transform:  translatex(-60px) scale(1.4);
+    transform:  translateX(-10px) scale(1.1); /* Vergroot de afbeelding bij zweven */
 }
 
-
-
+.h1 {
+    justify-content: center;
+    text-align: center; /* Tekst in het midden uitlijnen */
+    margin-top: 20px; /* Ruimte boven de h1 */
+}
