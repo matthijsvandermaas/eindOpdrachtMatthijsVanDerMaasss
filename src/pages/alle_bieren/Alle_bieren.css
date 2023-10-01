@@ -1,0 +1,15 @@
+.informatie_container {
+}
+
+.text-content {
+    border: none;
+}
+.text-row{
+    border-top: 2px solid var(--line-blue);
+    border-bottom: 2px solid var(--line-blue);
+    margin-bottom: 20px;
+}
+
+.img-carousel {
+    width: 50%; /* of een andere gewenste breedte */
+}

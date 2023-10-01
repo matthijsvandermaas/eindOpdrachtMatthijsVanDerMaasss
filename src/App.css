@@ -42,6 +42,9 @@ Table of Contents:
     --gradient: radial-gradient(circle farthest-side at center center, #fdf699 80%, #ffed2d 95%, rgba(255, 237, 45, 0.9));
     --background-gradient: radial-gradient(circle farthest-side at center center, rgba(253, 246, 153, 0.12) 80%, rgba(255, 237, 45, 0.12) 95%, rgba(255, 237, 45, 0.12));
     --line-blue: rgb(68, 88, 132);
+    --shadow: rgba(255, 237, 45, 0.02);
+    --box-shadow_1: inset  20px 20px 200px 30px var(--shadow);
+    --box-shadow_2: inset -20px -20px 200px -30px var(--shadow);
     --titles: #efcb23;
     --border-radius: 10px;
 
@@ -123,6 +126,12 @@ Table of Contents:
 .headerlogo-container {
     flex: 1;
 }
+.header-logo-container{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 
 .logo-img{
@@ -148,21 +157,6 @@ Table of Contents:
     border-radius: 30px;
     transform: rotatey(180deg) translateX(-9px);
 }
-
-.footer-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    max-height: 200px;
-    background: url("./assets/footer.svg");
-
-}
-
-
-/*.header-container img{*/
-/*    margin: 50px;*/
-/*}*/
 .main-container {
     display: flex;
     flex-direction: row;
@@ -170,14 +164,27 @@ Table of Contents:
     align-items: flex-start;
     border: 2px solid black;
     height: 100vh;
-    width: 100%;
+    width: 95vw;
     max-height: 90vh; /* Maximale hoogte */
     overflow-y: auto; /* Voeg een scrollbar toe indien nodig */
     margin: 20px;
     padding: 0;
 }
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 200px;
+    background: url("./assets/footer.svg");
+    box-shadow: var(--box-shadow);
+
+}
 
 
+/*.header-container img{*/
+/*    margin: 50px;*/
+/*}*/
 
 .footer-container {
     flex-direction: row;
@@ -193,13 +200,6 @@ Table of Contents:
     filter: blur(1px) opacity(20%);
 }
 
-
-.header-logo-container{
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
 /*///2.1 variable styles///*/
 
 /*///2. Typography///*/

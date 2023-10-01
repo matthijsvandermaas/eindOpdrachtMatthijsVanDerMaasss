@@ -1,17 +1,20 @@
 import React from 'react';
 import './navbar.css';
-import Home from "../../pages/Home/Home.jsx";
-import {NavLink, Route} from "react-router-dom"; // Importeer de navbar.css-stijlen
+import {NavLink} from "react-router-dom"; // Importeer de navbar.css-stijlen
 
-function Navbar({ activeTab, handleTabChange }) {
+function Navbar() {
     return (
         <div className="dropdown-content">
             <ul className="navList">
                 <li>
                     <NavLink to="/">Home</NavLink>
+                    <NavLink to="/alle_producten">Alle Bieren</NavLink>
+                    <NavLink to="/">Inloggen</NavLink>
+                    <NavLink to="/">Mijn Pagina</NavLink>
+                    <NavLink to="/">Mijn Bieren</NavLink>
                     <NavLink to="/inschrijfformulier">Inschrijfformulier</NavLink>
-                    <NavLink to="/product_informatie">product informatie</NavLink>
-                    <NavLink to="/productie_informatie">hoe maak je bier</NavLink>
+                    <NavLink to="/Productie_Informatie">hoe maak je bier</NavLink>
+                    <NavLink to="/carousel">carousel</NavLink>
                 </li>
 
         </ul>

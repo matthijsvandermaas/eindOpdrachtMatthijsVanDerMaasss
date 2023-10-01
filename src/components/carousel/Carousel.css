@@ -1,0 +1,10 @@
+
+.img-carousel{
+    width: 40vw;
+    height: 100%;
+}
+.carousel-img {
+    width: 50%;
+    height: 45%;
+    border-radius: var(--border-radius);
+}

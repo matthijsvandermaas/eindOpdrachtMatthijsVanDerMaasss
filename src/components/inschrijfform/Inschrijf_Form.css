@@ -1,23 +1,38 @@
 /* Voeg deze CSS toe aan je stijlblad (bijvoorbeeld Inschrijf_Form.css) */
 
-/* Stijl voor de form-container */
+
 .form-container {
     margin: 10px 20px;
-
 }
 
-/* Stijl voor de formuliervelden */
+.form-content {
+    text-align: center;
+    width: 100%;
+    max-width: 90vw;
+    padding: 20px;
+    border: 2px solid var(--line-blue);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow_1);
+    border-left: var(--line-blue);
+    border-right: var(--line-blue);
+}
+
+.form-content:hover {
+    box-shadow: var(--box-shadow_2);
+}
+
+
 form div {
     margin-bottom: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-wrap: wrap; /* Hiermee wordt de inhoud van het formulier binnen de hoofdcontainer gehouden */
+    flex-wrap: wrap;
 }
 
 label {
     font-weight: bold;
-    flex: 1; /* Hiermee krijgt het label de helft van de beschikbare ruimte */
+    flex: 1;
 }
 
 input[type="text"],

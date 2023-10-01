@@ -16,6 +16,8 @@ function  Home(){
                     <div className="text-image">
                         <img src={wheat} alt="afbeelding" />
                     </div>
+                    {/*<button type="button" className="bttn" onClick={() => navigate("/inloggen")}>product</button>*/}
+
                 </div>
             </div>
         </>

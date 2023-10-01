@@ -7,12 +7,17 @@ import wheat from './assets/wheat.png';
 import dependency from './assets/dependency-tree.png';
 import Navbar from "./components/navBar/Navbar.jsx";
 import Home from "./pages/Home/Home.jsx";
-import {Route, Routes} from "react-router-dom";
+import {NavLink, Route, Routes} from "react-router-dom";
 import Inschrijf_Navigatie from "./pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 import Inschrijf_Form_Particulier from "./components/inschrijfform/Inschrijf_Form_Particulier.jsx";
 import Inschrijf_Form_Producer from "./components/inschrijfform/Inschrijf_Form_Producer.jsx";
 import Productie_Informatie from "./pages/information/Productie_Informatie.jsx";
+import Inschrijf_Form_Product from "./components/inschrijfform/Inschrijf_Form_Product.jsx";
+import Alle_bieren from "./pages/alle_bieren/Alle_bieren.jsx";
+// import Mijn_bieren from "./pages/information/Mijn_bieren.jsx";
+// import Mijn_gegevens from "./pages/information/Mijn_pagina.jsx";
 import Carousel from "./components/carousel/Carousel.jsx";
+
 
 
 
@@ -29,8 +34,7 @@ function App() {
             <div className="outer-container">
                 <div className="header-container">
                     <div className="headerlogo-container">
-                        <img className="logo-img" src={logoImage} alt="B&B Logo"/>
-
+                        <NavLink to="/"><img className="logo-img" src={logoImage} alt="B&B Logo" /></NavLink>
                         <div className="dropdown">
                             <button className="navBar-bttn"><img className="wheat_logo" src={wheat} alt="wheat-logo"/>
                                 <p>menu</p></button>
@@ -45,8 +49,10 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/inschrijfformulier" element={<Inschrijf_Navigatie />} />
                         <Route path="/inschrijfformulier_particulier" element={<Inschrijf_Form_Particulier />} />
-                        <Route path="/product_informatie" element={<Inschrijf_Form_Producer />} />
-                        <Route path="/productie_informatie" element={<Productie_Informatie />} />
+                        <Route path="/inschrijfformulier_producent" element={<Inschrijf_Form_Producer />} />
+                        <Route path="/Productie_Informatie" element={<Productie_Informatie />} />
+                        <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
+                        <Route path="/alle_producten" element={<Alle_bieren />} />
                         <Route path="/carousel" element={<Carousel />} />
                     </Routes>
                 </div>

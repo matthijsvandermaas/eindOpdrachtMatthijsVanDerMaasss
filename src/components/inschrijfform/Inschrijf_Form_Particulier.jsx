@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
-import './Inschrijf_Form_Particulier.css';
+import './Inschrijf_Form.css';
 
 function Inschrijf_Form_Particulier() {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
 
-
-    const [First_name, setFirst_Name] = useState('');
-    const [Last_name, setLast_Name] = useState('');
-    const [Email, setEmail] = useState('');
-    const [User_Name, setUser_Name] = useState('');
-    const [Password, setPassword] = useState('');
-    const handleFirst_NameChange = (e) => {
-        setFirst_Name(e.target.value);
+    const handleFirstNameChange = (e) => {
+        setFirstName(e.target.value);
     };
 
-    const handleLast_NameChange = (e) => {
-        setLast_Name(e.target.value);
+    const handleLastNameChange = (e) => {
+        setLastName(e.target.value);
     };
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
 
-    const handleUser_NameChange = (e) => {
-        setUser_Name(e.target.value);
+    const handleUserNameChange = (e) => {
+        setUserName(e.target.value);
     };
 
     const handlePasswordChange = (e) => {
@@ -31,60 +30,44 @@ function Inschrijf_Form_Particulier() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Hier kun je de ingevoerde gegevens verwerken, bijvoorbeeld naar een API verzenden of lokaal opslaan
-        console.log('Voornaam:', First_name);
-        console.log('Achternaam:', Last_name);
-        console.log('E-mail:', Email);
-        console.log('Gebruikersnaam:', User_Name);
-        console.log('Wachtwoord:', Password);
+        console.log('Voornaam:', firstName);
+        console.log('Achternaam:', lastName);
+        console.log('E-mail:', email);
+        console.log('Gebruikersnaam:', userName);
+        console.log('Wachtwoord:', password);
     };
 
     return (
         <>
-            <h3>inschrijf formulier voor bierliefhebbers</h3>
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Voornaam:</label>
-                <input
-                    type="text"
-                    value={First_name}
-                    onChange={handleFirst_NameChange}
-                />
+        <div className="form-container">
+            <h1>Inschrijfformulier voor bierliefhebbers</h1>
+            <div className="form-content">
+
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label>Voornaam:</label>
+                        <input type="text" value={firstName} onChange={handleFirstNameChange} />
+                    </div>
+                    <div>
+                        <label>Achternaam:</label>
+                        <input type="text" value={lastName} onChange={handleLastNameChange} />
+                    </div>
+                    <div>
+                        <label>E-mail:</label>
+                        <input type="email" value={email} onChange={handleEmailChange} />
+                    </div>
+                    <div>
+                        <label>Gebruikersnaam:</label>
+                        <input type="text" value={userName} onChange={handleUserNameChange} />
+                    </div>
+                    <div>
+                        <label>Wachtwoord:</label>
+                        <input type="password" value={password} onChange={handlePasswordChange} />
+                    </div>
+                    <button type="submit">Inschrijven</button>
+                </form>
             </div>
-            <div>
-                <label>Achternaam:</label>
-                <input
-                    type="text"
-                    value={Last_name}
-                    onChange={handleLast_NameChange}
-                />
-            </div>
-            <div>
-                <label>E-mail:</label>
-                <input
-                    type="email"
-                    value={Email}
-                    onChange={handleEmailChange}
-                />
-            </div>
-            <div>
-                <label>Gebruikersnaam:</label>
-                <input
-                    type="text"
-                    value={User_Name}
-                    onChange={handleUser_NameChange}
-                />
-            </div>
-            <div>
-                <label>Wachtwoord:</label>
-                <input
-                    type="password"
-                    value={Password}
-                    onChange={handlePasswordChange}
-                />
-            </div>
-            <button type="submit">Inschrijven</button>
-        </form>
+        </div>
         </>
     );
 }

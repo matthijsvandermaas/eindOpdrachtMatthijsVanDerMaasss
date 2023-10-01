@@ -15,14 +15,16 @@
 .dropdown {
     position: absolute;
     width: 8px;
-    display: flex; /* Gebruik flexbox om de dropdown en de dropdown-content te beheren */
-    flex-direction: column; /* Plaats de items onder elkaar */
-    align-items: center; /* Centreer items horizontaal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 50%; /* Plaats de dropdown in het midden van de header-container */
     transform: translateY(30px) translateX(70px); /* Middelste uitlijning verticaal en iets naar links verschoven */
     right: 10px; /* Plaats de dropdown 10px vanaf de rechterkant */
     box-shadow: inset 3px 3px rgba(243, 243, 243, 0.5),3px 3px rgba(243, 243, 243, 0.5);
     transition: 0.5s ease-in-out;
+    border-top: var(--line-blue);
+    border-bottom: var(--line-blue);
 }
 .navBar-bttn {
     display: flex;
@@ -43,25 +45,43 @@
     justify-content: flex-start;
     display: none;
     background-color: rgba(255, 255, 255, 0.06);
-    min-width: 16px;
-    box-shadow: inset 3px 3px rgba(243, 243, 243, 0.5),3px 3px rgba(243, 243, 243, 0.5);
-    border-radius: 20px;
+    min-width: 20px;
     z-index: 1;
-    opacity: 0; /* Begin met een onzichtbare inhoud */
-    transform: translateY(-76px) translateX(-130px);
+    opacity: 0;
+    transform: translateY(-76px) translateX(-150px);
     transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Voeg overgangen toe aan opacity en transform */
     padding: 10px 30px;
     position: absolute;
     top: 100%;
     list-style-type: none;
     font-size: 1.5em;
+    border: 2px solid var(--line-blue);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow_1);
+    border-left: var(--line-blue);
+    border-right: var(--line-blue);
 
+}
+.dropdown-content:hover {
+    box-shadow: var(--box-shadow_2);
 }
 .navBar-bttn {
     background: transparent;
     border: none;
 }
 
+.dropdown-content a {
+    background: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    color: var(--line-blue);
+    display: block;
+    box-shadow: var(--box-shadow_1);
+}
+.dropdown-content a:hover {
+    display: block;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
 .navList {
     list-style-type: none;
     padding: 0;
@@ -74,21 +94,3 @@
     opacity: 1; /* Maak de inhoud zichtbaar */
 }
 
-.dropdown-content a {
-    background: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    color: black;
-    /*padding: 12px 16px;*/
-    display: block;
-    border-radius: 30px;
-}
-
-.dropdown-content a:hover {
-    display: block;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;}
-
-.dropdown:hover .dropbtn {
-}

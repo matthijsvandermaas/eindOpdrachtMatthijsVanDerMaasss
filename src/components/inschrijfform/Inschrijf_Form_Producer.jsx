@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Inschrijf_Form_Producer.css';
+import './Inschrijf_Form.css';
 import Inschrijf_Form_Product from "../../components/inschrijfform/Inschrijf_Form_Product.jsx";
 
 function Inschrijf_Form_Producer() {
@@ -89,7 +89,9 @@ function Inschrijf_Form_Producer() {
 
     return (
         <>
-            <h3>inschrijf formulier voor brouwers en verkooppunten</h3>
+            <div className="form-container">
+                <h1>inschrijfformulier voor brouwers</h1>
+                <div className="form-content">
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Voornaam:</label>
@@ -197,8 +199,10 @@ function Inschrijf_Form_Producer() {
             </div>
             <button type="submit">Inschrijven</button>
         </form>
-            <Inschrijf_Form_Product/>
-        </>
+            </div>
+            </div>
+</>
+
     );
 }
 
