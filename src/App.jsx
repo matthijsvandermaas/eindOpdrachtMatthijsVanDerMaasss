@@ -4,7 +4,7 @@ import './App.css';
 import './constants/background.css';
 import logoImage from './assets/B & B logo2.jpg';
 import wheat from './assets/wheat.png';
-import dependency from './assets/dependency-tree.png';
+// import dependency from './assets/dependency-tree.png';
 import Navbar from "./components/navBar/Navbar.jsx";
 import Home from "./pages/Home/Home.jsx";
 import {NavLink, Route, Routes} from "react-router-dom";
@@ -17,6 +17,7 @@ import Alle_bieren from "./pages/alle_bieren/Alle_bieren.jsx";
 // import Mijn_bieren from "./pages/information/Mijn_bieren.jsx";
 // import Mijn_gegevens from "./pages/information/Mijn_pagina.jsx";
 import Carousel from "./components/carousel/Carousel.jsx";
+
 
 
 
@@ -37,7 +38,7 @@ function App() {
                         <NavLink to="/"><img className="logo-img" src={logoImage} alt="B&B Logo" /></NavLink>
                         <div className="dropdown">
                             <button className="navBar-bttn"><img className="wheat_logo" src={wheat} alt="wheat-logo"/>
-                                <p>menu</p></button>
+                                <h2>menu</h2></button>
                             <Navbar activeTab={activeTab} handleTabChange={handleTabChange}/>
 
                         </div>

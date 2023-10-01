@@ -1,4 +1,5 @@
 .informatie_container {
+    width: 50%;
 }
 
 .text-content {
@@ -11,5 +12,5 @@
 }
 
 .img-carousel {
-    width: 50%; /* of een andere gewenste breedte */
+    width: 10%;
 }

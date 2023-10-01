@@ -1,32 +1,39 @@
 .text {
-    text-align: center;
+    margin: 2vh;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .text-content {
-    display: flex;
-    flex-direction: row; /* Plaats de inhoud naast elkaar in een rij */
-    align-items: center;
-    justify-content: center;
+    border: none;
+    height: 20vh;
 }
 
-.text-text,
-.welcome-image {
-    margin: 0 10px;
-}
-.text-imag{
-    display: flex;
-    flex-direction: row; /* Plaats de inhoud naast elkaar in een rij */
-    align-items: center;
+.text-image {
+    width: 60vw;
+    height: 30vh;
+    margin-top: 5vh;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+
 }
+
+.text-image:hover {
+    box-shadow: var(--box-shadow_2);
+}
+
+
 .text-image img {
-    max-width: 70%;
-    height: 90%;
-    z-index: 1;
-    transition: 0.5s ease-in-out;
-    transform: translateY(60px);
+    max-width: 100%;
+    height: auto;
+    box-shadow: var(--box-shadow_1);
+    border-radius: var(--border-radius);
+    margin-left: 20px;
+    justify-content: space-around;
 }
-
-.text-image img:hover {
-    transform: translateX(-60px) scale(1.4); /* Aangepaste horizontale verschuiving */
-}
+/*}//TODO in het midden zetten*/

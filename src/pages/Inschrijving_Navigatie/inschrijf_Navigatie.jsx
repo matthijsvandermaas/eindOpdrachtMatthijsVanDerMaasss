@@ -15,9 +15,9 @@ function Inschrijf_Navigatie() {
             <div className="text">
                 <h1>inschrijving</h1>
                 <div className="inschrijving_Content">
-                        <p>
+                        <h2>
                             Contrary to popular belief, Lorem Ipsum is not simply random text... Het is de gecorrigeerde tekst van je welkomstboodschap.
-                        </p>
+                        </h2>
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_particulier")}>Particulier</button>
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_producent")}>Zakelijk</button>
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_product")}>product</button>

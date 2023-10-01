@@ -5,7 +5,6 @@ Table of Contents:
     2. Global Styles
         2.1 variable styles
     3. Typografie*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,500;0,700;0,800;1,100;1,600;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,500;0,700;0,800;1,100;1,600;1,800&family=Roboto:ital,wght@0,100;0,400;0,500;1,100&display=swap');
 /*  4. roots styles*/
 /*  5. utility/reusable
@@ -42,11 +41,13 @@ Table of Contents:
     --gradient: radial-gradient(circle farthest-side at center center, #fdf699 80%, #ffed2d 95%, rgba(255, 237, 45, 0.9));
     --background-gradient: radial-gradient(circle farthest-side at center center, rgba(253, 246, 153, 0.12) 80%, rgba(255, 237, 45, 0.12) 95%, rgba(255, 237, 45, 0.12));
     --line-blue: rgb(68, 88, 132);
+    --line-blue-2: rgba(68, 88, 132, 0.06);
+    --extra-background-color: rgba(255, 237, 45, 0.1);
     --shadow: rgba(255, 237, 45, 0.02);
     --box-shadow_1: inset  20px 20px 200px 30px var(--shadow);
     --box-shadow_2: inset -20px -20px 200px -30px var(--shadow);
     --titles: #efcb23;
-    --border-radius: 10px;
+    --border-radius: 12px;
 
 }
 /*-font-size-*/
@@ -74,8 +75,10 @@ Table of Contents:
 }
 
 .outer-outer-container {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
+    max-height: 1500px;
+    max-width: 3000px;
     background: var(--background-gradient);
     backdrop-filter: blur(5px);
     border: 3px solid black;
@@ -110,7 +113,7 @@ Table of Contents:
 }
 
 .header-container {
-    border:  3px solid darkred;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -163,9 +166,10 @@ Table of Contents:
     justify-content: center;
     align-items: flex-start;
     border: 2px solid black;
-    height: 100vh;
+    height: auto;
+    min-height: 70vh;
+    max-height:  800px;
     width: 95vw;
-    max-height: 90vh; /* Maximale hoogte */
     overflow-y: auto; /* Voeg een scrollbar toe indien nodig */
     margin: 20px;
     padding: 0;
@@ -177,7 +181,7 @@ Table of Contents:
     max-width: 100%;
     max-height: 200px;
     background: url("./assets/footer.svg");
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--shadow);
 
 }
 
@@ -192,7 +196,7 @@ Table of Contents:
     height: 25vh;
     max-height: 20vh;
     min-height: 10vh;
-    border: 3px solid #ff7592;
+
     background-image: url('assets/footer.svg');
     background-size: cover;
     background-position: center;
@@ -203,16 +207,24 @@ Table of Contents:
 /*///2.1 variable styles///*/
 
 /*///2. Typography///*/
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 1em;
+    color: var(--line-blue);
+    margin: 1em 0 0.3em 0;
+}
+h1 {
     font-size: 3em;
-    color: var(--line-blue)
+}
+h2 {
+    font-size: 1.5em;
+
+
+}
+h3 {
+    font-size: 1em;
+
 }
 
-h1 {
-    font-size: 4em; /*16px is de standaard van "em"*/
-}
 
 
 /*///4. utility///*/
@@ -221,19 +233,28 @@ h1 {
     border: 2px solid red;
 }
 .bttn{
-    border: 3px var(--line-blue);
+    width: 8vw;
+    height: 4vh;
+    border: 2px whitesmoke;
     border-radius: var(--border-radius);
     box-shadow: 3px 3px var(--background-gradient);
- background-color: rgba(0, 0, 0, 0.12);
+    background-color: var(--line-blue);
     color: var(--gradient);
     padding: 10px;
-
-
+    text-decoration: none;
+    margin: 10px;
  }
 .bttn:hover{
     background-color: rgba(0, 0, 0, 0.24);
     color: black;
     box-shadow: inset 3px 3px var(--background-gradient);
+}
+::-webkit-scrollbar{
+/*//TODO*/
+}
+
+.no-border{
+    border:none ;
 }
 
 /*///5. Areas///*/
