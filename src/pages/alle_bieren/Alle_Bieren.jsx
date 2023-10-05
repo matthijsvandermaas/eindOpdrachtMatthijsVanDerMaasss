@@ -7,7 +7,8 @@ import dependency from "../../assets/dependency-tree.png";
 import mtm from "../../assets/mtm.png";
 
 function All_Products() {
-    return (<>
+    return (
+        <>
         <div className="titel_container">
             <h1>alle bieren</h1>
         </div>
@@ -20,30 +21,28 @@ function All_Products() {
                         <Text_component Text_Title="test titel1" Text_Message1="dit is heel veel trekast en doet eigenlijk nietdit is heelveel trekast en doet eigenlijk nietssdit is heelveel trekast en doet eigenlijk nietsdit is heelveel trekast en doet eigenlijk niets"/>
                         <Img_Carousel
                             src1={dependency}
-                            alt="atl1"
+                            alt1="atl1"
                             title1="titel1 dit is heelveel trekast en doet eigenlijk niets dit is heelveel trekast en doet eigenlijk niets"
-                            Header1="header1"
+                            header1="header1"
 
-                            src2= {wheat}
+                            src2={wheat}
                             alt2="atl1"
                             title2="titel1 dit is heelveel trekast en doet eigenlijk niets dit is heelveel trekast en doet eigenlijk niets"
-                            Header2="titel1 dit is heelveel trekast en doet eigenlijk niets dit is heelveel trekast en doet eigenlijk niets"
-
+                            header2="titel1 dit is heelveel trekast en doet eigenlijk niets dit is heelveel trekast en doet eigenlijk niets"
                         />
                     </div>
                 <div className="text-row content_2">
                     <Text_component Text_Title="test titel1" Text_Message1="dit is heel veel trekast en doet eigenlijk nietdit is heelveel trekast en doet eigenlijk nietssdit is heelveel trekast en doet eigenlijk nietsdit is heelveel trekast en doet eigenlijk niets"/>
                     <Img_Carousel
-                        src1={mtm}
-                        alt="atl1"
+                        src1={dependency}
+                        alt1="atl1"
                         title1="titel1 dit is heelveel trekast en doet eigenlijk niets dit is heelveel trekast en doet eigenlijk niets"
-                        Header1="header1"
+                        header1="header1"
 
-                        src2= {wheat}
+                        src2={wheat}
                         alt2="atl1"
                         title2="titel1 dit is heelveel trekast en doet eigenlijk niets dit is heelveel trekast en doet eigenlijk niets"
-                        Header2="titel1 dit is heelveel trekast en doet eigenlijk niets dit is heelveel trekast en doet eigenlijk niets"
-
+                        header2="titel1 dit is heelveel trekast en doet eigenlijk niets dit is heelveel trekast en doet eigenlijk niets"
                     />
                 </div>
 
