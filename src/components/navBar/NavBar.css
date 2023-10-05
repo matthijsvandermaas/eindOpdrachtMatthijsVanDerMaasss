@@ -31,8 +31,8 @@
     justify-content: flex-start;
     align-items: center; /* Verticaal centreren */
     position: relative;
-    transform: translateY(-76px) translateX(-120px);
-    margin-right: 0px; /* Voeg een kleine ruimte tussen de afbeelding en de tekst toe */
+    transform: translateY(-30px) translateX(-160px);
+    margin-right: 0px;
     margin-left:  -20px;
     font-family: 'Poppins', sans-serif;
     color: var(--line-blue);
@@ -48,7 +48,7 @@
     min-width: 20px;
     z-index: 1;
     opacity: 0;
-    transform: translateY(-76px) translateX(-150px);
+    transform: translateY(-46px) translateX(-160px);
     transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Voeg overgangen toe aan opacity en transform */
     padding: 10px 30px;
     position: absolute;
@@ -76,12 +76,17 @@
     color: var(--line-blue);
     display: block;
     box-shadow: var(--box-shadow_1);
+    transition: 0.5s ease-in-out;
 }
 .dropdown-content a:hover {
     display: block;
-    text-decoration: underline;
     transform: scale(1.1);
+    background-image: var(--green-blue-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
+
 .navList {
     list-style-type: none;
     padding: 0;

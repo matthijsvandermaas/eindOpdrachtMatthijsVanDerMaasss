@@ -4,6 +4,7 @@ import './App.css';
 import './constants/background.css';
 import logoImage from './assets/B & B logo2.jpg';
 import wheat from './assets/wheat.png';
+import empty_bear from './assets/used-empty-beer-glass.jpg'
 // import dependency from './assets/dependency-tree.png';
 import Navbar from "./components/navBar/Navbar.jsx";
 import Home from "./pages/Home/Home.jsx";
@@ -11,11 +12,12 @@ import {NavLink, Route, Routes} from "react-router-dom";
 import Inschrijf_Navigatie from "./pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 import Inschrijf_Form_Particulier from "./components/inschrijfform/Inschrijf_Form_Particulier.jsx";
 import Inschrijf_Form_Producer from "./components/inschrijfform/Inschrijf_Form_Producer.jsx";
-import Productie_Informatie from "./pages/information/Productie_Informatie.jsx";
+import Productie_Informatie from "./pages/hoe maak je bier/Productie_Informatie.jsx";
 import Inschrijf_Form_Product from "./components/inschrijfform/Inschrijf_Form_Product.jsx";
 import Alle_bieren from "./pages/alle_bieren/Alle_bieren.jsx";
-// import Mijn_bieren from "./pages/information/Mijn_bieren.jsx";
-// import Mijn_gegevens from "./pages/information/Mijn_pagina.jsx";
+import Error from "./pages/error/Error.jsx";
+// import Mijn_bieren from "./pages/hoe maak je bier/Mijn_bieren.jsx";
+// import Mijn_gegevens from "./pages/hoe maak je bier/Mijn_pagina.jsx";
 import Carousel from "./components/carousel/Carousel.jsx";
 
 
@@ -38,7 +40,7 @@ function App() {
                         <NavLink to="/"><img className="logo-img" src={logoImage} alt="B&B Logo" /></NavLink>
                         <div className="dropdown">
                             <button className="navBar-bttn"><img className="wheat_logo" src={wheat} alt="wheat-logo"/>
-                                <h2>menu</h2></button>
+                                <h1>menu</h1></button>
                             <Navbar activeTab={activeTab} handleTabChange={handleTabChange}/>
 
                         </div>
@@ -55,6 +57,7 @@ function App() {
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
                         <Route path="/alle_producten" element={<Alle_bieren />} />
                         <Route path="/carousel" element={<Carousel />} />
+                        <Route path="/*" element={<Error />} />
                     </Routes>
                 </div>
                 <div className="footer-container">

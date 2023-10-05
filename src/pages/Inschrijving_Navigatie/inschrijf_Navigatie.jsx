@@ -12,7 +12,7 @@ function Inschrijf_Navigatie() {
 
     return (
         <>
-            <div className="text">
+            <div className="text background">
                 <h1>inschrijving</h1>
                 <div className="inschrijving_Content">
                         <h2>

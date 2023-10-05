@@ -1,40 +1,43 @@
 .carousel  {
     box-shadow: var(--box-shadow_1);
-    opacity: 99%;
+
 }
 .img-carousel{
-    width: 40vw;
-    height: 50%;
+    width: 30vw;
+    height: auto;
 }
 .carousel-img {
-    width: 50%;
-    height: 50%;
+    width: 95%;
+    height: 95%;
     border-radius: var(--border-radius);
 }
+.carousel-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .carousel.carousel-slider .control-arrow.control-prev {
     background-color:var(--line-blue-2);
-    opacity: 0.5;
     border: 2px solid transparent;
     border-radius: var(--border-radius);
 
- }
+}
 .carousel.carousel-slider .control-arrow.control-prev:hover {
     opacity: 1.5;
-
+    border: 2px solid whitesmoke;
 }
 
-.carousel.carousel-slider .control-arrow.control-next:hover {
-    opacity: 5.5;
-}
+
 .carousel.carousel-slider .control-arrow.control-next {
     background-color:var(--line-blue-2);
-    opacity: 0.5;
+
     border: 2px solid transparent;
     border-radius: var(--border-radius);
 
 }
 .carousel.carousel-slider .control-arrow.control-next:hover {
-    opacity: 5.5;
+    opacity: 1.5;
     border: 2px solid whitesmoke;
 }
 .carousel.carousel-slider h2, h3 {

@@ -1,39 +1,6 @@
-.text {
-    margin: 2vh;
+.text-row {
     border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
 }
-
-.text-content {
-    border: none;
-    height: 20vh;
+.text-content{
+    width: 90vw;
 }
-
-.text-image {
-    width: 60vw;
-    height: 30vh;
-    margin-top: 5vh;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-left: 50px;
-
-}
-
-.text-image:hover {
-    box-shadow: var(--box-shadow_2);
-}
-
-
-.text-image img {
-    max-width: 100%;
-    height: auto;
-    box-shadow: var(--box-shadow_1);
-    border-radius: var(--border-radius);
-    margin-left: 20px;
-    justify-content: space-around;
-}
-/*}//TODO in het midden zetten*/

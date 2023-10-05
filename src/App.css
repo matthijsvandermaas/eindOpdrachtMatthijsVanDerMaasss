@@ -19,35 +19,21 @@ Table of Contents:
 /*  4. roots styles*/
 /*-colors-*/
 /*:root {*/
-/*--Paars: #5722CD;*/
-/*--Blauw: #4845E4;*/
-/*--Roze: #ED4385;*/
-/*--Zwart: #0C0C0C; !*(voor standaard tekst);*!*/
-/*--Lichtpaars: #F2F0FF; !*(voor de grote zwevende woorden, zoals "hello" en "services") Uitzonderingen*!*/
-/*--Lichtgrijs: #F3F6F9; !*(voor de achtergrond van de projecten)*!*/
 
-/*:root {*/
-/*    --Paars: #5722CD;*/
-/*    --Blauw: #4845E4;*/
-/*    --Roze: #ED4385;*/
-/*    --Zwart: #0C0C0C; !*(voor standaard tekst);*!*/
-/*    --Lichtpaars: #F2F0FF; !*(voor de grote zwevende woorden, zoals "hello" en "services") Uitzonderingen*!*/
-/*    --Lichtgrijs: #F3F6F9; !*(voor de achtergrond van de projecten)*!*/
-/*}*/
-/*-borders-*/
-/*-colors-*/
 
 :root {
     --gradient: radial-gradient(circle farthest-side at center center, #fdf699 80%, #ffed2d 95%, rgba(255, 237, 45, 0.9));
     --background-gradient: radial-gradient(circle farthest-side at center center, rgba(253, 246, 153, 0.12) 80%, rgba(255, 237, 45, 0.12) 95%, rgba(255, 237, 45, 0.12));
     --line-blue: rgb(68, 88, 132);
-    --line-blue-2: rgba(68, 88, 132, 0.06);
+    --green-blue-gradient: linear-gradient(44deg, #78a80f 0%, rgb(68, 88, 132) 95%);
+    --light-dark-gradient: linear-gradient(44deg, rgba(68, 88, 132, 0.5) 0%, rgb(68, 88, 132) 95%);
+    --line-blue-2: rgba(68, 88, 132, 0.5);
     --extra-background-color: rgba(255, 237, 45, 0.1);
     --shadow: rgba(255, 237, 45, 0.02);
     --box-shadow_1: inset  20px 20px 200px 30px var(--shadow);
     --box-shadow_2: inset -20px -20px 200px -30px var(--shadow);
     --titles: #efcb23;
-    --border-radius: 12px;
+    --border-radius: 15px;
 
 }
 /*-font-size-*/
@@ -72,6 +58,7 @@ Table of Contents:
     background: rgba(255, 255, 255, 0.12);
     box-shadow: inset 3px 3px rgba(255, 255, 255, 0.12);
     border-radius: 10px;
+
 }
 
 .outer-outer-container {
@@ -91,8 +78,8 @@ Table of Contents:
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     max-height: 1800px;
     max-width: 98vw;
     margin: 0 auto;
@@ -113,7 +100,6 @@ Table of Contents:
 }
 
 .header-container {
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -126,14 +112,23 @@ Table of Contents:
     position: relative; /* Voeg deze regel toe */
 }
 
-.headerlogo-container {
-    flex: 1;
-}
 .header-logo-container{
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
+    flex: 1;
+    transition: 1s ease-in-out;
+}
+.headerlogo-container h1{
+    transition: 0.5s ease-in-out;
+}
+.headerlogo-container h1:hover{
+    background-image: var(--green-blue-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
 }
 
 
@@ -147,18 +142,20 @@ Table of Contents:
     box-shadow: 2px 2px 58px 4px rgb(255, 255, 255), 2px 2px 58px 4px rgb(255, 253, 229);
     margin: 10px 10px;
 }
+.logo-img:hover{
+    box-shadow: inset 12px 12px 100px var(--line-blue-2);
+}
+
 .wheat_logo{
-    width: 70px; /* Pas dit aan naar de gewenste breedte */
-    height: 70px;
-    min-width: 50px;
-    min-height: 50px;
-    max-width: 90px;
-    max-height: 90px;
+    width: 100px;
+    height: 100px;
+    max-width: 120px;
+    max-height: 120px;
 
     /*max-width: none; !* Hiermee wordt de maximale breedte opgeheven, als dat nodig is *!*/
     /*max-height: none; !* Hiermee wordt de maximale hoogte opgeheven, als dat nodig is *!*/
     border-radius: 30px;
-    transform: rotatey(180deg) translateX(-9px);
+    transform: rotatey(180deg) translateX(-55px);
 }
 .main-container {
     display: flex;
@@ -169,7 +166,7 @@ Table of Contents:
     height: auto;
     min-height: 70vh;
     max-height:  800px;
-    width: 95vw;
+    width: 98vw;
     overflow-y: auto; /* Voeg een scrollbar toe indien nodig */
     margin: 20px;
     padding: 0;
@@ -178,19 +175,7 @@ Table of Contents:
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
-    max-height: 200px;
-    background: url("./assets/footer.svg");
     box-shadow: var(--shadow);
-
-}
-
-
-/*.header-container img{*/
-/*    margin: 50px;*/
-/*}*/
-
-.footer-container {
     flex-direction: row;
     width: 100%;
     height: 25vh;
@@ -201,8 +186,11 @@ Table of Contents:
     background-size: cover;
     background-position: center;
     object-fit: contain;
-    filter: blur(1px) opacity(20%);
+    filter: blur(1px) ;
 }
+
+
+
 
 /*///2.1 variable styles///*/
 
@@ -210,7 +198,7 @@ Table of Contents:
 h1, h2, h3 {
     font-family: 'Roboto', sans-serif;
     color: var(--line-blue);
-    margin: 1em 0 0.3em 0;
+    margin: 2vh 2vw 2vh 2vw;
 }
 h1 {
     font-size: 3em;
@@ -243,11 +231,14 @@ h3 {
     padding: 10px;
     text-decoration: none;
     margin: 10px;
+    transition: 0.5s ease-in-out;
  }
 .bttn:hover{
-    background-color: rgba(0, 0, 0, 0.24);
+    background-color: var(--light-dark-gradient);
     color: black;
-    box-shadow: inset 3px 3px var(--background-gradient);
+    box-shadow: inset 6px 6px 25px var(--line-blue-2);
+    border: 2px solid var(--line-blue);
+
 }
 ::-webkit-scrollbar{
 /*//TODO*/
@@ -256,6 +247,15 @@ h3 {
 .no-border{
     border:none ;
 }
+.background {
+    background-image: url('assets/footer.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
 
 /*///5. Areas///*/
 
@@ -267,37 +267,3 @@ h3 {
 
 
 
-/*.logo-img {*/
-/*    justify-items: space-around;*/
-/*    align-content: center;*/
-/*    width: 90%;*/
-/*    height: 30%;*/
-/*    !* Hiermee wordt de afbeelding volledig in de container weergegeven en bijgesneden indien nodig *!*/
-/*}*/
-
-
-/*}*/
-
-/*fieldset {*/
-
-/*}*/
-
-/*fieldset legend { !* "<" decent*!*/
-
-/*}*/
-
-/*button {*/
-
-
-/*button-primary { !*class="button button-primary"*!*/
-
-/*}*/
-
-/*button + button { !*als item 2 is libeling van item 1 dan *!*/
-/*    margin-left: 16px;
-}*/
-
-/*input {*/
-/*width: 100%;*/
-/*display: block /inline/ 100%; !*ipv flexbox*!*/
-/*}*/

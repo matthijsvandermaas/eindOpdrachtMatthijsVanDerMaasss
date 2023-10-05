@@ -4,11 +4,15 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin: 2vh 2vw 2vh 2vw;
+
 }
 
 
 .titel-container {
     margin: 20px 0;
+
+
 }
 
 
@@ -18,22 +22,47 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow_1);
+
 }
 
 .text-row {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Verander de richting naar kolommen */
     align-items: center;
+    margin: 20px 0; /* Voeg een margin toe aan de boven- en onderkant */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow_1);
+    border-top: 2px solid var(--line-blue-2);
+    border-bottom: 2px solid var(--line-blue-2);
+    transition: 1.5s ease-in-out;
+
+}
+.text-row:hover {
+    box-shadow: 5px 5pxvar(--box-shadow_2);
+    border-top: 3px solid var(--line-blue);
+    border-bottom: 3px solid var(--line-blue);
+    transform: scale(1.05);
 }
 
+
 .text-image img {
-    max-width: 90%;
-    height: 90%;
+    width: 50%;
+    height: 100%;
     z-index: 1;
     transition: 0.5s ease-in-out;
 }
-
-.text-image img:hover {
-    position: relative;
-    transform: translatex(-60px) scale(1.4);
+.text-image {
+    transition: transform 1s ease-in-out;
 }
+.text-image:hover {
+    position: relative;
+    transform: translatey(-70px) scale(2.5);
+    box-shadow: 2px 2px var(--box-shadow_2);
+    z-index: 1;
+}
+
+
+
+
