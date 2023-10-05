@@ -7,18 +7,20 @@ import Cubes from "../../components/cubes/Cubes.jsx";
 function Home() {
     return (
         <>
-                <div className="title-content">
-                    <h1>Welcome Bier liefhebbers</h1>
+            <div className="title-content">
+                <h1>Welcome Bier liefhebbers</h1>
                 <div className="text-content content_1">
-                    <Text_component
-                        Text_Header="dit is heel veel trekast en doet eigenlijk nietdit is heelveel trekast en doet eigenlijk nietssdit is heelveel trekast en doet eigenlijk nietsdit is heelveel trekast en doet eigenlijk niets"
-                    />
-
-                    <div className="text-image">
-                    <img src={wheat} alt="wheat_img"/>
+                    <div className="informatie_container">
+                        <div className="text-row content_1">
+                            <Text_component
+                                Text_Title="test titel1"
+                                Text_Message1="test text1"
+                            />
+                            <div className="text-image">
+                                <img src={wheat} alt="afbeelding" />
+                            </div>
+                        </div>
                     </div>
-                    {/*<button type="button" className="bttn" onClick={() => navigate("/inloggen")}>product</button>*/}
-
                 </div>
              <Cubes
                 button_1="inschrijven"
@@ -30,9 +32,6 @@ function Home() {
                 button_4="hoe maak je bier"
                 navigate_4="Productie_Informatie"
              />
-
-
-
             </div>
         </>
     );

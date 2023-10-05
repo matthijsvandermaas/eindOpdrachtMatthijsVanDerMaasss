@@ -1,0 +1,17 @@
+.star-rating {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star {
+    color: gray;
+    width: 1em; /* Breedte van de sterren */
+    display: inline-block;
+    text-align: center;
+    transition: color 0.2s, width 0.2s; /* Overgangen voor kleur en breedte */
+}
+
+.filled {
+    color: gold;
+    width: 0.5em; /* Breedte van de gevulde sterren (halve ster) */
+}

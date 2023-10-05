@@ -14,7 +14,6 @@ function Navbar() {
                     <NavLink to="/">Mijn Bieren</NavLink>
                     <NavLink to="/inschrijfformulier">Inschrijfformulier</NavLink>
                     <NavLink to="/Productie_Informatie">hoe maak je bier</NavLink>
-                    <NavLink to="/carousel">carousel</NavLink>
                 </li>
 
         </ul>
