@@ -4,6 +4,7 @@ import './inschrijf_Navigatie.css';
 import '../../components/inschrijfform/Inschrijf_Form_Producer.jsx';
 import '../../components/inschrijfform/Inschrijf_Form_Particulier.jsx';
 import '../../components/inschrijfform/Inschrijf_Form_Product.jsx';
+import wheat from "../../assets/wheat.png";
 
 
 function Inschrijf_Navigatie() {
@@ -23,6 +24,7 @@ function Inschrijf_Navigatie() {
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_product")}>product</button>
 
                 </div>
+                <img src={wheat} alt="afbeelding" />
             </div>
         </>
     );

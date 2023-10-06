@@ -3,6 +3,7 @@
 
 .form-container {
     margin: 10px 20px;
+
 }
 
 .form-content {
@@ -15,6 +16,10 @@
     box-shadow: var(--box-shadow_1);
     border-left: var(--line-blue);
     border-right: var(--line-blue);
+    background-image: url('../../assets/grain.svg');
+    background-size: cover;
+    background-position: center;
+    object-fit: contain;
 }
 
 .form-content:hover {

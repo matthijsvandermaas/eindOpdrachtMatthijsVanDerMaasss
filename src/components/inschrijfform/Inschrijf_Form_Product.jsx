@@ -123,7 +123,7 @@ function Inschrijf_Form_Product() {
                             onChange={handleLocation_ProducerChange}
                         />
                     </div>
-                    <button type="submit">Inschrijven</button>
+                    <button className="bttn" type="submit">Inschrijven</button>
                 </form>
             </div>
         </div>

@@ -1,0 +1,49 @@
+.cubes-container {
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
+    margin: 50px auto 10px auto;
+
+}
+
+.cube-bttn {
+    width: 15vw;
+    height: 12vh;
+    padding: 10px 20px;
+    background-color: var(--line-blue);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow_1);
+    cursor: pointer;
+    font-size: 2em;
+}
+
+
+.cube-bttn:hover {
+    padding: 10px 20px;
+    color: var(--line-blue);
+    cursor: pointer;
+    border: 2px var(--line-blue) solid;
+    box-shadow: var(--box-shadow_2);
+}
+
+.cube-bttn5, .cube-bttn6{
+    transition: background 1.2s ease-in-out;
+}
+
+.cube-bttn5:hover{
+    background-size: cover;
+    background: url("src/assets/dependency-tree.png") center;
+    font-weight: bold;
+}
+.cube-bttn6:hover{
+    background-size: cover;
+    background: url("src/assets/dependency-tree.png") center;
+    font-weight: bold;
+}
+
+
+
+
+

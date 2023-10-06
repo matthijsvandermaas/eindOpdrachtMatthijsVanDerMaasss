@@ -197,7 +197,7 @@ function Inschrijf_Form_Producer() {
                     onChange={handlePasswordChange}
                 />
             </div>
-            <button type="submit">Inschrijven</button>
+            <button className="bttn" type="submit">Inschrijven</button>
         </form>
             </div>
             </div>

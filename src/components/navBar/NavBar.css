@@ -14,14 +14,13 @@
 }
 .dropdown {
     position: absolute;
-    width: 8px;
+    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     top: 50%; /* Plaats de dropdown in het midden van de header-container */
-    transform: translateY(30px) translateX(70px); /* Middelste uitlijning verticaal en iets naar links verschoven */
+    transform: translateY(40px) translateX(160px); /* Middelste uitlijning verticaal en iets naar links verschoven */
     right: 10px; /* Plaats de dropdown 10px vanaf de rechterkant */
-    box-shadow: inset 3px 3px rgba(243, 243, 243, 0.5),3px 3px rgba(243, 243, 243, 0.5);
     transition: 0.5s ease-in-out;
     border-top: var(--line-blue);
     border-bottom: var(--line-blue);
@@ -45,16 +44,16 @@
     justify-content: flex-start;
     display: none;
     background-color: rgba(255, 255, 255, 0.06);
-    min-width: 20px;
+    min-width: 40px;
     z-index: 1;
     opacity: 0;
-    transform: translateY(-46px) translateX(-160px);
+    transform: translateY(-46px) translateX(-180px);
     transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Voeg overgangen toe aan opacity en transform */
     padding: 10px 30px;
     position: absolute;
     top: 100%;
     list-style-type: none;
-    font-size: 1.5em;
+    font-size: 2em;
     border: 2px solid var(--line-blue);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
@@ -86,6 +85,23 @@
     background-clip: text;
     color: transparent;
 }
+.submenu p {
+    color: var(--line-blue);
+    display: block;
+    box-shadow: var(--box-shadow_1);
+    transition: 0.5s ease-in-out;
+}
+.submenu p:hover {
+    display: block;
+    transform: scale(1.1);
+    background-image: var(--green-blue-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-decoration: underline;
+}
+
+
 
 .navList {
     list-style-type: none;

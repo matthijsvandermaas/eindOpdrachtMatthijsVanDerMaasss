@@ -64,7 +64,7 @@ function Inschrijf_Form_Particulier() {
                         <label>Wachtwoord:</label>
                         <input type="password" value={password} onChange={handlePasswordChange} />
                     </div>
-                    <button type="submit">Inschrijven</button>
+                    <button className="bttn" type="submit">Inschrijven</button>
                 </form>
             </div>
         </div>
