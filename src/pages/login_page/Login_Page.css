@@ -1,0 +1,31 @@
+.outer-login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inner-login-container {
+    margin-bottom: 20px;
+}
+
+.inlog-cubes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form.form-content{
+    transition: 1.5s ease-in-out;
+}
+form.form-content:hover{
+    box-shadow: 5px 5px var(--box-shadow_2);
+    border-top: 3px solid var(--line-blue);
+    border-bottom: 3px solid var(--line-blue);
+}
+.background-login {
+    background-image: url('../../assets/login.svg');
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: auto;
+}
+

@@ -5,7 +5,6 @@ import Text_component from "../../components/texts_components/Text-component.jsx
 import CarouselComponent from "../../components/carousel/Carousel.jsx";
 import Rating_1 from "../../components/Rating_system/Rating_1.jsx";
 import { NavLink } from "react-router-dom";
-//TODO backendtime!!
 function All_Products({ products }) {
     const [data, setData] = useState([]);
 

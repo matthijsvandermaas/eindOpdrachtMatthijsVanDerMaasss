@@ -1,5 +1,5 @@
 import React from 'react';
-import Empty_bear from '../../assets/used-empty-beer-glass.jpg'
+
 import Text_component from "../../components/texts_components/Text-component.jsx";
 import Cubes from "../../components/cubes/Cubes.jsx";
 import Home from "../Home/Home.jsx";
@@ -25,13 +25,13 @@ function Error() {
                 </div>
                 <Cubes
                     button_1="inschrijven"
-                    navigate_1="inschrijfformulier"
+                    navigate_1="/inschrijfformulier"
                     button_2="inloggen"
-                    navigate_2=""
+                    navigate_2="/login_page"
                     button_3="al onze producten"
-                    navigate_3="alle_producten"
+                    navigate_3="/alle_producten"
                     button_4="home"
-                    navigate_4="home"
+                    navigate_4="/"
 
                 />
 

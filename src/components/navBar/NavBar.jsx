@@ -9,7 +9,7 @@ function Navbar() {
                 <li>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/alle_producten">Alle Bieren</NavLink>
-                    <NavLink to="/">Inloggen</NavLink>
+                    <NavLink to="/login_page">Inloggen</NavLink>
                     <NavLink to="/">Mijn Pagina</NavLink>
                     <NavLink to="/">Mijn Bieren</NavLink>
                     <NavLink to="/inschrijfformulier">Inschrijfformulier</NavLink>
