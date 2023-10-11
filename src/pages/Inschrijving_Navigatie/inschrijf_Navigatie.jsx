@@ -13,19 +13,27 @@ function Inschrijf_Navigatie() {
 
     return (
         <>
-            <div className="text background">
-                <h1>inschrijving</h1>
-                <div className="inschrijving_Content">
+            <div className="outer-nav-container">
+
+                <div className="inschrijving_Content ">
+                    <h1>inschrijving</h1>
                         <h2>
                             Contrary to popular belief, Lorem Ipsum is not simply random text... Het is de gecorrigeerde tekst van je welkomstboodschap.
                         </h2>
+                    <div className="nav-buttons">
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_particulier")}>Particulier</button>
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_producent")}>Zakelijk</button>
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_product")}>product</button>
+                        <h2>
+                            Already registered <a href="/login_page">login</a>
+                        </h2>
+                    </div>
+
 
                 </div>
                 <img src={wheat} alt="afbeelding" />
             </div>
+
         </>
     );
 }

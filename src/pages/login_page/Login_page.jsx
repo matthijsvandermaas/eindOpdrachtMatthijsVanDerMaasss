@@ -44,9 +44,6 @@ function login(){
                     </button>
                 </div>
 
-                <p className="">
-                    Already registered <a href="/signin">login</a>
-                </p>
 
             </form>
                 </div>

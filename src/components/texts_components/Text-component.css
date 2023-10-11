@@ -48,7 +48,7 @@
 
 
 .text-image img {
-    width: 50%;
+    width: 40%;
     height: 100%;
     z-index: 1;
     transition: 0.5s ease-in-out;
