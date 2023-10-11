@@ -28,31 +28,29 @@ function Navbar() {
                             <p>Alles over bier🞃</p>
                         </div>
                         {/* Render het submenu als isSubmenuOpen1 true is */}
-                        {submenuStatus.isSubmenuOpen3 && (
+                        {submenuStatus.isSubmenuOpen1 && (
                             <div className="submenu-content">
                                 <NavLink to="/alle_producten">Alle Bieren</NavLink>
                                 <NavLink to="/Productie_Informatie">hoe maak je bier</NavLink>
                             </div>
                         )}
                     </div>
-                    <div className="submenu" onClick={() => toggleSubmenu(1)}>
+                    <div className="submenu" onClick={() => toggleSubmenu(2)}>
                         <div>
                             <p>Mijn Pagina's🞃</p>
                         </div>
-                        {/* Render het submenu als isSubmenuOpen1 true is */}
-                        {submenuStatus.isSubmenuOpen1 && (
+                        {submenuStatus.isSubmenuOpen2 && (
                             <div className="submenu-content">
                                 <NavLink to="/">Mijn Bieren</NavLink>
                                 <NavLink to="/">Mijn Pagina</NavLink>
                             </div>
                         )}
                     </div>
-                    <div className="submenu" onClick={() => toggleSubmenu(2)}>
+                    <div className="submenu" onClick={() => toggleSubmenu(3)}>
                         <div>
                             <p>Inschrijven🞃</p>
                         </div>
-                        {/* Render het submenu als isSubmenuOpen2 true is */}
-                        {submenuStatus.isSubmenuOpen2 && (
+                        {submenuStatus.isSubmenuOpen3 && (
                             <div className="submenu-content">
                                 <NavLink to="/inschrijfformulier_particulier">Als bierliefhebber</NavLink>
                                 <NavLink to="/inschrijfformulier_producent">Als brouwer</NavLink>
