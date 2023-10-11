@@ -5,8 +5,7 @@ import { NavLink } from 'react-router-dom';
 function Navbar() {
     const [submenuStatus, setSubmenuStatus] = useState({
         isSubmenuOpen1: false,
-        isSubmenuOpen2: false,
-        isSubmenuOpen3: false,
+
     });
 
     const toggleSubmenu = (submenuNumber) => {
@@ -23,34 +22,14 @@ function Navbar() {
                 <li>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/login_page">Inloggen</NavLink>
+                    <NavLink to="/">Mijn Bieren</NavLink>
+                    <NavLink to="/">Mijn Pagina</NavLink>
+
                     <div className="submenu" onClick={() => toggleSubmenu(1)}>
-                        <div>
-                            <p>Alles over bier🞃</p>
-                        </div>
-                        {/* Render het submenu als isSubmenuOpen1 true is */}
-                        {submenuStatus.isSubmenuOpen1 && (
-                            <div className="submenu-content">
-                                <NavLink to="/alle_producten">Alle Bieren</NavLink>
-                                <NavLink to="/Productie_Informatie">hoe maak je bier</NavLink>
-                            </div>
-                        )}
-                    </div>
-                    <div className="submenu" onClick={() => toggleSubmenu(2)}>
-                        <div>
-                            <p>Mijn Pagina's🞃</p>
-                        </div>
-                        {submenuStatus.isSubmenuOpen2 && (
-                            <div className="submenu-content">
-                                <NavLink to="/">Mijn Bieren</NavLink>
-                                <NavLink to="/">Mijn Pagina</NavLink>
-                            </div>
-                        )}
-                    </div>
-                    <div className="submenu" onClick={() => toggleSubmenu(3)}>
                         <div>
                             <p>Inschrijven🞃</p>
                         </div>
-                        {submenuStatus.isSubmenuOpen3 && (
+                        {submenuStatus.isSubmenuOpen1 && (
                             <div className="submenu-content">
                                 <NavLink to="/inschrijfformulier_particulier">Als bierliefhebber</NavLink>
                                 <NavLink to="/inschrijfformulier_producent">Als brouwer</NavLink>
@@ -58,6 +37,8 @@ function Navbar() {
                             </div>
                         )}
                     </div>
+                    <NavLink to="/alle_producten">Alle Bieren</NavLink>
+                    <NavLink to="/Productie_Informatie">hoe maak je bier</NavLink>
                 </li>
             </ul>
         </div>
