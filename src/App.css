@@ -209,8 +209,11 @@ h2 {
 
 }
 h3 {
-    font-size: 1em;
+    font-size: 1.1em;
 
+}
+p{
+    font-size: 1em;
 }
 
 
@@ -227,7 +230,7 @@ h3 {
     border-radius: var(--border-radius);
     box-shadow: 3px 3px var(--background-gradient);
     background-color: var(--line-blue);
-    color: var(--gradient);
+    color: whitesmoke;
     padding: 10px;
     text-decoration: none;
     margin: 10px;

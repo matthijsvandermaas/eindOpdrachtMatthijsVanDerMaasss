@@ -7,9 +7,11 @@
 }
 
 .form-content {
+    font-size: 1.2em;
     text-align: center;
-    width: 100%;
-    max-width: 90vw;
+    width: 80vw;
+    max-width: 1500px;
+    min-width: 800px;
     padding: 20px;
     border: 2px solid var(--line-blue);
     border-radius: var(--border-radius);

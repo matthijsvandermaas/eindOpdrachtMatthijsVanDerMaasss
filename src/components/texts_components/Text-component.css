@@ -43,7 +43,7 @@
     box-shadow: 5px 5pxvar(--box-shadow_2);
     border-top: 3px solid var(--line-blue);
     border-bottom: 3px solid var(--line-blue);
-    transform: scale(1.05);
+    transform: scale(1.01);
 }
 
 
@@ -58,7 +58,7 @@
 }
 .text-image:hover {
     position: relative;
-    transform: translatey(-70px) scale(2.5);
+    transform: translatey(-70px) scale(1.5);
     box-shadow: 2px 2px var(--box-shadow_2);
     z-index: 1;
 }
