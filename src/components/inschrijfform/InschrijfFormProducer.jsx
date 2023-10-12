@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './Inschrijf_Form.css';
-import Inschrijf_Form_Product from "../../components/inschrijfform/Inschrijf_Form_Product.jsx";
+import './InschrijfForm.css';
+import Inschrijf_Form_Product from "../../components/inschrijfform/InschrijfFormProduct.jsx";
 
-function Inschrijf_Form_Producer() {
+function InschrijfFormProducer() {
     const [First_name, setFirst_Name] = useState('');
     const [Last_name, setLast_Name] = useState('');
     const [Owner, setOwner] = useState('');
@@ -206,4 +206,4 @@ function Inschrijf_Form_Producer() {
     );
 }
 
-export default Inschrijf_Form_Producer;
+export default InschrijfFormProducer;

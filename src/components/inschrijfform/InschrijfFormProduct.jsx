@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Inschrijf_Form.css';
+import './InschrijfForm.css';
 
-function Inschrijf_Form_Product() {
+function InschrijfFormProduct() {
     const [Name_Product, setName_Product] = useState('');
     const [Name_Producer, setName_Producer] = useState('');
     const [Percentage, setPercentage] = useState(0.0);
@@ -130,4 +130,4 @@ function Inschrijf_Form_Product() {
     );
 }
 
-export default Inschrijf_Form_Product;
+export default InschrijfFormProduct;

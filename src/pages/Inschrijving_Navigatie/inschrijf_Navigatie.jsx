@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './inschrijf_Navigatie.css';
-import '../../components/inschrijfform/Inschrijf_Form_Producer.jsx';
-import '../../components/inschrijfform/Inschrijf_Form_Particulier.jsx';
-import '../../components/inschrijfform/Inschrijf_Form_Product.jsx';
+import '../../components/inschrijfform/InschrijfFormProducer.jsx';
+import '../../components/inschrijfform/InschrijfFormParticulier.jsx';
+import '../../components/inschrijfform/InschrijfFormProduct.jsx';
 import wheat from "../../assets/wheat.png";
 
 

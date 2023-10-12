@@ -1,20 +1,17 @@
-// eslint-disable-next-line no-unused-vars
+
 import React, {useState} from 'react';
 import './App.css';
-import './constants/background.css';
 import logoImage from './assets/B & B logo2.jpg';
 import wheat from './assets/wheat.png';
-// import empty_bear from './assets/used-empty-beer-glass.jpg'
 // import dependency from './assets/dependency-tree.png';
-import Login_icon from '../src/assets/login.svg'
 import Navbar from "./components/navBar/Navbar.jsx";
 import Home from "./pages/Home/Home.jsx";
 import {NavLink, Route, Routes} from "react-router-dom";
 import Inschrijf_Navigatie from "./pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
-import Inschrijf_Form_Particulier from "./components/inschrijfform/Inschrijf_Form_Particulier.jsx";
-import Inschrijf_Form_Producer from "./components/inschrijfform/Inschrijf_Form_Producer.jsx";
+import Inschrijf_Form_Particulier from "./components/inschrijfform/InschrijfFormParticulier.jsx";
+import Inschrijf_Form_Producer from "./components/inschrijfform/InschrijfFormProducer.jsx";
 import Productie_Informatie from "./pages/hoe maak je bier/Productie_Informatie.jsx";
-import Inschrijf_Form_Product from "./components/inschrijfform/Inschrijf_Form_Product.jsx";
+import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProduct.jsx";
 import Alle_bieren from "./pages/alle_bieren/Alle_bieren.jsx";
 import Login_page from "./pages/login_page/Login_page.jsx";
 import Error from "./pages/error/Error.jsx";
