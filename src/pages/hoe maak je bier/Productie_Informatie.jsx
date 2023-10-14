@@ -1,6 +1,6 @@
 import React from 'react';
 import './Productie_Informatie.css';
-import wheat from "../../assets/wheat.png";
+import wheat from "../../assets/logos and backgrounds/wheat.png";
 import Text_component from "../../components/texts_components/Text-component.jsx";
 
 function Productie_Informatie() {

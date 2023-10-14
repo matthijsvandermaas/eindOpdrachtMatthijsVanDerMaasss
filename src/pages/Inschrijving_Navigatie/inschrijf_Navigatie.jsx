@@ -4,7 +4,7 @@ import './inschrijf_Navigatie.css';
 import '../../components/inschrijfform/InschrijfFormProducer.jsx';
 import '../../components/inschrijfform/InschrijfFormParticulier.jsx';
 import '../../components/inschrijfform/InschrijfFormProduct.jsx';
-import wheat from "../../assets/wheat.png";
+import wheat from "../../assets/logos and backgrounds/wheat.png";
 
 
 function Inschrijf_Navigatie() {
@@ -31,7 +31,7 @@ function Inschrijf_Navigatie() {
 
 
                 </div>
-                <img src={wheat} alt="afbeelding" />
+                <img src={b} alt="afbeelding" />
             </div>
 
         </>

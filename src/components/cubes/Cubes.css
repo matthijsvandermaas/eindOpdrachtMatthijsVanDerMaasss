@@ -34,22 +34,22 @@
 
 .cube-bttn1:hover{
     background-size: cover;
-    background: url("src/assets/dependency-tree.png") center;
+    background: url("../../assets/general pics/beers_With_friends.png") center;
     font-weight: bold;
 }
 .cube-bttn2:hover{
     background-size: cover;
-    background: url("src/assets/dependency-tree.png") center;
+    background: url("../../assets/general pics/taps.png") center;
     font-weight: bold;
 }
 .cube-bttn3:hover{
     background-size: cover;
-    background: url("src/assets/mtm.png") center;
+    background: url("../../assets/general pics/four_Glasses.png") center;
     font-weight: bold;
 }
 .cube-bttn4:hover{
     background-size: cover;
-    background: url("src/assets/wheat.png") center;
+    background: url("../../assets/general pics/hop_and_barl.png") center;
     font-weight: bold;
 }
 

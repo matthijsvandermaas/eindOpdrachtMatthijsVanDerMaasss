@@ -34,12 +34,12 @@
 
 .cube-bttn5:hover{
     background-size: cover;
-    background: url("src/assets/dependency-tree.png") center;
+    background: url("../../assets/general pics/four_Glasses.png") center;
     font-weight: bold;
 }
 .cube-bttn6:hover{
     background-size: cover;
-    background: url("src/assets/dependency-tree.png") center;
+    background: url("../../assets/general pics/beers_With_friends.png")  center;
     font-weight: bold;
 }
 

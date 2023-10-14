@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import wheat from "../../assets/wheat.png";
+import beers_In_The_Sun from '../../assets/general pics/in_The_Sun.png' ;
 import Text_component from "../../components/texts_components/Text-component.jsx";
 import Cubes from "../../components/cubes/Cubes.jsx";
 
@@ -19,7 +19,7 @@ function Home() {
                                 ewfuifbewuiguibfuiewbirueheriufbojcwbrubwiuherhif"
                             />
                             <div className="text-image">
-                                <img src={wheat} alt="afbeelding" />
+                                <img src={beers_In_The_Sun} alt="afbeelding" />
                             </div>
                         </div>
                     </div>
