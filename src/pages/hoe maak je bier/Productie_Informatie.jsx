@@ -5,7 +5,6 @@ import alle_soorten from "../../assets/hoe maak je bier/alle_off_them.png"
 import hop from "../../assets/hoe maak je bier/hop.png"
 import malt from "../../assets/hoe maak je bier/malt.png"
 import het_Proces from "../../assets/hoe maak je bier/staps_Of_Production.png"
-import het_Proces_Img from "../../assets/hoe maak je bier/staps_Of_Production_Img.png"
 import water from "../../assets/hoe maak je bier/water.png"
 import gist from "../../assets/hoe maak je bier/yeast.png"
 
@@ -24,7 +23,7 @@ function Productie_Informatie() {
         <>
         <div className="informatie_container background">
             <h1>Hoe maak je bier?</h1>
-            <div className="text-row content_2 border_top_bottom">
+            <div className="text-row content_2 border_top_left">
                 <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <Text_component
                         Text_Title="Bier brouwen"
@@ -44,7 +43,27 @@ function Productie_Informatie() {
                     <img src={het_Proces} alt="Het brouwproces"/>
                 </div>
             </div>
-            <div className="text-row content_2 border_top_bottom">
+            <div className="text-row content_2 border_top_left">
+                <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <Text_component
+                        Text_Title="verschillende soorten Bier"
+                        Text_Message1="test text1" />
+                    {isDropdownOpen && (
+                        <div className="submenu-content">
+                            <Text_component
+                                Text_Message2="scmkengvksnfeiughwdlknsdvjbhnlok
+                                nvklnvrojngrfkndjit"
+                                Text_Message3="cdnifngjfhdojbkfbg knsdnfdg
+
+                                fdsklmdslkfdndfndkfj" />
+                        </div>
+                    )}
+                </div>
+                <div className="text-image">
+                    <img src={hop} alt="vele soorten bier"/>
+                </div>
+            </div>
+            <div className="text-row content_1 border_top_left">
                 <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <Text_component
                         Text_Title="IBU"
@@ -62,7 +81,7 @@ function Productie_Informatie() {
                     <img src={het_Proces} alt="IBU_logo"/>
                 </div>
             </div>
-            <div className="text-row content_1 border_top_bottom">
+            <div className="text-row content_1 border_top_left">
                 <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <Text_component
                         Text_Title="Hop"
@@ -80,7 +99,7 @@ function Productie_Informatie() {
                     <img src={hop} alt="Hop"/>
                 </div>
             </div>
-            <div className="text-row content_1 border_top_bottom">
+            <div className="text-row content_1 border_top_left">
                 <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <Text_component
                         Text_Title="mout"
@@ -98,7 +117,7 @@ function Productie_Informatie() {
                     <img src={malt} alt="mout"/>
                 </div>
             </div>
-            <div className="text-row content_1 border_top_bottom">
+            <div className="text-row content_1 border_top_left">
                 <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <Text_component
                         Text_Title="Het belangrijkste ingredient, water!"
@@ -116,7 +135,7 @@ function Productie_Informatie() {
                     <img src={water} alt="water"/>
                 </div>
             </div>
-            <div className="text-row content_1 border_top_bottom">
+            <div className="text-row content_1 border_top_left">
                 <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <Text_component
                         Text_Title="Gist"

@@ -39,7 +39,7 @@
     border-bottom: 2px solid var(--line-blue-2);
     border-radius: var(--border-radius);
 }
-.border_top_bottom {
+.border_top_left {
     border-top: 2px solid var(--line-blue-2);
     border-left: 2px solid var(--line-blue-2);
     border-bottom: 2px solid transparent;
