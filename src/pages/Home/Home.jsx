@@ -19,7 +19,7 @@ function Home() {
                                 ewfuifbewuiguibfuiewbirueheriufbojcwbrubwiuherhif"
                             />
                             <div className="text-image">
-                                <img src={beers_In_The_Sun} alt="afbeelding" />
+
                             </div>
                         </div>
                     </div>

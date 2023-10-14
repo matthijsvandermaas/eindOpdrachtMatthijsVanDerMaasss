@@ -55,15 +55,8 @@
     border-radius: var(--border-radius);
     box-shadow: 5px 5px var(--box-shadow_1);
 }
-.text-image {
-    transition: transform 1s ease-in-out;
-}
-.text-image:hover {
-    position: relative;
-    transform: translatey(-70px) scale(1.5);
-    box-shadow: 2px 2px var(--box-shadow_2);
-    z-index: 1;
-}
+
+
 
 
 
