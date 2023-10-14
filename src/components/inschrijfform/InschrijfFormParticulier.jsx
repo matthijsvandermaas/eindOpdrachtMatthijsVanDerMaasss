@@ -26,7 +26,7 @@ function InschrijfFormParticulier() {
                     password: password
                 })
             });
-            const data = await response.json();
+
             setData(data);
         } catch (error) {
             console.error('Fout bij het versturen van het verzoek:', error);
