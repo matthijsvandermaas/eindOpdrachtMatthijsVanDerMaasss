@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Productie_Informatie.css';
-import wheat from "../../assets/logos and backgrounds/wheat.png";
 import Text_component from "../../components/texts_components/Text-component.jsx";
 import alle_soorten from "../../assets/hoe maak je bier/alle_off_them.png"
 import hop from "../../assets/hoe maak je bier/hop.png"
@@ -11,82 +10,149 @@ import water from "../../assets/hoe maak je bier/water.png"
 import gist from "../../assets/hoe maak je bier/yeast.png"
 
 function Productie_Informatie() {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsDropdownOpen(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsDropdownOpen(false);
+    };
+
     return (
+        <>
         <div className="informatie_container">
-            <h1>productie informatie</h1>
-            <div className="text-row content_2 ">
-                <Text_component
-                    Text_Title="Bier brouwen"
-                    Text_Message1="test text1"
-                />
+            <h1>Hoe maak je bier?</h1>
+            <div className="text-row content_2 border_top_bottom">
+                <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <Text_component
+                        Text_Title="Bier brouwen"
+                        Text_Message1="test text1" />
+                    {isDropdownOpen && (
+                        <div className="submenu-content">
+                            <Text_component
+                                Text_Message2="scmkengvksnfeiughwdlknsdvjbhnlok
+                                nvklnvrojngrfkndjit"
+                                Text_Message3="cdnifngjfhdojbkfbg knsdnfdg
+
+                                fdsklmdslkfdndfndkfj" />
+                        </div>
+                    )}
+                </div>
                 <div className="text-image">
                     <img src={het_Proces} alt="Het brouwproces"/>
                 </div>
             </div>
-            <div className="text-row content_2 ">
-                <Text_component
-                    Text_Title="IBU"
-                    Text_Message1=" International Bitterness Units = IBU waarde"
-                />
+            <div className="text-row content_2 border_top_bottom">
+                <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <Text_component
+                        Text_Title="IBU"
+                        Text_Message1="test text1" />
+                    {isDropdownOpen && (
+                        <div className="submenu-content">
+                            <Text_component
+                                Text_Message2="test text2"
+                                Text_Message3="test text3" />
+                        </div>
+                    )}
+                </div>
+
                 <div className="text-image">
-                    <img src={het_Proces} alt="IBU Waarde"/>
+                    <img src={het_Proces} alt="IBU_logo"/>
                 </div>
             </div>
-            <div className="text-row content_1 ">
-                <Text_component
-                    Text_Title="Hop"
-                    Text_Message1="Het kruidenbuideltje van de brouwer! Zorgt voor smaak en houdbaarheid van het bier. Zorg voor meer stabiliteit in het schuim, door de Alfa zuren. Er zijn 250 soorten hop, de bitterhop en de aromahop."
-                />
+            <div className="text-row content_1 border_top_bottom">
+                <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <Text_component
+                        Text_Title="Hop"
+                        Text_Message1="test text1" />
+                    {isDropdownOpen && (
+                        <div className="submenu-content">
+                            <Text_component
+                                Text_Message2="test text2"
+                                Text_Message3="test text3" />
+                        </div>
+                    )}
+                </div>
+
                 <div className="text-image">
                     <img src={hop} alt="Hop"/>
                 </div>
             </div>
-            <div className="text-row content_1 ">
-                <Text_component
-                    Text_Title="Mout"
-                    Text_Message1="test text1"
-                />
+            <div className="text-row content_1 border_top_bottom">
+                <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <Text_component
+                        Text_Title="mout"
+                        Text_Message1="test text1" />
+                    {isDropdownOpen && (
+                        <div className="submenu-content">
+                            <Text_component
+                                Text_Message2="test text2"
+                                Text_Message3="test text3" />
+                        </div>
+                    )}
+                </div>
+
                 <div className="text-image">
-                    <img src={malt} alt="Mout"/>
+                    <img src={malt} alt="mout"/>
                 </div>
             </div>
-            <div className="text-row content_1 ">
-                <Text_component
-                    Text_Title="Het belangrijkste ingrediënt water"
-                    Text_Message1="test text1"
-                />
+            <div className="text-row content_1 border_top_bottom">
+                <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <Text_component
+                        Text_Title="Het belangrijkste ingredient, water!"
+                        Text_Message1="test text1" />
+                    {isDropdownOpen && (
+                        <div className="submenu-content">
+                            <Text_component
+                                Text_Message2="test text2"
+                                Text_Message3="test text3" />
+                        </div>
+                    )}
+                </div>
+
                 <div className="text-image">
-                    <img src={water} alt="Water"/>
+                    <img src={water} alt="water"/>
                 </div>
             </div>
-            <div className="text-row content_1 ">
-                <Text_component
-                    Text_Title="Gist"
-                    Text_Message1="test text1"
-                />
+            <div className="text-row content_1 border_top_bottom">
+                <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <Text_component
+                        Text_Title="Gist"
+                        Text_Message1="test text1" />
+                    {isDropdownOpen && (
+                        <div className="submenu-content">
+                            <Text_component
+                                Text_Message2="test text2"
+                                Text_Message3="test text3" />
+                        </div>
+                    )}
+                </div>
+
                 <div className="text-image">
-                    <img src={gist} alt="Gist"/>
+                    <img src={gist} alt="gist"/>
                 </div>
             </div>
-            <div className="text-row content_1 ">
-                <Text_component
-                    Text_Title="Alles op een rij"
-                    Text_Message1="test text1"
-                />
-                <div className="text-image">
-                    <img src={het_Proces_Img} alt="Brouwproces Overzicht"/>
+            <div className="text-row content_2 border_top_bottom">
+                <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <Text_component
+                        Text_Title="vele soorten"
+                        Text_Message1="test text1" />
+                    {isDropdownOpen && (
+                        <div className="submenu-content">
+                            <Text_component
+                                Text_Message2="test text2"
+                                Text_Message3="test text3" />
+                        </div>
+                    )}
                 </div>
-            </div>
-            <div className="text-row content_2 ">
-                <Text_component
-                    Text_Title="Biersoorten"
-                    Text_Message1="test text1"
-                />
                 <div className="text-image">
-                    <img src={alle_soorten} alt="Biersoorten"/>
+                    <img src={alle_soorten} alt="een tabel met alle biersoorten"/>
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

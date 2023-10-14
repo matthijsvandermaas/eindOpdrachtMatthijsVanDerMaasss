@@ -24,7 +24,6 @@ function Navbar() {
                     <NavLink to="/login_page">Inloggen</NavLink>
                     <NavLink to="/">Mijn Bieren</NavLink>
                     <NavLink to="/">Mijn Pagina</NavLink>
-
                     <div className="submenu" onClick={() => toggleSubmenu(1)}>
                         <div>
                             <p>Inschrijven🞃</p>

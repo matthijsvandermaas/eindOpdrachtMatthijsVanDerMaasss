@@ -12,7 +12,6 @@
 .titel-container {
     margin: 20px 0;
 
-
 }
 
 
@@ -32,23 +31,34 @@
     flex-direction: row; /* Verander de richting naar kolommen */
     align-items: center;
     margin: 20px 0; /* Voeg een margin toe aan de boven- en onderkant */
-    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
+    transition: 0.5s ease-in-out;
+    width: 50vw;
+    height: 20vh;
+}
+.border_top_bottom {
     border-top: 2px solid var(--line-blue-2);
     border-bottom: 2px solid var(--line-blue-2);
-    transition: 1.5s ease-in-out;
-
+    border-radius: var(--border-radius);
 }
+.border_top_bottom {
+    border-top: 2px solid var(--line-blue-2);
+    border-left: 2px solid var(--line-blue-2);
+    border-bottom: 2px solid transparent;
+    border-radius: 15px 0 0 0;
+}
+
 .text-row:hover {
-    box-shadow: 5px 5pxvar(--box-shadow_2);
-    border-top: 3px solid var(--line-blue);
-    border-bottom: 3px solid var(--line-blue);
-    transform: scale(1.01);
+    box-shadow: 5px 5px var(--box-shadow_2);
+    transform: scale(1.001);
 }
 
-
+.text-container{
+    margin-right: 20px;
+}
 .text-image img {
-    width: 40%;
+    justify-content: center;
+    width: 50%;
     height: 100%;
     z-index: 1;
     transition: 0.5s ease-in-out;

@@ -11,9 +11,9 @@ function Text_component({ Text_Title, Text_Header, Text_Message1, Text_Message2,
 
                     <h1>{Text_Title}</h1>
                     <h2>{Text_Header}</h2>
-                    <p>{Text_Message1}</p>
-                    <p>{Text_Message2}</p>
-                    <p>{Text_Message3}</p>
+                    <h4>{Text_Message1}</h4>
+                    <h4>{Text_Message2}</h4>
+                    <h4>{Text_Message3}</h4>
             </div>
         </>
     );
