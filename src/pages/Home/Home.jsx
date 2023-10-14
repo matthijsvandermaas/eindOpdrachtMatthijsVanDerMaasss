@@ -1,14 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Home.css';
 import beers_In_The_Sun from '../../assets/general pics/in_The_Sun.png' ;
 import Text_component from "../../components/texts_components/Text-component.jsx";
 import Cubes from "../../components/cubes/Cubes.jsx";
+import alle_soorten from "../../assets/hoe maak je bier/alle_off_them.png";
+import {Carousel} from "react-responsive-carousel";
 
 function Home() {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsDropdownOpen(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsDropdownOpen(false);
+    };
+
     return (
         <>
             <div className="title-content">
                 <h1>Welcome Bier liefhebbers</h1>
+                <div>
+                    <Carousel></Carousel>
+                    carousel
+                    //TODO afmaken
+                </div>
                 <div className="text-content content_1">
                     <div className="informatie_container">
                         <div className="text-row content_1">
@@ -18,11 +35,9 @@ function Home() {
                                 fniwfuwfnoeugrijcbviurehreoi
                                 ewfuifbewuiguibfuiewbirueheriufbojcwbrubwiuherhif"
                             />
-                            <div className="text-image">
-
-                            </div>
                         </div>
                     </div>
+
                 </div>
              <Cubes
                 button_1="inschrijven"

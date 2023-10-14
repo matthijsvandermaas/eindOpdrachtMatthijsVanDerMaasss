@@ -18,12 +18,7 @@
 .text-content:hover {
     box-shadow: var(--box-shadow_2);
 }
-.text-row.content_1 {
-    flex-direction: row;
-}
-.text-row.content_2 {
-    flex-direction: row-reverse;
-}
+
 .submenu:hover .more_container {
     display: block;
 }

@@ -152,9 +152,6 @@ Table of Contents:
     height: 100px;
     max-width: 120px;
     max-height: 120px;
-
-    /*max-width: none; !* Hiermee wordt de maximale breedte opgeheven, als dat nodig is *!*/
-    /*max-height: none; !* Hiermee wordt de maximale hoogte opgeheven, als dat nodig is *!*/
     border-radius: 30px;
     transform: rotatey(180deg) translateX(-55px);
 }
@@ -165,8 +162,8 @@ Table of Contents:
     align-items: flex-start;
     border: 2px solid black;
     height: auto;
-    min-height: 70vh;
-    max-height:  800px;
+    min-height: 80vh;
+    max-height:  1000px;
     width: 98vw;
     overflow-y: auto; /* Voeg een scrollbar toe indien nodig */
     margin: 20px;
@@ -182,7 +179,6 @@ Table of Contents:
     height: 25vh;
     max-height: 20vh;
     min-height: 10vh;
-
     background-image: url('../src/assets/logos and backgrounds/grain.svg');
     background-size: cover;
     background-position: center;
@@ -243,20 +239,48 @@ p{
     border: 2px solid var(--line-blue);
 
 }
-::-webkit-scrollbar{
-/*//TODO*/
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* Breedte van de scrollbar */
+    background: transparent;
 }
 
-.no-border{
-    border:none ;
+
+::-webkit-scrollbar-track {
+    background: transparent;
 }
+
+/* Handle (het beweegbare deel van de scrollbar) */
+::-webkit-scrollbar-thumb {
+    background: var(--line-blue);
+    border-radius: 6px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--line-blue-2);
+}
+
+
 .background {
     background-image: url('../src/assets/logos and backgrounds/grain.svg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     width: 100%;
-    height: 100%;
+    height: auto;
+}
+
+.inhance {
+    width: 60%;
+    height: 50%;
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.inhance:hover {
+    width: 150%;
+    height: 150%;
+    box-shadow: var(--box-shadow_1);
 }
 
 

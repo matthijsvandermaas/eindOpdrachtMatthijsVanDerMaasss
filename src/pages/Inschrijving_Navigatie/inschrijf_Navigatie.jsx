@@ -31,7 +31,7 @@ function Inschrijf_Navigatie() {
 
 
                 </div>
-                <img src={b} alt="afbeelding" />
+                <img src={wheat} alt="afbeelding" />
             </div>
 
         </>

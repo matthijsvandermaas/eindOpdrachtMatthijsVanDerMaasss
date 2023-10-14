@@ -49,7 +49,7 @@ function InschrijfFormProduct() {
     };
 
     return (
-        <div className="form-container">
+        <div className="form-container ">
             <h1>Inschrijfformulier voor product</h1>
             <div className="form-content">
                 <form onSubmit={handleSubmit}>

@@ -1,13 +1,15 @@
+
 .cubes-container {
     display: flex;
     justify-content: space-around;
     width: 95%;
     margin: 50px auto 10px auto;
+    padding-top: 150px;
 
 }
 
 .cube-bttn {
-    width: 15vw;
+    width: 10vw;
     height: 12vh;
     padding: 10px 20px;
     background-color: var(--line-blue);

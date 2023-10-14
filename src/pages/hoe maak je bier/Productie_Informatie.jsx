@@ -22,7 +22,7 @@ function Productie_Informatie() {
 
     return (
         <>
-        <div className="informatie_container">
+        <div className="informatie_container background">
             <h1>Hoe maak je bier?</h1>
             <div className="text-row content_2 border_top_bottom">
                 <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -132,23 +132,6 @@ function Productie_Informatie() {
 
                 <div className="text-image">
                     <img src={gist} alt="gist"/>
-                </div>
-            </div>
-            <div className="text-row content_2 border_top_bottom">
-                <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                    <Text_component
-                        Text_Title="vele soorten"
-                        Text_Message1="test text1" />
-                    {isDropdownOpen && (
-                        <div className="submenu-content">
-                            <Text_component
-                                Text_Message2="test text2"
-                                Text_Message3="test text3" />
-                        </div>
-                    )}
-                </div>
-                <div className="text-image">
-                    <img src={alle_soorten} alt="een tabel met alle biersoorten"/>
                 </div>
             </div>
         </div>

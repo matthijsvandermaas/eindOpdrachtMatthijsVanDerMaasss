@@ -3,12 +3,14 @@
     justify-content: space-between;
     width: 95%;
     margin: 50px auto 10px auto;
+    padding-bottom: 20px;
+    padding-top: 100px;
 
 }
 
 .cube-bttn {
     width: 15vw;
-    height: 12vh;
+    height: 18vh;
     padding: 10px 20px;
     background-color: var(--line-blue);
     color: white;
@@ -21,7 +23,7 @@
 
 
 .cube-bttn:hover {
-    padding: 10px 20px;
+    padding: 30px 40px;
     color: var(--line-blue);
     cursor: pointer;
     border: 2px var(--line-blue) solid;
