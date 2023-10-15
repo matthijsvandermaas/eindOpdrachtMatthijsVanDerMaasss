@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './InschrijfForm.css';
 import Inschrijf_Form_Product from "../../components/inschrijfform/InschrijfFormProduct.jsx";
+import inschrijf_Navigatiepagina from "../../pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 
 function InschrijfFormProducer() {
     const [First_name, setFirst_Name] = useState('');

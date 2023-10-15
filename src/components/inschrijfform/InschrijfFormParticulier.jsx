@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './InschrijfForm.css';
+import inschrijf_Navigatiepagina from "../../pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 
 function InschrijfFormParticulier() {
     const [data, setData] = useState(null);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './InschrijfForm.css';
-
+import inschrijf_Navigatiepagina from "../../pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 function InschrijfFormProduct() {
     const [Name_Product, setName_Product] = useState('');
     const [Name_Producer, setName_Producer] = useState('');
@@ -141,7 +141,9 @@ function InschrijfFormProduct() {
                         <label>Voeg nog een foto toe:</label>
                         <input type="file" accept="image/*" onChange={handlePhoto2Change} />
                     </div>
+                    <button className="bttn" type="submit" onClick={inschrijf_Navigatiepagina}>(Terug naar de inschrijf pagina) fixen!!</button>
                     <button className="bttn" type="submit">Inschrijven</button>
+
                 </form>
             </div>
         </div>
