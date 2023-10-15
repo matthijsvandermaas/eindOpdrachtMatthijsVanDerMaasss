@@ -10,7 +10,8 @@ function InschrijfFormProduct() {
     const [Tast, setTast] = useState('');
     const [Volume, setVolume] = useState(0.0);
     const [Location_Producer, setLocation_Producer] = useState('');
-
+    const [Photo, setPhoto] = useState(null);
+    const [Photo2, setPhoto2] = useState(null);
     const handleName_ProductChange = (e) => {
         setName_Product(e.target.value);
     };
@@ -35,7 +36,14 @@ function InschrijfFormProduct() {
     const handleLocation_ProducerChange = (e) => {
         setLocation_Producer(e.target.value);
     };
-
+    const handlePhotoChange = (e) => {
+        const file = e.target.files[0]; // Pak het eerste geselecteerde bestand
+        setPhoto(file);
+    };
+    const handlePhoto2Change = (e) => {
+        const file = e.target.files[0]; // Pak het eerste geselecteerde bestand
+        setPhoto2(file);
+    };
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Productnaam:', Name_Product);
@@ -46,11 +54,13 @@ function InschrijfFormProduct() {
         console.log('Smaak:', Tast);
         console.log('Volume(cc):', Volume);
         console.log('Locatie Producent:', Location_Producer);
+        const [Photo, setPhoto] = useState(null);
+        const [Photo2, setPhoto2] = useState(null);
     };
 
     return (
         <div className="form-container ">
-            <h1>Inschrijfformulier voor product</h1>
+            <h1>Een biertje toevoegen</h1>
             <div className="form-content border_top_bottom background">
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -122,6 +132,14 @@ function InschrijfFormProduct() {
                             value={Location_Producer}
                             onChange={handleLocation_ProducerChange}
                         />
+                    </div>
+                    <div>
+                        <label>Voeg een foto toe:</label>
+                        <input type="file" accept="image/*" onChange={handlePhotoChange} />
+                    </div>
+                    <div>
+                        <label>Voeg nog een foto toe:</label>
+                        <input type="file" accept="image/*" onChange={handlePhoto2Change} />
                     </div>
                     <button className="bttn" type="submit">Inschrijven</button>
                 </form>

@@ -18,23 +18,24 @@ function Home() {
     return (
         <>
             <div className="title-content">
-                <h1>Welcome Bier liefhebbers</h1>
-                <div>
-                    <Slider
-                        slider_Img1={slider_Img_1}
-                        slider_Img2={slider_Img_2}
-                        slider_Img3={slider_Img_3}
-                        slider_Img4={slider_Img_4}
-                        slideIndex={slideIndex}
-                        setSlideIndex={setSlideIndex} />
+                <Slider
+                    slider_Img1={slider_Img_1}
+                    slider_Img2={slider_Img_2}
+                    slider_Img3={slider_Img_3}
+                    slider_Img4={slider_Img_4}
+                    slideIndex={slideIndex}
+                    setSlideIndex={setSlideIndex} />
 
-                </div>
                 <div className="text-content content_1">
                     <div className="informatie_container">
                         <div className="text-row content_1">
                             <Text_component
-                                Text_Title="test titel1"
-                                Text_Message="fndiouebfiudniufhoifasmcoifoiscmsacipjgfniwfuwfnoeugrijcbviurehreoiewfuifbewuiguibfuiewbirueheriufbojcwbrubwiuherhif"
+                                Text_Title="Welcome Bier liefhebbers,"
+                                Text_Header="bij beers & brewskys de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen
+                                               en nieuwe biertjes te proberen,"
+                                Text_Message1=" dus schrijf je in en kom erbij."
+
+
                             />
                         </div>
                     </div>

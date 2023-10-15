@@ -1,12 +1,9 @@
 .slider {
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: center;
     position: relative;
     width: 40vw;
-    height: 20vh;
+    height: 14vh;
     overflow: hidden;
+    margin: 2px 20vw;
 }
 
 .mySlides {

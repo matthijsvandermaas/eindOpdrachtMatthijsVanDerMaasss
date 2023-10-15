@@ -2,16 +2,16 @@
     display: flex;
     justify-content: space-between;
     width: 95%;
-    margin: 50px auto 10px auto;
+    margin: 10px auto 10px auto;
     padding-bottom: 20px;
     padding-top: 100px;
 
 }
 
 .cube-bttn {
-    width: 18vw;
-    height: 20vh;
-    padding: 30px 60px;
+    width: 16vw;
+    height: 18vh;
+    padding: 10px 60px;
     background-color: var(--line-blue);
     color: white;
     border: none;
