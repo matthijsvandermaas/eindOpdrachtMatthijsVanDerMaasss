@@ -125,6 +125,8 @@ Table of Contents:
     box-shadow: 2px 2px 58px 4px rgb(255, 255, 255), 2px 2px 58px 4px rgb(255, 253, 229);
     margin: 10px 10px;
 }
+
+
 .logo-img:hover{
     box-shadow: inset 12px 12px 100px var(--line-blue-2);
 }
@@ -201,9 +203,10 @@ p{
     box-shadow: 3px 3px var(--background-gradient);
     background-color: var(--line-blue);
     color: whitesmoke;
-    padding: 10px;
+    padding: 0 10px;
     text-decoration: none;
-    margin: 10px;
+    text-align: center;
+    margin: 5px 10px;
     transition: 0.5s ease-in-out;
     font-size: 1em;
  }
@@ -241,14 +244,14 @@ p{
 
 /* 6.2 scrollbar */
 ::-webkit-scrollbar {
-    width: 12px; /* Breedte van de scrollbar */
+    width: 6px;
     background: transparent;
 }
 
 ::-webkit-scrollbar-track {
     background: transparent;
 }
-/* Handle (het beweegbare deel van de scrollbar) */
+
 ::-webkit-scrollbar-thumb {
     background: var(--line-blue);
     border-radius: 6px;

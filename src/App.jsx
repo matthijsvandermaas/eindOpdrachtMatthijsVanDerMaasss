@@ -1,9 +1,8 @@
-
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
-import logoImage from './assets/B & B logo2.jpg';
+import logoImage from './assets/logos and backgrounds/B & B logo2.jpg';
+import logoImage_Klein from './assets/logos and backgrounds/B & B logo2 klein.jpg';
 import wheat from './assets/logos and backgrounds/wheat.png';
-// import dependency from './assets/dependency-tree.png';
 import Navbar from "./components/navBar/Navbar.jsx";
 import Home from "./pages/Home/Home.jsx";
 import {NavLink, Route, Routes} from "react-router-dom";
@@ -26,17 +25,37 @@ import Error from "./pages/error/Error.jsx";
 
 function App() {
     const [activeTab, setActiveTab] = useState('Home');
-
+    const [logoSrc, setLogoSrc] = useState("");
     const handleTabChange = (tabName) => {
         setActiveTab(tabName);
     };
 
-    return (
+
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 480) {
+                setLogoSrc(logoImage_Klein);
+            } else {
+                setLogoSrc(logoImage);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [logoImage, logoImage_Klein]);
+
+
+return (
         <div className="outer-outer-container">
             <div className="outer-container">
                 <div className="header-container">
                     <div className="headerlogo-container">
-                        <NavLink to="/"><img className="logo-img" src={logoImage} alt="B&B Logo" /></NavLink>
+                        <NavLink to="/"><img className="logo-img" src={logoSrc}  alt="B&B Logo" /></NavLink>
                         <div className="dropdown">
                             <button className="navBar-bttn"><img className="wheat_logo" src={wheat} alt="wheat-logo"/>
                                 <h1>menu</h1></button>
