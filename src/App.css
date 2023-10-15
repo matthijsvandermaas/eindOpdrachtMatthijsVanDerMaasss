@@ -226,10 +226,10 @@ p{
     text-decoration: none;
     margin: 10px;
     transition: 0.5s ease-in-out;
-    font-size: 1.2em;
+    font-size: 1em;
  }
 .bttn:hover{
-    background-color: var(--lightb-dark-gradient);
+    background-color: var(--light-dark-gradient);
     color: black;
     box-shadow: inset 6px 6px 25px var(--line-blue-2);
     border: 2px solid var(--line-blue);

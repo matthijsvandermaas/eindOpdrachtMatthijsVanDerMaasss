@@ -39,7 +39,10 @@
     box-shadow: var(--box-shadow_1);
     border-radius: 15px 0 0 0;
     transition: 0.2s ease-in-out;
-    width: 70vw;
+    width: 60vw;
+    min-width: 800px;
+    max-width: 1500px;
+
     height: auto;
 }
 .text-row:hover {
