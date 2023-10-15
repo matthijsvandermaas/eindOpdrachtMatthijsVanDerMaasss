@@ -28,6 +28,7 @@ Table of Contents:
     --green-blue-gradient: linear-gradient(44deg, #78a80f 0%, rgb(68, 88, 132) 95%);
     --light-dark-gradient: linear-gradient(44deg, rgba(68, 88, 132, 0.5) 0%, rgb(68, 88, 132) 95%);
     --line-blue-2: rgba(68, 88, 132, 0.5);
+    --line-blue-3: rgba(68, 88, 132, 0.2);
     --extra-background-color: rgba(255, 237, 45, 0.1);
     --shadow: rgba(255, 237, 45, 0.02);
     --box-shadow_1: inset  20px 20px 200px 30px var(--shadow);

@@ -37,7 +37,7 @@
 .border_top_bottom {
     border-top: 2px solid var(--line-blue-2);
     border-bottom: 2px solid var(--line-blue-2);
-    border-radius: var(--border-radius);
+    border-radius: 15px 0 0 15px;
 }
 .border_top_left {
     border-top: 2px solid var(--line-blue-2);
@@ -45,9 +45,20 @@
     border-bottom: 2px solid transparent;
     border-radius: 15px 0 0 0;
 }
+.border_bottom_left {
+    border-bottom: 2px solid var(--line-blue-2);
+    border-left: 2px solid var(--line-blue-2);
+    border-radius: 15px 0 0 15px;
+}
+.border_left {
+    border-left: 2px solid var(--line-blue-2);
+    border-radius: 15px 0 0 15px;
 
+}
 .text-row:hover {
     box-shadow: 5px 5px var(--box-shadow_2);
+    border-left: 3px solid var(--line-blue-2);
+    border-top: 3px solid var(--line-blue-2);
     transform: scale(1.001);
 }
 
