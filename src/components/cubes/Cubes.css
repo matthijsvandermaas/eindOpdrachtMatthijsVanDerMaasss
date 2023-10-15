@@ -1,16 +1,19 @@
 .cubes-container {
     display: flex;
     justify-content: space-between;
-    width: 95%;
+    width: 65vw;
+    max-width: 1800px;
     margin: 10px auto 10px auto;
     padding-bottom: 20px;
-    padding-top: 100px;
+    padding-top: 50px;
 
 }
 
 .cube-bttn {
-    width: 16vw;
-    height: 18vh;
+    width: 10vw;
+    min-width: 10vw;
+    height: 12vh;
+    min-height: 12vh;
     padding: 10px 60px;
     background-color: var(--line-blue);
     color: white;
@@ -18,13 +21,11 @@
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
     cursor: pointer;
-    font-size: 2em;
+    font-size: 1.3em;
 }
 
 
 .cube-bttn:hover {
-    padding: 10px 10px;
-    color: var(--line-blue);
     cursor: pointer;
     border: 2px var(--line-blue) solid;
     box-shadow: var(--box-shadow_2);

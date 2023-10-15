@@ -6,8 +6,8 @@
     font-size: 1.4em;
     text-align: center;
     width: 80vw;
-    max-width: 1500px;
-    min-width: 800px;
+    min-width: 1600px;
+    max-width: 1800px;
     padding: 20px;
     border: 2px solid var(--line-blue);
     border-radius: var(--border-radius);

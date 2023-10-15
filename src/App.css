@@ -199,6 +199,7 @@ h2 {
 }
 h3, h4 {
     font-size: 1.6em;
+    color: var(--line-blue-1);
 
 }
 p{
@@ -225,9 +226,10 @@ p{
     text-decoration: none;
     margin: 10px;
     transition: 0.5s ease-in-out;
+    font-size: 1.2em;
  }
 .bttn:hover{
-    background-color: var(--light-dark-gradient);
+    background-color: var(--lightb-dark-gradient);
     color: black;
     box-shadow: inset 6px 6px 25px var(--line-blue-2);
     border: 2px solid var(--line-blue);

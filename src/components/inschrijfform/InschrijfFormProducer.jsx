@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './InschrijfForm.css';
-import Inschrijf_Form_Product from "../../components/inschrijfform/InschrijfFormProduct.jsx";
-import inschrijf_Navigatiepagina from "../../pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
+import Cubes from "../cubes/Cubes.jsx";
 
 function InschrijfFormProducer() {
     const [First_name, setFirst_Name] = useState('');
@@ -93,116 +92,127 @@ function InschrijfFormProducer() {
             <div className="form-container ">
                 <h1>Je inschrijven als brouwer</h1>
                 <div className="form-content border_top_bottom background">
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Voornaam:</label>
-                <input
-                    type="text"
-                    value={First_name}
-                    onChange={handleFirst_NameChange}
-                />
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <label>Voornaam:</label>
+                            <input
+                                type="text"
+                                value={First_name}
+                                onChange={handleFirst_NameChange}
+                            />
+                        </div>
+                        <div>
+                            <label>Achternaam:</label>
+                            <input
+                                type="text"
+                                value={Last_name}
+                                onChange={handleLast_NameChange}
+                            />
+                        </div>
+                        <div>
+                            <label>Eigenaar:</label>
+                            <input
+                                type="text"
+                                value={Owner}
+                                onChange={handleOwnerChange}
+                            />
+                        </div>
+                        <div>
+                            <label>Brouwerijnaam:</label>
+                            <input
+                                type="text"
+                                value={Name_Brewery}
+                                onChange={handleName_BreweryChange}
+                            />
+                        </div>
+                        <div>
+                            <label>Straatnaam:</label>
+                            <input
+                                type="text"
+                                value={Street_Name}
+                                onChange={handleStreet_NameChange}
+                            />
+                        </div>
+                        <div>
+                            <label>Huisnummer:</label>
+                            <input
+                                type="text"
+                                value={House_Number}
+                                onChange={handleHouse_NumberChange}
+                            />
+                        </div>
+                        <div>
+                            <label>Postcode:</label>
+                            <input
+                                type="text"
+                                value={Zipcode}
+                                onChange={handleZipcodeChange}
+                            />
+                        </div>
+                        <div>
+                            <label>Plaats:</label>
+                            <input
+                                type="text"
+                                value={City}
+                                onChange={handleCityChange}
+                            />
+                        </div>
+                        <div>
+                            <label>Merknaam:</label>
+                            <input
+                                type="text"
+                                value={Brand_Name}
+                                onChange={handleBrand_NameChange}
+                            />
+                        </div>
+                        <div>
+                            <label>Verkooplocatie:</label>
+                            <input
+                                type="text"
+                                value={Sale_location}
+                                onChange={handleSale_locationChange}
+                            />
+                        </div>
+                        <div>
+                            <label>E-mail:</label>
+                            <input
+                                type="email"
+                                value={Email}
+                                onChange={handleEmailChange}
+                            />
+                        </div>
+                        <div>
+                            <label>Gebruikersnaam:</label>
+                            <input
+                                type="text"
+                                value={User_Name}
+                                onChange={handleUser_NameChange}
+                            />
+                        </div>
+                        <div>
+                            <label>Wachtwoord:</label>
+                            <input
+                                type="password"
+                                value={Password}
+                                onChange={handlePasswordChange}
+                            />
+                        </div>
+                        <button className="bttn" type="submit">Inschrijven</button>
+                    </form>
+                    <p>Ander formulieren</p>
+                    <Cubes
+                        button_1="Een nieuwe biertje"
+                        navigate_1="/inschrijfformulier_product"
+                        button_2="Een bierliefhebber"
+                        navigate_2="/inschrijfformulier_particulier"
+                        button_3="Home"
+                        navigate_3="/"
+                        button_4="inloggen"
+                        navigate_4="/login_page"
+                    />
+                </div>
             </div>
-            <div>
-                <label>Achternaam:</label>
-                <input
-                    type="text"
-                    value={Last_name}
-                    onChange={handleLast_NameChange}
-                />
-            </div>
-            <div>
-                <label>Eigenaar:</label>
-                <input
-                    type="text"
-                    value={Owner}
-                    onChange={handleOwnerChange}
-                />
-            </div>
-            <div>
-                <label>Brouwerijnaam:</label>
-                <input
-                    type="text"
-                    value={Name_Brewery}
-                    onChange={handleName_BreweryChange}
-                />
-            </div>
-            <div>
-                <label>Straatnaam:</label>
-                <input
-                    type="text"
-                    value={Street_Name}
-                    onChange={handleStreet_NameChange}
-                />
-            </div>
-            <div>
-                <label>Huisnummer:</label>
-                <input
-                    type="text"
-                    value={House_Number}
-                    onChange={handleHouse_NumberChange}
-                />
-            </div>
-            <div>
-                <label>Postcode:</label>
-                <input
-                    type="text"
-                    value={Zipcode}
-                    onChange={handleZipcodeChange}
-                />
-            </div>
-            <div>
-                <label>Plaats:</label>
-                <input
-                    type="text"
-                    value={City}
-                    onChange={handleCityChange}
-                />
-            </div>
-            <div>
-                <label>Merknaam:</label>
-                <input
-                    type="text"
-                    value={Brand_Name}
-                    onChange={handleBrand_NameChange}
-                />
-            </div>
-            <div>
-                <label>Verkooplocatie:</label>
-                <input
-                    type="text"
-                    value={Sale_location}
-                    onChange={handleSale_locationChange}
-                />
-            </div>
-            <div>
-                <label>E-mail:</label>
-                <input
-                    type="email"
-                    value={Email}
-                    onChange={handleEmailChange}
-                />
-            </div>
-            <div>
-                <label>Gebruikersnaam:</label>
-                <input
-                    type="text"
-                    value={User_Name}
-                    onChange={handleUser_NameChange}
-                />
-            </div>
-            <div>
-                <label>Wachtwoord:</label>
-                <input
-                    type="password"
-                    value={Password}
-                    onChange={handlePasswordChange}
-                />
-            </div>
-            <button className="bttn" type="submit">Inschrijven</button>
-        </form>
-            </div>
-            </div>
-</>
+        </>
 
     );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './InschrijfForm.css';
 import inschrijf_Navigatiepagina from "../../pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
+import Cubes from "../cubes/Cubes.jsx";
 
 function InschrijfFormParticulier() {
     const [data, setData] = useState(null);
@@ -82,6 +83,18 @@ function InschrijfFormParticulier() {
                         </div>
                         <button className="bttn" type="submit">Inschrijven</button>
                     </form>
+                    <p>Ander formulieren</p>
+                    <Cubes
+                        button_1="Een nieuwe biertje"
+                        navigate_1="/inschrijfformulier_product"
+                        button_2="Een brouwer"
+                        navigate_2="/inschrijfformulier_producent"
+                        button_3="Home"
+                        navigate_3="/"
+                        button_4="inloggen"
+                        navigate_4="/login_page"
+
+                    />
                 </div>
             </div>
         </>

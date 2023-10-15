@@ -32,8 +32,8 @@ function Home() {
                             <Text_component
                                 Text_Title="Welcome Bier liefhebbers,"
                                 Text_Header="bij beers & brewskys de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen
-                                               en nieuwe biertjes te proberen,"
-                                Text_Message1=" dus schrijf je in en kom erbij."
+                                en nieuwe biertjes te proberen, dus schrijf je in en kom erbij."
+
 
 
                             />
