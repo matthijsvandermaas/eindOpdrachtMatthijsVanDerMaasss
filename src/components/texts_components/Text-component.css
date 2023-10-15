@@ -6,12 +6,15 @@
     text-align: center;
     margin: 2vh 2vw 2vh 2vw;
 }
-
+.text-container{
+    margin-right: 20px;
+    min-width: 30vh;
+    padding-left: 2vw;
+    text-align: left;
+}
 .titel-container {
     margin: 20px 0;
 }
-
-
 .text-content {
     display: flex;
     flex-direction: row;
@@ -21,19 +24,39 @@
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
     z-index: 1;
-
 }
-
+/*text-content*/
+.text-component-dropdown {
+    padding: 10px;
+    transition: height 1s ease;
+}
+/*text-row*/
 .text-row {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: 20px 0;
     box-shadow: var(--box-shadow_1);
-    transition: 0.5s ease-in-out;
+    border-radius: 15px 0 0 0;
+    transition: 0.2s ease-in-out;
     width: 70vw;
-    height: 20vh;
+    height: auto;
 }
+.text-row:hover {
+    box-shadow: 5px 5px var(--box-shadow_2);
+    border-left: 3px solid var(--line-blue-2);
+    border-top: 3px solid var(--line-blue-2);
+    border-bottom: 3px solid transparent;
+    border-radius: 15px 0 0 15px;
+    transform: scale(1.001);
+}
+.text-row.content_1 {
+    flex-direction: row;
+}
+.text-row.content_2 {
+    flex-direction: row-reverse;
+}
+/*borders*/
 .border_top_bottom {
     border-top: 2px solid var(--line-blue-2);
     border-bottom: 2px solid var(--line-blue-2);
@@ -48,26 +71,17 @@
 .border_bottom_left {
     border-bottom: 2px solid var(--line-blue-2);
     border-left: 2px solid var(--line-blue-2);
-    border-radius: 15px 0 0 15px;
+    border-radius: 0 0 0 15px;
 }
 .border_left {
     border-left: 2px solid var(--line-blue-2);
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+
     border-radius: 15px 0 0 15px;
 
 }
-.text-row:hover {
-    box-shadow: 5px 5px var(--box-shadow_2);
-    border-left: 3px solid var(--line-blue-2);
-    border-top: 3px solid var(--line-blue-2);
-    transform: scale(1.001);
-}
-
-.text-container{
-    margin-right: 20px;
-    min-width: 30vh;
-padding-left: 2vw;
-    text-align: left;
-}
+/*Img*/
 .text-image img {
     justify-content: flex-end;
     width: 60%;
@@ -78,12 +92,7 @@ padding-left: 2vw;
     margin: 10px 10px ;
 
 }
-.text-row.content_1 {
-    flex-direction: row;
-}
-.text-row.content_2 {
-    flex-direction: row-reverse;
-}
+
 
 
 

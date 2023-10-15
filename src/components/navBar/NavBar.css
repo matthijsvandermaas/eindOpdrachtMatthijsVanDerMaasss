@@ -4,7 +4,7 @@
     align-items: flex-end; /* Verticaal*/
     justify-content: flex-end; /* Uitlijnen naar rechts */
     /* Voeg tussenruimte toe tussen de elementen */
-    width: 10%;
+    width: 20%;
     height: 50%;
     max-height: 50vh;
     min-height: 10vh;
@@ -101,8 +101,6 @@
     text-decoration: underline;
 }
 
-
-
 .navList {
     list-style-type: none;
     padding: 0;
@@ -113,5 +111,26 @@
     display: block;
     background: rgba(255, 255, 255, 0.12);
     opacity: 1; /* Maak de inhoud zichtbaar */
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: var(--box-shadow_1);
+}
+.text-content:hover {
+    box-shadow: var(--box-shadow_2);
+}
+.text-row.content_1 {
+    flex-direction: row;
+}
+.text-row.content_2 {
+    flex-direction: row-reverse;
+}
+.submenu:hover .more_container {
+    display: block;
 }
 

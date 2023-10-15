@@ -51,7 +51,7 @@ function InschrijfFormProduct() {
     return (
         <div className="form-container ">
             <h1>Inschrijfformulier voor product</h1>
-            <div className="form-content">
+            <div className="form-content border_top_bottom background">
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label>Productnaam:</label>

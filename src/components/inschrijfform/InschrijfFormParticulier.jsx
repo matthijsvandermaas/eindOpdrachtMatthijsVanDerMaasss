@@ -57,7 +57,7 @@ function InschrijfFormParticulier() {
         <>
             <div className="form-container">
                 <h1>Inschrijfformulier voor bierliefhebbers</h1>
-                <div className="form-content">
+                <div className="form-content border_top_bottom background">
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label>Voornaam:</label>

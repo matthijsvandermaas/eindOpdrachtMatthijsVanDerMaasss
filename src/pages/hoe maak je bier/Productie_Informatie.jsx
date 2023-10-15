@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Productie_Informatie.css';
+import '../../components/navBar/NavBar.css';
 import Text_component from "../../components/texts_components/Text-component.jsx";
 import alle_soorten from "../../assets/hoe maak je bier/alle_off_them.png"
 import hop from "../../assets/hoe maak je bier/hop.png"
@@ -23,7 +24,7 @@ function Productie_Informatie() {
         <>
         <div className="informatie_container background">
             <h1>Hoe maak je bier?</h1>
-            <div className="text-row content_2 border_top_bottom">
+            <div className="text-row content_2 border_top_left">
                 <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <Text_component
                         Text_Title="Bier brouwen"
@@ -43,7 +44,7 @@ function Productie_Informatie() {
                     <img src={het_Proces} alt="Het brouwproces"/>
                 </div>
             </div>
-            <div className="text-row content_2 border_top_bottom">
+            <div className="text-row content_2 border_bottom_left">
                 <div className="text-component-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     <Text_component
                         Text_Title="verschillende soorten Bier"

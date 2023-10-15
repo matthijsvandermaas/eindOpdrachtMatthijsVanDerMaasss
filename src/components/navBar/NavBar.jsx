@@ -32,7 +32,7 @@ function Navbar() {
                             <div className="submenu-content">
                                 <NavLink to="/inschrijfformulier_particulier">Als bierliefhebber</NavLink>
                                 <NavLink to="/inschrijfformulier_producent">Als brouwer</NavLink>
-                                <NavLink to="/inschrijfformulier_particulier"> Een nieuwe biertje</NavLink>
+                                <NavLink to="/inschrijfformulier_product"> Een nieuwe biertje</NavLink>
                             </div>
                         )}
                     </div>

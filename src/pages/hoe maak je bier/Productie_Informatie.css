@@ -7,24 +7,11 @@
     margin: 20px 0;
 }
 
-.text-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-    box-shadow: var(--box-shadow_1);
-}
-.text-content:hover {
-    box-shadow: var(--box-shadow_2);
-}
 
-.submenu:hover .more_container {
-    display: block;
-}
-.submenu-content{
-transform: translateY(-27px);
-}
+
+
+
 
 
 

@@ -91,7 +91,7 @@ function InschrijfFormProducer() {
         <>
             <div className="form-container ">
                 <h1>inschrijfformulier voor brouwers</h1>
-                <div className="form-content">
+                <div className="form-content border_top_bottom background">
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Voornaam:</label>
