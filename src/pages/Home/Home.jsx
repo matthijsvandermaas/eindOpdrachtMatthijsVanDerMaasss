@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './Home.css';
-import Text_component from '../../components/texts_components/Text-component.jsx';
 import Cubes from '../../components/cubes/Cubes.jsx';
 import Slider from '../../components/slider/Slider.jsx';
 import slider_Img_One from '../../assets/hoe maak je bier/hop.png';
@@ -25,7 +24,6 @@ function Home() {
                     slider_Img4={slider_Img_4}
                     slideIndex={slideIndex}
                     setSlideIndex={setSlideIndex} />
-
                 <div className="text-content">
                     <div className="informatie_container">
                         <h1>Welcome Bier liefhebbers,</h1>
