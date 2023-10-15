@@ -6,21 +6,17 @@
 }
 .text-content{
     width: 80vw;
-
 }
 .home_Img {
-
     justify-content: flex-end;
     justify-self: flex-end;
     align-items: flex-end;
     height: 100%;
 }
-
 .home_Img img {
     justify-self: flex-end;
     max-width: 15vw;
 }
-
 .text-component-dropdown{
     padding-top: 50px;
 }

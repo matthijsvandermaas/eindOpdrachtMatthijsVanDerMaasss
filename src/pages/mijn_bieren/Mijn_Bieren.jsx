@@ -1,5 +1,5 @@
 import Text_component from "../../components/texts_components/Text-component.jsx";
-import alle_soorten from "../../assets/hoe maak je bier/alle_off_them.png";
+import alle_soorten from "../../assets/hoe maak je bier/all_kinds_of_beer.png";
 import React from "react";
 
 // <div className="text-row content_2">

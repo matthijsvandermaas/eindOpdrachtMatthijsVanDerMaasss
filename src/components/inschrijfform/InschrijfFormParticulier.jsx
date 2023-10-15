@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './InschrijfForm.css';
 import inschrijf_Navigatiepagina from "../../pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 import Cubes from "../cubes/Cubes.jsx";
@@ -63,23 +63,43 @@ function InschrijfFormParticulier() {
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label>Voornaam:</label>
-                            <input type="text" value={firstName} onChange={handleFirstNameChange}/>
+                            <input
+                                type="text"
+                                value={firstName}
+                                onChange={handleFirstNameChange}
+                                placeholder="voornaam"/>
                         </div>
                         <div>
                             <label>Achternaam:</label>
-                            <input type="text" value={lastName} onChange={handleLastNameChange}/>
+                            <input
+                                type="text"
+                                value={lastName}
+                                onChange={handleLastNameChange}
+                                placeholder="tusenvoegsel en achternaam"/>
                         </div>
                         <div>
                             <label>E-mail:</label>
-                            <input type="email" value={email} onChange={handleEmailChange}/>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={handleEmailChange}
+                                placeholder="e-mail"/>
                         </div>
                         <div>
                             <label>Gebruikersnaam:</label>
-                            <input type="text" value={userName} onChange={handleUserNameChange}/>
+                            <input
+                                type="text"
+                                value={userName}
+                                onChange={handleUserNameChange}
+                                placeholder="gebruikersnaam"/>
                         </div>
                         <div>
                             <label>Wachtwoord:</label>
-                            <input type="password" value={password} onChange={handlePasswordChange}/>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                                placeholder="wachtwoord"/>
                         </div>
                         <button className="bttn" type="submit">Inschrijven</button>
                     </form>

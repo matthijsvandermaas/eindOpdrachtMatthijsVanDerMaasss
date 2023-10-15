@@ -3,11 +3,9 @@
     flex-direction: column;
     align-items: center;
 }
-
 .inner-login-container {
     margin-bottom: 20px;
 }
-
 .inlog-cubes {
     display: flex;
     flex-direction: column;

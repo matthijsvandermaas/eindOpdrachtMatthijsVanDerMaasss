@@ -1,6 +1,5 @@
 .carousel  {
     box-shadow: var(--box-shadow_1);
-
 }
 .img-carousel{
     width: 30vw;
@@ -16,25 +15,21 @@
     height: 100%;
     object-fit: cover;
 }
-
 .carousel.carousel-slider .control-arrow.control-prev {
     background-color:var(--line-blue-2);
     border: 2px solid transparent;
     border-radius: var(--border-radius);
-
 }
 .carousel.carousel-slider .control-arrow.control-prev:hover {
     opacity: 1.5;
     border: 2px solid whitesmoke;
 }
 
-
 .carousel.carousel-slider .control-arrow.control-next {
     background-color:var(--line-blue-2);
 
     border: 2px solid transparent;
     border-radius: var(--border-radius);
-
 }
 .carousel.carousel-slider .control-arrow.control-next:hover {
     opacity: 1.5;

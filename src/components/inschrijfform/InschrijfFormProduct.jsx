@@ -70,6 +70,7 @@ function InschrijfFormProduct() {
                             type="text"
                             value={Name_Product}
                             onChange={handleName_ProductChange}
+                            placeholder="naam bier"
                         />
                     </div>
                     <div>
@@ -78,6 +79,7 @@ function InschrijfFormProduct() {
                             type="text"
                             value={Name_Producer}
                             onChange={handleName_ProducerChange}
+                            placeholder="brouwer"
                         />
                     </div>
                     <div>
@@ -97,6 +99,7 @@ function InschrijfFormProduct() {
                             type="email"
                             value={Email}
                             onChange={handleEmailChange}
+                            placeholder="e-mail"
                         />
                     </div>
                     <div>
@@ -105,6 +108,7 @@ function InschrijfFormProduct() {
                             type="text"
                             value={Color}
                             onChange={handleColorChange}
+                            placeholder="kleur(en)"
                         />
                     </div>
                     <div>
@@ -113,6 +117,7 @@ function InschrijfFormProduct() {
                             type="text"
                             value={Tast}
                             onChange={handleTastChange}
+                            placeholder="smaken"
                         />
                     </div>
                     <div>
@@ -132,15 +137,21 @@ function InschrijfFormProduct() {
                             type="text"
                             value={Location_Producer}
                             onChange={handleLocation_ProducerChange}
+                            placeholder="plaats"
                         />
                     </div>
                     <div>
                         <label>Voeg een foto toe:</label>
-                        <input type="file" accept="image/*" onChange={handlePhotoChange} />
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handlePhotoChange} />
                     </div>
                     <div>
                         <label>Voeg nog een foto toe:</label>
-                        <input type="file" accept="image/*" onChange={handlePhoto2Change} />
+                        <input type="file"
+                               accept="image/*"
+                               onChange={handlePhoto2Change}/>
                     </div>
                     <button className="bttn" type="submit">Inschrijven</button>
                 </form>

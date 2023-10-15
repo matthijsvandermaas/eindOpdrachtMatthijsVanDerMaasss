@@ -1,6 +1,7 @@
 import React from 'react'
 import Cubes2 from "../../components/cubes/Cubes2.jsx";
 import './Login_Page.css'
+import Cubes from "../../components/cubes/Cubes.jsx";
 
 // https://codesandbox.io/s/github/SinghDigamber/react-login-signup-ui-template/tree/master/?from-embed=&file=/src/index.css
 function login(){
@@ -9,12 +10,6 @@ function login(){
             <>
                 <div className="outer-login-container">
 
-                <Cubes2
-                    button_5="inschrijven"
-                    navigate_5="inschrijfformulier"
-                    button_6="home"
-                    navigate_6="/"
-                />
                     <h1>Gezellig dat je er bent, kom je inschrijven of inloggen?</h1>
             <form className="form-content background-login">
 
@@ -46,6 +41,18 @@ function login(){
 
 
             </form>
+                    <p>Ander formulieren</p>
+                    <Cubes
+                        button_1="Een bierliefhebber"
+                        navigate_1="/inschrijfformulier_particulier"
+                        button_2="Een brouwer"
+                        navigate_2="/inschrijfformulier_producent"
+                        button_3="Een nieuw biertje"
+                        navigate_3="/inschrijfformulier_product"
+                        button_4="Home"
+                        navigate_4="/"
+
+                    />
                 </div>
             </>
         );

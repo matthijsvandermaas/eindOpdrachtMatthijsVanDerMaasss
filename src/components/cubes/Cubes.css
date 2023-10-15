@@ -6,9 +6,7 @@
     margin: 10px auto 10px auto;
     padding-bottom: 20px;
     padding-top: 50px;
-
 }
-
 .cube-bttn {
     width: 10vw;
     min-width: 10vw;
@@ -22,38 +20,32 @@
     box-shadow: var(--box-shadow_1);
     cursor: pointer;
     font-size: 1.3em;
+    text-align: center;
 }
-
-
 .cube-bttn:hover {
     cursor: pointer;
     border: 2px var(--line-blue) solid;
     box-shadow: var(--box-shadow_2);
+    color: rgba(253, 246, 153, 0.70);
 }
-
 .cube-bttn1, .cube-bttn2, .cube-bttn3, .cube-bttn4{
     transition: background 1.2s ease-in-out;
 }
-
 .cube-bttn1:hover{
     background-size: cover;
     background: url("../../assets/general pics/beers_With_friends.png") center;
-    font-weight: bold;
 }
 .cube-bttn2:hover{
     background-size: cover;
     background: url("../../assets/general pics/taps.png") center;
-    font-weight: bold;
 }
 .cube-bttn3:hover{
     background-size: cover;
     background: url("../../assets/general pics/four_Glasses.png") center;
-    font-weight: bold;
 }
 .cube-bttn4:hover{
     background-size: cover;
     background: url("../../assets/general pics/hop_and_barl.png") center;
-    font-weight: bold;
 }
 
 

@@ -99,6 +99,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 value={First_name}
                                 onChange={handleFirst_NameChange}
+                                placeholder="voornaam"
                             />
                         </div>
                         <div>
@@ -107,6 +108,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 value={Last_name}
                                 onChange={handleLast_NameChange}
+                                placeholder="tussenvoegsel en achternaam"
                             />
                         </div>
                         <div>
@@ -115,6 +117,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 value={Owner}
                                 onChange={handleOwnerChange}
+                                placeholder="voledige naam eigenaar"
                             />
                         </div>
                         <div>
@@ -123,6 +126,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 value={Name_Brewery}
                                 onChange={handleName_BreweryChange}
+                                placeholder="brouwerij"
                             />
                         </div>
                         <div>
@@ -131,6 +135,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 value={Street_Name}
                                 onChange={handleStreet_NameChange}
+                                placeholder="straat"
                             />
                         </div>
                         <div>
@@ -139,6 +144,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 value={House_Number}
                                 onChange={handleHouse_NumberChange}
+                                placeholder="huisnummer"
                             />
                         </div>
                         <div>
@@ -147,6 +153,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 value={Zipcode}
                                 onChange={handleZipcodeChange}
+                                placeholder="postcode"
                             />
                         </div>
                         <div>
@@ -155,6 +162,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 value={City}
                                 onChange={handleCityChange}
+                                placeholder="plaats"
                             />
                         </div>
                         <div>
@@ -163,6 +171,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 value={Brand_Name}
                                 onChange={handleBrand_NameChange}
+                                placeholder="merk"
                             />
                         </div>
                         <div>
@@ -171,6 +180,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 value={Sale_location}
                                 onChange={handleSale_locationChange}
+                                placeholder="verkooplocaties"
                             />
                         </div>
                         <div>
@@ -179,6 +189,7 @@ function InschrijfFormProducer() {
                                 type="email"
                                 value={Email}
                                 onChange={handleEmailChange}
+                                placeholder="e-mail"
                             />
                         </div>
                         <div>
@@ -187,6 +198,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 value={User_Name}
                                 onChange={handleUser_NameChange}
+                                placeholder="gebruikersnaam"
                             />
                         </div>
                         <div>
@@ -195,6 +207,7 @@ function InschrijfFormProducer() {
                                 type="password"
                                 value={Password}
                                 onChange={handlePasswordChange}
+                                placeholder="wachtwoord"
                             />
                         </div>
                         <button className="bttn" type="submit">Inschrijven</button>

@@ -26,18 +26,11 @@ function Home() {
                     slideIndex={slideIndex}
                     setSlideIndex={setSlideIndex} />
 
-                <div className="text-content content_1">
+                <div className="text-content">
                     <div className="informatie_container">
-                        <div className="text-row content_1">
-                            <Text_component
-                                Text_Title="Welcome Bier liefhebbers,"
-                                Text_Header="bij beers & brewskys de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen
-                                en nieuwe biertjes te proberen, dus schrijf je in en kom erbij."
+                        <h1>Welcome Bier liefhebbers,</h1>
+                        <h4> Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij</h4>
 
-
-
-                            />
-                        </div>
                     </div>
                 </div>
                 <Cubes
