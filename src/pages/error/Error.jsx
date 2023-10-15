@@ -8,8 +8,8 @@ import './Error.css'
 function Error() {
     return (
         <>
-            <div className="title-content background">
-                <background></background>
+            <div className="error-content">
+
                 <h1>Je hebt een glaasje teveel op denk ik,<br />Ga terug naar <Link to="/"><strong>Home</strong></Link></h1>
 
                 <div className="text-content content_1">

@@ -1,0 +1,25 @@
+.slider {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    width: 40vw;
+    height: 20vh;
+    overflow: hidden;
+}
+
+.mySlides {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.mySlides.active {
+    opacity: 1;
+}

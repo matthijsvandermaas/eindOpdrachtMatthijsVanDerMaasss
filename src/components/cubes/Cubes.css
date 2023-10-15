@@ -9,9 +9,9 @@
 }
 
 .cube-bttn {
-    width: 14vw;
-    height: 17vh;
-    padding: 10px 20px;
+    width: 18vw;
+    height: 20vh;
+    padding: 30px 60px;
     background-color: var(--line-blue);
     color: white;
     border: none;
@@ -23,7 +23,7 @@
 
 
 .cube-bttn:hover {
-    padding: 30px 40px;
+    padding: 10px 10px;
     color: var(--line-blue);
     cursor: pointer;
     border: 2px var(--line-blue) solid;
