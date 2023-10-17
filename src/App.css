@@ -62,7 +62,6 @@ Table of Contents:
     max-width: 3000px;
     background: var(--background-gradient);
     backdrop-filter: blur(5px);
-    border: 3px solid black;
     overflow: hidden;
 }
 .outer-container {
@@ -143,7 +142,6 @@ Table of Contents:
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    border: 2px solid black;
     height: auto;
     min-height: 60vh;
     max-height:  1000px;
