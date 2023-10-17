@@ -1,58 +1,42 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import axios from 'axios'; // Vergeet niet axios te importeren
 import './InschrijfForm.css';
-import inschrijf_Navigatiepagina from "../../pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
-import Cubes from "../cubes/Cubes.jsx";
 
 function InschrijfFormParticulier() {
-    const [data, setData] = useState(null);
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        userName: '',
+        password: ''
+    });
+    const [isLoading, setIsLoading] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [userName, setUserName] = useState("");
-    const [password, setPassword] = useState("");
+    axios.post = async function (httpLocalhost5173ParticulierenInschrijving, formData) {
 
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('/particulieren/inschrijving', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    first_Name: firstName,
-                    last_Name: lastName,
-                    email: email,
-                    user_Name: userName,
-                    password: password
-                })
-            });
-
-            setData(data);
+            const response = await axios.post('http://localhost:5173/particulieren/inschrijving', formData);
+            console.log(response.data); // Doe iets met de response van de backend als dat nodig is
         } catch (error) {
             console.error('Fout bij het versturen van het verzoek:', error);
         }
     };
 
-    const handleFirstNameChange = (e) => {
-        setFirstName(e.target.value);
-    };
-
-    const handleLastNameChange = (e) => {
-        setLastName(e.target.value);
-    };
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-
-    const handleUserNameChange = (e) => {
-        setUserName(e.target.value);
-    };
-
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
+    const handleInputChange = (e) => {
+        const { firstName, lastName, email,useName, password, value } = e.target;
+        setFormData({
+            ...formData,
+            [firstName]: value,
+            [lastName]: value,
+            [email]: value,
+            [useName]: value,
+            [password]: value
+        });
     };
 
     return (
@@ -65,56 +49,50 @@ function InschrijfFormParticulier() {
                             <label>Voornaam:</label>
                             <input
                                 type="text"
-                                value={firstName}
-                                onChange={handleFirstNameChange}
+                                name="first_Name" // Geef de input een naam die overeenkomt met de key in formData
+                                value={formData.first_Name}
+                                onChange={handleInputChange}
                                 placeholder="voornaam"/>
                         </div>
                         <div>
                             <label>Achternaam:</label>
                             <input
                                 type="text"
-                                value={lastName}
-                                onChange={handleLastNameChange}
-                                placeholder="tusenvoegsel en achternaam"/>
+                                name="last_Name"
+                                value={formData.last_Name}
+                                onChange={handleInputChange}
+                                placeholder="tussenvoegsel en achternaam"/>
                         </div>
                         <div>
                             <label>E-mail:</label>
                             <input
                                 type="email"
-                                value={email}
-                                onChange={handleEmailChange}
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
                                 placeholder="e-mail"/>
                         </div>
                         <div>
                             <label>Gebruikersnaam:</label>
                             <input
                                 type="text"
-                                value={userName}
-                                onChange={handleUserNameChange}
+                                name="user_Name"
+                                value={formData.user_Name}
+                                onChange={handleInputChange}
                                 placeholder="gebruikersnaam"/>
                         </div>
                         <div>
                             <label>Wachtwoord:</label>
                             <input
                                 type="password"
-                                value={password}
-                                onChange={handlePasswordChange}
+                                name="password"
+                                value={formData.password}
+                                onChange={handleInputChange}
                                 placeholder="wachtwoord"/>
                         </div>
                         <button className="bttn" type="submit">Inschrijven</button>
                     </form>
-                    <p>Ander formulieren</p>
-                    <Cubes
-                        button_1="Een nieuwe biertje"
-                        navigate_1="/inschrijfformulier_product"
-                        button_2="Een brouwer"
-                        navigate_2="/inschrijfformulier_producent"
-                        button_3="Home"
-                        navigate_3="/"
-                        button_4="inloggen"
-                        navigate_4="/login_page"
-
-                    />
+                    {/* Andere inhoud hier */}
                 </div>
             </div>
         </>
