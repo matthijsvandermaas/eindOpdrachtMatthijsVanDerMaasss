@@ -92,6 +92,7 @@
 .text-image img {
     justify-content: flex-end;
     width: 60%;
+    min-width: 250px;
     height: auto;
     transition: 0.5s ease-in-out;
     border-radius: var(--border-radius);
@@ -100,9 +101,6 @@
 
 }
 
-.text-component-dropdown > .submenu-content > :first-child {
-    margin-top: -40px;
-}
 
 
 

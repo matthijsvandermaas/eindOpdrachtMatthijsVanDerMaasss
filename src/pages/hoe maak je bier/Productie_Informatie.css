@@ -7,9 +7,9 @@
     margin: 20px 0;
 }
 
-
-
-
+.text-component-dropdown > .submenu-content > :first-child {
+    margin-top: -40px;
+}
 
 
 

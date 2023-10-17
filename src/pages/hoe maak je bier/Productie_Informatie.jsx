@@ -5,7 +5,8 @@ import Text_component from "../../components/texts_components/Text-component.jsx
 
 import hop from "../../assets/hoe maak je bier/hop.png"
 import malt from "../../assets/hoe maak je bier/malt.png"
-import het_Proces from "../../assets/hoe maak je bier/staps_Of_Production.png"
+import het_Proces1 from "../../assets/hoe maak je bier/staps_Of_Production.png"
+import het_Proces2 from "../../assets/hoe maak je bier/staps_Of_Production_Img.png"
 import water from "../../assets/hoe maak je bier/water.png"
 import gist from "../../assets/hoe maak je bier/yeast.png"
 import all_Soorten_Bieren from"../../assets/hoe maak je bier/all_kinds_of_beer.png";
@@ -59,7 +60,8 @@ function Productie_Informatie() {
                     )}
                 </div>
                 <div className="text-image">
-                    <img src={het_Proces} alt="Het brouwproces"/>
+                    <img src={het_Proces1} alt="Het brouwproces"/>
+                    <img src={het_Proces2} alt="Het brouwproces"/>
                 </div>
             </div>
             <div className="text-row content_2 border_bottom_left">
