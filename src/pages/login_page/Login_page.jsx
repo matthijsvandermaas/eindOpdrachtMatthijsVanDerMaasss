@@ -43,7 +43,7 @@ function login(){
                         placeholder="Enter password"
                     />
                 </div>
-                <p>nog geen lid, kom erbij en<Link to="/"><strong> schrijf je in!</strong></Link></p>
+                <p>nog geen lid, kom erbij en<Link to="/inschrijfformulier"><strong> schrijf je in!</strong></Link></p>
                 <div>
                     <button type="submit" className="bttn">
                         inloggen

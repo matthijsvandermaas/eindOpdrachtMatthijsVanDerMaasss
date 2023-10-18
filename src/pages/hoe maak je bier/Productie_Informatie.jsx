@@ -64,6 +64,24 @@ function Productie_Informatie() {
                     <img src={het_Proces2} alt="Het brouwproces"/>
                 </div>
             </div>
+            <div className="text-row content_1 border_left">
+                <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('ibu')} onMouseLeave={() => handleMouseLeave('ibu')}>
+                    <Text_component
+                        Text_Title="IBU"
+                        Text_Header="test text1" />
+                    {dropdownStates.ibu && (
+                        <div className="submenu-content">
+                            <Text_component
+                                Text_Message2="test text2"
+                                Text_Message3="test text3" />
+                        </div>
+                    )}
+                </div>
+
+                <div className="text-image">
+                    <img src={IBU} alt="IBU_logo"/>
+                </div>
+            </div>
             <div className="text-row content_2 border_bottom_left">
                 <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('verschillendeSoortenBier')} onMouseLeave={() => handleMouseLeave('verschillendeSoortenBier')}>
                     <Text_component
@@ -86,24 +104,6 @@ function Productie_Informatie() {
             </div>
             <h2>het proces</h2>
             <div className="text-row content_1 border_top_left">
-                <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('ibu')} onMouseLeave={() => handleMouseLeave('ibu')}>
-                <Text_component
-                        Text_Title="IBU"
-                        Text_Header="test text1" />
-                    {dropdownStates.ibu && (
-                        <div className="submenu-content">
-                            <Text_component
-                                Text_Message2="test text2"
-                                Text_Message3="test text3" />
-                        </div>
-                    )}
-                </div>
-
-                <div className="text-image">
-                    <img src={IBU} alt="IBU_logo"/>
-                </div>
-            </div>
-            <div className="text-row content_1 border_left">
                 <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('hop')} onMouseLeave={() => handleMouseLeave('hop')}>
                     <Text_component
                         Text_Title="Hop"

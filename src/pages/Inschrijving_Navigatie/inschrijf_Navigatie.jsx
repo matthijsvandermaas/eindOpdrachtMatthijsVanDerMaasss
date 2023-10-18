@@ -25,9 +25,9 @@ function Inschrijf_Navigatie() {
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_particulier")}>Particulier</button>
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_producent")}>Zakelijk</button>
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_product")}>product</button>
-                        <h2>
+                        <p>
                             Already registered <a href="/login_page">login</a>
-                        </h2>
+                        </p>
                     </div>
 
 

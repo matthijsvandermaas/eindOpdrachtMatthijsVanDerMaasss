@@ -55,9 +55,9 @@ Table of Contents:
     border: 0;
 }
 .outer-outer-container {
-    height: 100vh;
+    height: auto;
     width: 100vw;
-    min-width: 800px;
+    min-width: auto;
     max-height: 1500px;
     max-width: 3000px;
     background: var(--background-gradient);
@@ -83,9 +83,8 @@ Table of Contents:
     height: 40vh;
     width: 100vw;
     max-height: 40vh;
-    margin: 0;
-    padding: 0;
 }
+
 .header-container {
     display: flex;
     flex-direction: row;
@@ -94,7 +93,7 @@ Table of Contents:
     height: 12vh;
     width: 100%;
     max-height: 20vh;
-    margin: 0 0 0 0 ;
+
     padding: 10px 0;
     position: relative;
 }
@@ -157,12 +156,16 @@ Table of Contents:
     box-shadow: var(--shadow);
     flex-direction: row;
     width: 100%;
-    max-height: 15vh;
-    min-height: 12vh;
+    height: 10vh;
+    max-height: 400px;
+    min-height: 200px;
     background-image: url('../src/assets/logos and backgrounds/grain.svg');
     background-size: cover;
     background-position: center;
     object-fit: contain;
+}
+.footer-container p{
+    text-align: center;
 }
 
 /*///2.1 variable styles///*/
@@ -190,6 +193,10 @@ p{
 }
 
 /*///4. utility///*/
+p a {
+    text-decoration: none;
+    color: black;
+}
 .debug {
     border: 2px solid red;
 }

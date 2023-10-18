@@ -80,6 +80,9 @@ return (
                 </div>
                 <div className="footer-container">
                     <div className="footer-background">
+                        <p>This page is made possible by <a href="https://www.novi.nl/" target="_blank">NOVI hogeschool</a>.</p>
+                        <p>en</p>
+                        <p>Trademark <em>van der Maas productions™</em></p>
                     </div>
                 </div>
             </div>
