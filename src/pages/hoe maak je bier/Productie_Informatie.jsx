@@ -43,6 +43,9 @@ function Productie_Informatie() {
         <>
         <div className="informatie_container background">
             <h1>Hoe maak je bier?</h1>
+            <section id="algemene-informatie">
+            <h2>Algemeen informatie</h2>
+
             <div className="text-row content_2 border_top_left">
                 <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('bierBrouwen')} onMouseLeave={() => handleMouseLeave('bierBrouwen')}>
                     <Text_component
@@ -102,7 +105,10 @@ function Productie_Informatie() {
                     <img src={all_Soorten_Bieren} alt="vele soorten bier"/>
                 </div>
             </div>
-            <h2>het proces</h2>
+            </section>
+            <section id="het-proces">
+            <h2>het brouw proces</h2>
+
             <div className="text-row content_1 border_top_left">
                 <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('hop')} onMouseLeave={() => handleMouseLeave('hop')}>
                     <Text_component
@@ -175,6 +181,7 @@ function Productie_Informatie() {
                     <img src={gist} alt="gist"/>
                 </div>
             </div>
+                </section>
         </div>
         </>
     );

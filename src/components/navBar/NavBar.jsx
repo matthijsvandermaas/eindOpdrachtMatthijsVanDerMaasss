@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 function Navbar() {
     const [submenuStatus, setSubmenuStatus] = useState({
         isSubmenuOpen1: false,
+        isSubmenuOpen2: false,
 
     });
 
@@ -38,6 +39,18 @@ function Navbar() {
                     </div>
                     <NavLink to="/alle_producten">Alle Bieren</NavLink>\\TODO
                     <NavLink to="/Productie_Informatie">hoe maak je bier</NavLink>//TODO
+                    <div className="submenu" onClick={() => toggleSubmenu(2)}>
+                        <div>
+                            <p>  <NavLink to="/Productie_Informatie">Hoe maak je bier🞃</NavLink></p>//TODO
+                        </div>
+                        {submenuStatus.isSubmenuOpen2 && (
+                            <div className="submenu-content">
+                                <NavLink to="/Productie_Informatie#algemene-informatie">Algemene Informatie</NavLink>//TODO
+                                <NavLink to="/Productie_Informatie#het-proces">Het brouw proces</NavLink>//TODO
+
+                            </div>
+                        )}
+                    </div>
                 </li>
             </ul>
         </div>
