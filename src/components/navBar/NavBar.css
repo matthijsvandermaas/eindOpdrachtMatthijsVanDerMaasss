@@ -27,8 +27,21 @@
     margin-left:  -20px;
     font-family: 'Poppins', sans-serif;
     color: var(--line-blue);
-    font-size: 1.2em;
+    font-size: 1em;
 }
+.navBar-bttn {
+    background: transparent;
+    border: none;
+    transition: 10s background-image,  right ease-in-out;
+}
+.navBar-bttn h1:hover{
+    display: block;
+    background-image: var(--green-blue-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 /*dropdown-content*/
 .dropdown {
     position: absolute;
@@ -47,16 +60,17 @@
     justify-content: flex-start;
     display: none;
     background-color: rgba(255, 255, 255, 0.06);
-    min-width: 40px;
+    width: auto;
+    white-space: nowrap;
     z-index: 1;
     opacity: 0;
-    transform: translateY(-46px) translateX(-180px);
+    transform: translateY(-46px) translateX(-190px);
     transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Voeg overgangen toe aan opacity en transform */
     padding: 10px 30px;
     position: absolute;
     top: 100%;
     list-style-type: none;
-    font-size: 2em;
+    font-size: 1.7em;
     border: 2px solid var(--line-blue);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
@@ -64,12 +78,10 @@
     border-right: var(--line-blue);
 }
 .dropdown-content:hover {
+
     box-shadow: var(--box-shadow_2);
 }
-.navBar-bttn {
-    background: transparent;
-    border: none;
-}
+
 .dropdown-content a {
     background: rgba(255, 255, 255, 0.5);
     text-decoration: none;
@@ -87,12 +99,16 @@
 .dropdown:hover .dropdown-content {
     display: block;
     background: rgba(255, 255, 255, 0.12);
-    opacity: 1; /* Maak de inhoud zichtbaar */
+    opacity: 1;
 }
 /*submenu-content*/
 .submenu-content {
     justify-content: flex-start;
     margin-left: 2vw;
+}
+#algemene-informatie,
+#het-proces {
+    padding-top: 50px;
 }
 /*submenu*/
 .submenu p {
@@ -129,4 +145,6 @@
 .submenu:hover .more_container {
     display: block;
 }
+
+
 

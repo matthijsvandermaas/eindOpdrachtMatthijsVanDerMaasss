@@ -134,7 +134,7 @@ Table of Contents:
     max-width: 120px;
     max-height: 120px;
     border-radius: 30px;
-    transform: rotatey(180deg) translateX(-55px);
+    transform: rotatey(180deg) translateX(-45px);
 }
 .main-container {
     display: flex;

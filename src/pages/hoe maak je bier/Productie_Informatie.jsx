@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Productie_Informatie.css';
 import '../../components/navBar/NavBar.css';
 import Text_component from "../../components/texts_components/Text-component.jsx";
@@ -13,7 +13,8 @@ import all_Soorten_Bieren from"../../assets/hoe maak je bier/all_kinds_of_beer.p
 import IBU from"../../assets/hoe maak je bier/ibu.jpg";
 
 function Productie_Informatie() {
-
+    const hetProcesRef = useRef(null);
+    const algemene_infoRef = useRef(null);
     const [dropdownStates, setDropdownStates] = useState({
         bierBrouwen: false,
         verschillendeSoortenBier: false,
@@ -43,7 +44,7 @@ function Productie_Informatie() {
         <>
         <div className="informatie_container background">
             <h1>Hoe maak je bier?</h1>
-            <section id="algemene-informatie">
+            <section id="algemene-informatie" ref={hetProcesRef}>>
             <h2>Algemeen informatie</h2>
 
             <div className="text-row content_2 border_top_left">
@@ -106,7 +107,7 @@ function Productie_Informatie() {
                 </div>
             </div>
             </section>
-            <section id="het-proces">
+            <section id="het-proces"ref={algemene_infoRef}>
             <h2>het brouw proces</h2>
 
             <div className="text-row content_1 border_top_left">

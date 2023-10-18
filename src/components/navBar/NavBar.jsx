@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
+import React, {useRef, useState} from 'react';
 import './navbar.css';
 import { NavLink } from 'react-router-dom';
 
 function Navbar() {
+    const hetProcesRef = useRef(null);
+    const algemene_infoRef = useRef(null);
+
+    const scrollToHetProces = () => {
+        hetProcesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    };
+
+    const scrollToAlgemene_info = () => {
+        algemene_infoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    };
+
+
     const [submenuStatus, setSubmenuStatus] = useState({
         isSubmenuOpen1: false,
         isSubmenuOpen2: false,
@@ -38,16 +50,14 @@ function Navbar() {
                         )}
                     </div>
                     <NavLink to="/alle_producten">Alle Bieren</NavLink>\\TODO
-                    <NavLink to="/Productie_Informatie">hoe maak je bier</NavLink>//TODO
                     <div className="submenu" onClick={() => toggleSubmenu(2)}>
-                        <div>
-                            <p>  <NavLink to="/Productie_Informatie">Hoe maak je bier🞃</NavLink></p>//TODO
-                        </div>
+                            <NavLink to="/Productie_Informatie">Hoe maak je bier🞃</NavLink>//TODO
                         {submenuStatus.isSubmenuOpen2 && (
                             <div className="submenu-content">
-                                <NavLink to="/Productie_Informatie#algemene-informatie">Algemene Informatie</NavLink>//TODO
-                                <NavLink to="/Productie_Informatie#het-proces">Het brouw proces</NavLink>//TODO
-
+                                <NavLink to="/Productie_Informatie#algemene-informatie"onClick={scrollToAlgemene_info}>Algemene Informatie</NavLink>
+                                <NavLink to="/Productie_Informatie#het-proces" onClick={scrollToHetProces}>
+                                    Het brouw proces
+                                </NavLink>
                             </div>
                         )}
                     </div>
