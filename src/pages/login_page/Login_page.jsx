@@ -6,6 +6,7 @@ import slider_Img_One from '../../assets/hoe maak je bier/hop.png';
 import slider_Img_Two from '../../assets/hoe maak je bier/yeast.png';
 import slider_Img_Three from '../../assets/hoe maak je bier/malt.png';
 import slider_Img_Four from '../../assets/hoe maak je bier/gist.png';
+import {Link} from "react-router-dom";
 
 // https://codesandbox.io/s/github/SinghDigamber/react-login-signup-ui-template/tree/master/?from-embed=&file=/src/index.css
 function login(){
@@ -26,7 +27,7 @@ function login(){
                         setSlideIndex={setSlideIndex} />
                     <h1>Gezellig dat je er bent, kom je inschrijven of inloggen?</h1>
             <form className="form-content background-login">
-                <div className="">
+                <div>
                     <label>Email address</label>
                     <input
                         type="email"
@@ -34,7 +35,7 @@ function login(){
                         placeholder="Enter email"
                     />
                 </div>
-                <div className="">
+                <div>
                     <label>Password</label>
                     <input
                         type="password"
@@ -42,9 +43,10 @@ function login(){
                         placeholder="Enter password"
                     />
                 </div>
-                <div className="">
+                <p>nog geen lid, kom erbij en<Link to="/"><strong> schrijf je in!</strong></Link></p>
+                <div>
                     <button type="submit" className="bttn">
-                        inschrijven
+                        inloggen
                     </button>
                 </div>
 
