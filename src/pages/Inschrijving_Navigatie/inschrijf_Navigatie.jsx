@@ -5,6 +5,7 @@ import '../../components/inschrijfform/InschrijfFormProducer.jsx';
 import '../../components/inschrijfform/InschrijfFormParticulier.jsx';
 import '../../components/inschrijfform/InschrijfFormProduct.jsx';
 import wheat from "../../assets/logos and backgrounds/wheat.png";
+import Cubes from "../../components/cubes/Cubes.jsx";
 
 
 function Inschrijf_Navigatie() {
@@ -32,6 +33,16 @@ function Inschrijf_Navigatie() {
 
                 </div>
                 <img src={wheat} alt="afbeelding" />
+                <Cubes
+                    button_1="inschrijven"
+                    navigate_1="/inschrijfformulier"
+                    button_2="inloggen"
+                    navigate_2="/login_page"
+                    button_3="al onze producten"
+                    navigate_3="/alle_producten"
+                    button_4="hoe maak je bier"
+                    navigate_4="/Productie_Informatie"
+                />
             </div>
 
         </>
