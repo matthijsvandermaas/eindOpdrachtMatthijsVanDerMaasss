@@ -44,7 +44,7 @@ function Productie_Informatie() {
         <>
         <div className="informatie_container background">
             <h1>Hoe maak je bier?</h1>
-            <section id="algemene-informatie" ref={hetProcesRef}>>
+            <section id="algemene-informatie" ref={hetProcesRef}>
             <h2>Algemeen informatie</h2>
 
             <div className="text-row content_2 border_top_left">
