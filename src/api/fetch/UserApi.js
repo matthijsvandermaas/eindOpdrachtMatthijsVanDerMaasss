@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const UserApi = "https://localhost:8080/inschrijfformulier/particulier";
+const UserApi = "https://localhost:8080/particulieren";
 
 const fetchUserData = async (First_Name, Last_Name) => {
     try {

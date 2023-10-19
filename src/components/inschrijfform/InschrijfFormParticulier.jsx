@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
+import error from "../../pages/error/Error.jsx";
 
 axios.post = async function (httpLocalhost5173ParticulierenInschrijving, formData) {
 
@@ -9,16 +10,15 @@ axios.post = async function (httpLocalhost5173ParticulierenInschrijving, formDat
 
 function InschrijfFormParticulier() {
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        userName: '',
-        password: '',
+        firstName: 'roepnaam',
+        lastName: 'tussenvoegsel_achternaam',
+        email: 'email@eamil.com',
+        userName: 'gebruikersnaam',
+        password: 'wachtwoord',
         role: 'USER, ADMIN'
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-
 
 
     const handleInputChange = (e) => {
@@ -32,7 +32,9 @@ function InschrijfFormParticulier() {
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            const response = await axios.post('http://localhost:8080/particulieren/inschrijving', formData);
+            const response = await axios.post('http://localhost:8080/particulieren', formData);
+            console.log("Response Status Code:", response?.status);
+            console.log("Response Data:", response.data);
             if (response && response.data) {
                 console.log(response.data);
                 setErrorMessage('');
@@ -50,6 +52,7 @@ function InschrijfFormParticulier() {
 
 
 
+    console.log(formData);
     return (
         <>
             <div className="form-container">
