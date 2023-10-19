@@ -45,7 +45,7 @@ return (
                     <div className="headerlogo-container">
                         <NavLink to="/"><img className="logo-img" src={logoSrc}  alt="B&B Logo" /></NavLink>
                         <div className="dropdown">
-                            <button className="navBar-bttn"><img className="wheat_logo" src={wheat} alt="wheat-logo"/>
+                          <button className="navBar-bttn"><img className="wheat_logo" src={wheat} alt="wheat-logo"/>
                                 <h1>menu</h1></button>
                             <Navbar activeTab={activeTab} handleTabChange={handleTabChange}/>
 

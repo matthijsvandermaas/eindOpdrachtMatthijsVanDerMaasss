@@ -25,7 +25,7 @@ Table of Contents:
     --gradient: radial-gradient(circle farthest-side at center center, #fdf699 80%, #ffed2d 95%, rgba(255, 237, 45, 0.9));
     --background-gradient: radial-gradient(circle farthest-side at center center, rgba(253, 246, 153, 0.12) 80%, rgba(255, 237, 45, 0.12) 95%, rgba(255, 237, 45, 0.12));
     --line-blue: rgb(68, 88, 132);
-    --green-blue-gradient: linear-gradient(44deg, #78a80f 0%, rgb(68, 88, 132) 95%);
+    --green-blue-gradient: linear-gradient(44deg, #78a80f 30%, rgb(68, 88, 132) 100%);
     --light-dark-gradient: linear-gradient(44deg, rgba(68, 88, 132, 0.5) 0%, rgb(68, 88, 132) 95%);
     --line-blue-2: rgba(68, 88, 132, 0.5);
     --line-blue-3: rgba(68, 88, 132, 0.2);
@@ -95,7 +95,7 @@ Table of Contents:
     transition: 1s ease-in-out;
 }
 .header-logo-container h1{
-    transition: 0.5s ease-in-out;
+    transition: 0.5s background-image,  ease-in-out;
 }
 .header-logo-container h1:hover{
     background-image: var(--green-blue-gradient);
