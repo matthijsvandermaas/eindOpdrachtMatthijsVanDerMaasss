@@ -49,9 +49,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: 50%; /* Plaats de dropdown in het midden van de header-container */
-    transform: translateY(40px) translateX(160px); /* Middelste uitlijning verticaal en iets naar links verschoven */
-    right: 10px; /* Plaats de dropdown 10px vanaf de rechterkant */
+    top: 50%;
+    transform: translateY(40px) translateX(160px);
+    right: 10px;
     transition: 0.5s ease-in-out;
     border-top: var(--line-blue);
     border-bottom: var(--line-blue);
@@ -108,7 +108,7 @@
 }
 #algemene-informatie,
 #het-proces {
-    padding-top: 50px;
+    padding-top: 20px;
 }
 /*submenu*/
 .submenu p {
