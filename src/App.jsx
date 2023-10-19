@@ -17,21 +17,12 @@ import Error from "./pages/error/Error.jsx";
 // import Mijn_bieren from "./pages/hoe maak je bier/Mijn_bieren.jsx";
 // import Mijn_gegevens from "./pages/hoe maak je bier/Mijn_pagina.jsx";
 
-
-
-
-
-
-
 function App() {
     const [activeTab, setActiveTab] = useState('Home');
     const [logoSrc, setLogoSrc] = useState("");
     const handleTabChange = (tabName) => {
         setActiveTab(tabName);
     };
-
-
-
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth <= 480) {
@@ -40,7 +31,6 @@ function App() {
                 setLogoSrc(logoImage);
             }
         };
-
         window.addEventListener('resize', handleResize);
         handleResize();
 
@@ -48,8 +38,6 @@ function App() {
             window.removeEventListener('resize', handleResize);
         };
     }, [logoImage, logoImage_Klein]);
-
-
 return (
         <div className="outer-outer-container">
             <div className="outer-container">
@@ -64,7 +52,6 @@ return (
                         </div>
                     </div>
                 </div>
-
                 <div className="main-container">
                     <Routes>
                         <Route path="/" element={<Home />} />
@@ -78,7 +65,7 @@ return (
                         <Route path="/*" element={<Error />} />
                     </Routes>
                 </div>
-                <div className="footer-container">
+                <div className="footer-container background">
                     <div className="footer-background">
                         <p>This page is made possible by <a href="https://www.novi.nl/" target="_blank">NOVI hogeschool</a>.</p>
                         <p>en</p>

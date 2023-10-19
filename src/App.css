@@ -123,8 +123,6 @@ Table of Contents:
     box-shadow: 2px 2px 58px 4px rgb(255, 255, 255), 2px 2px 58px 4px rgb(255, 253, 229);
     margin: 10px 10px;
 }
-
-
 .logo-img:hover{
     box-shadow: inset 12px 12px 100px var(--line-blue-2);
 }
@@ -146,7 +144,7 @@ Table of Contents:
     max-height:  1000px;
     width: 98vw;
     overflow-y: auto; /* Voeg een scrollbar toe indien nodig */
-    margin: 20px;
+    margin: 20px 20px 0 20px;
     padding: 0;
 }
 .footer-container {
@@ -159,17 +157,15 @@ Table of Contents:
     height: 10vh;
     max-height: 400px;
     min-height: 200px;
-    background-image: url('../src/assets/logos and backgrounds/grain.svg');
-    background-size: cover;
-    background-position: center;
-    object-fit: contain;
+    /*background-image: url('../src/assets/logos and backgrounds/grain.svg');*/
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    /*object-fit: contain;*/
 }
 .footer-container p{
     text-align: center;
 }
-
 /*///2.1 variable styles///*/
-
 /*///2. Typography///*/
 h1, h2, h3 {
     font-family: 'Roboto', sans-serif;
@@ -191,7 +187,6 @@ p{
     font-size: 1em;
     margin-top: 0;
 }
-
 /*///4. utility///*/
 p a {
     text-decoration: none;
@@ -222,7 +217,6 @@ p a {
     box-shadow: inset 6px 6px 25px var(--line-blue-2);
     border: 2px solid var(--line-blue);
 }
-
 .background {
     background-image: url('../src/assets/logos and backgrounds/grain.svg');
     background-size: cover;
@@ -231,7 +225,6 @@ p a {
     width: 100%;
     height: auto;
 }
-
 .inhance {
     width: 60%;
     height: 50%;
@@ -244,25 +237,19 @@ p a {
     box-shadow: var(--box-shadow_1);
 }
 
-
-
 /*///6. Areas///*/
-
 /* 6.2 scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
     background: transparent;
 }
-
 ::-webkit-scrollbar-track {
     background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
     background: var(--line-blue);
     border-radius: 6px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background: var(--line-blue-2);
 }
