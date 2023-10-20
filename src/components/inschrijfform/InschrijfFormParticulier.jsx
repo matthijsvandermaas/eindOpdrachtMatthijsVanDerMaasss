@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
@@ -29,6 +29,7 @@ function InschrijfFormParticulier() {
         setIsSubmitting(true);
         try {
             const response = await axios.post('http://localhost:8081/particulieren', formData);
+            const responseData = response?.data;
             console.log("Response Data:", response.data);
             console.log(formData);
             if (response && response.data) {

@@ -206,6 +206,7 @@ p a {
     box-shadow: inset 6px 6px 25px var(--line-blue-2);
     border: 2px solid var(--line-blue);
 }
+
 .background {
     background-image: url('../src/assets/logos and backgrounds/grain.svg');
     background-size: cover;

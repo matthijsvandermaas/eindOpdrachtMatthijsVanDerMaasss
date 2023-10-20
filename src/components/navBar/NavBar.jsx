@@ -54,7 +54,7 @@ function Navbar() {
                             <NavLink to="/Productie_Informatie">Hoe maak je bier🞃</NavLink>//TODO
                         {submenuStatus.isSubmenuOpen2 && (
                             <div className="submenu-content">
-                                <NavLink to="/Productie_Informatie#algemene-informatie"onClick={scrollToAlgemene_info}>Algemene Informatie</NavLink>
+                                <NavLink to='/Productie_Informatie#algemene-informatie' onClick={scrollToAlgemene_info}>Algemene Informatie</NavLink>
                                 <NavLink to="/Productie_Informatie#het-proces" onClick={scrollToHetProces}>
                                     Het brouw proces
                                 </NavLink>
