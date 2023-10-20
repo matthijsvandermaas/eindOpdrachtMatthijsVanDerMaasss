@@ -2,19 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
-import error from "../../pages/error/Error.jsx";
 
-axios.post = async function (httpLocalhost5173ParticulierenInschrijving, formData) {
-
-};
 
 function InschrijfFormParticulier() {
     const [formData, setFormData] = useState({
-        firstName: 'roepnaam',
-        lastName: 'tussenvoegsel_achternaam',
-        email: 'email@eamil.com',
-        userName: 'gebruikersnaam',
-        password: 'wachtwoord',
+        firstName: '',
+        lastName: '',
+        email: '',
+        userName: '',
+        password: '',
         role: 'USER, ADMIN'
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,9 +28,9 @@ function InschrijfFormParticulier() {
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            const response = await axios.post('http://localhost:8080/particulieren', formData);
-            console.log("Response Status Code:", response?.status);
+            const response = await axios.post('http://localhost:8081/particulieren', formData);
             console.log("Response Data:", response.data);
+            console.log(formData);
             if (response && response.data) {
                 console.log(response.data);
                 setErrorMessage('');
@@ -44,15 +40,18 @@ function InschrijfFormParticulier() {
             }
         } catch (error) {
             console.error('Fout bij het versturen van het verzoek:', error);
+            if (error.response && error.response.status) {
+                console.log("Fout Status Code:", error.response.status);
+            }
             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
+
         } finally {
-            setIsSubmitting(false);
-        }
+        setIsSubmitting(false);
+    }
     };
 
 
 
-    console.log(formData);
     return (
         <>
             <div className="form-container">
@@ -123,6 +122,7 @@ function InschrijfFormParticulier() {
                         button_4="hoe maak je bier"
                         navigate_4="/Productie_Informatie"
                     />
+
                 </div>
             </div>
         </>
