@@ -11,7 +11,7 @@ function InschrijfFormParticulier() {
         email: '',
         userName: '',
         password: '',
-        role: 'USER, ADMIN'
+        role: 'CONSUMER, USER'
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -66,6 +66,7 @@ function InschrijfFormParticulier() {
                                 name="firstName"
                                 value={formData.firstName}
                                 onChange={handleInputChange}
+                                placeholder="voornaam"
                                 required
                             />
                         </div>
@@ -76,6 +77,7 @@ function InschrijfFormParticulier() {
                                 name="lastName"
                                 value={formData.lastName}
                                 onChange={handleInputChange}
+                                placeholder="tussen voegsel en achternaam"
                                 required
                             />
                         </div>
@@ -86,6 +88,7 @@ function InschrijfFormParticulier() {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleInputChange}
+                                placeholder="e-mail"
                                 required
                             />
                         </div>
@@ -96,6 +99,7 @@ function InschrijfFormParticulier() {
                                 name="userName"
                                 value={formData.userName}
                                 onChange={handleInputChange}
+                                placeholder="gebruikersnaam"
                                 required
                             />
                         </div>
@@ -106,6 +110,7 @@ function InschrijfFormParticulier() {
                                 name="password"
                                 value={formData.password}
                                 onChange={handleInputChange}
+                                placeholder="wachtwoord"
                                 required
                             />
                         </div>
@@ -113,6 +118,7 @@ function InschrijfFormParticulier() {
                             {isSubmitting ? 'Bezig met inschrijven...' : 'Inschrijven'}
                         </button>
                     </form>
+                    <p>Ander formulieren</p>
                     <Cubes
                         button_1="inschrijven"
                         navigate_1="/inschrijfformulier"

@@ -47,16 +47,18 @@ form div {
     align-items: center;
     flex-wrap: wrap;
 }
-label {
+form div label {
     font-weight: bold;
     flex: 1;
     margin-right: 10px; /* Ruimte tussen label en invoerveld */
 }
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-input[type="file"] {
+
+form div input[type="text"],
+form div input[type="email"],
+form div input[type="password"],
+form div input[type="number"],
+form div input[type="file"],
+form div select {
     flex: 2;
     padding: 8px;
     width: 100%;

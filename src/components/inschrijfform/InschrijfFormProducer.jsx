@@ -1,91 +1,79 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
 
 function InschrijfFormProducer() {
-    const [First_name, setFirst_Name] = useState('');
-    const [Last_name, setLast_Name] = useState('');
-    const [Owner, setOwner] = useState('');
-    const [Name_Brewery, setName_Brewery] = useState('');
-    const [Street_Name, setStreet_Name] = useState('');
-    const [House_Number, setHouse_Number] = useState('');
-    const [Zipcode, setZipcode] = useState('');
-    const [City, setCity] = useState('');
-    const [Brand_Name, setBrand_Name] = useState('');
-    const [Sale_location, setSale_location] = useState('');
-    const [Email, setEmail] = useState('');
-    const [User_Name, setUser_Name] = useState('');
-    const [Password, setPassword] = useState('');
+    const [brandNames, setBrandNames] = useState([]); // Staat voor de merknamen in een array
 
-    const handleFirst_NameChange = (e) => {
-        setFirst_Name(e.target.value);
+    const handleBrandNameChange = (e) => {
+        const { value } = e.target;
+        // Voeg de nieuwe merknaam toe aan de array
+        setBrandNames([...brandNames, value]);
+    };
+    const [saleLocationNames, setSaleLocationNames] = useState([]); // Staat voor de merknamen in een array
+
+    const handleSaleLocationNamesChange = (e) => {
+        const { value } = e.target;
+        // Voeg de nieuwe merknaam toe aan de array
+        setSaleLocationNames([...setSaleLocationNames, value]);
     };
 
-    const handleLast_NameChange = (e) => {
-        setLast_Name(e.target.value);
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        owner: '',
+        nameBrewery: '',
+        saleLocation:'',
+        street: '',
+        houseNumber: '',
+        zipcode: '',
+        city: '',
+        brands: '',
+        email: '',
+        userName: '',
+        password: '',
+        role: 'BREWER, USER'
+    });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleInputChange = (e) => {
+        const { producer, value } = e.target;
+        setFormData({
+            ...formData,
+            [producer]: value
+        });
     };
 
-    const handleOwnerChange = (e) => {
-        setOwner(e.target.value);
-    };
-
-    const handleName_BreweryChange = (e) => {
-        setName_Brewery(e.target.value);
-    };
-
-    const handleStreet_NameChange = (e) => {
-        setStreet_Name(e.target.value);
-    };
-
-    const handleHouse_NumberChange = (e) => {
-        setHouse_Number(e.target.value);
-    };
-
-    const handleZipcodeChange = (e) => {
-        setZipcode(e.target.value);
-    };
-
-    const handleCityChange = (e) => {
-        setCity(e.target.value);
-    };
-
-    const handleBrand_NameChange = (e) => {
-        setBrand_Name(e.target.value);
-    };
-
-    const handleSale_locationChange = (e) => {
-        setSale_location(e.target.value);
-    };
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-
-    const handleUser_NameChange = (e) => {
-        setUser_Name(e.target.value);
-    };
-
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Hier kun je de ingevoerde gegevens verwerken, bijvoorbeeld naar een API verzenden of lokaal opslaan
-        console.log('Voornaam:', First_name);
-        console.log('Achternaam:', Last_name);
-        console.log('Eigenaar:', Owner);
-        console.log('Brouwerijnaam:', Name_Brewery);
-        console.log('Straatnaam:', Street_Name);
-        console.log('Huisnummer:', House_Number);
-        console.log('Postcode:', Zipcode);
-        console.log('Plaats:', City);
-        console.log('Merknaam:', Brand_Name);
-        console.log('Verkooplocatie:', Sale_location);
-        console.log('E-mail:', Email);
-        console.log('Gebruikersnaam:', User_Name);
-        console.log('Wachtwoord:', Password);
+        setIsSubmitting(true);
+        try {
+            const response = await axios.post('http://localhost:8081/producenten', formData);
+            const responseData = response?.data;
+            console.log("Response Data:", response.data);
+            console.log(formData);
+            if (response && response.data) {
+                console.log(response.data);
+                setErrorMessage('');
+            } else {
+                console.error('Fout bij het versturen van het verzoek: ongeldige reactie');
+                setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
+            }
+        } catch (error) {
+            console.error('Fout bij het versturen van het verzoek:', error);
+            if (error.response && error.response.status) {
+                console.log("Fout Status Code:", error.response.status);
+            }
+            setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
+
+        } finally {
+            setIsSubmitting(false);
+        }
     };
+  
 
     return (
         <>
@@ -97,44 +85,49 @@ function InschrijfFormProducer() {
                             <label>Voornaam:</label>
                             <input
                                 type="text"
-                                value={First_name}
-                                onChange={handleFirst_NameChange}
+                                value={formData.firstName}
+                                onChange={handleInputChange}
                                 placeholder="voornaam"
+                                required
                             />
                         </div>
                         <div>
                             <label>Achternaam:</label>
                             <input
                                 type="text"
-                                value={Last_name}
-                                onChange={handleLast_NameChange}
-                                placeholder="tussenvoegsel en achternaam"
+                                name="lastName"
+                                value={formData.lastName}
+                                onChange={handleInputChange}
+                                placeholder="tussen voegsel en achternaam"
+                                required
                             />
                         </div>
                         <div>
                             <label>Eigenaar:</label>
                             <input
                                 type="text"
-                                value={Owner}
-                                onChange={handleOwnerChange}
+                                value={formData.owner}
+                                onChange={handleInputChange}
                                 placeholder="voledige naam eigenaar"
+                                required
                             />
                         </div>
                         <div>
                             <label>Brouwerijnaam:</label>
                             <input
                                 type="text"
-                                value={Name_Brewery}
-                                onChange={handleName_BreweryChange}
+                                value={formData.nameBrewery}
+                                onChange={handleInputChange}
                                 placeholder="brouwerij"
+                                required
                             />
                         </div>
                         <div>
                             <label>Straatnaam:</label>
                             <input
                                 type="text"
-                                value={Street_Name}
-                                onChange={handleStreet_NameChange}
+                                value={formData.street}
+                                onChange={handleInputChange}
                                 placeholder="straat"
                             />
                         </div>
@@ -142,8 +135,8 @@ function InschrijfFormProducer() {
                             <label>Huisnummer:</label>
                             <input
                                 type="text"
-                                value={House_Number}
-                                onChange={handleHouse_NumberChange}
+                                value={formData.houseNumber}
+                                onChange={handleInputChange}
                                 placeholder="huisnummer"
                             />
                         </div>
@@ -151,8 +144,8 @@ function InschrijfFormProducer() {
                             <label>Postcode:</label>
                             <input
                                 type="text"
-                                value={Zipcode}
-                                onChange={handleZipcodeChange}
+                                value={formData.zipcode}
+                                onChange={handleInputChange}
                                 placeholder="postcode"
                             />
                         </div>
@@ -160,57 +153,69 @@ function InschrijfFormProducer() {
                             <label>Plaats:</label>
                             <input
                                 type="text"
-                                value={City}
-                                onChange={handleCityChange}
-                                placeholder="plaats"
+                                value={formData.city}
+                                onChange={handleInputChange}
+                                placeholder="stad"
                             />
+                        </div>
+                        <div>
+                            <label>Verkooplocaties:</label>
+                            <input
+                                type="text"
+                                onChange={handleSaleLocationNamesChange}
+                                placeholder="verkooplocaties"
+                            />
+                            <ul>
+                                {brandNames.map((saleLocationName, index) => (
+                                    <li key={index}>{saleLocationNames}</li>
+                                ))}
+                            </ul>
                         </div>
                         <div>
                             <label>Merknaam:</label>
                             <input
                                 type="text"
-                                value={Brand_Name}
-                                onChange={handleBrand_NameChange}
+                                onChange={handleBrandNameChange}
                                 placeholder="merk"
                             />
-                        </div>
-                        <div>
-                            <label>Verkooplocatie:</label>
-                            <input
-                                type="text"
-                                value={Sale_location}
-                                onChange={handleSale_locationChange}
-                                placeholder="verkooplocaties"
-                            />
+                            <ul>
+                                {brandNames.map((brandName, index) => (
+                                    <li key={index}>{brandName}</li>
+                                ))}
+                            </ul>
                         </div>
                         <div>
                             <label>E-mail:</label>
                             <input
                                 type="email"
-                                value={Email}
-                                onChange={handleEmailChange}
+                                value={formData.email}
+                                onChange={handleInputChange}
                                 placeholder="e-mail"
+                                required
                             />
                         </div>
                         <div>
                             <label>Gebruikersnaam:</label>
                             <input
                                 type="text"
-                                value={User_Name}
-                                onChange={handleUser_NameChange}
+                                value={formData.userName}
+                                onChange={handleInputChange}
                                 placeholder="gebruikersnaam"
+                                required
                             />
                         </div>
                         <div>
                             <label>Wachtwoord:</label>
                             <input
                                 type="password"
-                                value={Password}
-                                onChange={handlePasswordChange}
+                                value={formData.password}
+                                onChange={handleInputChange}
                                 placeholder="wachtwoord"
                             />
                         </div>
-                        <button className="bttn" type="submit">Inschrijven</button>
+                        <button className="bttn" type="submit" disabled={isSubmitting}>
+                            {isSubmitting ? 'Bezig met een product inschrijven...' : 'Inschrijven'}
+                        </button>
                     </form>
                     <p>Ander formulieren</p>
                     <Cubes
@@ -226,7 +231,6 @@ function InschrijfFormProducer() {
                 </div>
             </div>
         </>
-
     );
 }
 
