@@ -166,7 +166,7 @@ function InschrijfFormProducer() {
                                 placeholder="verkooplocaties"
                             />
                             <ul>
-                                {brandNames.map((saleLocationName, index) => (
+                                {saleLocationNames.map((saleLocationName, index) => (
                                     <li key={index}>{saleLocationNames}</li>
                                 ))}
                             </ul>

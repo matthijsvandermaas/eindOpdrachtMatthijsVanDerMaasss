@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
-import HandleSubmit from "../../helpers/HandleSubmit.jsx";
 
 
 function InschrijfFormProduct() {
@@ -20,13 +19,7 @@ function InschrijfFormProduct() {
         photo2:'',
         photo3:'',
     });
-    <HandleSubmit
-        consolError1 = "Fout bij het versturen van het verzoek: ongeldige reactie"
-        consolError2 = "Fout bij het versturen van het verzoek:"
-        errorMessage
-        SubmittinBttnActive
-        SubmittinBttnInactive
-    />
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
