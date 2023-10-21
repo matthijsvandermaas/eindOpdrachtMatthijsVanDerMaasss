@@ -45,7 +45,6 @@ function Navbar() {
                             <div className="submenu-content">
                                 <NavLink to="/inschrijfformulier_particulier">Als bierliefhebber</NavLink>//TODO
                                 <NavLink to="/inschrijfformulier_producent">Als brouwer</NavLink>//TODO
-                                <NavLink to="/inschrijfformulier_product"> Een nieuwe biertje</NavLink>//TODO
                             </div>
                         )}
                     </div>
@@ -70,3 +69,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

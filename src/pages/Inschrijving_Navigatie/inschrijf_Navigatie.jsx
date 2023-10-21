@@ -24,7 +24,6 @@ function Inschrijf_Navigatie() {
                     <div className="nav-buttons">
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_particulier")}>Particulier</button>
                     <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_producent")}>Zakelijk</button>
-                    <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_product")}>product</button>
                         <p>
                             Already registered <a href="/login_page">login</a>
                         </p>

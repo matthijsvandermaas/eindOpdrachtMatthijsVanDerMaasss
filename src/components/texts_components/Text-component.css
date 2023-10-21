@@ -15,6 +15,7 @@
 .text-container{
     margin-right: 20px;
     min-width: 30vh;
+    max-width: 300px;
     padding-left: 2vw;
     text-align: left;
 }

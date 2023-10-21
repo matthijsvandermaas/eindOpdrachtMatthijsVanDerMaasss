@@ -118,16 +118,16 @@ function InschrijfFormParticulier() {
                             {isSubmitting ? 'Bezig met inschrijven...' : 'Inschrijven'}
                         </button>
                     </form>
-                    <p>Ander formulieren</p>
+                    <p>Ander pagina's</p>
                     <Cubes
-                        button_1="inschrijven"
-                        navigate_1="/inschrijfformulier"
-                        button_2="inloggen"
-                        navigate_2="/login_page"
-                        button_3="al onze producten"
-                        navigate_3="/alle_producten"
-                        button_4="hoe maak je bier"
-                        navigate_4="/Productie_Informatie"
+                        button_1="Mijn pagina"
+                        navigate_1="/mijn_pagina"
+                        button_2="Mijn bieren"
+                        navigate_2="/mijn_bieren"
+                        button_3="Home"
+                        navigate_3="/"
+                        button_4="inloggen"
+                        navigate_4="/login_page"
                     />
 
                 </div>

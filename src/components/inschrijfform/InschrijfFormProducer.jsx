@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
+import { useNavigate } from 'react-router-dom';
 
 function InschrijfFormProducer() {
+    const navigate = useNavigate();
     const [brandNames, setBrandNames] = useState([]); // Staat voor de merknamen in een array
 
     const handleBrandNameChange = (e) => {
@@ -213,16 +215,17 @@ function InschrijfFormProducer() {
                                 placeholder="wachtwoord"
                             />
                         </div>
+                        <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_product")}>Een nieuw product</button>
                         <button className="bttn" type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Bezig met een product inschrijven...' : 'Inschrijven'}
                         </button>
                     </form>
                     <p>Ander formulieren</p>
                     <Cubes
-                        button_1="Een nieuwe biertje"
-                        navigate_1="/inschrijfformulier_product"
-                        button_2="Een bierliefhebber"
-                        navigate_2="/inschrijfformulier_particulier"
+                        button_1="Mijn pagina"
+                        navigate_1="/mijn_pagina"
+                        button_2="Mijn bieren"
+                        navigate_2="/mijn_bieren"
                         button_3="Home"
                         navigate_3="/"
                         button_4="inloggen"

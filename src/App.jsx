@@ -58,8 +58,8 @@ return (
                         <Route path="/inschrijfformulier" element={<Inschrijf_Navigatie />} />
                         <Route path="/inschrijfformulier_particulier" element={<Inschrijf_Form_Particulier />} />
                         <Route path="/inschrijfformulier_producent" element={<Inschrijf_Form_Producer />} />
-                        <Route path="/Productie_Informatie" element={<Productie_Informatie />} />
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
+                        <Route path="/Productie_Informatie" element={<Productie_Informatie />} />
                         <Route path="/alle_producten" element={<Alle_bieren />} />
                         <Route path="/login_page" element={<Login_page />} />
                         <Route path="/*" element={<Error />} />

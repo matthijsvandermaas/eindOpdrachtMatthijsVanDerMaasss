@@ -202,15 +202,15 @@ function InschrijfFormProduct() {
                         />
                     </div>
                     <button className="bttn" type="submit" disabled={isSubmitting}>
-                        {isSubmitting ? 'Bezig met een product inschrijven...' : 'Inschrijven'}
+                        {isSubmitting ? 'Bezig met een product toevoegen...' : 'toevoegen'}
                     </button>
                 </form>
-                <p>Ander formulieren</p>
+                <p>Ander pagina's</p>
             <Cubes
-                button_1="Een bierliefhebber"
-                navigate_1="/inschrijfformulier_particulier"
-                button_2="Een brouwer"
-                navigate_2="/inschrijfformulier_producent"
+                button_1="Mijn pagina"
+                navigate_1="/mijn_pagina"
+                button_2="Mijn bieren"
+                navigate_2="/mijn_bieren"
                 button_3="Home"
                 navigate_3="/"
                 button_4="inloggen"
