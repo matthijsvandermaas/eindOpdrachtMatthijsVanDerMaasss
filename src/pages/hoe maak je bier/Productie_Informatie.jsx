@@ -53,7 +53,7 @@ function Productie_Informatie() {
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('bierBrouwen')}
                              onMouseLeave={() => handleMouseLeave('bierBrouwen')}>
                             <Text_component
-                                Text_Title="Bier brouwen"
+                                Text_Title="Bier brouwen🞃"
                             />
                             {dropdownStates.bierBrouwen && (
                                 <div className="submenu-content">
@@ -61,9 +61,10 @@ function Productie_Informatie() {
                                         Text_Message2="Het brouwen van bier begint met het selecteren van hoogwaardige ingrediënten: water, mout, hop en gist."
                                         Text_Message3="Eerst wordt het mout gemout en vermalen tot een fijn poeder, waarna het wordt vermengd met warm water om enzymatische reacties te activeren en suikers vrij te maken."
                                         Text_Message4=" Dit mengsel wordt gekookt, waarbij hop wordt toegevoegd voor bitterheid, aroma en conservering."
-                                        Text_Message5="Na het koken wordt het mengsel gekoeld en gist toegevoegd, waardoor fermentatie plaatsvindt,"
-                                        Text_Message6="deze periode verandert de gist de suikers in alcohol en koolstofdioxide."
-                                        Text_Message7="Het bier wordt vervolgens gerijpt, gefilterd en indien nodig gecarboniseerd. Ten slotte wordt het gebotteld."
+                                        Text_Message5=" "
+                                        Text_Message6="Na het koken wordt het mengsel gekoeld en gist toegevoegd, waardoor fermentatie plaatsvindt,"
+                                        Text_Message7="deze periode verandert de gist de suikers in alcohol en koolstofdioxide."
+                                        Text_Message8="Het bier wordt vervolgens gerijpt, gefilterd en indien nodig gecarboniseerd. Ten slotte wordt het gebotteld."
                                     />
                                 </div>
                             )}
@@ -77,16 +78,17 @@ function Productie_Informatie() {
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('ibu')}
                              onMouseLeave={() => handleMouseLeave('ibu')}>
                             <Text_component
-                                Text_Title="IBU"
+                                Text_Title="IBU🞃"
                             />
                             {dropdownStates.ibu && (
                                 <div className="submenu-content">
                                     <Text_component
                                         Text_Message2="IBU staat voor (International Bitterness Units) Het is een maatstaf voor de bitterheid van bier, die aangeeft hoe bitter een bier smaakt als gevolg van de aanwezigheid van hopzuren."
                                         Text_Message3="Hoe hoger het IBU-gehalte, hoe bitterder het bier zal zijn."
-                                        Text_Message4="IBU wordt gemeten op een schaal van 0 tot boven de 100."
-                                        Text_Message5="Lichtere bieren zoals pilseners meestal lage IBU-waarden hebben (rond 5-20 IBU),"
-                                        Text_Message6="terwijl hoprijke bieren zoals India Pale Ales (IPA's) veel hogere IBU-waarden kunnen hebben (vaak boven de 50 IBU)."
+                                        Text_Message4=" "
+                                        Text_Message5="IBU wordt gemeten op een schaal van 0 tot boven de 100."
+                                        Text_Message6="Lichtere bieren zoals pilseners meestal lage IBU-waarden hebben (rond 5-20 IBU),"
+                                        Text_Message7="terwijl hoprijke bieren zoals India Pale Ales (IPA's) veel hogere IBU-waarden kunnen hebben (vaak boven de 50 IBU)."
                                     />
                                 </div>
                             )}
@@ -99,14 +101,15 @@ function Productie_Informatie() {
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('gisten')}
                              onMouseLeave={() => handleMouseLeave('gisten')}>
                             <Text_component
-                                Text_Title="Hoog of laag gisten?"
+                                Text_Title="Hoog of laag gisten?🞃"
                             />
                             {dropdownStates.gisten && (
                                 <div className="submenu-content">
                                     <Text_component
                                         Text_Message2="Hooggistend bier wordt geproduceerd met gist dat bij hogere temperaturen fermenteert, wat resulteert in een warme, fruitige en complexe smaak."
                                         Text_Message3="Laaggistend bier fermenteert daarentegen bij lagere temperaturen, wat een heldere en schone smaak oplevert, typisch voor pilsners en lagers."
-                                        Text_Message4="Het verschil in gistingstemperatuur beïnvloedt de smaak, textuur en aroma's van het uiteindelijke bierproduct."
+                                        Text_Message4=" "
+                                        Text_Message5="Het verschil in gistingstemperatuur beïnvloedt de smaak, textuur en aroma's van het uiteindelijke bierproduct."
                                     />
                                 </div>
                             )}
@@ -120,22 +123,22 @@ function Productie_Informatie() {
                              onMouseEnter={() => handleMouseEnter('verschillendeSoortenBier')}
                              onMouseLeave={() => handleMouseLeave('verschillendeSoortenBier')}>
                             <Text_component
-                                Text_Title="verschillende soorten Bier"
+                                Text_Title="verschillende soorten Bier🞃"
                             />
                             {dropdownStates.verschillendeSoortenBier && (
                                 <div className="submenu-content">
                                     <Text_component
-                                        Text_Message1="Lager: Een ondergistend bier dat bij lage temperaturen wordt gefermenteerd. Het is helder van kleur en heeft een verfrissende smaak."
-                                        Text_Message2="Ale: Een bovengistend bier dat bij warmere temperaturen wordt gefermenteerd. Het varieert in kleur en smaak, van licht en fruitig tot donker en complex."
-                                        Text_Message3="Amber Ale: Een amberkleurig bier met een uitgebalanceerde smaak die zowel zoet als bitter kan zijn."
-                                        Text_Message4="Witbier (Witbier of Witte Ale): Een bleek, troebel bier dat wordt gebrouwen met tarwe, kruiden (meestal koriander en sinaasappelschil) en gist. Het heeft een verfrissende, citrusachtige smaak."
-                                        Text_Message5="IPA (India Pale Ale): Een type ale dat extra hop toevoegt voor een bittere smaak en aroma. Er zijn verschillende subtypes binnen IPA, zoals American IPA, Double IPA, en New England IPA. "
-                                        Text_Message6="Stout: Een zeer donker, bijna zwart bier, bekend om zijn geroosterde smaak. Er zijn verschillende soorten stout, waaronder Dry Stout, Sweet Stout, en Imperial Stout."
-                                        Text_Message7="Porter: Een donker bier vergelijkbaar met stout, maar vaak iets lichter van smaak. Het heeft ook geroosterde tonen en kan variëren in zoetheid."
-                                        Text_Message8="Pilsner: Een lichtgekleurde lager met een knapperige, bittere smaak. Het is een van de meest populaire bierstijlen ter wereld."
-                                        Text_Message9="Saison: Een Belgische bovengistende bierstijl, oorspronkelijk gebrouwen in de wintermaanden en gedronken in de zomer. Het heeft vaak kruidige, fruitige smaken."
-                                        Text_Message10="Tripel: Een zware, sterk alcoholische Belgische ale met complexe smaken en aroma's. Het is meestal goud van kleur."
-                                        Text_Message11="Barleywine: Een zeer sterke ale met een hoge alcoholpercentage. Het kan zowel Engelse (moutig, zoet) als Amerikaanse (hoppy) varianten hebben."
+                                        Text_Message1="❖Lager: Een ondergistend bier dat bij lage temperaturen wordt gefermenteerd. Het is helder van kleur en heeft een verfrissende smaak."
+                                        Text_Message2="❖Ale: Een bovengistend bier dat bij warmere temperaturen wordt gefermenteerd. Het varieert in kleur en smaak, van licht en fruitig tot donker en complex."
+                                        Text_Message3="❖Amber Ale: Een amberkleurig bier met een uitgebalanceerde smaak die zowel zoet als bitter kan zijn."
+                                        Text_Message4="❖Witbier (Witbier of Witte Ale): Een bleek, troebel bier dat wordt gebrouwen met tarwe, kruiden (meestal koriander en sinaasappelschil) en gist. Het heeft een verfrissende, citrusachtige smaak."
+                                        Text_Message5="❖IPA (India Pale Ale): Een type ale dat extra hop toevoegt voor een bittere smaak en aroma. Er zijn verschillende subtypes binnen IPA, zoals American IPA, Double IPA, en New England IPA. "
+                                        Text_Message6="❖Stout: Een zeer donker, bijna zwart bier, bekend om zijn geroosterde smaak. Er zijn verschillende soorten stout, waaronder Dry Stout, Sweet Stout, en Imperial Stout."
+                                        Text_Message7="❖Porter: Een donker bier vergelijkbaar met stout, maar vaak iets lichter van smaak. Het heeft ook geroosterde tonen en kan variëren in zoetheid."
+                                        Text_Message8="❖Pilsner: Een lichtgekleurde lager met een knapperige, bittere smaak. Het is een van de meest populaire bierstijlen ter wereld."
+                                        Text_Message9="❖Saison: Een Belgische bovengistende bierstijl, oorspronkelijk gebrouwen in de wintermaanden en gedronken in de zomer. Het heeft vaak kruidige, fruitige smaken."
+                                        Text_Message10="❖Tripel: Een zware, sterk alcoholische Belgische ale met complexe smaken en aroma's. Het is meestal goud van kleur."
+                                        Text_Message11="❖Barleywine: Een zeer sterke ale met een hoge alcoholpercentage. Het kan zowel Engelse (moutig, zoet) als Amerikaanse (hoppy) varianten hebben."
                                     />
                                 </div>
                             )}
@@ -151,7 +154,8 @@ function Productie_Informatie() {
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('hop')}
                              onMouseLeave={() => handleMouseLeave('hop')}>
                             <Text_component
-                                Text_Title="Hop"/>
+                                Text_Title="Hop🞃"
+                            />
                             {dropdownStates.hop && (
                                 <div className="submenu-content">
                                     <Text_component
@@ -195,7 +199,7 @@ function Productie_Informatie() {
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('water')}
                              onMouseLeave={() => handleMouseLeave('water')}>
                             <Text_component
-                                Text_Title="Het belangrijkste ingredient, water!"/>
+                                Text_Title="Het belangrijkste ingredient, water!🞃"/>
                             {dropdownStates.water && (
                                 <div className="submenu-content">
                                     <Text_component
@@ -213,7 +217,7 @@ function Productie_Informatie() {
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('gist')}
                              onMouseLeave={() => handleMouseLeave('gist')}>
                             <Text_component
-                                Text_Title="Gist"
+                                Text_Title="Gist🞃"
                                 />
                             {dropdownStates.gist && (
                                 <div className="submenu-content">

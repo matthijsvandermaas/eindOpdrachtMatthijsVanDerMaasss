@@ -15,7 +15,7 @@
 .text-container{
     margin-right: 20px;
     min-width: 30vh;
-    max-width: 300px;
+    max-width: 2000px;
     padding-left: 2vw;
     text-align: left;
 }
@@ -40,7 +40,7 @@
     box-shadow: var(--box-shadow_1);
     border-radius: 15px 0 0 0;
     transition: 0.2s ease-in-out;
-    width: 60vw;
+    width: 70vw;
     min-width: 800px;
     max-width: 1500px;
     height: auto;
@@ -53,7 +53,7 @@
     border-bottom: none;
     border-radius: 15px 0 0 15px;
     transform: scale(1.001);
-    width: 70vw;
+    width: 80vw;
 }
 .text-row.content_1 {
     flex-direction: row;

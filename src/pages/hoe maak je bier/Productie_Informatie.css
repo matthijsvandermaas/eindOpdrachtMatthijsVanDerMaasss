@@ -4,6 +4,24 @@
 .text-component-dropdown > .submenu-content > :first-child {
     margin-top: -40px;
 }
+.submenu-content{
+    width: 90%;
+    min-width: 1000px;
+    max-width: 1500px;
+    height: 20vh;
+    max-height: 600px;
+    opacity: 0;
+    overflow-y: auto;
+    transition: opacity 0.7s ease-in-out;
+}
+.submenu-content:hover{
+    opacity: 1;
+    width: inherit;
+
+}
+
+
+
 
 
 
