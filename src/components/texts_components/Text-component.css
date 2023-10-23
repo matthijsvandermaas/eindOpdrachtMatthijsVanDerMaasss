@@ -43,9 +43,9 @@
     width: 60vw;
     min-width: 800px;
     max-width: 1500px;
-
     height: auto;
 }
+
 .text-row:hover {
     box-shadow: 5px 5px var(--box-shadow_2);
     border-left: 3px solid var(--line-blue-2);
@@ -53,6 +53,7 @@
     border-bottom: none;
     border-radius: 15px 0 0 15px;
     transform: scale(1.001);
+    width: 70vw;
 }
 .text-row.content_1 {
     flex-direction: row;
