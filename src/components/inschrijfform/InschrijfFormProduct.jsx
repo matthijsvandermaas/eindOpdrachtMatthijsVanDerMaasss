@@ -3,6 +3,11 @@ import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
 
+//TODO .. register checken
+\
+function registers(foto) {
+
+}
 
 function InschrijfFormProduct() {
     const [formData, setFormData] = useState({
@@ -198,7 +203,12 @@ function InschrijfFormProduct() {
                             value={formData.photo3}
                             accept="image/*"
                             onChange={handleInputChange}
-                            required
+                            {...registers("foto", {
+                                required: {
+                                    value: true,
+                                    message: "text"
+                            }
+                            })}
                         />
                     </div>
                     <button className="bttn" type="submit" disabled={isSubmitting}>
