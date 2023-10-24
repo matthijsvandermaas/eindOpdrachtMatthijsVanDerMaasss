@@ -50,7 +50,7 @@ function Navbar() {
                     </div>
                     <NavLink to="/alle_producten">Alle Bieren</NavLink>\\TODO
                     <div className="submenu" onClick={() => toggleSubmenu(2)}>
-                            <NavLink to="/Productie_Informatie">Hoe maak je bier🞃</NavLink>
+                            <NavLink to="/Productie_informatie">Hoe maak je bier🞃</NavLink>
                         {submenuStatus.isSubmenuOpen2 && (
                             <div className="submenu-content">
                                 <NavLink to='/Productie_Informatie#algemene-informatie' onClick={scrollToAlgemene_info}>Algemene Informatie</NavLink>
