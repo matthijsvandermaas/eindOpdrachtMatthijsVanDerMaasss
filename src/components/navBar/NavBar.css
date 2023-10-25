@@ -10,7 +10,7 @@
     align-items: flex-end; /* Verticaal*/
     justify-content: flex-end; /* Uitlijnen naar rechts */
     /* Voeg tussenruimte toe tussen de elementen */
-    width: 30%;
+    width: 100%;
     height: 50%;
     max-height: 50vh;
     min-height: 20vh;
@@ -45,7 +45,7 @@
 /*dropdown-content*/
 .dropdown {
     position: absolute;
-    width: auto;
+    width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,11 +60,11 @@
     justify-content: flex-start;
     display: none;
     background-color: rgba(255, 255, 255, 0.06);
-    width: auto;
+    width: 400px;
     white-space: nowrap;
     z-index: 1;
     opacity: 0;
-    transform: translateY(-46px) translateX(-190px);
+    transform: translateY(-46px) translateX(-170px);
     transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Voeg overgangen toe aan opacity en transform */
     position: absolute;
     top: 100%;
@@ -103,7 +103,9 @@
 /*submenu-content*/
 .submenu-content {
     justify-content: flex-start;
-    margin-left: 2vw;
+    margin-left: 0.3vw;
+    max-width: 700px;
+    max-height: 500px;
 }
 #algemene-informatie,
 #het-proces {

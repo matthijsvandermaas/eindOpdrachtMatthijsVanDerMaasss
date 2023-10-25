@@ -6,13 +6,10 @@
 }
 .submenu-content{
     width: 90%;
-    min-width: 1000px;
-    max-width: 1500px;
-    height: 20vh;
     max-height: 600px;
-    opacity: 0;
+    opacity: 1;
     overflow-y: auto;
-    transition: opacity 0.7s ease-in-out;
+    transition: width 0.7s ease-in-out;
 }
 .submenu-content:hover{
     opacity: 1;

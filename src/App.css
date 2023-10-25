@@ -121,7 +121,7 @@ Table of Contents:
     max-width: 120px;
     max-height: 120px;
     border-radius: 30px;
-    transform: rotatey(180deg) translateX(-45px);
+    transform: rotatey(180deg) translateX(-40px);
 }
 .main-container {
     display: flex;
@@ -231,6 +231,7 @@ p a {
 /* 6.2 scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
+    height: 6px;
     background: transparent;
 }
 ::-webkit-scrollbar-track {
