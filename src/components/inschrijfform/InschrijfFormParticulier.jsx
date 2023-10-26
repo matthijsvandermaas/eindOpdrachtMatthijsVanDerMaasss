@@ -51,8 +51,6 @@ function InschrijfFormParticulier() {
     }
     };
 
-
-
     return (
         <>
             <div className="form-container">
