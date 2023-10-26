@@ -2,12 +2,20 @@
     font-size: 24px;
     cursor: pointer;
 }
+.star-rating h4{
+    margin-left: 25px;
+}
+.star-rating-container{
+    width: 3vw;
+    min-width: 450px;
+    max-width: 550px;
+}
 
 .star {
-    font-size: 50px;
     filter: grayscale(60%);
+    margin-left: -20px;
     opacity: 0.5;
-    max-width: 200px;
+    max-width: 230px;
     display: inline-block;
     text-align: center;
     transition: color 0.2s, width 0.2s; /* Overgangen voor kleur en breedte */
