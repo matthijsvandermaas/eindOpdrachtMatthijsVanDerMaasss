@@ -14,8 +14,8 @@ import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProd
 import Alle_bieren from "./pages/alle_bieren/Alle_bieren.jsx";
 import Login_page from "./pages/login_page/Login_page.jsx";
 import Error from "./pages/error/Error.jsx";
-// import Mijn_bieren from "./pages/hoe maak je bier/Mijn_bieren.jsx";
-// import Mijn_gegevens from "./pages/hoe maak je bier/Mijn_pagina.jsx";
+import Mijn_bieren from "./pages/mijn_bieren/Mijn_Bieren.jsx";
+
 
 function App() {
     const [activeTab, setActiveTab] = useState('Home');
@@ -58,6 +58,7 @@ return (
                         <Route path="/inschrijfformulier" element={<Inschrijf_Navigatie />} />
                         <Route path="/inschrijfformulier_particulier" element={<Inschrijf_Form_Particulier />} />
                         <Route path="/inschrijfformulier_producent" element={<Inschrijf_Form_Producer />} />
+                        <Route path="/mijn_bieren" element={<Mijn_bieren />} />
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
                         <Route path="/Productie_Informatie" element={<Productie_Informatie />} />
                         <Route path="/alle_producten" element={<Alle_bieren />} />
@@ -69,7 +70,7 @@ return (
                     <div className="footer-background">
                         <p>This page is made possible by <a href="https://www.novi.nl/" target="_blank">NOVI hogeschool</a>.</p>
                         <p>en</p>
-                        <p>Trademark <em>van der Maas p&c™</em></p>
+                        <p>Trademark <em>Van Der Maas P&C™</em></p>
                     </div>
                 </div>
             </div>

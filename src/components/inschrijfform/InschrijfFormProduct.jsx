@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
-
 //TODO .. register checken
 
 function registers(foto) {

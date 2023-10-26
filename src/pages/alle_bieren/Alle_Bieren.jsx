@@ -5,9 +5,9 @@ import Text_component from "../../components/texts_components/Text-component.jsx
 import CarouselComponent from "../../components/carousel/Carousel.jsx";
 import Rating_1 from "../../components/Rating_system/Rating_1.jsx";
 import { NavLink } from "react-router-dom";
+
 function All_Products({ products }) {
     const [data, setData] = useState([]);
-
 
     useEffect(() => {
         fetchData().then((data) => {
@@ -20,11 +20,12 @@ function All_Products({ products }) {
         const data = await response.json();
         return data;
     }
+
     return (
         <>
             <div className="informatie_container">
                 <h1>alle bieren</h1>
-                <div className="text-content content_1">
+                <div className="text-content content_1 border_top_left">
                     <div className="text">
                         {products.map((product, index) => (
                             <div className="text-row content_1" key={index}>
@@ -50,8 +51,8 @@ function All_Products({ products }) {
                                     src2={product.image2}
                                     alt2="atl1"
                                     title2={product.title2}
-                                    text2={product.text2} />
-
+                                    text2={product.text2}
+                                />
                             </div>
                         ))}
                     </div>

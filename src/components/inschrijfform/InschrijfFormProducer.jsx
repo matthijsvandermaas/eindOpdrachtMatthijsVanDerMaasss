@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
 import { useNavigate } from 'react-router-dom';
+import { AuthenticationContext } from "../../context/AuthenticationContext.jsx";
 
 function InschrijfFormProducer() {
+    const { isAuthentication, logout } = useContext(AuthenticationContext);
     const navigate = useNavigate();
     const [brandNames, setBrandNames] = useState([]); // Staat voor de merknamen in een array
 

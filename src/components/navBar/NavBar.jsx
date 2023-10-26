@@ -1,10 +1,13 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
 import './navbar.css';
 import { NavLink } from 'react-router-dom';
+import { AuthenticationContext } from "../../context/AuthenticationContext.jsx";
 
 function Navbar() {
     const hetProcesRef = useRef(null);
     const algemene_infoRef = useRef(null);
+    const { isAuthentication, logout } = useContext(AuthenticationContext);
+
 
     const scrollToHetProces = () => {
         hetProcesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
@@ -35,16 +38,22 @@ function Navbar() {
                 <li>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/login_page">Inloggen</NavLink>//TODO
-                    <NavLink to="/">Mijn Bieren</NavLink>//TODO
+                    {isAuthentication && (
+                        <button type="button" onClick={logout}>
+                            Logout
+                        </button>
+                    )}
+                    <NavLink to="/mijn_bieren">Mijn Bieren</NavLink>//TODO
                     <NavLink to="/">Mijn Pagina</NavLink>//TODO
                     <div className="submenu" onClick={() => toggleSubmenu(1)}>
                         <div>
-                            <p>Inschrijven🞃</p>
+                            <p> {isAuthentication ? "mijn pagina🞃" : "Inschrijven🞃"}</p>
                         </div>
                         {submenuStatus.isSubmenuOpen1 && (
                             <div className="submenu-content">
-                                <NavLink to="/inschrijfformulier_particulier">Als bierliefhebber</NavLink>//TODO
-                                <NavLink to="/inschrijfformulier_producent">Als brouwer</NavLink>//TODO
+                                <NavLink to="/inschrijfformulier_particulier">{isAuthentication ? "bierliefhebbers":  "Als bierliefhebber"}</NavLink>//TODO
+                                <NavLink to="/inschrijfformulier_producent">{isAuthentication ? "brouwers":  "Als brouwer"}</NavLink>//TODO
+                                <NavLink to="/mijn_bieren">{isAuthentication && "Mijn bieren"}</NavLink>//TODO
                             </div>
                         )}
                     </div>

@@ -4,14 +4,18 @@
 }
 
 .star {
-    color: gray;
-    width: 1em; /* Breedte van de sterren */
+    font-size: 50px;
+    filter: grayscale(60%);
+    opacity: 0.5;
+    max-width: 200px;
     display: inline-block;
     text-align: center;
     transition: color 0.2s, width 0.2s; /* Overgangen voor kleur en breedte */
 }
 
 .filled {
-    color: gold;
-    width: 0.5em; /* Breedte van de gevulde sterren (halve ster) */
+    opacity: 1;
+    filter: grayscale(0%);
+
+
 }
