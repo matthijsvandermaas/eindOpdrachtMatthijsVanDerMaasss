@@ -3,7 +3,7 @@ import "./Rating.css";
 import wheat from "../../assets/logos and backgrounds/wheat.png";
 import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
 
-function Rating_1() {
+function Rating_average() {
     const [rating, setRating] = useState(0);
 
     const handleStarClick = (starValue) => {
@@ -33,4 +33,4 @@ function Rating_1() {
     );
 }
 
-export default Rating_1;
+export default Rating_average;

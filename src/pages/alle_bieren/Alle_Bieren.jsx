@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import './Alle_bieren.css'
 import Text_component from "../../components/texts_components/Text-component.jsx";
 import CarouselComponent from "../../components/carousel/Carousel.jsx";
-import Rating_1 from "../../components/Rating_system/Rating_1.jsx";
+import Rating from "../../components/Rating_system/Rating.jsx";
 import { NavLink } from "react-router-dom";
 
 function All_Products({ products }) {
@@ -39,7 +39,7 @@ function All_Products({ products }) {
                                     <p>Kleur: {product.kleur}</p>
                                     <p>Smaak: {product.smaak}</p>
                                     <p><NavLink to="/">Brouwer Locatie: {product.brouwer_locatie}</NavLink></p>
-                                    <Rating_1 ratingValue={product.rating} />
+                                    <Rating ratingValue={product.rating} />
                                     <h2>{product.text_blok}</h2>
                                 </div>
                                 <CarouselComponent

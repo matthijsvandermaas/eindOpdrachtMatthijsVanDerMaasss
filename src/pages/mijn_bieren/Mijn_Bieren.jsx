@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Rating_1 from "../../components/Rating_system/Rating_1.jsx";
+import Rating from "../../components/Rating_system/Rating.jsx";
 
 function Mijn_Bieren() {
     const handleStarClick = (starValue) => {
@@ -9,7 +9,7 @@ function Mijn_Bieren() {
     return (
         <>
         <p>test</p>
-            <Rating_1 ratingValue={rating} onClick={handleStarClick} />
+            <Rating ratingValue={rating} onClick={handleStarClick} />
 
 
         </>
