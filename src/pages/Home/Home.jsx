@@ -27,7 +27,7 @@ function Home() {
                     setSlideIndex={setSlideIndex}/>
                 <div className="text-content">
                     <div className="informatie_container">
-                        <h1>Welcome Bier liefhebbers,</h1>
+                        <h1>Welcome {isAuthentication ? {firstName} + {lastName} : " Bier liefhebbers"},</h1>
                         <h4> Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie
                             product te delen met iedereen, dus schrijf je in en kom erbij</h4>
 
