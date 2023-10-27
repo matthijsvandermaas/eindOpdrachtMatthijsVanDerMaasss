@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import {useNavigate} from "react-router-dom";
 import './Login_Page.css';
 import Cubes from "../../components/cubes/Cubes.jsx";
 import Slider from '../../components/slider/Slider.jsx';
@@ -10,9 +11,13 @@ import { Link } from "react-router-dom";
 import { AuthenticationContext } from "../../context/AuthenticationContext.jsx";
 
 function Login() {
-    const { isAuthentication, logout } = useContext(AuthenticationContext);
-    const { login } = useContext(AuthenticationContext);
-
+    const { isAuth,login , logout } = useContext(AuthenticationContext);
+    const {navigate} = useNavigate();
+    // function  handeleSubmit(e) {
+    //     login();
+    //     e.preventDefault();
+    //     navigate {"/"}
+    // }
     const [slideIndex, setSlideIndex] = useState(1);
     const slider_Img_1 = slider_Img_One;
     const slider_Img_2 = slider_Img_Two;
@@ -21,8 +26,12 @@ function Login() {
 
     const handleLogout = () => {
         logout();
-        // Voer hier navigatie uit (bijvoorbeeld naar "/inschrijfformulier_producent")
+        navigate  ("/");
     };
+    const handleLogin = () => {
+        login();
+        navigate  ("/mijn_bieren");
+    }
 
     return (
         <>
@@ -55,7 +64,7 @@ function Login() {
                     </div>
                     <p>nog geen lid, kom erbij en<Link to="/inschrijfformulier"><strong> schrijf je in!</strong></Link></p>
                     <div>
-                        {!isAuthentication ? (
+                        {!isAuth ? (
                             <button type="submit" className="bttn" onClick={login}>
                                 inloggen
                             </button>

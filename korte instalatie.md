@@ -1,4 +1,4 @@
-installer `npm install`
+installer Node Package Manager `npm install`
 installer de carousel`npm install react-responsive-carousel`
 installer axios `npm install axios`
 installer react hook form`npm install react-hook-form`
