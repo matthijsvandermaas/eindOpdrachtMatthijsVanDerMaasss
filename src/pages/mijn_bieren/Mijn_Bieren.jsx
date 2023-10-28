@@ -9,7 +9,8 @@ function Mijn_Bieren() {
     return (
         <>
         <p>test</p>
-            <Rating ratingValue={rating} onClick={handleStarClick} />
+            <Rating ratingValue={rating} onClick={handleStarClick}
+            titel="Geef je mening"/>
 
 
         </>

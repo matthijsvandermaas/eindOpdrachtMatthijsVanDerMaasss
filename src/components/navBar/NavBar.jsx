@@ -1,13 +1,18 @@
 import React, {useRef, useState, useContext} from 'react';
 import './navbar.css';
-import { NavLink } from 'react-router-dom';
-import { AuthenticationContext } from "../../utils/AuthenticationContext.jsx";
+import {NavLink, useNavigate} from 'react-router-dom';
+import {AuthenticationContext} from "../../utils/AuthenticationContext.jsx";
 
 function Navbar() {
     const hetProcesRef = useRef(null);
     const algemene_infoRef = useRef(null);
-    const { isAuthentication, logout } = useContext(AuthenticationContext);
+    const { isAuthenticated, logout } = useContext(AuthenticationContext);
+    const navigate = useNavigate();
 
+    const handleLogout = () => {
+        logout();
+        navigate('/');
+    };
 
     const scrollToHetProces = () => {
         hetProcesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
@@ -37,23 +42,16 @@ function Navbar() {
             <ul className="navList">
                 <li>
                     <NavLink to="/">Home</NavLink>
-                    <NavLink to="/login_page">Inloggen</NavLink>//TODO
-                    {isAuthentication && (
-                        <button type="button" onClick={logout}>
-                            Logout
-                        </button>
-                    )}
-                    <NavLink to="/mijn_bieren">Mijn Bieren</NavLink>//TODO
-                    <NavLink to="/">Mijn Pagina</NavLink>//TODO
+                    { isAuthenticated ? <NavLink to="/" onClick={handleLogout}>Logout</NavLink> : <NavLink to="/login_page"> Inloggen</NavLink>}
                     <div className="submenu" onClick={() => toggleSubmenu(1)}>
                         <div>
-                            <p> {isAuthentication ? "mijn pagina🞃" : "Inschrijven🞃"}</p>
+                            <NavLink to="/inschrijfformulier">{isAuthenticated ? "mijn pagina🞃" : "Inschrijven🞃"}</NavLink>
                         </div>
                         {submenuStatus.isSubmenuOpen1 && (
                             <div className="submenu-content">
-                                <NavLink to="/inschrijfformulier_particulier">{isAuthentication ? "bierliefhebbers":  "Als bierliefhebber"}</NavLink>//TODO
-                                <NavLink to="/inschrijfformulier_producent">{isAuthentication ? "brouwers":  "Als brouwer"}</NavLink>//TODO
-                                <NavLink to="/mijn_bieren">{isAuthentication && "Mijn bieren"}</NavLink>//TODO
+                                <NavLink to="/inschrijfformulier_particulier">{isAuthenticated ? "Bierliefhebbers":  "Als bierliefhebber"}</NavLink>//TODO
+                                <NavLink to="/inschrijfformulier_producent">{isAuthenticated ? "Brouwers":  "Als brouwer"}</NavLink>//TODO
+                                <NavLink to="/mijn_bieren">{isAuthenticated && "Mijn bieren"}</NavLink>//TODO
                             </div>
                         )}
                     </div>

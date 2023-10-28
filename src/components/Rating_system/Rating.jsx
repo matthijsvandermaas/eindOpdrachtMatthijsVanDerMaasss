@@ -3,7 +3,7 @@ import "./Rating.css";
 import wheat from "../../assets/logos and backgrounds/wheat.png";
 import {AuthenticationContext} from "../../utils/AuthenticationContext.jsx";
 
-function Rating() {
+function Rating({titel}) {
     const [rating, setRating] = useState(0);
 
     const handleStarClick = (starValue) => {
@@ -14,7 +14,7 @@ function Rating() {
         <>
 
             <div className="star-rating">
-                <h5>Hoe lekker is je biertje?</h5>
+                <h5>{titel}</h5>
                 <div className="star-rating-container border_top_left">
                 {[1, 2, 3, 4, 5].map((starValue) => (
                     <span

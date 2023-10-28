@@ -91,9 +91,9 @@
 }
 .dropdown-content a:hover {
     display: block;
-    transform: scale(1.1);
     -webkit-background-clip: text;
     background-clip: text;
+    text-decoration: underline;
 }
 .dropdown:hover .dropdown-content {
     display: block;
@@ -104,8 +104,16 @@
 .submenu-content {
     justify-content: flex-start;
     margin-left: 0.3vw;
-    max-width: 700px;
+    width: 100%;
+    max-width: 800px;
     max-height: 500px;
+    opacity: 1;
+    overflow-y: auto;
+    transition: width 0.7s ease-in-out;
+}
+.submenu-content:hover{
+    opacity: 1;
+
 }
 #algemene-informatie,
 #het-proces {
@@ -120,10 +128,8 @@
 }
 .submenu p:hover {
     display: block;
-    transform: scale(1.1);
     -webkit-background-clip: text;
     background-clip: text;
-    text-decoration: underline;
 }
 /*text-content*/
 .text-content {
