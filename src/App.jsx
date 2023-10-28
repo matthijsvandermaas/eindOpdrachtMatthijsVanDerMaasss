@@ -5,7 +5,7 @@ import logoImage_Klein from './assets/logos and backgrounds/B & B logo2 klein.jp
 import wheat from './assets/logos and backgrounds/wheat.png';
 import Navbar from "./components/navBar/Navbar.jsx";
 import Home from "./pages/Home/Home.jsx";
-import {Route, Routes} from "react-router-dom";
+import {NavLink, Route, Routes} from "react-router-dom";
 import Inschrijf_Navigatie from "./pages/Inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 import Inschrijf_Form_Particulier from "./components/inschrijfform/InschrijfFormParticulier.jsx";
 import Inschrijf_Form_Producer from "./components/inschrijfform/InschrijfFormProducer.jsx";

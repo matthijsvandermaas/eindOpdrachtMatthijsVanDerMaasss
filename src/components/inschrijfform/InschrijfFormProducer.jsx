@@ -3,7 +3,7 @@ import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
 import { useNavigate } from 'react-router-dom';
-import { AuthenticationContext } from "../../context/AuthenticationContext.jsx";
+import { AuthenticationContext } from "../../utils/AuthenticationContext.jsx";
 
 function InschrijfFormProducer() {
     const { isAuthentication, logout } = useContext(AuthenticationContext);

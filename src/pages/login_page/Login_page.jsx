@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {useNavigate, useHistory, Link} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import './Login_Page.css';
 import Cubes from '../../components/cubes/Cubes.jsx';
 import Slider from '../../components/slider/Slider.jsx';
@@ -7,11 +7,11 @@ import slider_Img_One from '../../assets/hoe maak je bier/hop.png';
 import slider_Img_Two from '../../assets/hoe maak je bier/yeast.png';
 import slider_Img_Three from '../../assets/hoe maak je bier/malt.png';
 import slider_Img_Four from '../../assets/hoe maak je bier/gist.png';
-import { AuthenticationContext } from '../../utils/AuthenticationContext.js';
+import { AuthenticationContext } from '../../utils/AuthenticationContext.jsx';
+
 
 const Login = () => {
     const { isAuthenticated, login, logout } = useContext(AuthenticationContext);
-    const history = useHistory();
     const navigate = useNavigate();
 
     const [slideIndex, setSlideIndex] = useState(1);

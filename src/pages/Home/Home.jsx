@@ -6,9 +6,9 @@ import slider_Img_One from '../../assets/hoe maak je bier/hop.png';
 import slider_Img_Two from '../../assets/hoe maak je bier/yeast.png';
 import slider_Img_Three from '../../assets/hoe maak je bier/malt.png';
 import slider_Img_Four from '../../assets/hoe maak je bier/gist.png';
-import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
+import {AuthenticationContext} from "../../utils/AuthenticationContext.jsx";
 function Home() {
-    const {isAuthentication, logout} = useContext(AuthenticationContext);
+    const { isAuthenticated, logout } = useContext(AuthenticationContext);
     const [slideIndex, setSlideIndex] = useState(1);
     const slider_Img_1 = slider_Img_One;
     const slider_Img_2 = slider_Img_Two;
@@ -27,15 +27,15 @@ function Home() {
                     setSlideIndex={setSlideIndex}/>
                 <div className="text-content">
                     <div className="informatie_container">
-                        <h1>Welcome {isAuthentication ? {firstName} + {lastName} : " Bier liefhebbers"},</h1>
+                        <h1>Welcome {isAuthenticated ? "matthijs van der maas" : " Bier liefhebbers"},</h1>
                         <h4> Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie
                             product te delen met iedereen, dus schrijf je in en kom erbij</h4>
 
                     </div>
                 </div>
                 <Cubes
-                            button_1= {isAuthentication ? "Uitloggen" : "Inschrijven"}
-                            navigate_1={isAuthentication ? () => logout() : "/inschrijfformulier"}
+                            button_1= {isAuthenticated ? "Uitloggen" : "Inschrijven"}
+                            navigate_1={isAuthenticated ? () => logout() : "/inschrijfformulier"}
                             button_2="inloggen"
                             navigate_2="/login_page"
                             button_3="al onze producten"

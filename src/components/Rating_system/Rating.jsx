@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import "./Rating.css";
 import wheat from "../../assets/logos and backgrounds/wheat.png";
-import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
+import {AuthenticationContext} from "../../utils/AuthenticationContext.jsx";
 
 function Rating() {
     const [rating, setRating] = useState(0);
