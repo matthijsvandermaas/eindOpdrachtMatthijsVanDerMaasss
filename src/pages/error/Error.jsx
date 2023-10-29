@@ -2,7 +2,7 @@ import React from 'react';
 
 import Text_component from "../../components/texts_components/Text-component.jsx";
 import Cubes from "../../components/cubes/Cubes.jsx";
-import Home from "../Home/Home.jsx";
+import Home from "../HOME/Home.jsx";
 import {Link, NavLink} from "react-router-dom";
 import './Error.css'
 function Error() {

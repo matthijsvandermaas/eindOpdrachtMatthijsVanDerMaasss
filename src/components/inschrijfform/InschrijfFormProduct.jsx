@@ -4,45 +4,56 @@ import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
 //TODO .. register checken
 
-function registers(foto) {
-
-}
-
 function InschrijfFormProduct() {
     const [formData, setFormData] = useState({
         productName: '',
         nameProducer: '',
-        type:'',
+        type: '',
         percentage: '',
         email: '',
-        color:'',
-        tast:'',
-        volume:'',
-        productionLocation:'',
-        photo:'',
-        photo2:'',
-        photo3:'',
+        color: '',
+        tast: '',
+        volume: '',
+        productionLocation: '',
+        photo: null,
+        photo2: null,
+        photo3: null,
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleInputChange = (e) => {
-        const {product, value } = e.target;
-        setFormData({
-            ...formData,
-            [product]: value
-        });
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleFileChange = (e) => {
+        const { name, files } = e.target;
+        setFormData({ ...formData, [name]: files[0] });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+
         try {
-            const response = await axios.post('http://localhost:8081/particulieren', formData);
-            const responseData = response?.data;
-            console.log("Response Data:", response.data);
-            console.log(formData);
+            const formDataToSend = new FormData();
+            formDataToSend.append('productName', formData.productName);
+            formDataToSend.append('nameProducer', formData.nameProducer);
+            formDataToSend.append('nameProducer', formData.type);
+            formDataToSend.append('nameProducer', formData.percentage);
+            formDataToSend.append('nameProducer', formData.color);
+            formDataToSend.append('nameProducer', formData.tast);
+            formDataToSend.append('nameProducer', formData.volume);
+            formDataToSend.append('nameProducer', formData.productionLocation);
+            formDataToSend.append('nameProducer', formData.email);
+            formDataToSend.append('photo', formData.photo);
+            formDataToSend.append('photo2', formData.photo2);
+            formDataToSend.append('photo3', formData.photo3);
+
+            const response = await axios.post('http://localhost:8080/producten', formDataToSend);
+
             if (response && response.data) {
                 console.log(response.data);
                 setErrorMessage('');
@@ -56,7 +67,6 @@ function InschrijfFormProduct() {
                 console.log("Fout Status Code:", error.response.status);
             }
             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-
         } finally {
             setIsSubmitting(false);
         }
@@ -203,12 +213,6 @@ function InschrijfFormProduct() {
                             accept="image/*"
                             onChange={handleInputChange}
                             required
-                            {...registers("foto", {
-                                required: {
-                                    value: true,
-                                    message: "text"
-                            }
-                            })}
                         />
                     </div>
                     <button className="bttn" type="submit" disabled={isSubmitting}>
