@@ -28,7 +28,7 @@ function InschrijfFormParticulier() {
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            const response = await axios.post('http://localhost:8080/particulieren', formData);
+            const response = await axios.post('http://localhost:8081/particulieren', formData);
             response?.data;
             console.log("Response Data:", response.data);
             console.log(formData);
