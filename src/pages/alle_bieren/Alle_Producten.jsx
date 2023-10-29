@@ -16,7 +16,7 @@ function All_Products({ products }) {
     }, []);
 
     async function fetchData() {
-        const response = await fetch('http://localhost:8080/producten/id');
+        const response = await fetch('http://localhost:8081/producten/id');
         return await response.json();
     }
 
