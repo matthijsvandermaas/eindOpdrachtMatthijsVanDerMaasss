@@ -1,12 +1,9 @@
-import React, {useEffect, useState} from "react";
-
-import './Alle_Producten.css'
-import Text_component from "../../components/texts_components/Text-component.jsx";
+import React, { useEffect, useState } from "react";
+import './Alle_Producten.css';
 import CarouselComponent from "../../components/carousel/Carousel.jsx";
+import NieuweProductenComponent from "../../components/New_Product_Component/Nieuwe_producten_Components.jsx";
 
-import {NavLink} from "react-router-dom";
-
-function All_Products({ products }) {
+function AllProducts() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -21,49 +18,18 @@ function All_Products({ products }) {
     }
 
     return (
-        <>
-            <div className="informatie_container">
-                <h1>alle bieren</h1>
-                <div className="text-content content_1 border_top_left">
-                    <div className="text">
-                        {products.map((product, index) => (
-                            <div className="text-row content_1" key={index}>
-                                <Text_component />
-                                <div className="input_container">
-                                    <h1>titel</h1>
-                                    <p>Naam: {product.name}</p>
-                                    <p><NavLink to="/">Brouwer: {product.nameProducer}</NavLink></p>
-                                    <p>Percentage: {product.percentage}</p>
-                                    <p>Email: {product.email}</p>
-                                    <p>Kleur: {product.color}</p>
-                                    <p>Smaak: {product.tast}</p>
-                                    <p><NavLink to="/">Brouwer Locatie: {product.productionLocation}</NavLink></p>
-                                    <Rating ratingValue={product.Rating} />
-                                    <h2>{product.text_blok}</h2>
-                                </div>
-                                <CarouselComponent
-                                    src1={product.photo}
-                                    alt1="atl1"
-                                    title1={product.title1}
-                                    text1={product.text1}
-
-                                    src2={product.photo2}
-                                    alt2="atl1"
-                                    title2={product.title2}
-                                    text2={product.text2}
-
-                                    src2={product.photo3}
-                                    alt2="atl1"
-                                    title2={product.title2}
-                                    text2={product.text2}
-                                />
-                            </div>
-                        ))}
+        <div className="informatie_container">
+            <h1>alle bieren</h1>
+            <div className="text-content content_1 border_top_left">
+                {data.map((nieuw_product, index) => (
+                    <div className="text-row content_1" key={index}>
+                        <NieuweProductenComponent products={[nieuw_product]} title="Nieuw product"></NieuweProductenComponent>
+                        <CarouselComponent src1={nieuw_product.photo} alt1="atl1" title1={title1} text1={text1} src2={nieuw_product.photo2} alt2="atl2" title2={title2} text2={text2} src3={nieuw_product.photo3} alt3="atl3" title3={title3} text3={text3} />
                     </div>
-                </div>
+                ))}
             </div>
-        </>
+        </div>
     );
 }
 
-export default All_Products;
+export default AllProducts;
