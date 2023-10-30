@@ -1,34 +1,17 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
-import Cubes from "../cubes/Cubes.jsx";
+import Cubes from '../cubes/Cubes.jsx';
 import { useNavigate } from 'react-router-dom';
-import { AuthenticationContext } from "../../utils/AuthenticationContext.jsx";
+import { AuthenticationContext } from '../../utils/AuthenticationContext.jsx';
 
 function InschrijfFormProducer() {
-    const { isAuthentication, logout } = useContext(AuthenticationContext);
-    const navigate = useNavigate();
-    const [brandNames, setBrandNames] = useState([]); // Staat voor de merknamen in een array
-
-    const handleBrandNameChange = (e) => {
-        const { value } = e.target;
-        // Voeg de nieuwe merknaam toe aan de array
-        setBrandNames([...brandNames, value]);
-    };
-    const [saleLocationNames, setSaleLocationNames] = useState([]); // Staat voor de merknamen in een array
-
-    const handleSaleLocationNamesChange = (e) => {
-        const { value } = e.target;
-        // Voeg de nieuwe merknaam toe aan de array
-        setSaleLocationNames([...setSaleLocationNames, value]);
-    };
-
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
         owner: '',
         nameBrewery: '',
-        saleLocation:'',
+        saleLocation: '',
         street: '',
         houseNumber: '',
         zipcode: '',
@@ -40,25 +23,38 @@ function InschrijfFormProducer() {
         role: 'BREWER, USER'
     });
 
+    const { isAuthentication, logout } = useContext(AuthenticationContext);
+    const navigate = useNavigate();
+
+    const [brandNames, setBrandNames] = useState([]);
+    const handleBrandNameChange = (e) => {
+        const { value } = e.target;
+        setBrandNames([...brandNames, value]);
+    };
+
+    const [saleLocationNames, setSaleLocationNames] = useState([]);
+    const handleSaleLocationNamesChange = (e) => {
+        const { value } = e.target;
+        setSaleLocationNames([...setSaleLocationNames, value]);
+    };
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleInputChange = (e) => {
-        const { producer, value } = e.target;
-        setFormData({
-            ...formData,
-            [producer]: value
-        });
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+
         try {
             const response = await axios.post('http://localhost:8080/producenten', formData);
-            response?.data;
-            console.log("Response Data:", response.data);
+            console.log('Response Data:', response.data);
             console.log(formData);
+
             if (response && response.data) {
                 console.log(response.data);
                 setErrorMessage('');
@@ -69,15 +65,13 @@ function InschrijfFormProducer() {
         } catch (error) {
             console.error('Fout bij het versturen van het verzoek:', error);
             if (error.response && error.response.status) {
-                console.log("Fout Status Code:", error.response.status);
+                console.log('Fout Status Code:', error.response.status);
             }
             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-
         } finally {
             setIsSubmitting(false);
         }
     };
-  
 
     return (
         <>
@@ -89,6 +83,7 @@ function InschrijfFormProducer() {
                             <label>Voornaam:</label>
                             <input
                                 type="text"
+                                name="firstName"
                                 value={formData.firstName}
                                 onChange={handleInputChange}
                                 placeholder="voornaam"
@@ -110,6 +105,7 @@ function InschrijfFormProducer() {
                             <label>Eigenaar:</label>
                             <input
                                 type="text"
+                                name="owner"
                                 value={formData.owner}
                                 onChange={handleInputChange}
                                 placeholder="voledige naam eigenaar"
@@ -120,6 +116,7 @@ function InschrijfFormProducer() {
                             <label>Brouwerijnaam:</label>
                             <input
                                 type="text"
+                                name="nameBrewery"
                                 value={formData.nameBrewery}
                                 onChange={handleInputChange}
                                 placeholder="brouwerij"
@@ -130,6 +127,7 @@ function InschrijfFormProducer() {
                             <label>Straatnaam:</label>
                             <input
                                 type="text"
+                                name="street"
                                 value={formData.street}
                                 onChange={handleInputChange}
                                 placeholder="straat"
@@ -139,6 +137,7 @@ function InschrijfFormProducer() {
                             <label>Huisnummer:</label>
                             <input
                                 type="text"
+                                name="houseNumber"
                                 value={formData.houseNumber}
                                 onChange={handleInputChange}
                                 placeholder="huisnummer"
@@ -148,6 +147,7 @@ function InschrijfFormProducer() {
                             <label>Postcode:</label>
                             <input
                                 type="text"
+                                name="zipcode"
                                 value={formData.zipcode}
                                 onChange={handleInputChange}
                                 placeholder="postcode"
@@ -157,6 +157,7 @@ function InschrijfFormProducer() {
                             <label>Plaats:</label>
                             <input
                                 type="text"
+                                name="city"
                                 value={formData.city}
                                 onChange={handleInputChange}
                                 placeholder="stad"
@@ -166,6 +167,7 @@ function InschrijfFormProducer() {
                             <label>Verkooplocaties:</label>
                             <input
                                 type="text"
+                                name="saleLocation"
                                 onChange={handleSaleLocationNamesChange}
                                 placeholder="verkooplocaties"
                             />
@@ -179,6 +181,7 @@ function InschrijfFormProducer() {
                             <label>Merknaam:</label>
                             <input
                                 type="text"
+                                name="brands"
                                 onChange={handleBrandNameChange}
                                 placeholder="merk"
                             />
@@ -192,6 +195,7 @@ function InschrijfFormProducer() {
                             <label>E-mail:</label>
                             <input
                                 type="email"
+                                name="email"
                                 value={formData.email}
                                 onChange={handleInputChange}
                                 placeholder="e-mail"
@@ -202,6 +206,7 @@ function InschrijfFormProducer() {
                             <label>Gebruikersnaam:</label>
                             <input
                                 type="text"
+                                name="userName"
                                 value={formData.userName}
                                 onChange={handleInputChange}
                                 placeholder="gebruikersnaam"
@@ -212,17 +217,20 @@ function InschrijfFormProducer() {
                             <label>Wachtwoord:</label>
                             <input
                                 type="password"
+                                name="password"
                                 value={formData.password}
                                 onChange={handleInputChange}
                                 placeholder="wachtwoord"
                             />
                         </div>
-                        <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_product")}>Een nieuw product</button>
+                        <button type="button" className="bttn" onClick={() => navigate('/inschrijfformulier_product')}>
+                            Een nieuw product
+                        </button>
                         <button className="bttn" type="submit" disabled={isSubmitting}>
-                            {isSubmitting ? 'Bezig met een product inschrijven...' : 'Inschrijven'}
+                            {isSubmitting ? 'Bezig met een product inschrijven...' : 'Inschrijven'}//TODO via auth zorgen dat tekst veranderd naar "verzenden"
                         </button>
                     </form>
-                    <p>Ander formulieren</p>
+                    <p>Ander pagina's</p>
                     <Cubes
                         button_1="Mijn pagina"
                         navigate_1="/mijn_pagina"

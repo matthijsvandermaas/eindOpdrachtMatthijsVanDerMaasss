@@ -8,7 +8,7 @@ const fetchUserData = async (First_Name, Last_Name) => {
 
         const postData = {
             title: `${First_Name} ${Last_Name}`,
-            created_at: timestamp, // Voeg de timestamp toe aan het postData-object
+            created_at: timestamp,
             key: "value"
         };
 

@@ -14,7 +14,7 @@ function ComponentThatFetchesData({ First_Name, Last_Name }) {
             }
         };
 
-        fetchData();
+        void fetchData();
     }, [First_Name, Last_Name]);
 
     // Render de component met behulp van userData

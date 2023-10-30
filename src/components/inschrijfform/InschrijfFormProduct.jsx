@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
-import Cubes from "../cubes/Cubes.jsx";
-
+import Cubes from '../cubes/Cubes.jsx';
 
 function InschrijfFormProduct() {
     const [formData, setFormData] = useState({
@@ -29,9 +28,10 @@ function InschrijfFormProduct() {
     };
 
     const handleFileChange = (e) => {
-        const { name, file } = e.target;
-        setFormData({ ...formData, [name]: file[0] });
+        const { name, files } = e.target;
+        setFormData({ ...formData, [name]: files[0] });
     };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -46,6 +46,7 @@ function InschrijfFormProduct() {
                     formDataToSend.append(key, formData[key]);
                 }
             });
+
             const response = await axios.post('http://localhost:8081/producten', formDataToSend);
 
             if (response && response.data) {
@@ -57,193 +58,103 @@ function InschrijfFormProduct() {
             }
         } catch (error) {
             console.error('Fout bij het versturen van het verzoek:', error);
+
             if (error.response && error.response.status) {
-                console.log("Fout Status Code:", error.response.status);
+                console.log('Fout Status Code:', error.response.status);
             }
+
             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
         } finally {
             setIsSubmitting(false);
         }
     };
 
-                const formDataToSend = new FormData();
-                formDataToSend.append('productName', formData.productName);
-                formDataToSend.append('nameProducer', formData.nameProducer);
-                formDataToSend.append('nameProducer', formData.type);
-                formDataToSend.append('nameProducer', formData.percentage);
-                formDataToSend.append('nameProducer', formData.color);
-                formDataToSend.append('nameProducer', formData.tast);
-                formDataToSend.append('nameProducer', formData.volume);
-                formDataToSend.append('nameProducer', formData.productionLocation);
-                formDataToSend.append('nameProducer', formData.email);
-                formDataToSend.append('photo', formData.photo);
-                formDataToSend.append('photo2', formData.photo2);
-                formDataToSend.append('photo3', formData.photo3);
-
-                return (
-                    <div className="form-container ">
-                        <h1>Een biertje toevoegen</h1>
-                        <div className="form-content border_top_bottom background">
-                            <form onSubmit={handleSubmit}>
-                                <div>
-                                    <label>Productnaam:</label>
-                                    <input
-                                        type="text"
-                                        value={formData.productName}
-                                        onChange={handleInputChange}
-                                        placeholder="naam bier"
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label>Naam brouwer:</label>
-                                    <input
-                                        type="text"
-                                        value={formData.nameProducer}
-                                        onChange={handleInputChange}
-                                        placeholder="brouwer"
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label>Locatie brouwer:</label>
-                                    <input
-                                        type="text"
-                                        value={formData.productionLocation}
-                                        onChange={handleInputChange}
-                                        placeholder="plaats"
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label>Type:</label>
-                                    <select
-                                        value={formData.type}
-                                        onChange={handleInputChange}
-                                        required
-                                    >
-                                        <option value="">Selecteer een bierstijl</option>
-                                        <option value="Lager">Lager</option>
-                                        <option value="Ale">Ale</option>
-                                        <option value="Witbier">Witbier</option>
-                                        <option value="Weizer">Weizer</option>
-                                        <option value="IPA">IPA</option>
-                                        <option value="Stout">Stout</option>
-                                        <option value="Porter">Porter</option>
-                                        <option value="Pilsner">Pilsner</option>
-                                        <option value="Amber Ale">Amber Ale</option>
-                                        <option value="Saison">Saison</option>
-                                        <option value="Tripel">Tripel</option>
-                                        <option value="Barleywine">Barleywine</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label>Percentage:</label>
-                                    <input
-                                        type="number"
-                                        step="0.1"
-                                        min="0.1"
-                                        max="14.9"
-                                        value={formData.percentage}
-                                        onChange={handleInputChange}
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label>E-mail:</label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleInputChange}
-                                        placeholder="e-mail"
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label>Kleur:</label>
-                                    <input
-                                        type="text"
-                                        value={formData.color}
-                                        onChange={handleInputChange}
-                                        placeholder="kleur(en)"
-                                    />
-                                </div>
-                                <div>
-                                    <label>Smaak:</label>
-                                    <input
-                                        type="text"
-                                        value={formData.tast}
-                                        onChange={handleInputChange}
-                                        placeholder="smaken"
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label>Volume(cc):</label>
-                                    <input
-                                        type="number"
-                                        step="0.1"
-                                        min="100.0"
-                                        max="1000.0"
-                                        value={formData.volume}
-                                        onChange={handleInputChange}
-                                    />
-                                </div>
-                                <div>
-                                    <label>Voeg een foto toe:</label>
-                                    <input
-                                        type="file"
-                                        name="foto"
-                                        value={formData.photo}
-                                        accept="image/*"
-                                        onChange={handleFileChange}
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label>Voeg nog een foto toe:</label>
-                                    <input
-                                        type="file"
-                                        name="foto"
-                                        value={formData.photo2}
-                                        accept="image/*"
-                                        onChange={handleFileChange}
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label>Voeg nog een foto toe:</label>
-                                    <input
-                                        type="file"
-                                        name="foto"
-                                        value={formData.photo3}
-                                        accept="image/*"
-                                        onChange={handleFileChange}
-                                        required
-                                    />
-                                </div>
-                                <button className="bttn" type="submit" disabled={isSubmitting}>
-                                    {isSubmitting ? 'Bezig met een product toevoegen...' : 'toevoegen'}
-                                </button>
-                            </form>
-                            <p>Ander pagina's</p>
-                            <Cubes
-                                button_1="Mijn pagina"
-                                navigate_1="/mijn_pagina"
-                                button_2="Mijn bieren"
-                                navigate_2="/mijn_bieren"
-                                button_3="Home"
-                                navigate_3="/"
-                                button_4="inloggen"
-                                navigate_4="/login_page"
-
-                            />
-                        </div>
+    return (
+        <div className="form-container">
+            <h1>Een biertje toevoegen</h1>
+            <div className="form-content border_top_bottom background">
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label>Productnaam:</label>
+                        <input type="text" name="productName" value={formData.productName} onChange={handleInputChange} placeholder="naam bier" required />
                     </div>
-                );
+                    <div>
+                        <label>Naam brouwer:</label>
+                        <input type="text" name="nameProducer" value={formData.nameProducer} onChange={handleInputChange} placeholder="brouwer" required />
+                    </div>
+                    <div>
+                        <label>Locatie brouwer:</label>
+                        <input type="text" name="productionLocation" value={formData.productionLocation} onChange={handleInputChange} placeholder="plaats" required />
+                    </div>
+                    <div>
+                        <label>Type:</label>
+                        <select name="type" value={formData.type} onChange={handleInputChange} required>
+                            <option value="">Selecteer een bierstijl</option>
+                            <option value="Lager">Lager</option>
+                            <option value="Ale">Ale</option>
+                            <option value="Witbier">Witbier</option>
+                            <option value="Weizer">Weizer</option>
+                            <option value="IPA">IPA</option>
+                            <option value="Stout">Stout</option>
+                            <option value="Porter">Porter</option>
+                            <option value="Pilsner">Pilsner</option>
+                            <option value="Amber Ale">Amber Ale</option>
+                            <option value="Saison">Saison</option>
+                            <option value="Tripel">Tripel</option>
+                            <option value="Barleywine">Barleywine</option>
+                        </select>
 
-
-        }
+                    </div>
+                    <div>
+                        <label>Percentage:</label>
+                        <input type="number" name="percentage" step="0.1" min="0.1" max="14.9" value={formData.percentage} onChange={handleInputChange} required />
+                    </div>
+                    <div>
+                        <label>E-mail:</label>
+                        <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="e-mail" required />
+                    </div>
+                    <div>
+                        <label>Kleur:</label>
+                        <input type="text" name="color" value={formData.color} onChange={handleInputChange} placeholder="kleur(en)" />
+                    </div>
+                    <div>
+                        <label>Smaak:</label>
+                        <input type="text" name="tast" value={formData.tast} onChange={handleInputChange} placeholder="smaken" required />
+                    </div>
+                    <div>
+                        <label>Volume(cc):</label>
+                        <input type="number" name="volume" step="0.1" min="100.0" max="1000.0" value={formData.volume} onChange={handleInputChange} />
+                    </div>
+                    <div>
+                        <label>Voeg een foto toe:</label>
+                        <input type="file" name="photo" accept="image/*" onChange={handleFileChange} required />
+                    </div>
+                    <div>
+                        <label>Voeg nog een foto toe:</label>
+                        <input type="file" name="photo2" accept="image/*" onChange={handleFileChange} required />
+                    </div>
+                    <div>
+                        <label>Voeg nog een foto toe:</label>
+                        <input type="file" name="photo3" accept="image/*" onChange={handleFileChange} required />
+                    </div>
+                    <button className="bttn" type="submit" disabled={isSubmitting}>
+                        {isSubmitting ? 'Bezig met een product toevoegen...' : 'toevoegen'} //TODO via auth zorgen dat tekst veranderd naar "verzenden"
+                    </button>
+                </form>
+                <p>Ander pagina's</p>
+                <Cubes
+                    button_1="Mijn pagina"
+                    navigate_1="/mijn_pagina"
+                    button_2="Mijn bieren"
+                    navigate_2="/mijn_bieren"
+                    button_3="Home"
+                    navigate_3="/"
+                    button_4="inloggen"
+                    navigate_4="/login_page"
+                />
+            </div>
+        </div>
+    );
+}
 
 export default InschrijfFormProduct;

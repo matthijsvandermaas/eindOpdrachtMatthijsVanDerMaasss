@@ -11,7 +11,6 @@ function InschrijfFormParticulier() {
         email: '',
         userName: '',
         password: '',
-        role: 'CONSUMER, USER'
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -26,6 +25,7 @@ function InschrijfFormParticulier() {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(formData)
         setIsSubmitting(true);
         try {
             const response = await axios.post('http://localhost:8081/particulieren', formData);
@@ -113,7 +113,7 @@ function InschrijfFormParticulier() {
                             />
                         </div>
                         <button className="bttn" type="submit" disabled={isSubmitting}>
-                            {isSubmitting ? 'Bezig met inschrijven...' : 'Inschrijven'}
+                            {isSubmitting ? 'Bezig met inschrijven...' : 'Inschrijven'}//TODO via auth zorgen dat tekst veranderd naar "verzenden"
                         </button>
                     </form>
                     <p>Ander pagina's</p>
