@@ -21,10 +21,10 @@ function Home() {
     const slider_Img_3 = slider_Img_Three;
     const slider_Img_4 = slider_Img_Four;
 
-    const handleLogout = () => {
-        logout();
-        navigate('/');
-    };
+    // const handleLogout = () => {
+    //     logout();
+    //     navigate('/');
+    // };
 
     return (
         <>
@@ -41,6 +41,23 @@ function Home() {
                     <div className="informatie_container">
                         <h1>Welcome {isAuthenticated ? "matthijs van der maas" : " Bier liefhebbers"}</h1>
                         <h4> Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij</h4>
+                        <div className="border_top_bottom">
+                            {!isAuthenticated ? (
+                                <>
+                                    <h4>log je hier in.</h4>
+                                    <button className="bttn" onClick={() => { window.location.href = "/login_page"; }}>
+                                        Inloggen
+                                    </button>
+                                </>
+                            ) : (
+                                <>
+                                    <p>Welkom terug.</p>
+                                    <button className="bttn" onClick={() => { logout(); window.location.href = "/"; }}>
+                                        Uitloggen
+                                    </button>
+                                </>
+                            )}
+                        </div>
                     </div>
                 </div>
                 <Cubes
