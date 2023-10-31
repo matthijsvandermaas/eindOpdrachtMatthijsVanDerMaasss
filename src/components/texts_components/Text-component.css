@@ -32,7 +32,7 @@
     box-shadow: var(--box-shadow_1);
     z-index: 1;
 }
-.text-row {
+.text-component {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -46,7 +46,7 @@
     height: auto;
 }
 
-.text-row:hover {
+.text-component:hover {
     box-shadow: 5px 5px var(--box-shadow_2);
     border-left: 3px solid var(--line-blue-2);
     border-top: 3px solid var(--line-blue-2);
@@ -55,10 +55,10 @@
     transform: scale(1.001);
     width: 80vw;
 }
-.text-row.content_1 {
+.text-component.content_1 {
     flex-direction: row;
 }
-.text-row.content_2 {
+.text-component.content_2 {
     flex-direction: row-reverse;
 }
 /*borders*/

@@ -49,7 +49,7 @@ function Productie_Informatie() {
                 <section id="algemene-informatie" ref={hetProcesRef}>
                     <h2>Algemeen informatie</h2>
 
-                    <div className="text-row content_2 border_top_left">
+                    <div className="text-component content_2 border_top_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('bierBrouwen')}
                              onMouseLeave={() => handleMouseLeave('bierBrouwen')}>
                             <Text_component
