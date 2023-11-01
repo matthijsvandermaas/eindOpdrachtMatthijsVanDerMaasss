@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import {useContext, useState} from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
+import {AuthenticationContext} from "../../utils/AuthenticationContext.jsx";
 
 
 function InschrijfFormParticulier() {
+    const { isAuthenticated, logout } = useContext(AuthenticationContext);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -14,7 +16,6 @@ function InschrijfFormParticulier() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -29,7 +30,6 @@ function InschrijfFormParticulier() {
         setIsSubmitting(true);
         try {
             const response = await axios.post('http://localhost:8081/particulieren', formData);
-            response?.data;
             console.log("Response Data:", response.data);
             console.log(formData);
             if (response && response.data) {
@@ -41,11 +41,7 @@ function InschrijfFormParticulier() {
             }
         } catch (error) {
             console.error('Fout bij het versturen van het verzoek:', error);
-            if (error.response && error.response.status) {
-                console.log("Fout Status Code:", error.response.status);
-            }
             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-
         } finally {
         setIsSubmitting(false);
     }
@@ -113,8 +109,9 @@ function InschrijfFormParticulier() {
                             />
                         </div>
                         <button className="bttn" type="submit" disabled={isSubmitting}>
-                            {isSubmitting ? 'Bezig met inschrijven...' : 'Inschrijven'}//TODO via auth zorgen dat tekst veranderd naar "verzenden"
+                            {isSubmitting ? 'Bezig met inschrijven...' : (isAuthenticated ? 'Verzenden' : 'inschrijven')}
                         </button>
+
                     </form>
                     <p>Ander pagina's</p>
                     <Cubes

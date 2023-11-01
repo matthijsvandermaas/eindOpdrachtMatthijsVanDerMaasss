@@ -1,46 +1,51 @@
-import React, {useContext, useState} from 'react';
-import {useNavigate, Link} from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login_Page.css';
 import Cubes from '../../components/cubes/Cubes.jsx';
-import Slider from '../../components/slider/Slider.jsx';
-import slider_Img_One from '../../assets/hoe maak je bier/hop.png';
-import slider_Img_Two from '../../assets/hoe maak je bier/yeast.png';
-import slider_Img_Three from '../../assets/hoe maak je bier/malt.png';
-import slider_Img_Four from '../../assets/hoe maak je bier/gist.png';
 import { AuthenticationContext } from '../../utils/AuthenticationContext.jsx';
+import axios from 'axios';
 
-
-const Login = () => {
+const Login_Page = () => {
     const { isAuthenticated, login, logout } = useContext(AuthenticationContext);
     const navigate = useNavigate();
-
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [slideIndex, setSlideIndex] = useState(1);
-    const slider_Img_1 = slider_Img_One;
-    const slider_Img_2 = slider_Img_Two;
-    const slider_Img_3 = slider_Img_Three;
-    const slider_Img_4 = slider_Img_Four;
 
+    const handleLogin = async () => {
+        try {
+            const userCredentials = { username, password };
+            const response = await axios.post(
+                'http://localhost:8081/authenticate',
+                userCredentials,
+                {
+                    withCredentials: true,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+
+            if (response.status === 200) {
+                navigate('/');
+                console.log('Authentication successful');
+                login();
+            } else {
+                navigate('/login_page');
+                console.log('Authentication failed');
+            }
+        } catch (error) {
+            navigate('/login_page');
+            console.error('Error during authentication:', error);
+        }
+    };
     const handleLogout = () => {
         logout();
-        navigate('/');
-    };
-
-    const handleLogin = () => {
-        login();
-        navigate('/mijn_bieren');
+        navigate('/*');
     };
 
     return (
         <div className="outer-login-container">
-            <Slider
-                slider_Img1={slider_Img_1}
-                slider_Img2={slider_Img_2}
-                slider_Img3={slider_Img_3}
-                slider_Img4={slider_Img_4}
-                slideIndex={slideIndex}
-                setSlideIndex={setSlideIndex}
-            />
-            <h1>Gezellig dat je er bent, kom je inschrijven of inloggen?</h1>
             <form className="form-content background-login">
                 <div>
                     <label>Email address</label>
@@ -48,6 +53,9 @@ const Login = () => {
                         type="email"
                         className="form-control"
                         placeholder="Enter email"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
                     />
                 </div>
                 <div>
@@ -56,21 +64,18 @@ const Login = () => {
                         type="password"
                         className="form-control"
                         placeholder="Enter password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
                 </div>
                 <p>
-                    nog geen lid, kom erbij en<Link to="/inschrijfformulier"><strong> schrijf je in!</strong></Link>
+                    Nog geen lid? Kom erbij en<Link to="/inschrijfformulier"><strong> schrijf je in</strong></Link>
                 </p>
                 <div>
-                    {!isAuthenticated ? (
-                        <button type="submit" className="bttn" onClick={handleLogin}>
-                            inloggen
-                        </button>
-                    ) : (
-                        <button type="button" className="bttn" onClick={handleLogout}>
-                            logout
-                        </button>
-                    )}
+                    <button className="bttn" onClick={!isAuthenticated ? handleLogin : handleLogout}>
+                        {!isAuthenticated ? 'Inloggen' : 'Logout'}
+                    </button>
                 </div>
             </form>
             <p>Ander formulieren</p>
@@ -88,4 +93,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Login_Page;

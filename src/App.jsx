@@ -12,7 +12,7 @@ import Inschrijf_Form_Producer from "./components/inschrijfform/InschrijfFormPro
 import Productie_Informatie from "./pages/hoe maak je bier/Productie_Informatie.jsx";
 import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProduct.jsx";
 import Alle_bieren from "./pages/alle_bieren/Alle_Producten.jsx";
-import Login_page from "./pages/login_page/Login_page.jsx";
+import Login_page from "./pages/login_page/Login_Page.jsx";
 import Error from "./pages/error/Error.jsx";
 import Mijn_bieren from "./pages/mijn_bieren/Mijn_Bieren.jsx";
 
