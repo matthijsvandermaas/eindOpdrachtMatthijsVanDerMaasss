@@ -15,9 +15,11 @@ import Alle_bieren from "./pages/alle_bieren/Alle_Producten.jsx";
 import Login_page from "./pages/login_page/Login_Page.jsx";
 import Error from "./pages/error/Error.jsx";
 import Mijn_bieren from "./pages/mijn_bieren/Mijn_Bieren.jsx";
+import axios from "axios";
 
-
+axios.defaults.withCredentials = true;
 function App() {
+
     const [activeTab, setActiveTab] = useState('Home');
     const [logoSrc, setLogoSrc] = useState("");
     const handleTabChange = (tabName) => {

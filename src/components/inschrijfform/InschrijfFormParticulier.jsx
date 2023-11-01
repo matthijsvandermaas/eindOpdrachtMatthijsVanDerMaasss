@@ -6,7 +6,7 @@ import {AuthenticationContext} from "../../utils/AuthenticationContext.jsx";
 
 
 function InschrijfFormParticulier() {
-    const { isAuthenticated, logout } = useContext(AuthenticationContext);
+    const { isAuthenticated} = useContext(AuthenticationContext);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -44,9 +44,10 @@ function InschrijfFormParticulier() {
             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
         } finally {
         setIsSubmitting(false);
+
     }
     };
-
+    console.log(formData);
     return (
         <>
             <div className="form-container">
@@ -93,6 +94,8 @@ function InschrijfFormParticulier() {
                                 name="userName"
                                 value={formData.userName}
                                 onChange={handleInputChange}
+                                autoComplete="current-user-name"
+
                                 placeholder="gebruikersnaam"
                                 required
                             />
@@ -104,6 +107,7 @@ function InschrijfFormParticulier() {
                                 name="password"
                                 value={formData.password}
                                 onChange={handleInputChange}
+                                autoComplete="current-password"
                                 placeholder="wachtwoord"
                                 required
                             />
