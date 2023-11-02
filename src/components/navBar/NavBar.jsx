@@ -1,7 +1,7 @@
 import React, {useRef, useState, useContext} from 'react';
 import './navbar.css';
 import {NavLink, useNavigate} from 'react-router-dom';
-import {AuthenticationContext} from "../../utils/AuthenticationContext.jsx";
+import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
 
 function Navbar() {
     const hetProcesRef = useRef(null);

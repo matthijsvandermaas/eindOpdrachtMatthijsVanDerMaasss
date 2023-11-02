@@ -6,7 +6,7 @@ import slider_Img_One from '../../assets/hoe maak je bier/hop.png';
 import slider_Img_Two from '../../assets/hoe maak je bier/yeast.png';
 import slider_Img_Three from '../../assets/hoe maak je bier/malt.png';
 import slider_Img_Four from '../../assets/hoe maak je bier/gist.png';
-import {AuthenticationContext} from "../../utils/AuthenticationContext.jsx";
+import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
 
 
 import {NavLink, useNavigate} from "react-router-dom";

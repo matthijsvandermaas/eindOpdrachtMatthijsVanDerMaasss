@@ -2,7 +2,7 @@ import {useContext, useState} from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes.jsx";
-import {AuthenticationContext} from "../../utils/AuthenticationContext.jsx";
+import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
 
 
 function InschrijfFormParticulier() {
@@ -29,7 +29,7 @@ function InschrijfFormParticulier() {
         console.log(formData)
         setIsSubmitting(true);
         try {
-            const response = await axios.post('http://localhost:8081/particulieren', formData);
+            const response = await axios.post('http://localhost:3000/particulieren', formData);
             console.log("Response Data:", response.data);
             console.log(formData);
             if (response && response.data) {
@@ -112,7 +112,7 @@ function InschrijfFormParticulier() {
                                 required
                             />
                         </div>
-                        <button className="bttn" type="submit" disabled={isSubmitting}>
+                        <button className="bttn" type="submit">
                             {isSubmitting ? 'Bezig met inschrijven...' : (isAuthenticated ? 'Verzenden' : 'inschrijven')}
                         </button>
 
