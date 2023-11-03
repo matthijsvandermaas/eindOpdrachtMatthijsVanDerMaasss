@@ -32,9 +32,11 @@ label {
     font-weight: bold;
     flex: 1;
 }
+
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="username"] {
     flex: 1;
     padding: 8px;
     border: 1px solid #ccc;
@@ -58,6 +60,8 @@ form div input[type="email"],
 form div input[type="password"],
 form div input[type="number"],
 form div input[type="file"],
+form div input[type="date"],
+form div input[type="username"],
 form div select {
     flex: 2;
     padding: 8px;

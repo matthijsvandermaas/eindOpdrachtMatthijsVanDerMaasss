@@ -3,9 +3,6 @@
     flex-direction: column;
     align-items: center;
 }
-.inner-login-container {
-    margin-bottom: 20px;
-}
 .inlog-cubes {
     display: flex;
     flex-direction: column;
@@ -13,6 +10,7 @@
 }
 form.form-content{
     transition: 1.5s ease-in-out;
+    flex-direction: column;
 }
 form.form-content:hover{
     box-shadow: 5px 5px var(--box-shadow_2);

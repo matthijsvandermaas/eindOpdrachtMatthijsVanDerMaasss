@@ -1,10 +1,18 @@
 {
-  "users": [
+  "users1": [
     {
       "email": "tonystark@starktech.com",
       "password": "ironman",
       "name": "tony_stark",
       "id": 1
+    }
+  ],
+  "users2": [
+    {
+      "email": "e@e.com",
+      "password": "pasword",
+      "name": "name",
+      "id": 2
     }
   ],
   "private-content": {
