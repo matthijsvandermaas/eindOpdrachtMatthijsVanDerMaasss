@@ -25,29 +25,35 @@ function Login_Page() {
     const slider_Img_4 = slider_Img_Four;
 
     async function handleLogin(e) {
-        e.preventDefault();
         toggleError(false);
-
         try {
-            const result = await axios.post('http://localhost:3000/login', {
-                email: email,
-                password: password,
+            const response = await axios.post('http://localhost:3000/login', {
+                email:{email},
+                password: {password},
             });
-            console.log(result.data);
-
+            //token
+            console.log(response.data.accesToken);
             // geef de JWT token aan de login-functie van de context mee
-            login(result.data.accessToken);
+            login(response.data.accessToken);
+            navigate("/")
 
         } catch (e) {
             console.error(e);
             toggleError(true);
         }
     }
-
     const handleLogout = () => {
-        logout();
-        navigate('/*');
-    };
+        try {
+            const response = axios.post('http://localhost:3000/logout');
+            console.log(response.data);
+            logout();
+            navigate('/');
+        } catch (e) {
+            console.error(e);
+            toggleError(true);
+        }
+    }
+
 
 
     return (

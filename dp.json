@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "email": "tonystark@starktech.com",
+      "password": "ironman",
+      "name": "tony_stark",
+      "id": 1
+    }
+  ],
+  "private-content": {
+    "title": "This is a title",
+    "content": "This is content"
+  }
+}

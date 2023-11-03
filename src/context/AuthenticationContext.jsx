@@ -1,51 +1,80 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import jwt_decode from 'jwt-decode';
+import React, {createContext, useEffect, useRef, useState} from 'react';
+import {useHistory, useNavigate} from 'react-router-dom';
+import Jwtdecode from 'jwt-decode';
 import axios from 'axios';
 
-export const AuthenticationContext = createContext({});
 
+export const AuthenticationContext = createContext({});
+const JWT_token = localStorage.getItem('token');
 function AuthContextProvider({ children }) {
   const [isAuth, toggleIsAuth] = useState({
-
-    isAuth: false,
+    isAuthenticated: false,
     user: null,
-    status: 'pending',
-  });
+    status: 'pending' });
+  const navigate = useNavigate();
   const history = useHistory();
 
   // MOUNTING EFFECT
   useEffect(() => {
-    // haal de JWT op uit Local Storage
+    // haal de JWT_token op uit Local Storage
     const token = localStorage.getItem('token');
-    // als er WEL een token
+       // WEL een token
     if (token) {
-      const decoded = jwt_decode(token);
-       void fetchUserData(decoded.sub, token);
+     void login(token);
     } else {
-      // als er GEEN token
+      // GEEN token
       toggleIsAuth({
-        isAuth: false,
-        user: null,
+     ...isAuth,
         status: 'done',
       });
     }
   }, []);
 
-  function login(JWT_token) {
-    // zet de token in de Local Storage
+  async function login(Token) {
+    //token opslaan in local storage
+    localStorage.setItem('token', Token);
+    const userinfo = Jwtdecode(Token);
+    const userId = userinfo.sub;
+    try{
+      const result = await axios.get(`https://localhost:3000/600/users/${userId}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${Token}`,
+      }
+      });
+        console.log(result);
+      toggleIsAuth({
+        isAuthenticated: true,
+        user: {
+          username: result.data.username,
+          email: result.data.email,
+          id: result.data.id,
+        },
+        status: 'done',
+      });
+        history.push('/');
+    }catch (e) {
+      console.error(e);
+        toggleIsAuth({
+           ...isAuth,
+            status: 'done',
+            });
+    }
+      console.log('Gebruiker is ingelogd!');
+  }
+      // zet de token in de Local Storage
     localStorage.setItem('token', JWT_token);
     // decode de token zodat we de ID van de gebruiker hebben
-    const decoded = jwt_decode(JWT_token);
+    const decoded = Jwtdecode(JWT_token);
     // geef de ID, token en redirect-link mee aan de fetchUserData functie
     fetchUserData(decoded.sub, JWT_token, '/profile');
-    history.push('/profile');
+    history.push('/profile')
   }
 
   function logout() {
     localStorage.clear();
     toggleIsAuth({
-      isAuth: false,
+      isAuthenticated: false,
       user: null,
       status: 'done',
     });
@@ -87,7 +116,7 @@ function AuthContextProvider({ children }) {
       });
 
       // als er een redirect URL is meegegeven
-      // als we de history.push in de login-functie zouden zetten
+      // history.push in de login-functie zouden zetten
       if (redirectUrl) {
         history.push(redirectUrl);
       }
@@ -103,17 +132,15 @@ function AuthContextProvider({ children }) {
   }
 
   const contextData = {
-    isAuth: isAuth.isAuth,
-    user: isAuth.user,
+  ...isAuth,
     login,
     logout,
   };
 
-  return (
-      <AuthenticationContext.Provider value={contextData}>
-        {isAuth.status === 'done' ? children : <p>Momentje de bartender komt er zo aan🍻...</p>}
-      </AuthenticationContext.Provider>
-  );
+return (
+    <AuthenticationContext.Provider value={contextData}>
+      {isAuth.status === 'done' ? children : <p>Momentje de bartender komt er zo aan🍻...</p>}
+    </AuthenticationContext.Provider>
+);
 }
-
 export default AuthContextProvider;
