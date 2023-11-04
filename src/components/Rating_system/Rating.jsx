@@ -23,7 +23,7 @@ function Rating({titel}) {
                         onClick={() => handleStarClick(starValue)}
                         >
                             <label>
-                      <img className="wheat_logo" src={wheat} alt="wheat-logo"/>
+                      <img className="small_logo" src={wheat} alt="wheat-logo"/>
                         </label>
                     </span>
                 ))}
