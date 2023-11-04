@@ -1,0 +1,17 @@
+/* Stijl voor de kalender */
+
+
+.react-calendar__tile {
+    background: white;
+}
+
+.react-calendar__tile--active {
+    background: var(--line-blue); /* Rode kleur voor de actieve dag */
+    color: white;
+}
+input[type="date" i] {
+font-size: 30px;
+}
+
+/* Stijl voor de dropdown knop */
+

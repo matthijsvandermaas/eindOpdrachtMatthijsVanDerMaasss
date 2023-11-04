@@ -4,7 +4,6 @@ import logoImage from './assets/logos and backgrounds/B & B logo2.jpg';
 import logoImage_Klein from './assets/logos and backgrounds/B & B logo2 klein.jpg';
 import wheat from './assets/logos and backgrounds/wheat.png';
 import Navbar from "./components/navBar/Navbar.jsx";
-import Home from "./pages/HOME/Home.jsx";
 import {NavLink, Route, Routes} from "react-router-dom";
 import Inschrijf_Navigatie from "./pages/inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 import Inschrijf_Form_Particulier from "./components/inschrijfform/InschrijfFormParticulier.jsx";
@@ -16,6 +15,8 @@ import Login_page from "./pages/login_page/Login_Page.jsx";
 import Error from "./pages/error/Error.jsx";
 import Mijn_bieren from "./pages/mijn_bieren/Mijn_Bieren.jsx";
 import axios from "axios";
+import Home from '../src/pages/HOME/Home.jsx';
+import AgeVerification from '../src/components/leeftijds_check/AgeVerification.jsx';
 
 axios.defaults.withCredentials = true;
 function App() {
@@ -56,7 +57,8 @@ return (
                 </div>
                 <div className="main-container">
                     <Routes>
-                        <Route path="/" element={<Home />} />
+                        <Route path="/home" element={<Home />} />
+                        <Route exact path="/" element={<AgeVerification/>} />
                         <Route path="/inschrijfformulier" element={<Inschrijf_Navigatie />} />
                         <Route path="/inschrijfformulier_particulier" element={<Inschrijf_Form_Particulier />} />
                         <Route path="/inschrijfformulier_producent" element={<Inschrijf_Form_Producer />} />

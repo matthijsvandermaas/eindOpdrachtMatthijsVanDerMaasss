@@ -4,10 +4,10 @@ import Cubes from '../../components/cubes/Cubes.jsx';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthenticationContext } from '../../context/AuthenticationContext.jsx';
 import './Error.css';
-import {string} from "prop-types";
 
 function Error() {
-    const [previousLocation, setPreviousLocation] = useState<string | null>null;
+    const [previousLocation, setPreviousLocation] = useState(null);
+
     const { isAuthenticated } = useContext(AuthenticationContext);
     const location = useLocation();
 
@@ -18,12 +18,8 @@ function Error() {
     return (
         <div className="error-content">
             <h1>
-                Je hebt een glaasje teveel op denk ik, <br /> Ga{' '}
-                <Link to={isAuthenticated ? (previousLocation || '/') : '/'}>
-                    <strong>
-                        terug naar {isAuthenticated ? 'waar je was.' : 'HOME'}
-                    </strong>
-                </Link>
+                Je hebt een glaasje teveel op denk ik, <br/>
+                {isAuthenticated ? 'waar je was?' : <span>ga naar <Link to="/"><strong>Home</strong></Link></span>}
             </h1>
             <div className="text-content content_1">
                 <Text_component Text_Header="" />
