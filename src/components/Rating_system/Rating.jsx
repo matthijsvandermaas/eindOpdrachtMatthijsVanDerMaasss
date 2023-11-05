@@ -15,7 +15,7 @@ function Rating({titel}) {
 
             <div className="star-rating">
                 <h5>{titel}</h5>
-                <div className="star-rating-container border_top_left">
+                <div className="star-rating-container">
                 {[1, 2, 3, 4, 5].map((starValue) => (
                     <span
                         key={starValue}
