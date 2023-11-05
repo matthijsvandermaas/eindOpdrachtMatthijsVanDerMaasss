@@ -70,6 +70,7 @@ function Home() {
                     button_4="Hoe maak je bier"
                     navigate_4="/Productie_Informatie"
                 />
+
             </div>
         </>
     );

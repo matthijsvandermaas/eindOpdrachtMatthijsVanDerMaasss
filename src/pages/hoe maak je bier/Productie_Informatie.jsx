@@ -85,7 +85,6 @@ function Productie_Informatie() {
                                     <Text_component
                                         Text_Message2="IBU staat voor (International Bitterness Units) Het is een maatstaf voor de bitterheid van bier, die aangeeft hoe bitter een bier smaakt als gevolg van de aanwezigheid van hopzuren."
                                         Text_Message3="Hoe hoger het IBU-gehalte, hoe bitterder het bier zal zijn."
-                                        Text_Message4=" "
                                         Text_Message5="IBU wordt gemeten op een schaal van 0 tot boven de 100."
                                         Text_Message6="Lichtere bieren zoals pilseners meestal lage IBU-waarden hebben (rond 5-20 IBU),"
                                         Text_Message7="terwijl hoprijke bieren zoals India Pale Ales (IPA's) veel hogere IBU-waarden kunnen hebben (vaak boven de 50 IBU)."
