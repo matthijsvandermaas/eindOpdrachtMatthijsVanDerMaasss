@@ -16,7 +16,7 @@ function Error() {
     }, []);
 
     return (
-        <div className="error-content">
+        <div className="error-content text-component">
             <h1>
                 Je hebt een glaasje teveel op denk ik, <br/>
                 {isAuthenticated ? 'waar je was?' : <span>ga naar <Link to="/"><strong>Home</strong></Link></span>}
