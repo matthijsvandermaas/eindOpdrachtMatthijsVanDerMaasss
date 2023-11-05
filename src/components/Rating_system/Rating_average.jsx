@@ -14,7 +14,7 @@ function Rating_average() {
         <>
 
             <div className="star-rating">
-                <h5>Hoe lekker is dit biertje?</h5>
+                <p>Hoe lekker is dit biertje?</p>
                 <div className="star-rating-container">
                 {[1, 2, 3, 4, 5].map((starValue) => (
                     <span

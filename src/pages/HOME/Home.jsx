@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react';
 import './Home.css';
 import Cubes from '../../components/cubes/Cubes.jsx';
 import Slider from '../../components/slider/Slider.jsx';
-import slider_Img_One from '../../assets/hoe maak je bier/hop.png';
-import slider_Img_Two from '../../assets/hoe maak je bier/yeast.png';
-import slider_Img_Three from '../../assets/hoe maak je bier/malt.png';
-import slider_Img_Four from '../../assets/hoe maak je bier/gist.png';
+import slider_Img_One from '../../assets/rockcity/rockcity_products.png';
+import slider_Img_Two from '../../assets/rockcity/rockcity_brewer.png';
+import slider_Img_Three from '../../assets/rockcity/rockcity_taps.png';
+import slider_Img_Four from '../../assets/rockcity/rockcity_ketel.jpg';
 import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
 
 
@@ -41,18 +41,16 @@ function Home() {
                     <div className="informatie_container">
                         <h1>Welcome {isAuthenticated ? "matthijs van der maas" : " Bier liefhebbers"}</h1>
                         <h4> Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij</h4>
-                        <div className="border_top_bottom">
+                        <div>
                             {!isAuthenticated ? (
                                 <>
-                                    <h4>log je hier in.</h4>
-                                    <button className="bttn" onClick={() => { window.location.href = "/login_page"; }}>
+                                    <button className=" bttn bttn_small" onClick={() => { window.location.href = "/login_page"; }}>
                                         Inloggen
                                     </button>
                                 </>
                             ) : (
                                 <>
-                                    <p>Welkom terug.</p>
-                                    <button className="bttn" onClick={() => { logout(); window.location.href = "/"; }}>
+                                    <button className=" bttn bttn_small" onClick={() => { logout(); window.location.href = "/"; }}>
                                         Uitloggen
                                     </button>
                                 </>

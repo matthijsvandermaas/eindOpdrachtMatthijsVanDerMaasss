@@ -4,13 +4,13 @@ import logoImage from './assets/logos and backgrounds/B & B logo2.jpg';
 import logoImage_Klein from './assets/logos and backgrounds/B & B logo2 klein.jpg';
 import wheat from './assets/logos and backgrounds/wheat.png';
 import Navbar from "./components/navBar/Navbar.jsx";
-import {NavLink, Route, Routes} from "react-router-dom";
+import {NavLink, Route, Routes, useNavigate} from "react-router-dom";
 import Inschrijf_Navigatie from "./pages/inschrijving_Navigatie/inschrijf_Navigatie.jsx";
 import Inschrijf_Form_Particulier from "./components/inschrijfform/InschrijfFormParticulier.jsx";
 import Inschrijf_Form_Producer from "./components/inschrijfform/InschrijfFormProducer.jsx";
 import Productie_Informatie from "./pages/hoe maak je bier/Productie_Informatie.jsx";
 import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProduct.jsx";
-import Alle_bieren from "./pages/alle_bieren/Alle_Producten.jsx";
+import Alle_bieren from "./pages/alle_bieren/AllProducts.jsx";
 import Login_page from "./pages/login_page/Login_Page.jsx";
 import Error from "./pages/error/Error.jsx";
 import Mijn_bieren from "./pages/mijn_bieren/Mijn_Bieren.jsx";
@@ -20,17 +20,32 @@ import AgeVerification from '../src/components/leeftijds_check/AgeVerification.j
 import Feedback from './pages/feedback/Feedback.jsx';
 import News from './pages/news feed/News.jsx';
 import Music from './pages/music/Drank_Orgel.jsx';
-import insta from '../src/assets/general pics/insta.jpeg';
+import insta from './assets/logos and backgrounds/insta.jpeg';
 
 
 axios.defaults.withCredentials = true;
 function App() {
-
     const [activeTab, setActiveTab] = useState('Home');
     const [logoSrc, setLogoSrc] = useState("");
+    const [verificationDone, setVerificationDone] = useState(false);
+    const navigate = useNavigate();
     const handleTabChange = (tabName) => {
         setActiveTab(tabName);
     };
+    useEffect(() => {
+        const isVerified = localStorage.getItem('isAgeVerified');
+
+        if (isVerified) {
+            setVerificationDone(true);
+            navigate('/home');
+        }
+    }, []);
+    const handleAgeVerification = () => {
+        localStorage.setItem('isAgeVerified', 'true');
+        setVerificationDone(true);
+        navigate('/home');
+    };
+
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth <= 480) {
@@ -63,7 +78,7 @@ return (
                 <div className="main-container">
                     <Routes>
                         <Route path="/home" element={<Home />} />
-                        <Route exact path="/" element={<AgeVerification/>} />
+                        {!verificationDone && <Route exact path="/" element={<AgeVerification handleAgeVerification={handleAgeVerification} />} />}
                         <Route path="/inschrijfformulier" element={<Inschrijf_Navigatie />} />
                         <Route path="/inschrijfformulier_particulier" element={<Inschrijf_Form_Particulier />} />
                         <Route path="/inschrijfformulier_producent" element={<Inschrijf_Form_Producer />} />

@@ -7,6 +7,9 @@ import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
 
 function InschrijfFormParticulier() {
     const { isAuthenticated} = useContext(AuthenticationContext);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [addSucces, toggleAddSuccess] = useState(false);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -14,8 +17,22 @@ function InschrijfFormParticulier() {
         userName: '',
         password: '',
     });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
+    async function addUser(e) {
+        // voorkom refresh
+        e.preventDefault();
+        console.log(formData);
+
+        try {
+            // Verstuur de data in een object en zorg dat de keys overeenkomen met die in de backend
+            const response = await axios.post('http://localhost:8081/particulieren', {
+            formData: formData,
+            });
+            console.log(response.data);
+            toggleAddSuccess(true);
+        } catch(e) {
+            console.error(e);
+        }
+    }
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -24,36 +41,36 @@ function InschrijfFormParticulier() {
             [name]: value
         });
     };
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(formData)
-        setIsSubmitting(true);
-        try {
-            const response = await axios.post('http://localhost:3000/particulieren', formData);
-            console.log("Response Data:", response.data);
-            console.log(formData);
-            if (response && response.data) {
-                console.log(response.data);
-                setErrorMessage('');
-            } else {
-                console.error('Fout bij het versturen van het verzoek: ongeldige reactie');
-                setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-            }
-        } catch (error) {
-            console.error('Fout bij het versturen van het verzoek:', error);
-            setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-        } finally {
-        setIsSubmitting(false);
-
-    }
-    };
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     console.log(formData)
+    //     setIsSubmitting(true);
+    //     try {
+    //         const response = await axios.post('http://localhost:3000/particulieren', formData);
+    //         console.log("Response Data:", response.data);
+    //         console.log(formData);
+    //         if (response && response.data) {
+    //             console.log(response.data);
+    //             setErrorMessage('');
+    //         } else {
+    //             console.error('Fout bij het versturen van het verzoek: ongeldige reactie');
+    //             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
+    //         }
+    //     } catch (error) {
+    //         console.error('Fout bij het versturen van het verzoek:', error);
+    //         setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
+    //     } finally {
+    //     setIsSubmitting(false);
+    //
+    // }
+    // };
     console.log(formData);
     return (
         <>
             <div className="form-container">
                 <h1>Inschrijven als bierliefhebbers</h1>
                 <div className="form-content border_top_bottom background">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={addUser}>
                         <div>
                             <label>Voornaam:</label>
                             <input

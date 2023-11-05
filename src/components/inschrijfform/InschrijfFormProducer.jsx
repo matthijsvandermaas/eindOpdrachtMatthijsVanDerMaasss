@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from '../cubes/Cubes.jsx';
@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthenticationContext } from '../../context/AuthenticationContext.jsx';
 
 function InschrijfFormProducer() {
+    const [addSucces, toggleAddSuccess] = useState(false);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -22,7 +23,22 @@ function InschrijfFormProducer() {
         password: '',
         role: 'BREWER, USER'
     });
+    async function addBrewer(e) {
+        // voorkom refresh
+        e.preventDefault();
+        console.log(formData);
 
+        try {
+            // Verstuur de data in een object en zorg dat de keys overeenkomen met die in de backend
+            const response = await axios.post('http://localhost:8081/producten', {
+                formData: formData,
+            });
+            console.log(response.data);
+            toggleAddSuccess(true);
+        } catch(e) {
+            console.error(e);
+        }
+    }
     const { isAuthentication, logout } = useContext(AuthenticationContext);
     const navigate = useNavigate();
 
@@ -46,39 +62,39 @@ function InschrijfFormProducer() {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-
-        try {
-            const response = await axios.post('http://localhost:8080/producenten', formData);
-            console.log('Response Data:', response.data);
-            console.log(formData);
-
-            if (response && response.data) {
-                console.log(response.data);
-                setErrorMessage('');
-            } else {
-                console.error('Fout bij het versturen van het verzoek: ongeldige reactie');
-                setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-            }
-        } catch (error) {
-            console.error('Fout bij het versturen van het verzoek:', error);
-            if (error.response && error.response.status) {
-                console.log('Fout Status Code:', error.response.status);
-            }
-            setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setIsSubmitting(true);
+    //
+    //     try {
+    //         const response = await axios.post('http://localhost:8080/producenten', formData);
+    //         console.log('Response Data:', response.data);
+    //         console.log(formData);
+    //
+    //         if (response && response.data) {
+    //             console.log(response.data);
+    //             setErrorMessage('');
+    //         } else {
+    //             console.error('Fout bij het versturen van het verzoek: ongeldige reactie');
+    //             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
+    //         }
+    //     } catch (error) {
+    //         console.error('Fout bij het versturen van het verzoek:', error);
+    //         if (error.response && error.response.status) {
+    //             console.log('Fout Status Code:', error.response.status);
+    //         }
+    //         setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
+    //     } finally {
+    //         setIsSubmitting(false);
+    //     }
+    // };
 
     return (
         <>
             <div className="form-container ">
                 <h1>Je inschrijven als brouwer</h1>
                 <div className="form-content border_top_bottom background">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={addBrewer}>
                         <div>
                             <label>Voornaam:</label>
                             <input

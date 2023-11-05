@@ -10,10 +10,10 @@
 }
 
 .music-btn {
-    width: 12vw;
-    min-width: 10vw;
-    height: 10vh;
-    min-height: 8vh;
+    width: 14vw;
+    max-width: 400px;
+    height: 5.5vh;
+ max-height: 200px;
     text-decoration: none;
     text-align: center;
     margin: 5px 10px;
@@ -28,33 +28,24 @@
 .music-btn:hover{
     color: rgba(245, 245, 245, 0.01);
     border: 2px solid var(--line-blue);
-
 }
 .bttn_spotify {
-    background-color: #1ed760;
-    color: whitesmoke;
-}
-.bttn_spotify:hover {
+    color: black;
     background-size: cover;
-    background: url("../../assets/general pics/spotify.png") center;
+    background: url("../../assets/logos and backgrounds/spotify.png") center;
 }
 
 .bttn_youtube {
-    background-color: #ff0000;
-    color: black;
+    color: #3b7a0e;
     font-weight: bolder;
-}
-.bttn_youtube:hover {
     background-size: cover;
-    background: url("../../assets/general pics/youtube.png") center;
+    background: url("../../assets/logos and backgrounds/youtube.png") center;
+
 }
 
 .bttn_top2000 {
-    background-color: #d9141b;
-    color: whitesmoke;
-}
-.bttn_top2000:hover {
+    color: black;
     background-size: cover;
-    background: url("../../assets/general pics/top2000.png") center;
+    background: url("../../assets/logos and backgrounds/top2000.png") center;
 }
 

@@ -4,7 +4,7 @@ import './inschrijf_Navigatie.css';
 import '../../components/inschrijfform/InschrijfFormProducer.jsx';
 import '../../components/inschrijfform/InschrijfFormParticulier.jsx';
 import '../../components/inschrijfform/InschrijfFormProduct.jsx';
-import cafeOrloff from "../../assets/general pics/CafeOrloff.jpeg";
+import cafeOrloff from "../../assets/orloff/CafeOrloff.jpeg";
 import Cubes from "../../components/cubes/Cubes.jsx";
 
 
