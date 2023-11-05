@@ -4,7 +4,7 @@ import './inschrijf_Navigatie.css';
 import '../../components/inschrijfform/InschrijfFormProducer.jsx';
 import '../../components/inschrijfform/InschrijfFormParticulier.jsx';
 import '../../components/inschrijfform/InschrijfFormProduct.jsx';
-import wheat from "../../assets/logos and backgrounds/wheat.png";
+import cafeOrloff from "../../assets/general pics/CafeOrloff.jpeg";
 import Cubes from "../../components/cubes/Cubes.jsx";
 
 
@@ -31,7 +31,7 @@ function Inschrijf_Navigatie() {
 
 
                 </div>
-                <img src={wheat} alt="afbeelding" />
+                <img className="general_Img" src={cafeOrloff} alt=" een cafe" />
                 <Cubes
                     button_1="inschrijven"
                     navigate_1="/inschrijfformulier"

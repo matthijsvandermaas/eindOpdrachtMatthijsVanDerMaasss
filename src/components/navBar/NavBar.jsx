@@ -78,7 +78,7 @@ function Navbar() {
                             </div>
                         )}
                     </div>
-                    <NavLink to="/feedback">Wat vind je van onze pagina?</NavLink>
+                    <NavLink to="/feedback">Geef ons je sfeedback?</NavLink>
                 </li>
             </ul>
         </div>

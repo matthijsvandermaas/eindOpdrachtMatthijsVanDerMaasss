@@ -1,17 +1,23 @@
-/* Stijl voor de kalender */
-
+.react-calendar {
+    width: 300px; /* Aanpassen aan je voorkeur */
+    max-width: 100%; /* Houdt de maximale breedte als 100% */
+    border: 1px solid var(--line-blue);
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+}
 
 .react-calendar__tile {
     background: white;
 }
 
 .react-calendar__tile--active {
-    background: var(--line-blue); /* Rode kleur voor de actieve dag */
+    background: var(--line-blue);
     color: white;
 }
-input[type="date" i] {
-font-size: 30px;
+
+/* Stijl voor het inputelement */
+input[type="date"] {
+    font-size: 30px;
+    padding: 10px;
+    width: 100%;
 }
-
-/* Stijl voor de dropdown knop */
-
