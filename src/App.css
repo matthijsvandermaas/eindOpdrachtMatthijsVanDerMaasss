@@ -237,18 +237,14 @@ p a {
     width: 100%;
     height: auto;
 }
-.inhance {
-    width: 60%;
-    height: 50%;
-    transition: width 0.5s ease-in-out, height 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-}
+.text-input {
 
-.inhance:hover {
-    width: 150%;
-    height: 150%;
-    box-shadow: var(--box-shadow_1);
+    width: 90%;
+    height: 10em;
+    max-height: 10vh;
+    padding: 10px;
+    margin-top: 0;
 }
-
 /*///6. Areas///*/
 /* 6.2 scrollbar */
 ::-webkit-scrollbar {

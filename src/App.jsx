@@ -17,6 +17,7 @@ import Mijn_bieren from "./pages/mijn_bieren/Mijn_Bieren.jsx";
 import axios from "axios";
 import Home from '../src/pages/HOME/Home.jsx';
 import AgeVerification from '../src/components/leeftijds_check/AgeVerification.jsx';
+import Feedback from './pages/feedback/Feedback.jsx';
 import insta from '../src/assets/general pics/insta.jpeg';
 
 axios.defaults.withCredentials = true;
@@ -68,6 +69,7 @@ return (
                         <Route path="/Productie_Informatie" element={<Productie_Informatie />} />
                         <Route path="/alle_producten" element={<Alle_bieren />} />
                         <Route path="/login_page" element={<Login_page />} />
+                        <Route path="/feedback" element={<Feedback />} />
                         <Route path="/*" element={<Error />} />
                     </Routes>
                 </div>
