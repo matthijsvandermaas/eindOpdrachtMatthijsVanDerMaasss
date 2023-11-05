@@ -79,9 +79,8 @@ function Navbar() {
                         )}
                     </div>
                     <NavLink to="/feedback">Geef ons je feedback?</NavLink>
-                    <NavLink to="/news">
-                        {isAuthenticated ? 'biernieuws' : ''}
-                    </NavLink>
+                    <NavLink to="/news"> Bier nieuws</NavLink>
+                    <NavLink to="/drankorgel"> Het Drankorgel</NavLink>
                 </li>
             </ul>
         </div>

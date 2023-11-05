@@ -128,6 +128,7 @@ Table of Contents:
     width: 40vw;
     height: auto;
     border-radius: var(--border-radius);
+    margin-left: 20px;
 
 }
 
@@ -224,11 +225,54 @@ p a {
     transition: 0.5s ease-in-out;
     font-size: 1em;
  }
+
+
 .bttn:hover{
     background-color: var(--light-dark-gradient);
     color: black;
     box-shadow: inset 6px 6px 25px var(--line-blue-2);
     border: 2px solid var(--line-blue);
+}
+
+.bttn_spotify{
+    min-width: 8vw;
+    width: auto;
+    height: 4vh;
+    border: 2px whitesmoke;
+    border-radius: var(--border-radius);
+    box-shadow: 3px 3px var(--background-gradient);
+    background-color: #1ed760;
+    color: whitesmoke;
+    padding: 0 10px;
+    text-decoration: none;
+    text-align: center;
+    margin: 5px 10px;
+    transition: 0.5s ease-in-out;
+    font-size: 1em;
+}
+.bttn_spotify:hover {
+    background-color: rgba(18, 18, 18, 0.5);
+    color: #1ed760;
+}
+.bttn_youtube{
+    min-width: 8vw;
+    width: auto;
+    height: 4vh;
+    border: 2px whitesmoke;
+    border-radius: var(--border-radius);
+    box-shadow: 3px 3px var(--background-gradient);
+    background-color: #ff0000;
+    color: black;
+    padding: 0 10px;
+    text-decoration: none;
+    text-align: center;
+    margin: 5px 10px;
+    transition: 0.5s ease-in-out;
+    font-size: 1em;
+}
+.bttn_youtube:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
 }
 
 .background {
@@ -238,6 +282,25 @@ p a {
     background-attachment: fixed;
     width: 100%;
     height: auto;
+}
+
+.background2 {
+    background-image: url('../src/assets/logos and backgrounds/grain.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: auto;
+    box-shadow: inset 2000px 2000px rgba(221, 235, 250, 0.04);
+}
+.background_bar {
+    background-image: url('../src/assets/logos and backgrounds/grain.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: auto;
+    box-shadow: inset 1000px 1000px rgba(139, 69, 19, 0.01);
 }
 .text-input {
 

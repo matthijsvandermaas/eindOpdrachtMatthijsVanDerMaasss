@@ -12,11 +12,9 @@
     min-width: 10vw;
     height: 12vh;
     min-height: 8vh;
-    /*padding: 0 10px;*/
     text-decoration: none;
     text-align: center;
     margin: 5px 10px;
-    /*margin: 10px auto;*/
     padding: 10px 60px;
     background-color: var(--line-blue);
     color: white;

@@ -19,7 +19,9 @@ import Home from '../src/pages/HOME/Home.jsx';
 import AgeVerification from '../src/components/leeftijds_check/AgeVerification.jsx';
 import Feedback from './pages/feedback/Feedback.jsx';
 import News from './pages/news feed/News.jsx';
+import Music from './pages/music/Drank_Orgel.jsx';
 import insta from '../src/assets/general pics/insta.jpeg';
+
 
 axios.defaults.withCredentials = true;
 function App() {
@@ -72,6 +74,7 @@ return (
                         <Route path="/login_page" element={<Login_page />} />
                         <Route path="/feedback" element={<Feedback />} />
                         <Route path="/news" element={<News />} />
+                        <Route path="/drankorgel" element={<Music />} />
                         <Route path="/*" element={<Error />} />
                     </Routes>
                 </div>
