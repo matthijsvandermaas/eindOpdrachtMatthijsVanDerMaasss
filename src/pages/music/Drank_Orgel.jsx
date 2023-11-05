@@ -36,21 +36,25 @@ function Drankorgel() {
                 <div className="text-content">
                     <div className="informatie_container border_top_bottom background_bar">
                         <h1 className="font_music_page">Welcome bij het "Drankorgel" voor een gezellig muziekje </h1>
-                        <h4 className="orange">Nederlandstalige Kroeg hits</h4>
-                        <button className="bttn_spotify" onClick={() => window.open("https://open.spotify.com/playlist/37i9dQZF1DWUppGmuwT9c7?si=167758f6c9254cb1")}>
-                            Kroeg hits op Spotify
+                        <h4 className="dutch">Nederlandstalige Kroeg hits</h4>
+                        <button className="music-btn bttn_spotify" onClick={() => window.open("https://open.spotify.com/playlist/37i9dQZF1DWUppGmuwT9c7?si=167758f6c9254cb1")}>
+                            Kroeg hits
                         </button>
                         <h4>Cozy Coffee Shop Ambience & Jazz Relaxing Music</h4>
-                        <button className="bttn_youtube" onClick={() => window.open("https://www.youtube.com/watch?v=62JxhcU9PA8")}>
-                            classic jazz music
+                        <button className="music-btn bttn_youtube" onClick={() => window.open("https://www.youtube.com/watch?v=62JxhcU9PA8")}>
+                            jazz music
                             </button>
                         <h4>70/80/90 classics</h4>
-                        <button className="bttn_spotify" onClick={() => window.open("https://open.spotify.com/playlist/3pUwhh3WcgvFZbIiwJ3x6f?si=10550dc0441f4f2f")}>
-                            70/80/90 classics
+                        <button className=" music-btn bttn_spotify" onClick={() => window.open("https://open.spotify.com/playlist/3pUwhh3WcgvFZbIiwJ3x6f?si=10550dc0441f4f2f")}>
+                            70/80/90's
                         </button>
                         <h4>Billboard Top 100 Songs of the 2000s</h4>
-                        <button className="bttn_youtube" onClick={() => window.open("https://www.youtube.com/results?search_query=top+100+00")}>
-                            Billboard Top 100 Songs of the 2000s
+                        <button className="music-btn bttn_youtube" onClick={() => window.open("https://www.youtube.com/results?search_query=top+100+00")}>
+                            00s
+                        </button>
+                        <h4>de radio 2 top 2000</h4>
+                        <button className="music-btn bttn_top2000" onClick={() => window.open("https://open.spotify.com/playlist/37i9dQZF1DWTmvXBN4DgpA?si=82d36fdfb196459a")}>
+                            de 2 top 2000
                         </button>
 
 

@@ -4,7 +4,57 @@
     font-family: "Comic Sans MS", "cursive", "Brush Script", cursive;
     color: saddlebrown;
 }
-.orange{
+.dutch{
     color: #fbb026;
+
+}
+
+.music-btn {
+    width: 12vw;
+    min-width: 10vw;
+    height: 10vh;
+    min-height: 8vh;
+    text-decoration: none;
+    text-align: center;
+    margin: 5px 10px;
+    padding: 10px 60px;
+    border: 2px whitesmoke;
+    border-radius: var(--border-radius);
+    box-shadow: 3px 3px var(--background-gradient);
+    transition: 0.5s ease-in-out;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.music-btn:hover{
+    color: rgba(245, 245, 245, 0.01);
+    border: 2px solid var(--line-blue);
+
+}
+.bttn_spotify {
+    background-color: #1ed760;
+    color: whitesmoke;
+}
+.bttn_spotify:hover {
+    background-size: cover;
+    background: url("../../assets/general pics/spotify.png") center;
+}
+
+.bttn_youtube {
+    background-color: #ff0000;
+    color: black;
+    font-weight: bolder;
+}
+.bttn_youtube:hover {
+    background-size: cover;
+    background: url("../../assets/general pics/youtube.png") center;
+}
+
+.bttn_top2000 {
+    background-color: #d9141b;
+    color: whitesmoke;
+}
+.bttn_top2000:hover {
+    background-size: cover;
+    background: url("../../assets/general pics/top2000.png") center;
 }
 

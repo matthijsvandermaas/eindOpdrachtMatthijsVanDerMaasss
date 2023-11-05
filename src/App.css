@@ -24,9 +24,10 @@ Table of Contents:
 :root {
     --gradient: radial-gradient(circle farthest-side at center center, #fdf699 80%, #ffed2d 95%, rgba(255, 237, 45, 0.9));
     --background-gradient: radial-gradient(circle farthest-side at center center, rgba(253, 246, 153, 0.12) 80%, rgba(255, 237, 45, 0.12) 95%, rgba(255, 237, 45, 0.12));
-    --line-blue: rgb(68, 88, 132);
     --green-blue-gradient: linear-gradient(44deg, #78a80f 30%, rgb(68, 88, 132) 100%);
     --light-dark-gradient: linear-gradient(44deg, rgba(68, 88, 132, 0.5) 0%, rgb(68, 88, 132) 95%);
+    --line-blue: rgb(68, 88, 132);
+    --line-blue-1: #deebfb;
     --line-blue-2: rgba(68, 88, 132, 0.5);
     --line-blue-3: rgba(68, 88, 132, 0.2);
     --extra-background-color: rgba(255, 237, 45, 0.1);
@@ -233,48 +234,6 @@ p a {
     box-shadow: inset 6px 6px 25px var(--line-blue-2);
     border: 2px solid var(--line-blue);
 }
-
-.bttn_spotify{
-    min-width: 8vw;
-    width: auto;
-    height: 4vh;
-    border: 2px whitesmoke;
-    border-radius: var(--border-radius);
-    box-shadow: 3px 3px var(--background-gradient);
-    background-color: #1ed760;
-    color: whitesmoke;
-    padding: 0 10px;
-    text-decoration: none;
-    text-align: center;
-    margin: 5px 10px;
-    transition: 0.5s ease-in-out;
-    font-size: 1em;
-}
-.bttn_spotify:hover {
-    background-color: rgba(18, 18, 18, 0.5);
-    color: #1ed760;
-}
-.bttn_youtube{
-    min-width: 8vw;
-    width: auto;
-    height: 4vh;
-    border: 2px whitesmoke;
-    border-radius: var(--border-radius);
-    box-shadow: 3px 3px var(--background-gradient);
-    background-color: #ff0000;
-    color: black;
-    padding: 0 10px;
-    text-decoration: none;
-    text-align: center;
-    margin: 5px 10px;
-    transition: 0.5s ease-in-out;
-    font-size: 1em;
-}
-.bttn_youtube:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
-}
-
 .background {
     background-image: url('../src/assets/logos and backgrounds/grain.svg');
     background-size: cover;
@@ -283,7 +242,6 @@ p a {
     width: 100%;
     height: auto;
 }
-
 .background2 {
     background-image: url('../src/assets/logos and backgrounds/grain.svg');
     background-size: cover;
