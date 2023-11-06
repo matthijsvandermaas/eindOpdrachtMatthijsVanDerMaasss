@@ -19,7 +19,6 @@ function InschrijfFormProduct() {
         productionLocation: '',
         photo: null,
         photo2: null,
-        photo3: null,
     });
 
     async function addProduct(e) {

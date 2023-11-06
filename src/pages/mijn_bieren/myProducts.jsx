@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../../pages/alle_bieren/AllProducts.css';
 import CarouselComponent from '../../components/carousel/Carousel.jsx';
 import NieuweProductenComponent from '../../components/New_Product_Component/Nieuwe_producten_Components.jsx';
@@ -6,26 +6,18 @@ import data from '../../../Data.json';
 import { useProductContext } from '../../components/productcontext/ProductContext.jsx';
 
 function myProducts() {
-    const { selectedProducts, setSelectedProducts } = useProductContext();
-
+    const { selectedProducts, removeFromSelectedProducts } = useProductContext(); // Fout in dubbele const verwijderd
     const [products, setProducts] = useState(data);
-const id = 1;
-    const renderUniqueProducts = (products) => {
-        const uniqueProductIds = new Set();
-        const uniqueProducts = products.filter((product) => {
-            if (!uniqueProductIds.has(product.id)) {
-                uniqueProductIds.add(product.id);
-                return true;
-            }
-            return false;
-        });
+    const idList = [1,2];
 
-        return uniqueProducts.map((nieuw_product, index) => (
+    const renderUniqueProducts = (products) => {
+        const filteredProducts = products.filter(product => idList.includes(product.id));
+        return filteredProducts.map((nieuw_product, index) => (
             <div className="text-component no-background" key={index}>
                 <button
                     className="bttn bttn_small"
                     onClick={() => {
-                        setSelectedProducts((prevProducts) => [...prevProducts, nieuw_product]);
+                        removeFromSelectedProducts(nieuw_product.id);
                     }}
                 >
                     verwijderen uit <strong>mijn bieren</strong>
@@ -40,6 +32,8 @@ const id = 1;
             </div>
         ));
     };
+    console.log(products);
+    console.log(idList);
 
     return (
         <div className="informatie_container background">

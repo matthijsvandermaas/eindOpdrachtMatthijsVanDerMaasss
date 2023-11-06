@@ -1,30 +1,29 @@
-import React, { useState, useEffect } from 'react';
+
+
+import React from 'react';
 import './AllProducts.css';
 import CarouselComponent from '../../components/carousel/Carousel.jsx';
 import NieuweProductenComponent from '../../components/New_Product_Component/Nieuwe_producten_Components.jsx';
 import data from '../../../Data.json';
+import { useProductContext } from '../../components/productcontext/ProductContext.jsx';
 
 function AllProducts() {
-    const [products, setProducts] = useState(data);
-    const addToSelected = (productId) => {
-        const selectedProduct = products.find(product => product.id === productId);
-        setSelectedProducts([...selectedProducts, selectedProduct]);
-    };
+    const [products, setProducts] = React.useState(data);
+    const { addToSelectedProducts } = useProductContext();
+
+
 
     const renderUniqueProducts = (products) => {
-        const uniqueProductIds = new Set();
-        const uniqueProducts = products.filter((product) => {
-            if (!uniqueProductIds.has(product.id)) {
-                uniqueProductIds.add(product.id);
-                return true;
-            }
-            return false;
-        });
-
-        return uniqueProducts.map((nieuw_product, index) => (
-            <div className="text-component no-background" key={index}>
+        return products.map((nieuw_product, index) => (
+            <div className="text-component no-background" key={nieuw_product.id}>
                 <button
-                    className="bttn bttn_small" onClick={() => addToSelected(nieuw_product.id)}>toevoegen aan <strong>mijn bieren</strong>
+                    className="bttn bttn_small"
+                    onClick={() => {
+                        addToSelectedProducts([nieuw_product.id]);
+                        console.log(products)
+                    }}
+                >
+                    toevoegen aan <strong>mijn bieren</strong>
                 </button>
                 <NieuweProductenComponent nieuw_product={nieuw_product} />
                 <CarouselComponent
@@ -36,7 +35,7 @@ function AllProducts() {
             </div>
         ));
     };
-
+    console.log(products)
     return (
         <div className="informatie_container background">
             <h1>alle bieren</h1>
