@@ -26,12 +26,11 @@
     "volume": "500",
     "productionLocation": "Location B",
     "photo": "../src/assets/general pics/beer_On_Table_1.png",
-    "photo2": "../src/assets/general pics/four_glasses.png",
-    "photo3": "../src/assets/general pics/alle_Beers.png"
+    "photo2": "../src/assets/general pics/four_glasses.png"
 
   },
   {
-    "id": 2,
+    "id": 3,
     "productName": "Product 3",
     "nameProducer": "Producer 3",
     "type": "Type c",
@@ -42,8 +41,22 @@
     "volume": "550",
     "productionLocation": "Location c",
     "photo": "../src/assets/general pics/beer_On_Table_1.png",
-    "photo2": "../src/assets/general pics/four_glasses.png",
-    "photo3": "../src/assets/general pics/alle_Beers.png"
+    "photo2": "../src/assets/general pics/four_glasses.png"
+
+  },
+  {
+    "id": 4,
+    "productName": "Product 3",
+    "nameProducer": "Producer 3",
+    "type": "Type c",
+    "percentage": 6.8,
+    "email": "email4@example.com",
+    "color": "blond",
+    "tast": "Roasted",
+    "volume": "550",
+    "productionLocation": "Location c",
+    "photo": "../src/assets/general pics/beer_On_Table_1.png",
+    "photo2": "../src/assets/general pics/four_glasses.png"
 
   }
 ]

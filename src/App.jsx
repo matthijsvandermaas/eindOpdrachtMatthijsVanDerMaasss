@@ -13,7 +13,7 @@ import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProd
 import Alle_bieren from "./pages/alle_bieren/AllProducts.jsx";
 import Login_page from "./pages/login_page/Login_Page.jsx";
 import Error from "./pages/error/Error.jsx";
-import Mijn_bieren from "./pages/mijn_bieren/Mijn_Bieren.jsx";
+import Mijn_bieren from "./pages/mijn_bieren/myProducts.jsx";
 import axios from "axios";
 import Home from '../src/pages/HOME/Home.jsx';
 import AgeVerification from '../src/components/leeftijds_check/AgeVerification.jsx';
