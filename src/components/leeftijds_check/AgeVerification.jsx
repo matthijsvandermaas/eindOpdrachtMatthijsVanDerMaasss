@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom';
 export const AgeVerification = () => {
     const [birthdate, setBirthdate] = useState('');
     const navigate = useNavigate();
-    const [error, toggleError] = useState(false);
+    const [error, setError] = useState(false); // Gebruik 'setError' in plaats van 'toggleError'
     const [yearsRemaining, setYearsRemaining] = useState(0);
 
     const handleVerification = (date) => {
         const today = new Date();
         const selectedDate = new Date(date);
-        const age = today.getFullYear() - selectedDate.getFullYear();
+        let age = today.getFullYear() - selectedDate.getFullYear();
         const month = today.getMonth() - selectedDate.getMonth();
 
         if (month < 0 || (month === 0 && today.getDate() < selectedDate.getDate())) {
@@ -21,7 +21,7 @@ export const AgeVerification = () => {
             navigate('/home');
         } else {
             const yearsRemaining = 18 - age;
-            toggleError(true);
+            setError(true); // Gebruik 'setError' om de 'error'-state bij te werken
             setYearsRemaining(yearsRemaining);
         }
     };
@@ -35,7 +35,7 @@ export const AgeVerification = () => {
         <div className="form-container border_top_left">
             <form onSubmit={handleSubmit}>
                 <h1>leeftijds-controle</h1>
-                <h4>Geef je geboorte datum om door te kunnen gaan:</h4>
+                <h4>Geef je geboortedatum om door te kunnen gaan:</h4>
                 <input
                     type="date"
                     value={birthdate}

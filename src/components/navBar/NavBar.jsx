@@ -3,7 +3,7 @@ import './navbar.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthenticationContext } from '../../context/AuthenticationContext.jsx';
 
-function Navbar() {
+function Navbar({ activeTab, handleTabChange, verificationDone }) {
     const hetProcesRef = useRef(null);
     const algemene_infoRef = useRef(null);
     const { isAuthenticated, logout } = useContext(AuthenticationContext);
