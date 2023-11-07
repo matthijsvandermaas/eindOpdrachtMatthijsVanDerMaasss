@@ -16,6 +16,7 @@ function InschrijfFormParticulier() {
         email: '',
         userName: '',
         password: '',
+        role: 'USER'
     });
     async function addUser(e) {
         // voorkom refresh

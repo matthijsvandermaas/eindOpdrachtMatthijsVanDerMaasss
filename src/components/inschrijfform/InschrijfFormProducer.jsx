@@ -2,15 +2,17 @@ import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from '../cubes/Cubes.jsx';
-import { useNavigate } from 'react-router-dom';
+import {useHistory, useNavigate} from 'react-router-dom';
 import { AuthenticationContext } from '../../context/AuthenticationContext.jsx';
 
 function InschrijfFormProducer() {
     const {isAuthenticated} = useContext(AuthenticationContext);
+    const [loading, toggleLoading] = useState(false);
     const [addSucces, toggleAddSuccess] = useState(false);
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage, ] = useState('');
+    const [error, toggleError] = useState(false);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -25,12 +27,14 @@ function InschrijfFormProducer() {
         email: '',
         userName: '',
         password: '',
-        role: 'BREWER, USER'
+        role: 'BREWER'
     });
 
 
-    async function addBrewer(e) {
+    async function handleSubmitBrewer(e) {
         e.preventDefault();
+        toggleError(false);
+        toggleLoading(true);
         console.log(formData);
 
         try {
@@ -39,12 +43,13 @@ function InschrijfFormProducer() {
                     'Content-Type': 'application/json',
                 }
             });
-
+            history.push('/home');
             console.log(response.data);
             toggleAddSuccess(true);
         } catch (error) {
             console.error(error);
         }
+            toggleLoading(false);
     }
 
 
@@ -61,25 +66,26 @@ function InschrijfFormProducer() {
             <div className="form-container ">
                 <h1>Je inschrijven als brouwer</h1>
                 <div className="form-content border_top_bottom background">
-                    <form onSubmit={addBrewer}>
+                    <form onSubmit={handleSubmitBrewer}>
                         <div>
                             <label>Voornaam:</label>
                             <input
                                 type="text"
                                 name="firstName"
                                 value={formData.firstName}
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                                 placeholder="voornaam"
                                 required
                             />
                         </div>
+
                         <div>
                             <label>Achternaam:</label>
                             <input
                                 type="text"
                                 name="lastName"
                                 value={formData.lastName}
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                                 placeholder="tussen voegsel en achternaam"
                                 required
                             />
@@ -90,7 +96,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 name="owner"
                                 value={formData.owner}
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, owner: e.target.value })}
                                 placeholder="voledige naam eigenaar"
                                 required
                             />
@@ -101,7 +107,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 name="nameBrewery"
                                 value={formData.nameBrewery}
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, nameBrewery: e.target.value })}
                                 placeholder="brouwerij"
                                 required
                             />
@@ -112,7 +118,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 name="street"
                                 value={formData.street}
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, street: e.target.value })}
                                 placeholder="straat"
                             />
                         </div>
@@ -122,7 +128,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 name="houseNumber"
                                 value={formData.houseNumber}
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, houseNumber: e.target.value })}
                                 placeholder="huisnummer"
                             />
                         </div>
@@ -132,7 +138,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 name="zipcode"
                                 value={formData.zipcode}
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, zipcode: e.target.value })}
                                 placeholder="postcode"
                             />
                         </div>
@@ -142,7 +148,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 name="city"
                                 value={formData.city}
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                                 placeholder="stad"
                             />
                         </div>
@@ -151,7 +157,7 @@ function InschrijfFormProducer() {
                             <input
                                 type="text"
                                 name="saleLocation"
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, saleLocation: e.target.value })}
                                 placeholder="verkooplocaties"
                             />
                         </div>
@@ -160,7 +166,8 @@ function InschrijfFormProducer() {
                             <input
                                 type="text"
                                 name="brands"
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, brands: e.target.value })}
+
                                 placeholder="merk"
                             />
                         </div>
@@ -170,7 +177,7 @@ function InschrijfFormProducer() {
                                 type="email"
                                 name="email"
                                 value={formData.email}
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 placeholder="e-mail"
                                 required
                             />
@@ -181,7 +188,7 @@ function InschrijfFormProducer() {
                                 type="text"
                                 name="userName"
                                 value={formData.userName}
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
                                 placeholder="gebruikersnaam"
                                 required
                             />
@@ -192,7 +199,7 @@ function InschrijfFormProducer() {
                                 type="password"
                                 name="password"
                                 value={formData.password}
-                                onChange={handleInputChange}
+                                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                 placeholder="wachtwoord"
                                 autoComplete="current-password"
                             />

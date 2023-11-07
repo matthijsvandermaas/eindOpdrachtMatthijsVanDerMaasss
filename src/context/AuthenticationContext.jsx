@@ -32,16 +32,16 @@ export function AuthContextProvider({ children }) {
     }
   }, []);
 
-  async function login(Token) {
-    localStorage.setItem('token', Token);
-    const userinfo = jwtDecode(Token);
+  async function login(token) {
+    localStorage.setItem('token', token);
+    const userinfo = jwtDecode(token);
     const userId = userinfo.sub;
 
     try {
       const result = await axios.get(`http://localhost:3000/600/users/${userId}`, {
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${Token}`,
+          "Authorization": `Bearer ${token}`,
         },
       });
 

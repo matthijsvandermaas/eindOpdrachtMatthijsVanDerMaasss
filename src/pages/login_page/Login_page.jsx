@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import {useNavigate, Link, useHistory} from 'react-router-dom';
 import './Login_Page.css';
 import axios from 'axios';
 import Slider from "../../components/slider/Slider.jsx";
@@ -11,12 +11,16 @@ import { AuthenticationContext, useAuth } from "../../context/AuthenticationCont
 
 
 function Login_Page() {
-    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    // state voor functionaliteit
     const [error, toggleError] = useState(false);
+    const navigate = useNavigate();
+    const history = useHistory();
+    const { isAuthenticated, login, logout } = useAuth();
+    const [loading, toggleLoading] = useState(false);
     const [slideIndex, setSlideIndex] = useState(1);
-    const { isAuthenticated, login, logout } = useAuth();//slider images
+    //slider images
     const slider_Img_1 = slider_Img_One;
     const slider_Img_2 = slider_Img_Two;
     const slider_Img_3 = slider_Img_Three;
@@ -25,30 +29,32 @@ function Login_Page() {
     async function handleLogin(e) {
         e.preventDefault();
         toggleError(false);
+        toggleLoading(true);
         try {
-            const response = await axios.post('http://localhost:8081/authenticate ', {
-                username:{email},
-                password: {password},
+            await axios.post('http://localhost:3000/register', {
+                username:email,
+                password: password,
             });
             //token
-            console.log(response.data.accesToken);
+            console.log(response.data.token);
+            console.log('Gebruiker is ingelogd!')
             // geef de JWT token aan de login-functie van de context mee
-            login(response.data.accessToken);
-            navigate("/")
-
+            login(response.data.token);
+            navigate("/home")
         } catch (e) {
             console.error(e);
             toggleError(true);
+            console.log('Gebruiker is niet ingelogd!')
         }
     }
     async function handleLogout(){
         try {
-            const response = await axios.post('http://localhost:8081authenticate ', {
+            await axios.post('http://localhost:3000/register', {
             });
             console.log('Gebruiker is uitgelogd!');
-            console.log(response.data.accesToken);
-            login(response.data.accessToken);
-            navigate("/")
+            console.log(response.data.token);
+            login(response.data.token);
+            navigate("/home")
         } catch (e) {
             console.error(e);
             toggleError(true);
@@ -94,8 +100,8 @@ function Login_Page() {
                     </div>
                     <h4>Ben je nog geen lid? Kom erbij en <Link to="/inschrijfformulier"><strong> schrijf je in</strong></Link>
                     </h4>
-                    {error && <h5 className="error">Combinatie van e-mailadres en wachtwoord is onjuist</h5>}
-                    <button className="bttn" onClick={!isAuthenticated ? handleLogin : handleLogout}>
+                    {error && <h5 className="error">Dit account bestaat al. Probeer een ander e-mailadres.</h5>}
+                    <button type="submit" className="bttn" onClick={!isAuthenticated ? handleLogin : handleLogout}   disabled={loading}>
                         {!isAuthenticated ? 'inloggen' : 'uitloggen'}
                     </button>
                 </form>
