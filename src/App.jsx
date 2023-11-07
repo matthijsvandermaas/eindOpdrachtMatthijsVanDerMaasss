@@ -21,7 +21,7 @@ import Feedback from './pages/feedback/Feedback.jsx';
 import News from './pages/news feed/News.jsx';
 import Music from './pages/music/Drank_Orgel.jsx';
 import insta from './assets/logos and backgrounds/insta.jpeg';
-import Mypage from "./pages/mijn_pagina/Mijn_pagina.jsx"
+// import Mypage from "./pages/mijn_pagina/Mijn_pagina.jsx"
 
 
 axios.defaults.withCredentials = true;
@@ -84,7 +84,7 @@ return (
                         <Route path="/inschrijfformulier_particulier" element={<Inschrijf_Form_Particulier />} />
                         <Route path="/inschrijfformulier_producent" element={<Inschrijf_Form_Producer />} />
                         <Route path="/mijn_bieren" element={<Mijn_bieren />} />
-                        <Route path="/mijn_pagina" element={<Mypage />} />
+                        {/*<Route path="/mijn_pagina" element={<Mypage />} />*/}
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
                         <Route path="/productie_Informatie" element={<Productie_Informatie />} />
                         <Route path="/alle_producten" element={<Alle_bieren />} />

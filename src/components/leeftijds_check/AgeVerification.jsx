@@ -10,7 +10,7 @@ export const AgeVerification = () => {
     const handleVerification = (date) => {
         const today = new Date();
         const selectedDate = new Date(date);
-        let age = today.getFullYear() - selectedDate.getFullYear();
+        const age = today.getFullYear() - selectedDate.getFullYear();
         const month = today.getMonth() - selectedDate.getMonth();
 
         if (month < 0 || (month === 0 && today.getDate() < selectedDate.getDate())) {
@@ -35,7 +35,7 @@ export const AgeVerification = () => {
         <div className="form-container border_top_left">
             <form onSubmit={handleSubmit}>
                 <h1>leeftijds-controle</h1>
-                <h4>Geef je geboortedatum om door te kunnen gaan:</h4>
+                <h4>Geef je geboorte datum om door te kunnen gaan:</h4>
                 <input
                     type="date"
                     value={birthdate}
@@ -43,7 +43,7 @@ export const AgeVerification = () => {
                 />
                 <button className="bttn" type="submit">controleren</button>
                 {error && (
-                    <h5 className="error">Je bent nog geen 18, je moet nog {yearsRemaining} jaar wachten.</h5>
+                    <h5 className="error">Je bent nog geen 18, je moet nog even jaar wachten.</h5>
                 )}
             </form>
         </div>
