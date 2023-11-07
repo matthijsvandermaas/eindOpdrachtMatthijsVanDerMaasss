@@ -26,6 +26,7 @@ function InschrijfFormParticulier() {
             // Verstuur de data in een object en zorg dat de keys overeenkomen met die in de backend
             const response = await axios.post('http://localhost:8081/particulieren', {
             formData: formData,
+                withCredentials: true,
             });
             console.log(response.data);
             toggleAddSuccess(true);

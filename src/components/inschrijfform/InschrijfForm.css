@@ -17,6 +17,7 @@
     background-size: cover;
     background-position: center;
     object-fit: contain;
+    margin-bottom: 20px;
 }
 .form-content:hover {
     box-shadow: var(--box-shadow_2);

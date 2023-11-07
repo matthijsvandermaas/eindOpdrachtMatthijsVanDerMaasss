@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from '../cubes/Cubes.jsx';
@@ -6,7 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import { AuthenticationContext } from '../../context/AuthenticationContext.jsx';
 
 function InschrijfFormProducer() {
+    const {isAuthenticated} = useContext(AuthenticationContext);
     const [addSucces, toggleAddSuccess] = useState(false);
+    const navigate = useNavigate();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -23,71 +27,34 @@ function InschrijfFormProducer() {
         password: '',
         role: 'BREWER, USER'
     });
+
+
     async function addBrewer(e) {
-        // voorkom refresh
         e.preventDefault();
         console.log(formData);
 
         try {
-            // Verstuur de data in een object en zorg dat de keys overeenkomen met die in de backend
-            const response = await axios.post('http://localhost:8081/producten', {
-                formData: formData,
+            const response = await axios.post('http://localhost:8081/producten', formData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             });
+
             console.log(response.data);
             toggleAddSuccess(true);
-        } catch(e) {
-            console.error(e);
+        } catch (error) {
+            console.error(error);
         }
     }
-    const { isAuthentication, logout } = useContext(AuthenticationContext);
-    const navigate = useNavigate();
 
-    const [brandNames, setBrandNames] = useState([]);
-    const handleBrandNameChange = (e) => {
-        const { value } = e.target;
-        setBrandNames([...brandNames, value]);
-    };
 
-    const [saleLocationNames, setSaleLocationNames] = useState([]);
-    const handleSaleLocationNamesChange = (e) => {
-        const { value } = e.target;
-        setSaleLocationNames([...setSaleLocationNames, value]);
-    };
 
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        const {name, value} = e.target;
+        setFormData({...formData, [name]: value});
     };
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     setIsSubmitting(true);
-    //
-    //     try {
-    //         const response = await axios.post('http://localhost:8080/producenten', formData);
-    //         console.log('Response Data:', response.data);
-    //         console.log(formData);
-    //
-    //         if (response && response.data) {
-    //             console.log(response.data);
-    //             setErrorMessage('');
-    //         } else {
-    //             console.error('Fout bij het versturen van het verzoek: ongeldige reactie');
-    //             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-    //         }
-    //     } catch (error) {
-    //         console.error('Fout bij het versturen van het verzoek:', error);
-    //         if (error.response && error.response.status) {
-    //             console.log('Fout Status Code:', error.response.status);
-    //         }
-    //         setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-    //     } finally {
-    //         setIsSubmitting(false);
-    //     }
-    // };
 
     return (
         <>
@@ -184,28 +151,18 @@ function InschrijfFormProducer() {
                             <input
                                 type="text"
                                 name="saleLocation"
-                                onChange={handleSaleLocationNamesChange}
+                                onChange={handleInputChange}
                                 placeholder="verkooplocaties"
                             />
-                            <ul>
-                                {saleLocationNames.map((saleLocationName, index) => (
-                                    <li key={index}>{saleLocationNames}</li>
-                                ))}
-                            </ul>
                         </div>
                         <div>
                             <label>Merknaam:</label>
                             <input
                                 type="text"
                                 name="brands"
-                                onChange={handleBrandNameChange}
+                                onChange={handleInputChange}
                                 placeholder="merk"
                             />
-                            <ul>
-                                {brandNames.map((brandName, index) => (
-                                    <li key={index}>{brandName}</li>
-                                ))}
-                            </ul>
                         </div>
                         <div>
                             <label>E-mail:</label>
@@ -237,14 +194,18 @@ function InschrijfFormProducer() {
                                 value={formData.password}
                                 onChange={handleInputChange}
                                 placeholder="wachtwoord"
+                                autoComplete="current-password"
                             />
                         </div>
+                        <button className="bttn" type="submit" disabled={isSubmitting}>
+                            {isSubmitting
+                                ? 'Bezig met een product inschrijven...'
+                                : (isAuthenticated ? 'verzenden' : 'Inschrijven')}
+                        </button>
                         <button type="button" className="bttn" onClick={() => navigate('/inschrijfformulier_product')}>
                             Een nieuw product
                         </button>
-                        <button className="bttn" type="submit" disabled={isSubmitting}>
-                            {isSubmitting ? 'Bezig met een product inschrijven...' : 'Inschrijven'}//TODO via auth zorgen dat tekst veranderd naar "verzenden"
-                        </button>
+
                     </form>
                     <p>Ander pagina's</p>
                     <Cubes

@@ -59,15 +59,15 @@
 }
 .cube-bttn2:hover{
     background-size: cover;
-    background: url("../../assets/general pics/taps.png") center;
+    background: url("../../assets/general pics/four_Glasses.png") center;
 }
 .cube-bttn3:hover{
     background-size: cover;
-    background: url("../../assets/general pics/four_Glasses.png") center;
+    background: url("../../assets/general pics/in_The_Sun.png") center;
 }
 .cube-bttn4:hover{
     background-size: cover;
-    background: url("hop_and_barley.png") center;
+    background: url("../../assets/general pics/hop_and_barley.png") center;
 }
 
 
