@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import Text_component from '../../components/texts_components/Text-component.jsx';
 import Cubes from '../../components/cubes/Cubes.jsx';
 import { Link, useLocation } from 'react-router-dom';
-import { AuthenticationContext } from '../../context/AuthenticationContext.jsx';
+
 import './Error.css';
+import AuthenticationContext from "../../context/AuthenticationContext.jsx";
 
 function Error() {
     const [previousLocation, setPreviousLocation] = useState(null);

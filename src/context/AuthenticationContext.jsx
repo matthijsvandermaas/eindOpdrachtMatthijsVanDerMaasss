@@ -1,89 +1,108 @@
-import React, {createContext, useContext, useEffect, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import * as jwtDecode from 'jwt-decode';
+// eslint-disable-next-line no-unused-vars
+import {createContext, useEffect, useState} from 'react';
+import { jwtDecode} from "jwt-decode";
+import axios from "axios";
 
+export const AuthContext = createContext({});
 
+// eslint-disable-next-line react/prop-types
+function AuthContextProvider({children}) {
 
-export const AuthenticationContext = createContext({});
-export const useAuth = () => {
-  return useContext(AuthenticationContext);
-}
-export function AuthContextProvider({ children }) {
-  const [isAuth, setIsAuth] = useState({
+  const [isAuth, toggleIsAuth] = useState({
+
     isAuthenticated: false,
     user: null,
-    status: 'pending'
-  });
-  const navigate = useNavigate();
+    status: 'pending',
 
-  // MOUNTING EFFECT
-  useEffect(() => {
+  });
+
+  useEffect(()=> {
+
     const token = localStorage.getItem('token');
 
-    if (token) {
+    if(token) {
       void login(token);
     } else {
-      setIsAuth({
+      toggleIsAuth({
         isAuthenticated: false,
         user: null,
         status: 'done'
-      });
+      })
     }
-  }, []);
+
+  },[]);
+
 
   async function login(token) {
-    localStorage.setItem('token', token);
-    const userinfo = jwtDecode(token);
-    const userId = userinfo.sub;
+
+    localStorage.setItem('token',token);
+
+    const userInfo = jwtDecode(token);
+    const userEmail = userInfo.sub;
+    console.log(userEmail);
 
     try {
-      const result = await axios.get(`http://localhost:3000/600/users/${userId}`, {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(`http://localhost:8080//authenticate/${id}`, {
 
-      setIsAuth({
+        headers: {
+          Authorization: `Bearer ${token}`,
+
+        }
+      })
+      console.log(response.data);
+
+
+
+
+      toggleIsAuth({
         isAuthenticated: true,
         user: {
-          username: result.data.username,
-          email: result.data.email,
-          id: result.data.id,
+          Email,
+          Password,
+          id,
         },
         status: 'done',
       });
 
-      navigate('/profile'); // Navigeren na succesvol inloggen
+      console.log("De gebruiker is ingelogd")
+
     } catch (e) {
-      console.error(e);
-      setIsAuth({
+      console.error("De gebruiker kan niet inloggen AuthContext");
+      toggleIsAuth({
         isAuthenticated: false,
         user: null,
-        status: 'done',
-      });
+        status: 'done'
+      })
     }
-    console.log('Gebruiker is ingelogd!');
+
+
   }
 
   function logout() {
+
     localStorage.clear();
-    setIsAuth({
+
+    toggleIsAuth({
       isAuthenticated: false,
       user: null,
       status: 'done',
     });
     console.log('Gebruiker is uitgelogd!');
-    navigate('/');
   }
 
+  const contextData = {
+    isAuth: isAuth.isAuthenticated,
+    user: isAuth.user,
+    login: login,
+    logout: logout,
+  };
+
+
   return (
-      <AuthenticationContext.Provider value={{ ...isAuth, login, logout }}>
-        {isAuth.status === 'done' ? children : <p>Momentje de bartender komt er zo aan🍻...</p>}
-      </AuthenticationContext.Provider>
+      <AuthContext.Provider value={contextData} >
+        {isAuth.status === 'done' ? children : <p className='p-loading'>Momentje de bartender is even bezig🍻...</p> }
+      </AuthContext.Provider>
   );
 }
-
 
 export default AuthContextProvider;

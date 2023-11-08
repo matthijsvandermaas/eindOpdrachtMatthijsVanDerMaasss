@@ -1,9 +1,9 @@
 import React, {useContext, useState} from "react";
 import "./Rating.css";
 import wheat from "../../assets/logos and backgrounds/wheat.png";
-import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
 
-function Rating_average() {
+
+function RatingAverage() {
     const [rating, setRating] = useState(0);
 
     const handleStarClick = (starValue) => {
@@ -33,4 +33,4 @@ function Rating_average() {
     );
 }
 
-export default Rating_average;
+export default RatingAverage;

@@ -13,7 +13,7 @@
   Beschrijving van het inschrijvingsproces.
 -
 - ### 1.2 Inschrijven
-[Naar de inlogpagina](src/pages/login_page/Login_Page.jsx)
+[Naar de inlogpagina](src/pages/login_page/LoginPage.jsx)
 Informatie over het inlogproces.
 
 - ### 1.3 Product toevoegen

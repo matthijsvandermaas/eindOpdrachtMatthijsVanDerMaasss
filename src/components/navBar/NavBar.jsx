@@ -1,7 +1,7 @@
 import React, { useRef, useState, useContext } from 'react';
 import './navbar.css';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { AuthenticationContext } from '../../context/AuthenticationContext.jsx';
+import AuthenticationContext from "../../context/AuthenticationContext.jsx";
 
 function Navbar({ activeTab, handleTabChange, verificationDone }) {
     const hetProcesRef = useRef(null);
@@ -38,9 +38,9 @@ function Navbar({ activeTab, handleTabChange, verificationDone }) {
         <div className="dropdown-content">
             <ul className="navList">
                 <li>
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/home">Home</NavLink>
                     {isAuthenticated ? (
-                        <NavLink to="/" onClick={handleLogout}>
+                        <NavLink to="/home" onClick={handleLogout}>
                             Logout
                         </NavLink>
                     ) : (

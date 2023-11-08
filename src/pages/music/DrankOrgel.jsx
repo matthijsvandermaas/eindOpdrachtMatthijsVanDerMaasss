@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
-import '../../pages/HOME/Home.css';
-import './Drank_Orgel.css';
-import Cubes from '../../components/cubes/Cubes.jsx';
-import Slider from '../../components/slider/Slider.jsx';
+import '../Home/Home.css';
+import './DrankOrgel.css';
+import Cubes from '../../components/cubes/Cubes';
+import AuthenticationContext from "../../context/AuthenticationContext";
+import Slider from '../../components/slider/Slider';
 import slider_Img_One from '../../assets/hoe maak je bier/hop.png';
 import slider_Img_Two from '../../assets/hoe maak je bier/yeast.png';
 import slider_Img_Three from '../../assets/hoe maak je bier/malt.png';
 import slider_Img_Four from '../../assets/hoe maak je bier/gist.png';
-import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
 import {NavLink, useNavigate} from "react-router-dom";
 
 

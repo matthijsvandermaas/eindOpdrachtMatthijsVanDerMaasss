@@ -1,12 +1,18 @@
-installer Node Package Manager `npm install`
-installer de carousel`npm install react-responsive-carousel`
-installer axios `npm install axios`
-installer react hook form`npm install react-hook-form`
-installer react svg`npm install vite-plugin-svgr`
-installer cors `npm install cors`
-installer react router dom `npm install react-router-dom`
-installer jwt token `npm install jwt-decode`
-installer kalender `npm install react-calendar`
+installeer Node Package Manager `npm install`
+installeert de carousel`npm install react-responsive-carousel`
+installeer axios `npm install axios`
+installeer react hook form`npm install react-hook-form`
+installeert react svg`npm install vite-plugin-svgr`
+installeer cors `npm install cors`
+installeer react router dom `npm install react-router-dom`
+installeert uninstall jwt token`npm uninstall jwt-decode`
+installeert jwt token `npm install jwt-decode`
+installeer kalender `npm install react-calendar`
+installeer react-dom `npm install react react-dom`
+installeer  `npm install @babel/core @babel/preset-react`
+installeer `npm install webpack webpack-cli babel-loader`
+installeer `npm run clear-vite-cache`,
+`
 
 
 

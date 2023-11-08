@@ -5,21 +5,21 @@ import logoImage_Klein from './assets/logos and backgrounds/B & B logo2 klein.jp
 import wheat from './assets/logos and backgrounds/wheat.png';
 import Navbar from "./components/navBar/Navbar.jsx";
 import {NavLink, Route, Routes, useNavigate} from "react-router-dom";
-import Inschrijf_Navigatie from "./pages/inschrijving_Navigatie/inschrijf_Navigatie.jsx";
-import Inschrijf_Form_Particulier from "./components/inschrijfform/InschrijfFormParticulier.jsx";
-import Inschrijf_Form_Producer from "./components/inschrijfform/InschrijfFormProducer.jsx";
-import Productie_Informatie from "./pages/hoe maak je bier/Productie_Informatie.jsx";
-import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProduct.jsx";
-import Alle_bieren from "./pages/alle_bieren/AllProducts.jsx";
-import Login_page from "./pages/login_page/Login_Page.jsx";
+import Inschrijf_Navigatie from "./pages/inschrijving_Navigatie/inschrijf_Navigatie";
+import Inschrijf_Form_Particulier from "./components/inschrijfform/InschrijfFormParticulier";
+import Inschrijf_Form_Producer from "./components/inschrijfform/InschrijfFormProducer";
+import Productie_Informatie from "./pages/hoe maak je bier/Productie_Informatie";
+import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProduct";
+import Alle_bieren from "./pages/alle_bieren/AllProducts";
+import Login_page from "./pages/login_page/LoginPage.jsx";
 import Error from "./pages/error/Error.jsx";
-import Mijn_bieren from "./pages/mijn_bieren/myProducts.jsx";
+import Mijn_bieren from "./pages/mijn_bieren/myProducts";
 import axios from "axios";
-import Home from '../src/pages/HOME/Home.jsx';
-import AgeVerification from '../src/components/leeftijds_check/AgeVerification.jsx';
-import Feedback from './pages/feedback/Feedback.jsx';
-import News from './pages/news feed/News.jsx';
-import Music from './pages/music/Drank_Orgel.jsx';
+import Home from './pages/Home/Home.jsx';
+import AgeVerification from '../src/components/leeftijds_check/AgeVerification';
+import Feedback from './pages/feedback/Feedback';
+import News from './pages/news feed/News';
+import Music from './pages/music/DrankOrgel';
 import insta from './assets/logos and backgrounds/insta.jpeg';
 // import Mypage from "./pages/mijn_pagina/Mijn_pagina.jsx"
 
@@ -49,7 +49,7 @@ function App() {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth <= 480) {
+            if (window.innerWidth <= 600) {
                 setLogoSrc(logoImage_Klein);
             } else {
                 setLogoSrc(logoImage);

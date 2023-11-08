@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
-import Cubes from '../cubes/Cubes.jsx';
-import {useHistory, useNavigate} from 'react-router-dom';
-import { AuthenticationContext } from '../../context/AuthenticationContext.jsx';
+import Cubes from '../cubes/Cubes';
+import { useNavigate} from 'react-router-dom';
+import AuthenticationContext from "../../context/AuthenticationContext";
+
 
 function InschrijfFormProducer() {
     const {isAuthenticated} = useContext(AuthenticationContext);
@@ -43,8 +44,8 @@ function InschrijfFormProducer() {
                     'Content-Type': 'application/json',
                 }
             });
-            history.push('/home');
-            console.log(response.data);
+            console.log(response.data)
+            navigate('/home');
             toggleAddSuccess(true);
         } catch (error) {
             console.error(error);

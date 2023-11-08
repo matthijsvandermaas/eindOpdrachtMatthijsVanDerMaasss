@@ -1,5 +1,5 @@
 import React from 'react';
-import Rating_average from '../Rating_system/Rating_average.jsx';
+import RatingAverage from '../Rating_system/RatingAverage.jsx';
 
 const NieuweProductenComponent = ({ nieuw_product }) => {
     const buildProductInfo = (product) => {
@@ -26,7 +26,7 @@ const NieuweProductenComponent = ({ nieuw_product }) => {
         <div className="productInfo_content">
             <div>
                 {buildProductInfo(nieuw_product)}
-                <Rating_average titel="Wat vind je hiervan?" />
+                <RatingAverage titel="Wat vind je hiervan?" />
                 <textarea rows={10} cols={50} placeholder="Schrijf hier je mening" />
             </div>
         </div>

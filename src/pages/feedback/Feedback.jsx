@@ -3,7 +3,7 @@ import TextComponent from "../../components/texts_components/Text-component.jsx"
 import Rating from "../../components/Rating_system/Rating.jsx";
 import {useContext, useState} from "react";
 import Cubes from "../../components/cubes/Cubes.jsx";
-import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
+import AuthenticationContext from "../../context/AuthenticationContext.jsx";
 
 
 function Feedback() {

@@ -6,10 +6,11 @@ import slider_Img_One from '../../assets/rockcity/rockcity_products.png';
 import slider_Img_Two from '../../assets/rockcity/rockcity_brewer.png';
 import slider_Img_Three from '../../assets/rockcity/rockcity_taps.png';
 import slider_Img_Four from '../../assets/rockcity/rockcity_ketel.jpg';
-import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
+
 
 
 import {NavLink, useNavigate} from "react-router-dom";
+import AuthenticationContext from "../../context/AuthenticationContext.jsx";
 
 function Home() {
     const { isAuthenticated, logout } = useContext(AuthenticationContext);

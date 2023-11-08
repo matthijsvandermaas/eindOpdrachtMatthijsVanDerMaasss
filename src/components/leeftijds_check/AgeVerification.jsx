@@ -10,7 +10,7 @@ export const AgeVerification = () => {
     const handleVerification = (date) => {
         const today = new Date();
         const selectedDate = new Date(date);
-        const age = today.getFullYear() - selectedDate.getFullYear();
+        let age = today.getFullYear() - selectedDate.getFullYear();
         const month = today.getMonth() - selectedDate.getMonth();
 
         if (month < 0 || (month === 0 && today.getDate() < selectedDate.getDate())) {

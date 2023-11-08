@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../pages/alle_bieren/AllProducts.css';
 import CarouselComponent from '../../components/carousel/Carousel.jsx';
-import NieuweProductenComponent from '../../components/New_Product_Component/Nieuwe_producten_Components.jsx';
+import NieuweProductenComponent from '../../components/New_Product_Component/NieuweProductenComponents.jsx';
 import data from '../../../Data.json';
 import { useProductContext } from '../../components/productcontext/ProductContext.jsx';
 
