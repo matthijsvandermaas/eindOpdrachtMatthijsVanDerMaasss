@@ -16,7 +16,9 @@ function LoginPage() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
-
+    const navigate = useNavigate();
+    const { isAuthenticated, logout } = useContext(AuthenticationContext);
+    const [slideIndex, setSlideIndex] = useState(1);
     const handleLogin = async (e) => {
         e.preventDefault();
         setError(false);
@@ -32,7 +34,8 @@ function LoginPage() {
             login(response.data.token);
             // Redirect of andere acties na inloggen
         } catch (error) {
-            console.error(error);
+            console.error("Error status:", e.response.status);
+            console.error("Error data:", e.response.data);
             setError(true);
             console.log('Gebruiker is niet ingelogd!');
         }
@@ -45,10 +48,10 @@ function LoginPage() {
             <div className="outer-login-container">
                 <div>
                     <Slider
-                        slider_Img1={slider_Img_1}
-                        slider_Img2={slider_Img_2}
-                        slider_Img3={slider_Img_3}
-                        slider_Img4={slider_Img_4}
+                        slider_Img1={slider_Img_One}
+                        slider_Img2={slider_Img_Two}
+                        slider_Img3={slider_Img_Three}
+                        slider_Img4={slider_Img_Four}
                         slideIndex={slideIndex}
                         setSlideIndex={setSlideIndex}
                     />

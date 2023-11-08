@@ -11,11 +11,11 @@ import Inschrijf_Form_Producer from "./components/inschrijfform/InschrijfFormPro
 import Productie_Informatie from "./pages/hoe maak je bier/Productie_Informatie";
 import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProduct";
 import Alle_bieren from "./pages/alle_bieren/AllProducts";
-import Login_page from "./pages/login_page/LoginPage.jsx";
-import Error from "./pages/error/Error.jsx";
+import Login_page from "./pages/login_page/LoginPage";
+import Error from "./pages/error/Error";
 import Mijn_bieren from "./pages/mijn_bieren/myProducts";
 import axios from "axios";
-import Home from './pages/Home/Home.jsx';
+import Home from './pages/Home/Home';
 import AgeVerification from '../src/components/leeftijds_check/AgeVerification';
 import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';

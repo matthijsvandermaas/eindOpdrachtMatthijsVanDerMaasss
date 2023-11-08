@@ -1,9 +1,9 @@
 import * as React from 'react';
-import TextComponent from "../../components/texts_components/Text-component.jsx";
-import Rating from "../../components/Rating_system/Rating.jsx";
+import TextComponent from "../../components/texts_components/Text-component";
+import Rating from "../../components/Rating_system/Rating";
 import {useContext, useState} from "react";
-import Cubes from "../../components/cubes/Cubes.jsx";
-import AuthenticationContext from "../../context/AuthenticationContext.jsx";
+import Cubes from "../../components/cubes/Cubes";
+import AuthenticationContext from "../../context/AuthenticationContext";
 
 
 function Feedback() {

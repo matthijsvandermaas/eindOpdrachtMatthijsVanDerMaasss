@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthenticationContext.jsx';
+import AuthenticationContext from "../../context/AuthenticationContext";
 import axios from 'axios';
 
 function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, toggleError] = useState(false);
-    const { login } = useContext(AuthContext);
+    const { login } = useContext(A);
 
     async function handleSubmit(e) {
         e.preventDefault();
