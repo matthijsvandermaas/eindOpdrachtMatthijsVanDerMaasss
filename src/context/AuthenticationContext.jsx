@@ -1,88 +1,60 @@
 // eslint-disable-next-line no-unused-vars
+
 import {createContext, useEffect, useState} from 'react';
 import { jwtDecode} from "jwt-decode";
 import axios from "axios";
 
 export const AuthContext = createContext({});
 
-// eslint-disable-next-line react/prop-types
-function AuthContextProvider({children}) {
-
-  const [isAuth, toggleIsAuth] = useState({
-
+function AuthContextProvider({ children }) {
+  const [isAuth, setIsAuth] = useState({
     isAuthenticated: false,
     user: null,
     status: 'pending',
-
   });
 
-  useEffect(()=> {
-
+  useEffect(() => {
     const token = localStorage.getItem('token');
-
-    if(token) {
+    if (token) {
       void login(token);
     } else {
-      toggleIsAuth({
+      setIsAuth({
         isAuthenticated: false,
         user: null,
-        status: 'done'
-      })
+        status: 'done',
+      });
     }
-
-  },[]);
-
+  }, []);
 
   async function login(token) {
-
-    localStorage.setItem('token',token);
-
+    localStorage.setItem('token', token);
     const userInfo = jwtDecode(token);
     const userEmail = userInfo.sub;
     console.log(userEmail);
-
     try {
-      const response = await axios.get(`http://localhost:8080//authenticate/${id}`, {
-
-        headers: {
-          Authorization: `Bearer ${token}`,
-
-        }
-      })
+      const response = await axios.get('http://your-api-endpoint.com/user', {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       console.log(response.data);
-
-
-
-
-      toggleIsAuth({
+      setIsAuth({
         isAuthenticated: true,
-        user: {
-          Email,
-          Password,
-          id,
-        },
+        user: { email: userEmail },
         status: 'done',
       });
-
-      console.log("De gebruiker is ingelogd")
-
+      console.log('De gebruiker is ingelogd');
     } catch (e) {
-      console.error("De gebruiker kan niet inloggen AuthContext");
-      toggleIsAuth({
+      console.error('De gebruiker kan niet inloggen AuthContext');
+      setIsAuth({
         isAuthenticated: false,
         user: null,
-        status: 'done'
-      })
+        status: 'done',
+      });
     }
-
-
   }
 
   function logout() {
-
     localStorage.clear();
-
-    toggleIsAuth({
+    setIsAuth({
       isAuthenticated: false,
       user: null,
       status: 'done',
@@ -97,10 +69,9 @@ function AuthContextProvider({children}) {
     logout: logout,
   };
 
-
   return (
-      <AuthContext.Provider value={contextData} >
-        {isAuth.status === 'done' ? children : <p className='p-loading'>Momentje de bartender is even bezig🍻...</p> }
+      <AuthContext.Provider value={contextData}>
+        {isAuth.status === 'done' ? children : <p className='p-loading'> 🍻Momentje de bartender komt zo bij u ...</p>}
       </AuthContext.Provider>
   );
 }

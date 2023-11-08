@@ -11,51 +11,34 @@ import Cubes from '../../components/cubes/Cubes';
 import AuthenticationContext from '../../context/AuthenticationContext';
 
 function LoginPage() {
+    const { login } = useContext(AuthenticationContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, toggleError] = useState(false);
-    const navigate = useNavigate();
-    const { isAuthenticated, login, logout } = useContext(AuthenticationContext);    const [loading, toggleLoading] = useState(false);
-    const [slideIndex, setSlideIndex] = useState(1);
-    const slider_Img_1 = slider_Img_One;
-    const slider_Img_2 = slider_Img_Two;
-    const slider_Img_3 = slider_Img_Three;
-    const slider_Img_4 = slider_Img_Four;
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    async function handleLogin(e) {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        toggleError(false);
-        toggleLoading(true);
+        setError(false);
+        setLoading(true);
+
         try {
-            const response = await axios.post('http://localhost:3000/register', {
+            const response = await axios.post('http://localhost:3001/login', {
                 username: email,
                 password: password,
             });
-            console.log(response.data.token);
+
             console.log('Gebruiker is ingelogd!');
             login(response.data.token);
-            navigate('/home');
-        } catch (e) {
-            console.error(e);
-            toggleError(true);
+            // Redirect of andere acties na inloggen
+        } catch (error) {
+            console.error(error);
+            setError(true);
             console.log('Gebruiker is niet ingelogd!');
         }
-    }
 
-    async function handleLogout() {
-        try {
-            const response = await axios.post('http://localhost:3000/register', {});
-            console.log('Gebruiker is uitgelogd!');
-            console.log(response.data.token);
-            login(response.data.token);
-            navigate('/home');
-        } catch (e) {
-            console.error(e);
-            toggleError(true);
-        }
-    }
-
-
+        setLoading(false);
+    };
 
     return (
         <>
