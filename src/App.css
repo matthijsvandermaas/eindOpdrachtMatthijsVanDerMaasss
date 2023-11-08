@@ -251,6 +251,14 @@ p a {
     width: 100%;
     height: auto;
 }
+.background_Home {
+    background-image: url('../src/assets/general pics/Bierbrouwerij-1140x483.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: auto;
+}
 .no-background {
     background-color: var(--background-gradient-color);
     background-size: cover;

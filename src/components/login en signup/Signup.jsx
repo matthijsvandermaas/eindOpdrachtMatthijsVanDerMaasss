@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
 function SignUp() {
     // state voor het formulier
     const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     // state voor functionaliteit
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
-    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -22,14 +21,9 @@ function SignUp() {
             await axios.post('http://localhost:3000/register', {
                 email: email,
                 password: password,
-                username: username,
             });
 
-            // Let op: omdat we geen axios Canceltoken gebruiken zul je hier een memory-leak melding krijgen.
-            // Om te zien hoe je een canceltoken implementeerd kun je de bonus-branch bekijken!
-
-            // als alles goed gegaan is, linken we dyoor naar de login-pagina
-            navigate('/signin');
+            navigate('/signIn');
         } catch(e) {
             console.error(e);
             toggleError(true);
@@ -41,30 +35,15 @@ function SignUp() {
     return (
         <>
             <h1>Registreren</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur atque consectetur, dolore eaque eligendi
-                harum, numquam, placeat quisquam repellat rerum suscipit ullam vitae. A ab ad assumenda, consequuntur deserunt
-                doloremque ea eveniet facere fuga illum in numquam quia reiciendis rem sequi tenetur veniam?
-            </p>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email-field">
+                <label htmlFor="email">
                     Emailadres:
-                    <input
-                        type="email"
-                        id="email-field"
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
+                    <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </label>
 
-                <label htmlFor="username-field">
+                <label htmlFor="password">
                     Gebruikersnaam:
-                    <input
-                        type="text"
-                        id="username-field"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
+                    <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
 
                 <label htmlFor="password-field">

@@ -1,28 +1,28 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import logoImage from './assets/logos and backgrounds/B & B logo2.jpg';
-import logoImage_Klein from './assets/logos and backgrounds/B & B logo2 klein.jpg';
+import logoImageKlein from './assets/logos and backgrounds/B & B logo2 klein.jpg';
 import wheat from './assets/logos and backgrounds/wheat.png';
 import Navbar from "./components/navBar/Navbar.jsx";
 import {NavLink, Route, Routes, useNavigate} from "react-router-dom";
-import Inschrijf_Navigatie from "./pages/inschrijving_Navigatie/inschrijf_Navigatie";
-import Inschrijf_Form_Particulier from "./components/inschrijfform/InschrijfFormParticulier";
-import Inschrijf_Form_Producer from "./components/inschrijfform/InschrijfFormProducer";
-import Productie_Informatie from "./pages/hoe maak je bier/Productie_Informatie";
+import InschrijfNavigatie from "./pages/inschrijving_Navigatie/inschrijf_Navigatie";
+import InschrijfFormParticulier from "./components/inschrijfform/InschrijfFormParticulier";
+import InschrijfFormProducer from "./components/inschrijfform/InschrijfFormProducer";
+import ProductieInformatie from "./pages/hoe maak je bier/Productie_Informatie";
 import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProduct";
-import Alle_bieren from "./pages/alle_bieren/AllProducts";
-import Login_page from "./pages/login_page/LoginPage.jsx";
-import Error from "./pages/error/Error.jsx";
+import AlleBieren from "./pages/alle_bieren/AllProducts";
+import Loginpage from "./pages/login_page/LoginPage";
+import SignIn from "./components/login en signup/signin";
+import SignUp from "./components/login en signup/signup";
+import Error from "./pages/error/Error";
 import Mijn_bieren from "./pages/mijn_bieren/myProducts";
 import axios from "axios";
-import Home from './pages/Home/Home.jsx';
+import Home from './pages/Home/Home';
 import AgeVerification from '../src/components/leeftijds_check/AgeVerification';
 import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
 import Music from './pages/music/DrankOrgel';
-import insta from './assets/logos and backgrounds/insta.jpeg';
-// import Mypage from "./pages/mijn_pagina/Mijn_pagina.jsx"
-
+import {Footer} from "./components/footer/Footer.jsx";
 
 axios.defaults.withCredentials = true;
 function App() {
@@ -50,7 +50,7 @@ function App() {
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth <= 600) {
-                setLogoSrc(logoImage_Klein);
+                setLogoSrc(logoImageKlein);
             } else {
                 setLogoSrc(logoImage);
             }
@@ -61,7 +61,7 @@ function App() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [logoImage, logoImage_Klein]);
+    }, [logoImage, logoImageKlein]);
 return (
         <div className="outer-outer-container">
             <div className="outer-container">
@@ -80,34 +80,25 @@ return (
                     <Routes>
                         <Route path="/home" element={<Home />} />
                         {!verificationDone && <Route exact path="/" element={<AgeVerification handleAgeVerification={handleAgeVerification} />} />}
-                        <Route path="/inschrijfformulier" element={<Inschrijf_Navigatie />} />
-                        <Route path="/inschrijfformulier_particulier" element={<Inschrijf_Form_Particulier />} />
-                        <Route path="/inschrijfformulier_producent" element={<Inschrijf_Form_Producer />} />
+                        <Route path="/inschrijfformulier" element={<InschrijfNavigatie />} />
+                        <Route path="/inschrijfformulier_particulier" element={<InschrijfFormParticulier />} />
+                        <Route path="/inschrijfformulier_producent" element={<InschrijfFormProducer />} />
                         <Route path="/mijn_bieren" element={<Mijn_bieren />} />
                         {/*<Route path="/mijn_pagina" element={<Mypage />} />*/}
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
-                        <Route path="/productie_Informatie" element={<Productie_Informatie />} />
-                        <Route path="/alle_producten" element={<Alle_bieren />} />
-                        <Route path="/login_page" element={<Login_page />} />
+                        <Route path="/productie_Informatie" element={<ProductieInformatie />} />
+                        <Route path="/alle_producten" element={<AlleBieren />} />
+                        <Route path="/login_page" element={<Loginpage />} />
+                        <Route path="/signUp" element={<SignUp />} />
+                        <Route path="/signIn" element={<SignIn />} />
                         <Route path="/feedback" element={<Feedback />} />
                         <Route path="/news" element={<News />} />
                         <Route path="/drankorgel" element={<Music />} />
                         <Route path="/*" element={<Error />} />
                     </Routes>
+                    <Footer/>
                 </div>
-                <div className="footer-container background">
-                    <div className="footer-background">
-                        <p>This page is made possible by <a href="https://www.novi.nl/" target="_blank">NOVI hogeschool</a>.</p>
-                        <p>en</p>
-                        <p>Trademark <em>Van Der Maas P&C™</em></p>
-                        <span>
-                        <NavLink to="https://www.instagram.com/beersenbrewskys/" target="_blank"><img className="smaller_logo" src={insta} alt="instagram logo" /></NavLink>
-                        <NavLink to="http://localhost:5173/" target="_blank"><img className="smaller_logo" src={logoImage_Klein} alt="logo" /></NavLink>
-                        </span>
-
-                    </div>
                 </div>
-            </div>
         </div>
     );
 }

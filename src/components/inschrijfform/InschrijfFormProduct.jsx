@@ -51,41 +51,41 @@ function InschrijfFormProduct() {
     };
 
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     setIsSubmitting(true);
-    //
-    //     try {
-    //         const formDataToSend = new FormData();
-    //         Object.keys(formData).forEach((key) => {
-    //             if (key === 'photo' || key === 'photo2' || key === 'photo3') {
-    //                 formDataToSend.append(key, formData[key]);
-    //             } else {
-    //                 formDataToSend.append(key, formData[key]);
-    //             }
-    //         });
-    //
-    //         const response = await axios.post('http://localhost:8081/producten', formDataToSend);
-    //
-    //         if (response && response.data) {
-    //             console.log(response.data);
-    //             setErrorMessage('');
-    //         } else {
-    //             console.error('Fout bij het versturen van het verzoek: ongeldige reactie');
-    //             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-    //         }
-    //     } catch (error) {
-    //         console.error('Fout bij het versturen van het verzoek:', error);
-    //
-    //         if (error.response && error.response.status) {
-    //             console.log('Fout Status Code:', error.response.status);
-    //         }
-    //
-    //         setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-    //     } finally {
-    //         setIsSubmitting(false);
-    //     }
-    // };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        try {
+            const formDataToSend = new FormData();
+            Object.keys(formData).forEach((key) => {
+                if (key === 'photo' || key === 'photo2' || key === 'photo3') {
+                    formDataToSend.append(key, formData[key]);
+                } else {
+                    formDataToSend.append(key, formData[key]);
+                }
+            });
+
+            const response = await axios.post('http://localhost:8081/producten', formDataToSend);
+
+            if (response && response.data) {
+                console.log(response.data);
+                setErrorMessage('');
+            } else {
+                console.error('Fout bij het versturen van het verzoek: ongeldige reactie');
+                setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
+            }
+        } catch (error) {
+            console.error('Fout bij het versturen van het verzoek:', error);
+
+            if (error.response && error.response.status) {
+                console.log('Fout Status Code:', error.response.status);
+            }
+
+            setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <div className="form-container">

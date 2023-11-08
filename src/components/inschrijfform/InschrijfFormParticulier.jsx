@@ -1,8 +1,8 @@
 import {useContext, useState} from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
-import Cubes from "../cubes/Cubes.jsx";
-import AuthenticationContext from "../../context/AuthenticationContext.jsx";
+import Cubes from "../cubes/Cubes";
+import AuthenticationContext from "../../context/AuthenticationContext";
 
 
 

@@ -32,8 +32,8 @@ export const AgeVerification = () => {
     };
 
     return (
-        <div className="form-container border_top_left">
-            <form onSubmit={handleSubmit}>
+        <div className="form-container border_top_left background_Home">
+            <form className="no-background" onSubmit={handleSubmit}>
                 <h1>leeftijds-controle</h1>
                 <h4>Geef je geboorte datum om door te kunnen gaan:</h4>
                 <input

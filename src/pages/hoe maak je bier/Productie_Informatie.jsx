@@ -1,8 +1,7 @@
 import React, {useState, useRef} from 'react';
 import './Productie_Informatie.css';
 import '../../components/navBar/NavBar.css';
-import Text_component from "../../components/texts_components/Text-component.jsx";
-
+import Text_component from "../../components/texts_components/Text-component";
 import hop from "../../assets/hoe maak je bier/hop.png"
 import malt from "../../assets/hoe maak je bier/malt.png"
 import het_Proces1 from "../../assets/hoe maak je bier/staps_Of_Production.png"

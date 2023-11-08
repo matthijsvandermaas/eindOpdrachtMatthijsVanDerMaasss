@@ -1,5 +1,5 @@
 import React from 'react';
-import RatingAverage from '../Rating_system/RatingAverage.jsx';
+import RatingAverage from '../Rating_system/RatingAverage';
 
 const NieuweProductenComponent = ({ nieuw_product }) => {
     const buildProductInfo = (product) => {

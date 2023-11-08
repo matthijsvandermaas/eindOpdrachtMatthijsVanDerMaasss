@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import '../../pages/alle_bieren/AllProducts.css';
-import CarouselComponent from '../../components/carousel/Carousel.jsx';
-import NieuweProductenComponent from '../../components/New_Product_Component/NieuweProductenComponents.jsx';
+import CarouselComponent from '../../components/carousel/Carousel';
+import NieuweProductenComponent from '../../components/New_Product_Component/NieuweProductenComponents';
 import data from '../../../Data.json';
-import { useProductContext } from '../../components/productcontext/ProductContext.jsx';
+import { useProductContext } from '../../components/productcontext/ProductContext';
 
 function myProducts() {
     const { selectedProducts, removeFromSelectedProducts } = useProductContext(); // Fout in dubbele const verwijderd

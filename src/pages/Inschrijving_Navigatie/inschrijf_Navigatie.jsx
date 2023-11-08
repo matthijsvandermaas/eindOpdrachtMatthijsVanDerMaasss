@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './inschrijf_Navigatie.css';
-import '../../components/inschrijfform/InschrijfFormProducer.jsx';
-import '../../components/inschrijfform/InschrijfFormParticulier.jsx';
-import '../../components/inschrijfform/InschrijfFormProduct.jsx';
+import '../../components/inschrijfform/InschrijfFormProducer';
+import '../../components/inschrijfform/InschrijfFormParticulier';
+import '../../components/inschrijfform/InschrijfFormProduct';
 import cafeOrloff from "../../assets/orloff/CafeOrloff.jpeg";
-import Cubes from "../../components/cubes/Cubes.jsx";
+import Cubes from "../../components/cubes/Cubes";
 
 
 function Inschrijf_Navigatie() {

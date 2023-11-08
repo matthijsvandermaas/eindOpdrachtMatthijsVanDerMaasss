@@ -8,7 +8,7 @@ import './Carousel.css';
 // import dependency from "../../assets/dependency-tree.png";
 
 // eslint-disable-next-line react/prop-types
-function CarouselComponent({ src1, src2, src3,  alt1, alt2, alt3}) {
+function CarouselComponent({ src1, src2,  alt1, alt2}) {
     return (
         <>
             <div className="img-carousel">

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './Home.css';
-import Cubes from '../../components/cubes/Cubes.jsx';
-import Slider from '../../components/slider/Slider.jsx';
+import Cubes from '../../components/cubes/Cubes';
+import Slider from '../../components/slider/Slider';
 import slider_Img_One from '../../assets/rockcity/rockcity_products.png';
 import slider_Img_Two from '../../assets/rockcity/rockcity_brewer.png';
 import slider_Img_Three from '../../assets/rockcity/rockcity_taps.png';
@@ -17,10 +17,6 @@ function Home() {
     const navigate = useNavigate();
     const [slideIndex, setSlideIndex] = useState(1);
 
-    const slider_Img_1 = slider_Img_One;
-    const slider_Img_2 = slider_Img_Two;
-    const slider_Img_3 = slider_Img_Three;
-    const slider_Img_4 = slider_Img_Four;
 
     // const handleLogout = () => {
     //     logout();
@@ -31,10 +27,10 @@ function Home() {
         <>
             <div className="title-content">
                 <Slider
-                    slider_Img1={slider_Img_1}
-                    slider_Img2={slider_Img_2}
-                    slider_Img3={slider_Img_3}
-                    slider_Img4={slider_Img_4}
+                    slider_Img1={slider_Img_One}
+                    slider_Img2={slider_Img_Two}
+                    slider_Img3={slider_Img_Three}
+                    slider_Img4={slider_Img_Four}
                     slideIndex={slideIndex}
                     setSlideIndex={setSlideIndex}
                 />
