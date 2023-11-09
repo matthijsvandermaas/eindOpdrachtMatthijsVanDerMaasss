@@ -1,14 +1,11 @@
 import * as React from 'react';
 import TextComponent from "../../components/texts_components/Text-component";
-import {useContext, useState} from "react";
-import Cubes from "../../components/cubes/Cubes";
-import AuthenticationContext from "../../context/AuthenticationContext";
 import IBU from "../../assets/hoe maak je bier/ibu.jpg";
 
 
 
 function News() {
-    const { isAuthenticated } = useContext(AuthenticationContext);
+
 
     return (
         <>
@@ -53,16 +50,7 @@ function News() {
 
         </div>
             </div>
-            <Cubes className="background"
-                   button_1={isAuthenticated ? "Mijn bieren" : "Inschrijven"}
-                   navigate_1={isAuthenticated ? "/mijn_bieren" : "/inschrijfformulier"}
-                   button_2={isAuthenticated ? "Algemene bierkennis": "Inloggen"}
-                   navigate_2={isAuthenticated ? "/Productie_Informatie#algemene-informatie": "/login_page"}
-                   button_3="Al onze producten"
-                   navigate_3="/alle_producten"
-                   button_4="Hoe maak je bier"
-                   navigate_4="/Productie_Informatie"
-            />
+
 </div>
         </>
     );

@@ -2,12 +2,12 @@ import {useContext, useState} from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes";
-import AuthenticationContext from "../../context/AuthenticationContext";
+import AuthContext from "../../context/AuthenticationContext";
 
 
 
 function InschrijfFormParticulier() {
-    const { isAuthenticated} = useContext(AuthenticationContext);
+    const { isAuthenticated} = useContext(AuthContext);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [addSucces, toggleAddSuccess] = useState(false);

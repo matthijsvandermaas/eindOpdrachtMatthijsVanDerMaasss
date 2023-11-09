@@ -1,8 +1,6 @@
 import React, { useContext, useState } from 'react';
 import '../Home/Home.css';
 import './DrankOrgel.css';
-import Cubes from '../../components/cubes/Cubes';
-import AuthenticationContext from "../../context/AuthenticationContext";
 import Slider from '../../components/slider/Slider';
 import slider_Img_One from '../../assets/hoe maak je bier/hop.png';
 import slider_Img_Two from '../../assets/hoe maak je bier/yeast.png';
@@ -12,7 +10,6 @@ import slider_Img_Four from '../../assets/hoe maak je bier/gist.png';
 
 
 function Drankorgel() {
-    const { isAuthenticated } = useContext(AuthenticationContext);
     const [slideIndex, setSlideIndex] = useState(1);
 
     const slider_Img_1 = slider_Img_One;
@@ -58,16 +55,6 @@ function Drankorgel() {
 
                     </div>
                 </div>
-                <Cubes
-                    button_1={isAuthenticated ? "Mijn bieren" : "Inschrijven"}
-                    navigate_1={isAuthenticated ? "/mijn_bieren" : "/inschrijfformulier"}
-                    button_2={isAuthenticated ? "Algemene bierkennis": "Inloggen"}
-                    navigate_2={isAuthenticated ? "/Productie_Informatie#algemene-informatie": "/login_page"}
-                    button_3="Al onze producten"
-                    navigate_3="/alle_producten"
-                    button_4="Hoe maak je bier"
-                    navigate_4="/Productie_Informatie"
-                />
             </div>
 
         </>

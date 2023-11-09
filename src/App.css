@@ -228,6 +228,7 @@ p a {
     font-size: 1em;
  }
 
+
 .bttn:hover{
     background-color: var(--light-dark-gradient);
     color: black;
@@ -252,29 +253,34 @@ p a {
     height: auto;
 }
 .background_Home {
-    background-image: url('../src/assets/general pics/Bierbrouwerij-1140x483.jpg');
+    background-image: url('../src/assets/general pics/Bierbrouwerij-1140x4832.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    width: 100%;
-    height: auto;
+    width: 96vw;
+    min-height: 59vh;
+    max-height:  990px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow_1);
+
+}
+.filter{
+}
+.background_Home:hover {
+    box-shadow: var(--box-shadow_2);
 }
 .no-background {
-    background-color: var(--background-gradient-color);
+    background: var(--background-gradient);
+    backdrop-filter: brightness(3);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     width: 100%;
     height: auto;
-}
-.background2 {
-    background-image: url('../src/assets/logos and backgrounds/grain.svg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    width: 100%;
-    height: auto;
+    border-radius: var(--border-radius);
     box-shadow: inset 2000px 2000px rgba(221, 235, 250, 0.04);
+}
+.background_pale{
+    background-color: #fffef3;
 }
 .background_bar {
     background-image: url('../src/assets/logos and backgrounds/grain.svg');

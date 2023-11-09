@@ -1,6 +1,13 @@
+
+.age_Check-Container{
+    height: 50vh;
+
+}
+
+/*calender*/
 .react-calendar {
-    width: 300px; /* Aanpassen aan je voorkeur */
-    max-width: 100%; /* Houdt de maximale breedte als 100% */
+    width: 40vw;
+    max-width: 300px;
     border: 1px solid var(--line-blue);
     font-family: Arial, sans-serif;
     margin-bottom: 20px;
@@ -13,11 +20,25 @@
 .react-calendar__tile--active {
     background: var(--line-blue);
     color: white;
+
 }
 
-/* Stijl voor het inputelement */
-input[type="date"] {
-    font-size: 30px;
-    padding: 10px;
-    width: 100%;
-}
+
+/*!* Algemene stijl voor input[type="date"] *!*/
+/*input[type="date" i] {*/
+/*    color: #ff7592;*/
+/*    font-family: monospace;*/
+/*    padding-inline-start: 1px;*/
+/*    cursor: default;*/
+/*    align-items: center;*/
+/*    display: inline-flex;*/
+/*    overflow: hidden;*/
+/*    padding: 0px;*/
+/*}*/
+
+/*!* Stijl voor focus (gebruik -webkit-focus-ring-color voor WebKit-browsers) *!*/
+/*input[type="date" i]:focus-visible {*/
+/*    outline: -webkit-focus-ring-color auto 1px;*/
+/*    color: green;*/
+/*}*/
+

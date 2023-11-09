@@ -14,7 +14,7 @@ function AllProducts() {
 
     const renderUniqueProducts = (products) => {
         return products.map((nieuw_product, index) => (
-            <div className="text-component no-background" key={nieuw_product.id}>
+            <div className="text-component background_pale" key={nieuw_product.id}>
                 <button
                     className="bttn bttn_small"
                     onClick={() => {
