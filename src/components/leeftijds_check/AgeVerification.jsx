@@ -5,7 +5,7 @@ export const AgeVerification = () => {
     const [birthdate, setBirthdate] = useState('');
     const navigate = useNavigate();
     const [error, setError] = useState(false); // Gebruik 'setError' in plaats van 'toggleError'
-    const [yearsRemaining, setYearsRemaining] = useState(0);
+
 
     const handleVerification = (date) => {
         const today = new Date();
@@ -20,9 +20,8 @@ export const AgeVerification = () => {
         if (age >= 18) {
             navigate('/home');
         } else {
-            const yearsRemaining = 18 - age;
-            setError(true); // Gebruik 'setError' om de 'error'-state bij te werken
-            setYearsRemaining(yearsRemaining);
+             setError(true);
+
         }
     };
 
@@ -32,20 +31,23 @@ export const AgeVerification = () => {
     };
 
     return (
-        <div className="form-container border_top_left background_Home">
-            <form className="no-background" onSubmit={handleSubmit}>
-                <h1>leeftijds-controle</h1>
+
+        <div  className="background_Home text-light">
+        <div className="informatie_container">
+            <form  onSubmit={handleSubmit} >
+                <h1 className="border_top_bottom">leeftijds-controle</h1>
                 <h4>Geef je geboorte datum om door te kunnen gaan:</h4>
                 <input
                     type="date"
                     value={birthdate}
                     onChange={(e) => setBirthdate(e.target.value)}
                 />
-                <button className="bttn" type="submit">controleren</button>
+                <button className="bttn " type="submit"><p>controleren</p></button>
                 {error && (
                     <h5 className="error">Je bent nog geen 18, je moet nog even jaar wachten.</h5>
                 )}
             </form>
+        </div>
         </div>
     );
 };

@@ -1,12 +1,12 @@
 import React, { useRef, useState, useContext } from 'react';
 import './navbar.css';
 import { NavLink, useNavigate } from 'react-router-dom';
-import AuthenticationContext from "../../context/AuthenticationContext";
+import {AuthenticationContext} from "../../context/AuthenticationContext";
 
-function Navbar({ activeTab, handleTabChange, verificationDone }) {
+function Navbar() {
     const hetProcesRef = useRef(null);
     const algemene_infoRef = useRef(null);
-    const { isAuthenticated, logout } = useContext(AuthenticationContext);
+    const { isAuth, logout } = useContext(AuthenticationContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -39,7 +39,7 @@ function Navbar({ activeTab, handleTabChange, verificationDone }) {
             <ul className="navList">
                 <li>
                     <NavLink to="/home">Home</NavLink>
-                    {isAuthenticated ? (
+                    {isAuth ? (
                         <NavLink to="/home" onClick={handleLogout}>
                             Logout
                         </NavLink>
@@ -49,18 +49,18 @@ function Navbar({ activeTab, handleTabChange, verificationDone }) {
                     <div className="submenu" onClick={() => toggleSubmenu(1)}>
                         <div>
                             <NavLink to="/inschrijfformulier">
-                                {isAuthenticated ? 'mijn pagina🞃' : 'Inschrijven🞃'}
+                                {isAuth ? 'mijn pagina🞃' : 'Inschrijven🞃'}
                             </NavLink>
                         </div>
                         {submenuStatus.isSubmenuOpen1 && (
                             <div className="submenu-content">
                                 <NavLink to="/inschrijfformulier_particulier">
-                                    {isAuthenticated ? 'Bierliefhebbers' : 'Als bierliefhebber'}
+                                    {isAuth ? 'Bierliefhebbers' : 'Als bierliefhebber'}
                                 </NavLink>
                                 <NavLink to="/inschrijfformulier_producent">
-                                    {isAuthenticated ? 'Brouwers' : 'Als brouwer'}
+                                    {isAuth ? 'Brouwers' : 'Als brouwer'}
                                 </NavLink>
-                                <NavLink to="/mijn_bieren">{isAuthenticated && 'Mijn bieren'}</NavLink>
+                                <NavLink to="/mijn_bieren">{isAuth && 'Mijn bieren'}</NavLink>
                             </div>
                         )}
                     </div>

@@ -3,11 +3,11 @@ import axios from 'axios';
 import './InschrijfForm.css';
 import Cubes from '../cubes/Cubes';
 import { useNavigate} from 'react-router-dom';
-import AuthenticationContext from "../../context/AuthenticationContext";
+import AuthContext from "../../context/AuthenticationContext";
 
 
 function InschrijfFormProducer() {
-    const {isAuthenticated} = useContext(AuthenticationContext);
+    const {isAuth: isAuth} = useContext(AuthContext);
     const [loading, toggleLoading] = useState(false);
     const [addSucces, toggleAddSuccess] = useState(false);
     const navigate = useNavigate();
@@ -208,7 +208,7 @@ function InschrijfFormProducer() {
                         <button className="bttn" type="submit" disabled={isSubmitting}>
                             {isSubmitting
                                 ? 'Bezig met een product inschrijven...'
-                                : (isAuthenticated ? 'verzenden' : 'Inschrijven')}
+                                : (isAuth ? 'verzenden' : 'Inschrijven')}
                         </button>
                         <button type="button" className="bttn" onClick={() => navigate('/inschrijfformulier_product')}>
                             Een nieuw product

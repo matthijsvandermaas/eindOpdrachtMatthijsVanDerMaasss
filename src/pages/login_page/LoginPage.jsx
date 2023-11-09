@@ -11,8 +11,8 @@ import Cubes from '../../components/cubes/Cubes';
 
 function LoginPage() {
     const [slideIndex, setSlideIndex] = useState(1);
-    // const { isAuthenticated, logout, login } = useContext(AuthenticationContext);
-    // const navigate = useNavigate();
+    const { isAuthenticated, logout, login } = useContext(AuthenticationContext);
+    const navigate = useNavigate();
 
     return (
         <div className="outer-login-container">

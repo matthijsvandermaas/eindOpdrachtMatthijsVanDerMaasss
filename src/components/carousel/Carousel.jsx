@@ -4,8 +4,7 @@ import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import './Carousel.css';
-// import wheat from "../../assets/wheat.png";
-// import dependency from "../../assets/dependency-tree.png";
+
 
 // eslint-disable-next-line react/prop-types
 function CarouselComponent({ src1, src2,  alt1, alt2}) {

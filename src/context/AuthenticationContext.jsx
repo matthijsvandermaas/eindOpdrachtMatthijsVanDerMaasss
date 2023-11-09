@@ -1,5 +1,5 @@
 import {createContext, useEffect, useState} from 'react';
-import jwt_Decode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import PropTypes from "prop-types";
 import {useNavigate} from "react-router-dom";
@@ -13,7 +13,7 @@ function AuthContextProvider({children}) {
       isAuth: false,
       user: {setEmail},
       password: {setPassword},
-      id: "",
+      id: "1",
       status: 'pending',
     });
 
@@ -37,23 +37,16 @@ function AuthContextProvider({children}) {
     }, []);
 
     async function loginContext(token) {
-      toggleIsAuth({
-        isAuth: true,
-        user: {
-          username: email,
-          password: password,
-        }
-      })
+      toggleIsAuth({ isAuth: true,   user: { email, password }, });
+
       // zet de token in de Local Storage
       localStorage.setItem('Token', token);
-      const userinfo = jwt_Decode(token);
+      const userinfo = jwt_decode(token);
       const userid = userinfo.sub;
-
-
       try {
-        const Response = await axios.get(`http://localhost:3000/${userid}`, {
+        const response = await axios.get(`http://localhost:3000/${userid}`, {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           }
         });
@@ -63,11 +56,11 @@ function AuthContextProvider({children}) {
       }
       console.log('Gebruiker is ingelogd!')
       // decode de token
-      const decoded = jwt_Decode(token);
+      const decoded = jwtDecode(token);
       navigate('/home')
 
       // geef de ID, token en redirect-link mee
-      fetchUserData(decoded.sub, token, '/profile');
+      await fetchUserData(decoded.sub, token, '/profile');
       // link de gebruiker door naar de profielpagina
       navigate('/mijnPagina');
     }

@@ -208,6 +208,10 @@ p a {
     text-decoration: none;
     color: black;
 }
+.text-light h1, h2, h3, h4, h5, p {
+    color: #fefef2;
+
+}
 .debug {
     border: 2px solid red;
 }
@@ -227,6 +231,7 @@ p a {
     transition: 0.5s ease-in-out;
     font-size: 1em;
  }
+
 
 .bttn:hover{
     background-color: var(--light-dark-gradient);
@@ -252,15 +257,20 @@ p a {
     height: auto;
 }
 .background_Home {
-    background-image: url('../src/assets/general pics/Bierbrouwerij-1140x483.jpg');
+    background-image: url('../src/assets/general pics/Bierbrouwerij-1140x4832.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    width: 100%;
-    height: auto;
+    width: 96vw;
+    min-height: 59vh;
+    max-height:  990px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow_1);
+}
+.background_Home:hover {
+    box-shadow: var(--box-shadow_2);
 }
 .no-background {
-    background-color: var(--background-gradient-color);
+    background-color: rgba(245, 245, 245, 0.9);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

@@ -1,6 +1,14 @@
+.age_Check-Container{
+    height: 50vh;
+
+}
+.informatie_container button {
+    background: red;
+}
+/*calender*/
 .react-calendar {
-    width: 300px; /* Aanpassen aan je voorkeur */
-    max-width: 100%; /* Houdt de maximale breedte als 100% */
+    width: 40vw;
+    max-width: 300px;
     border: 1px solid var(--line-blue);
     font-family: Arial, sans-serif;
     margin-bottom: 20px;
@@ -15,9 +23,8 @@
     color: white;
 }
 
-/* Stijl voor het inputelement */
-input[type="date"] {
-    font-size: 30px;
-    padding: 10px;
+.birthdate-input {
     width: 100%;
+    padding: 10px;
+    font-size: 2em;
 }

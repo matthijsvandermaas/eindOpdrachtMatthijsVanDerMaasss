@@ -10,10 +10,10 @@ import slider_Img_Four from '../../assets/rockcity/rockcity_ketel.jpg';
 
 
 import {NavLink, useNavigate} from "react-router-dom";
-import AuthenticationContext from "../../context/AuthenticationContext.jsx";
+import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
 
 function Home() {
-    const { isAuthenticated, logout } = useContext(AuthenticationContext);
+    const { isAuth, logout } = useContext(AuthenticationContext);
     const navigate = useNavigate();
     const [slideIndex, setSlideIndex] = useState(1);
 
@@ -36,10 +36,10 @@ function Home() {
                 />
                 <div className="text-content">
                     <div className="informatie_container">
-                        <h1>Welcome {isAuthenticated ? "matthijs van der maas" : " Bier liefhebbers"}</h1>
+                        <h1>Welcome {isAuth ? "matthijs van der maas" : " Bier liefhebbers"}</h1>
                         <h4> Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij</h4>
                         <div>
-                            {!isAuthenticated ? (
+                            {!isAuth ? (
                                 <>
                                     <button className=" bttn bttn_small" onClick={() => { window.location.href = "/login_page"; }}>
                                         Inloggen
@@ -56,10 +56,10 @@ function Home() {
                     </div>
                 </div>
                 <Cubes
-                    button_1={isAuthenticated ? "Mijn bieren" : "Inschrijven"}
-                    navigate_1={isAuthenticated ? "/mijn_bieren" : "/inschrijfformulier"}
-                    button_2={isAuthenticated ? "Algemene bierkennis": "Inloggen"}
-                    navigate_2={isAuthenticated ? "/Productie_Informatie#algemene-informatie": "/login_page"}
+                    button_1={isAuth ? "Mijn bieren" : "Inschrijven"}
+                    navigate_1={isAuth ? "/mijn_bieren" : "/inschrijfformulier"}
+                    button_2={isAuth ? "Algemene bierkennis": "Inloggen"}
+                    navigate_2={isAuth ? "/Productie_Informatie#algemene-informatie": "/login_page"}
                     button_3="Al onze producten"
                     navigate_3="/alle_producten"
                     button_4="Hoe maak je bier"

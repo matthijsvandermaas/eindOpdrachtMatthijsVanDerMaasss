@@ -96,8 +96,8 @@ return (
                         <Route path="/drankorgel" element={<Music />} />
                         <Route path="/*" element={<Error />} />
                     </Routes>
-                    <Footer/>
                 </div>
+                    <Footer/>
                 </div>
         </div>
     );
