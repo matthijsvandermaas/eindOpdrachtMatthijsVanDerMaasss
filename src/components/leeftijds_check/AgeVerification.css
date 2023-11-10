@@ -24,21 +24,4 @@
 }
 
 
-/*!* Algemene stijl voor input[type="date"] *!*/
-/*input[type="date" i] {*/
-/*    color: #ff7592;*/
-/*    font-family: monospace;*/
-/*    padding-inline-start: 1px;*/
-/*    cursor: default;*/
-/*    align-items: center;*/
-/*    display: inline-flex;*/
-/*    overflow: hidden;*/
-/*    padding: 0px;*/
-/*}*/
-
-/*!* Stijl voor focus (gebruik -webkit-focus-ring-color voor WebKit-browsers) *!*/
-/*input[type="date" i]:focus-visible {*/
-/*    outline: -webkit-focus-ring-color auto 1px;*/
-/*    color: green;*/
-/*}*/
 
