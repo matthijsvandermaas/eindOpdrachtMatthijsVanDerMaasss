@@ -3,7 +3,7 @@ import TextComponent from "../../components/texts_components/Text-component";
 import Rating from "../../components/Rating_system/Rating";
 import {useContext, useState} from "react";
 import Cubes from "../../components/cubes/Cubes";
-import AuthenticationContext from "../../context/AuthenticationContext";
+
 
 
 function Feedback() {
@@ -27,10 +27,10 @@ function Feedback() {
             <input type="text" className="text-input" placeholder="text...." />
             <button type="submit" className="bttn">Verzenden</button>
                 <Cubes
-                    button_1={isAuthenticated ? "Mijn bieren" : "Inschrijven"}
-                    navigate_1={isAuthenticated ? "/mijn_bieren" : "/inschrijfformulier"}
-                    button_2={isAuthenticated ? "Algemene bierkennis": "Inloggen"}
-                    navigate_2={isAuthenticated ? "/Productie_Informatie#algemene-informatie": "/login_page"}
+                    button_1="Het Drankorgel"
+                    navigate_1= "/drankorgel"
+                    button_2= "Algemene bierkennis"
+                    navigate_2="/Productie_Informatie#algemene-informatie"
                     button_3="Al onze producten"
                     navigate_3="/alle_producten"
                     button_4="Hoe maak je bier"
