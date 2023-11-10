@@ -34,10 +34,11 @@ export const AgeVerification = () => {
 
         <div  className="background_Home ">
         <div className="informatie_container">
-            <div className="">
+
             <form  onSubmit={handleSubmit} >
-                <h1 className="border_top_bottom no-background ">Leeftijds-controle</h1>
-                <h2 className="no-background">Geef je geboorte datum om door te kunnen gaan:</h2>
+                <h1 className="no-background">Geef je geboortedatum om door te kunnen gaan
+                </h1>
+
                 <input
                     type="date"
                     value={birthdate}
@@ -49,7 +50,6 @@ export const AgeVerification = () => {
                 )}
             </form>
             </div>
-        </div>
         </div>
     );
 };

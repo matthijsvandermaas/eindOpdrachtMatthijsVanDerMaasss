@@ -1,27 +1,3 @@
 
-.age_Check-Container{
-    height: 50vh;
-
-}
-
-/*calender*/
-.react-calendar {
-    width: 40vw;
-    max-width: 300px;
-    border: 1px solid var(--line-blue);
-    font-family: Arial, sans-serif;
-    margin-bottom: 20px;
-}
-
-.react-calendar__tile {
-    background: white;
-}
-
-.react-calendar__tile--active {
-    background: var(--line-blue);
-    color: white;
-
-}
-
 
 

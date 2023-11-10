@@ -269,8 +269,7 @@ p a {
     box-shadow: var(--box-shadow_2);
 }
 .no-background {
-    background: var(--background-gradient);
-    backdrop-filter: brightness(3);
+    background: rgba(255, 254, 243, 0.02);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -279,9 +278,10 @@ p a {
     border-radius: var(--border-radius);
     box-shadow: inset 2000px 2000px rgba(221, 235, 250, 0.04);
 }
-.background_pale{
-    background-color: #fffef3;
+.background_pale {
+background: var(--background-gradient-color);
 }
+
 .background_bar {
     background-image: url('../src/assets/logos and backgrounds/grain.svg');
     background-size: cover;
