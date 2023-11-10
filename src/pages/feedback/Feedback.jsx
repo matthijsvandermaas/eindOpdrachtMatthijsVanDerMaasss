@@ -1,13 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import TextComponent from "../../components/texts_components/Text-component";
 import Rating from "../../components/Rating_system/Rating";
-import {useContext, useState} from "react";
+import { useState} from "react";
 import Cubes from "../../components/cubes/Cubes";
 
 
 
 function Feedback() {
-    const { isAuthenticated, logout } = useContext(AuthenticationContext);
+
     const [rating, setRating] = useState(0);
 
     const handleStarClick = (starValue) => {
