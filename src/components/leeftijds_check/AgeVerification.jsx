@@ -36,10 +36,7 @@ export const AgeVerification = () => {
         <div className="informatie_container">
 
             <form  onSubmit={handleSubmit} >
-                <h1 className="no-background">Geef je geboortedatum om door te kunnen gaan
-                </h1>
-
-                <input
+                <h1 style={{ color: '#fffff6' }}>Geef je geboortedatum om door te kunnen gaan</h1>                <input
                     type="date"
                     value={birthdate}
                     onChange={(e) => setBirthdate(e.target.value)}
