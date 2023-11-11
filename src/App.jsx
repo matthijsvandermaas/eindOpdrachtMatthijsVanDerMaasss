@@ -5,13 +5,11 @@ import logoImageKlein from './assets/logos and backgrounds/B & B logo2 klein.jpg
 import wheat from './assets/logos and backgrounds/wheat.png';
 import Navbar from "./components/navBar/Navbar.jsx";
 import {NavLink, Route, Routes, useNavigate} from "react-router-dom";
-import InschrijfNavigatie from "./pages/inschrijving_Navigatie/inschrijf_Navigatie";
-import InschrijfFormParticulier from "./components/inschrijfform/InschrijfFormParticulier";
-import InschrijfFormProducer from "./components/inschrijfform/InschrijfFormProducer";
+import InschrijfForm from "./components/inschrijfform/InschrijfForm.jsx";
 import ProductieInformatie from "./pages/hoe maak je bier/Productie_Informatie";
 import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProduct";
 import AlleBieren from "./pages/alle_bieren/AllProducts";
-import Loginpage from "./pages/login_page/LoginPage";
+
 import SignIn from "./components/login en signup/signin";
 import SignUp from "./components/login en signup/signup";
 import Error from "./pages/error/Error";
@@ -80,15 +78,12 @@ return (
                     <Routes>
                         <Route path="/home" element={<Home />} />
                         {!verificationDone && <Route exact path="/" element={<AgeVerification handleAgeVerification={handleAgeVerification} />} />}
-                        <Route path="/inschrijfformulier" element={<InschrijfNavigatie />} />
-                        <Route path="/inschrijfformulier_particulier" element={<InschrijfFormParticulier />} />
-                        <Route path="/inschrijfformulier_producent" element={<InschrijfFormProducer />} />
+                        <Route path="/inschrijfformulier" element={<InschrijfForm />} />
                         <Route path="/mijn_bieren" element={<Mijn_bieren />} />
-                        {/*<Route path="/mijn_pagina" element={<Mypage />} />*/}
+                        {/*<Route path="/mijn_pagina" element={<Profile />} />*/}
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />
                         <Route path="/alle_producten" element={<AlleBieren />} />
-                        <Route path="/login_page" element={<Loginpage />} />
                         <Route path="/signUp" element={<SignUp />} />
                         <Route path="/signIn" element={<SignIn />} />
                         <Route path="/feedback" element={<Feedback />} />

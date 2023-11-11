@@ -2,6 +2,8 @@ import { useContext, useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import {AuthenticationContext} from "../../context/AuthenticationContext";
+import '../inschrijfform/InschrijfForm.css';
+
 // import {response} from "../../context/AuthenticationContext";
 
 
@@ -41,8 +43,9 @@ function SignIn() {
 
     return (
         <>
+            <div className="form-container">
             <h1>Inloggen</h1>
-            <form onSubmit={handleSubmit}>
+                <form  className="form-content border_top_bottom background" onSubmit={handleSubmit}>
                 <label htmlFor="email">
                     E-mailadres:
                     <input
@@ -64,15 +67,18 @@ function SignIn() {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </label>
-                {error && <p className="error">Combinatie van e-mailadres en wachtwoord is onjuist</p>}
 
-                <button className="bttn bttn_small"
-                    type="submit">
-                   Inschrijven
-                </button>
+
+                    <button className="bttn"
+                            type="submit">
+                        Inschrijven
+                    </button>
             </form>
 
             <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>
+                {error && <p className="error">Combinatie van e-mailadres en wachtwoord is onjuist</p>}
+
+        </div>
         </>
     );
 }

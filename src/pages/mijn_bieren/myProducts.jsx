@@ -13,7 +13,7 @@ function myProducts() {
     const renderUniqueProducts = (products) => {
         const filteredProducts = products.filter(product => idList.includes(product.id));
         return filteredProducts.map((nieuw_product, index) => (
-            <div className="text-component no-background" key={index}>
+            <div className="text-component background_pale" key={index}>
                 <button
                     className="bttn bttn_small"
                     onClick={() => {
