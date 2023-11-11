@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './inschrijf_Navigatie.css';
 import '../../components/inschrijfform/InschrijfFormProducer';
-import '../../components/inschrijfform/InschrijfFormParticulier';
+import '../../components/inschrijfform/InschrijfForm.jsx';
 import '../../components/inschrijfform/InschrijfFormProduct';
 import cafeOrloff from "../../assets/orloff/CafeOrloff.jpeg";
 import Cubes from "../../components/cubes/Cubes";
@@ -24,10 +24,10 @@ function Inschrijf_Navigatie() {
                         <h2>
                             Contrary to popular belief, Lorem Ipsum is not simply random text... Het is de gecorrigeerde tekst van je welkomstboodschap.
                         </h2>
-                    <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_particulier")}>Particulier</button>
-                    <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_producent")}>Zakelijk</button>
+                    <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier")}>Inschrijven</button>
+                    <button type="button" className="bttn" onClick={() => navigate("/inschrijfformulier_product")}>Biertje toevoegen</button>//TODO isauth via brewer
                         <p>
-                            Already registered <a href="/login_page">login</a>
+                            Already registered <a href="/signIn">login</a>
                         </p>
                     </div>
 
@@ -38,7 +38,7 @@ function Inschrijf_Navigatie() {
                     button_1="inschrijven"
                     navigate_1="/inschrijfformulier"
                     button_2="inloggen"
-                    navigate_2="/login_page"
+                    navigate_2="/signIn"
                     button_3="al onze producten"
                     navigate_3="/alle_producten"
                     button_4="hoe maak je bier"

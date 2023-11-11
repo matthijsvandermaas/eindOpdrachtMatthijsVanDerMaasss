@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useRef, useState, useContext } from 'react';
 import './navbar.css';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -46,24 +47,13 @@ function Navbar() {
                     ) : (
                         <NavLink to="/signIn">Inloggen</NavLink>
                     )}
-                    <div className="submenu" onClick={() => toggleSubmenu(1)}>
-                        <div>
-                            <NavLink to="/inschrijfformulier">
-                                {isAuth ? 'mijn pagina🞃' : 'Inschrijven🞃'}
-                            </NavLink>
-                        </div>
-                        {submenuStatus.isSubmenuOpen1 && (
-                            <div className="submenu-content">
-                                <NavLink to="/inschrijfformulier_particulier">
-                                    {isAuth ? 'Bierliefhebbers' : 'Als bierliefhebber'}
-                                </NavLink>
-                                <NavLink to="/inschrijfformulier_producent">
-                                    {isAuth ? 'Brouwers' : 'Als brouwer'}
-                                </NavLink>
-                                <NavLink to="/mijn_bieren">{isAuth && 'Mijn bieren'}</NavLink>
-                            </div>
-                        )}
-                    </div>
+                    <NavLink to={isAuth ?"/mijn_pagina"  : "/inschrijfformulier"}>
+                        {isAuth ? 'mijn_pagina' : 'inschrijven'}
+                    </NavLink>
+                    <NavLink to="/inschrijfformulier_product">
+                        {isAuth ? 'Een biertje' : ''}
+                    </NavLink>
+                    <NavLink to="/mijn_bieren">{isAuth && 'Mijn bieren'}</NavLink>
                     <NavLink to="/alle_producten">Alle Bieren</NavLink>
                     <div className="submenu" onClick={() => toggleSubmenu(2)}>
                         <NavLink to="/Productie_informatie">Hoe maak je bier🞃</NavLink>
