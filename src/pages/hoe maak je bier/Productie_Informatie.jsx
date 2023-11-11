@@ -1,5 +1,4 @@
-import React, {useState, useRef} from 'react';
-import './Productie_Informatie.css';
+import React, { useState, useRef, useEffect } from 'react';import './Productie_Informatie.css';
 import '../../components/navBar/NavBar.css';
 import Text_component from "../../components/texts_components/Text-component";
 import hop from "../../assets/hoe maak je bier/hop.png"
@@ -25,6 +24,14 @@ function Productie_Informatie() {
         water: false,
         gist: false
     });
+    useEffect(() => {
+        // Scroll to the corresponding section when the component mounts
+        const hash = window.location.hash;
+        const targetRef = hash === '#algemene-informatie' ? hetProcesRef : algemene_infoRef;
+        if (targetRef && targetRef.current) {
+            targetRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        }
+    }, []);
 
     const handleMouseEnter = (item) => {
         setDropdownStates((prevStates) => ({
@@ -43,12 +50,12 @@ function Productie_Informatie() {
 
     return (
         <>
-            <div className="informatie_container background">
+            <div className="informatie_container background ">
                 <h1>Hoe maak je bier?</h1>
                 <section id="algemene-informatie" ref={hetProcesRef}>
                     <h2>Algemeen informatie</h2>
 
-                    <div className="text-component content_2 border_top_left">
+                    <div className="text-component content_2 border_top_left ">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('bierBrouwen')}
                              onMouseLeave={() => handleMouseLeave('bierBrouwen')}>
                             <Text_component
@@ -73,7 +80,7 @@ function Productie_Informatie() {
                             <img src={het_Proces2} alt="Het brouwproces"/>
                         </div>
                     </div>
-                    <div className="text-row content_1 border_left">
+                    <div className="text-component content_2 border_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('ibu')}
                              onMouseLeave={() => handleMouseLeave('ibu')}>
                             <Text_component
@@ -95,7 +102,7 @@ function Productie_Informatie() {
                             <img src={IBU} alt="IBU tabel"/>
                         </div>
                     </div>
-                    <div className="text-row content_1 border_left">
+                    <div className="text-component content_2 border_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('gisten')}
                              onMouseLeave={() => handleMouseLeave('gisten')}>
                             <Text_component
@@ -116,7 +123,7 @@ function Productie_Informatie() {
                             <img src={bier_gisten} alt="gist"/>
                         </div>
                     </div>
-                    <div className="text-row content_2 border_bottom_left">
+                    <div className="text-component content_2 border_bottom_left">
                         <div className="text-component-dropdown"
                              onMouseEnter={() => handleMouseEnter('verschillendeSoortenBier')}
                              onMouseLeave={() => handleMouseLeave('verschillendeSoortenBier')}>
@@ -148,7 +155,7 @@ function Productie_Informatie() {
                 </section>
                 <section id="het-proces" ref={algemene_infoRef}>
                     <h2>het brouw proces</h2>
-                    <div className="text-row content_1 border_top_left">
+                    <div className="text-component content_1 border_top_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('hop')}
                              onMouseLeave={() => handleMouseLeave('hop')}>
                             <Text_component
@@ -171,7 +178,7 @@ function Productie_Informatie() {
                             <img src={hop} alt="Hop"/>
                         </div>
                     </div>
-                    <div className="text-row content_1 border_left">
+                    <div className="text-component content_1 border_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('mout')}
                              onMouseLeave={() => handleMouseLeave('mout')}>
                             <Text_component
@@ -193,7 +200,7 @@ function Productie_Informatie() {
                             <img src={malt} alt="mout"/>
                         </div>
                     </div>
-                    <div className="text-row content_1 border_left">
+                    <div className="text-component content_1 border_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('water')}
                              onMouseLeave={() => handleMouseLeave('water')}>
                             <Text_component
@@ -211,7 +218,7 @@ function Productie_Informatie() {
                             <img src={water} alt="water"/>
                         </div>
                     </div>
-                    <div className="text-row content_1 border_bottom_left">
+                    <div className="text-component content_1 border_bottom_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('gist')}
                              onMouseLeave={() => handleMouseLeave('gist')}>
                             <Text_component

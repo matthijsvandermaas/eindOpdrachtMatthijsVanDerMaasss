@@ -36,14 +36,17 @@ export const AgeVerification = () => {
         <div className="informatie_container">
 
             <form  onSubmit={handleSubmit} >
-                <h1>Geef je geboortedatum om door te kunnen gaan</h1>                <input
+                <h1 style={{ color: '#fffef3', textShadow: '2px 2px 2px #2a365c' }}>Welkom bij Beers & Brewkys</h1>
+                <h2 style={{ color: '#fffef3', textShadow: '2px 2px 2px #2a365c' }}
+                >Geef je geboortedatum om door te kunnen gaan</h2>
+                <input
                     type="date"
                     value={birthdate}
                     onChange={(e) => setBirthdate(e.target.value)}
                 />
                 <button className="bttn " type="submit"><p>controleren</p></button>
                 {error && (
-                    <h5 className="error"><p>Je bent nog geen 18, je moet nog even jaar wachten.</p></h5>
+                    <h5 className="error"><p style={{ color: '#fffef3', textShadow: '2px 2px 2px #2a365c' }}>Je bent nog geen 18, je moet nog even jaar wachten.</p></h5>
                 )}
             </form>
             </div>

@@ -75,6 +75,7 @@ function Navbar() {
                                 <NavLink to="/Productie_Informatie#het-proces" onClick={scrollToHetProces}>
                                     Het brouw proces
                                 </NavLink>
+
                             </div>
                         )}
                     </div>

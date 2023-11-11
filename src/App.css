@@ -81,10 +81,10 @@ Table of Contents:
     flex-direction: row;
     justify-content: space-between; /* Plaats de elementen aan beide uiteinden van de container */
     align-items: center;
-    height: 40vh;
+    height: 20vw;
     width: 100vw;
-    min-height: 350px;
-    max-height: 40px;
+    min-height: 250px;
+    max-height: 400px;
     padding: 10px 0;
     position: relative;
 }
