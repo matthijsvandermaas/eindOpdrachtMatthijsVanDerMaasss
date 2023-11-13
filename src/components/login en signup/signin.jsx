@@ -75,7 +75,7 @@ function SignIn() {
                     </button>
             </form>
 
-            <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>
+            <p>Heb je nog geen account? <Link to="/inschrijfformulier"><strong>schrijf je snel in</strong></Link>.</p>
                 {error && <p className="error">Combinatie van e-mailadres en wachtwoord is onjuist</p>}
 
         </div>

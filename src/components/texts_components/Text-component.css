@@ -20,7 +20,7 @@
     text-align: left;
 }
 @media screen and (max-width: 800px) {
-    .text-container{{
+    .text-container{
         margin-right: 10px;
         max-width: 600px;
         padding-left: 1vw;
@@ -138,7 +138,20 @@
     border-radius: var(--border-radius);
     box-shadow: 5px 5px var(--box-shadow_1);
     margin: 10px 10px ;
+    opacity: 1;
 
+}
+@media screen and (max-width: 800px) {
+    .text-image {
+  flex-direction: column;
+        opacity: 1;
+
+    }
+}
+@media screen and (max-width: 500px) {
+    .text-image {
+        opacity: 0;
+    }
 }
 
 

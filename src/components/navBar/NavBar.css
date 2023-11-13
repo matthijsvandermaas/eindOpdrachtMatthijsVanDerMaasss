@@ -22,7 +22,7 @@
     justify-content: flex-start;
     align-items: center; /* Verticaal centreren */
     position: relative;
-    transform: translateY(-30px) translateX(-160px);
+    transform: translateY(-30px) translateX(70px);
     margin-right: 0px;
     margin-left:  -20px;
     font-family: 'Poppins', sans-serif;
@@ -50,7 +50,7 @@
     flex-direction: column;
     align-items: center;
     top: 50%;
-    transform: translateY(40px) translateX(160px);
+    transform: translateY(40px) translateX(-100px);
     right: 10px;
     transition: 0.5s ease-in-out;
     border-top: var(--line-blue);
@@ -64,7 +64,7 @@
     white-space: nowrap;
     z-index: 1;
     opacity: 0;
-    transform: translateY(-46px) translateX(-170px);
+    transform: translateY(-46px) translateX(-20px);
     transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Voeg overgangen toe aan opacity en transform */
     position: absolute;
     top: 100%;
@@ -144,12 +144,7 @@
 .text-content:hover {
     box-shadow: var(--box-shadow_2);
 }
-.text-row.content_1 {
-    flex-direction: row;
-}
-.text-row.content_2 {
-    flex-direction: row-reverse;
-}
+
 .submenu:hover .more_container {
     display: block;
 }

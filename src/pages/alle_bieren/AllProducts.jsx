@@ -24,7 +24,7 @@ function AllProducts() {
 
     const renderUniqueProducts = (products) => {
         return products.map((nieuw_product) => (
-            <div className="text-component background_pale" key={nieuw_product.id}>
+            <div className="text-component" key={nieuw_product.id}>
                 <button className="bttn bttn_small" onClick={() => { addToSelectedProducts([nieuw_product.id]); console.log('Geselecteerde producten:', nieuw_product); }}>
                     toevoegen aan <strong>mijn bieren</strong>
                 </button>

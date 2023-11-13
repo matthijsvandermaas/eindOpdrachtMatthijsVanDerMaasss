@@ -111,7 +111,6 @@ function InschrijfFormProduct() {
                     </button>
 
                 </form>
-                <p>Ander leuks</p>
                 <Cubes
                     button_1="Hoe maak je bier"
                     navigate_1="/productie_Informatie"
