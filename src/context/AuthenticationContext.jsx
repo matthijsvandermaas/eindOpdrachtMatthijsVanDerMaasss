@@ -22,12 +22,12 @@ function AuthContextProvider({children}) {
       const token = localStorage.getItem('Token');
 
 
-      // als er WEL een token is
+      // Wel token
       if (token) {
         void loginContext(token);
 
       } else {
-        // als er GEEN token is
+        // Geen token
         toggleIsAuth({
           isAuth: false,
           user: null,
@@ -56,7 +56,7 @@ function AuthContextProvider({children}) {
       }
       console.log('Gebruiker is ingelogd!')
       // decode de token
-      const decoded = jwtDecode(token);
+      const decoded = jwt_decode(token);
       navigate('/home')
 
       // geef de ID, token en redirect-link mee

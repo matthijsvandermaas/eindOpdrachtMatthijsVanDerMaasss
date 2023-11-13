@@ -10,15 +10,17 @@ function InschrijfForm() {
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+
     async function handleFormSubmit(data) {
         setIsSubmitting(true);
         console.log(data);
 
         try {
-            const response = await axios.post('http://localhost:8081/users', data);
+            const response = await axios.post('http://localhost:8081/users/createWithProfile', data)
             console.log(response.data);
             navigate('/signIn');
         } catch (e) {
+
             console.error("Er gaat iets fout met het verwerken van de gegevens",e);
 
         }
@@ -67,7 +69,7 @@ function InschrijfForm() {
                         </button>
                         {/*/TODO via auth zorgen dat tekst veranderd naar "verzenden"*/}
                     </form>
-                    <p>andere pagina's</p>
+                    <p>Ander leuks</p>
                 <Cubes
                     button_1="Hoe maak je bier"
                     navigate_1="/productie_Informatie"

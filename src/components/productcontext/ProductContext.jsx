@@ -1,31 +1,35 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 const ProductContext = createContext();
 
-export const useProductContext = () => useContext(ProductContext);
-
 export const ProductProvider = ({ children }) => {
-    const [selectedIds, setSelectedIds] = useState([]);
-
-    // useEffect wordt gebruikt om wijzigingen in selectedIds bij te houden
-    useEffect(() => {
-        // Opslaan in localStorage wanneer selectedIds verandert
-        localStorage.setItem('selectedProductIds', JSON.stringify(selectedIds));
-    }, [selectedIds]);
+    const [selectedProducts, setSelectedProducts] = useState([]);
 
     const addToSelectedProducts = (productIds) => {
-        setSelectedIds((prevIds) => [...new Set([...prevIds, ...productIds])]);
+        setSelectedProducts((prevSelectedProducts) => [...prevSelectedProducts, ...productIds]);
     };
 
     const removeFromSelectedProducts = (productId) => {
-        setSelectedIds((prevIds) => prevIds.filter((id) => id !== productId));
+        setSelectedProducts((prevSelectedProducts) =>
+            prevSelectedProducts.filter((id) => id !== productId)
+        );
     };
 
     return (
         <ProductContext.Provider
-            value={{ selectedIds, addToSelectedProducts, removeFromSelectedProducts }}
+            value={{ selectedProducts, addToSelectedProducts, removeFromSelectedProducts }}
         >
             {children}
         </ProductContext.Provider>
     );
+};
+
+export const UseProductContext = () => {
+    const context = useContext(ProductContext);
+
+    if (!context) {
+        throw new Error('useProductContext must be used within a ProductProvider');
+    }
+
+    return context;
 };

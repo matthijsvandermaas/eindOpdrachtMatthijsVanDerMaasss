@@ -4,101 +4,59 @@ import './InschrijfForm.css';
 import Cubes from '../cubes/Cubes.jsx';
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
-
-
-
-
+import InschrijfFormFile from "./InschrijfFormFile";
 
 function InschrijfFormProduct() {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [fileData, setFileData] = useState({ file: null });
 
-    async function handleFormSubmit(data) {
+
+
+    async function handleFormSubmit(formData) {
         setIsSubmitting(true);
-        console.log(data);
+        console.log(formData);
 
         try {
-            const response = await axios.post('http://localhost:8081/producten', data);
+            const response = await axios.post('http://localhost:8081/product', formData);
             console.log(response.data);
             navigate('/signIn');
         } catch (e) {
             console.error(e);
-            console.error('Error status:', e.response.status);
-            console.error('Error data:', e.response.data);
         }
     }
-    async function handleFileSubmit(data) {
-        setIsSubmitting(true);
 
+    async function handleFileSubmit() {
         const formData = new FormData();
-        formData.append('productName', data.productName);
-        formData.append('nameBrewer', data.nameBrewer);
-        // Andere formuliergegevens toevoegen aan formData
 
-        formData.append('file', data.file[0]);
-        formData.append('file2', data.file2[0]);
+        // Voeg het bestand toe aan het FormData-object
+        if (fileData.file) {
+            formData.append('file', fileData.file);
+            console.log(fileData.file)
+        }
 
         try {
-            const response = await axios.post('http://localhost:8081/producten/add_files', formData);
+            const response = await axios.post('http://localhost:8080/single/uploadDB', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
             console.log(response.data);
-            navigate('/signIn');
+
+            navigate('/home');
+            console.log(response.data);
         } catch (e) {
             console.error(e);
-        } finally {
-            setIsSubmitting(false);
+            navigate('/error');
         }
     }
 
-
-
-
-
-
-
-
-    // const handleSubmitData = async (e) => {
-    //     e.preventDefault();
-    //     setIsSubmitting(true);
-    //
-    //     try {
-    //         const formDataToSend = new FormData();
-    //         Object.keys(formData).forEach((key) => {
-    //             if (key === 'photo' || key === 'photo2' || key === 'photo3') {
-    //                 formDataToSend.append(key, formData[key]);
-    //             } else {
-    //                 formDataToSend.append(key, formData[key]);
-    //             }
-    //         });
-    //
-    //         const response = await axios.post('http://localhost:8081/producten', formDataToSend);
-    //
-    //         if (response && response.data) {
-    //             console.log(response.data);
-    //             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-    //
-    //         } else {
-    //             console.error('Fout bij het versturen van het verzoek: ongeldige reactie');
-    //             setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-    //         }
-    //     } catch (error) {
-    //         console.error('Fout bij het versturen van het verzoek:', error);
-    //
-    //         if (error.response && error.response.status) {
-    //             console.log('Fout Status Code:', error.response.status);
-    //         }
-    //
-    //         setErrorMessage('Er is een fout opgetreden bij de inschrijving. Probeer het later opnieuw.');
-    //     } finally {
-    //         setIsSubmitting(false);
-    //     }
-    // };
-//TOOD checken of dit werkt
     return (
         <div className="form-container">
             <h1>Een biertje toevoegen</h1>
             <div className="form-content border_top_bottom background">
-                <form onSubmit={handleSubmit(handleFormSubmit)}>
+                <form onSubmit={handleSubmit(handleFormSubmit, handleFileSubmit)} encType="multipart/form-data">
                     <label>Productnaam:</label>
                     <input name="Productnaam" type="text" id="productName" placeholder="Voer hier de productnaam in." {...register('productName', { required: 'productnaam is verplicht' })} />
 
@@ -108,30 +66,30 @@ function InschrijfFormProduct() {
                     <label>Locatie brouwer:</label>
                     <input name="Locatie brouwer" type="text" id="productionLocation" placeholder="Voer hier de locatie van de brouwer in." {...register('productionLocation', )} />
                     <div>
-                    <label>Type:</label>
-                    <select name="type" id="type" {...register('type', { required: 'type is verplicht' })}>
-                        <option value="">Selecteer een bierstijl</option>
-                        <option value="Lager">Lager</option>
-                        <option value="Ale">Ale</option>
-                        <option value="Witbier">Witbier</option>
-                        <option value="Weizer">Weizer</option>
-                        <option value="IPA">IPA</option>
-                        <option value="Stout">Stout</option>
-                        <option value="Porter">Porter</option>
-                        <option value="Pilsner">Pilsner</option>
-                        <option value="Amber Ale">Amber Ale</option>
-                        <option value="Saison">Saison</option>
-                        <option value="Tripel">Tripel</option>
-                        <option value="Barleywine">Barleywine</option>
-                    </select>
+                        <label>Type:</label>
+                        <select name="type" id="type" {...register('type', { required: 'type is verplicht' })}>
+                            <option value="">Selecteer een bierstijl</option>
+                            <option value="Lager">Lager</option>
+                            <option value="Ale">Ale</option>
+                            <option value="Witbier">Witbier</option>
+                            <option value="Weizer">Weizer</option>
+                            <option value="IPA">IPA</option>
+                            <option value="Stout">Stout</option>
+                            <option value="Porter">Porter</option>
+                            <option value="Pilsner">Pilsner</option>
+                            <option value="Amber Ale">Amber Ale</option>
+                            <option value="Saison">Saison</option>
+                            <option value="Tripel">Tripel</option>
+                            <option value="Barleywine">Barleywine</option>
+                        </select>
                     </div>
                     <div>
                         <label>Alcoholpercentage:</label>
-                        <input name="%" type="number" id="alcohol" placeholder="Voer hier het alcohol% van het bier in." {...register('alcohol', { required: 'alcohol % is verplicht' })} />
+                        <input name="alcohol" type="number" step="0.1" min="0.1" max="14.0" id="alcohol" placeholder="Voer hier het alcohol% van het bier in." {...register('alcohol', { required: 'alcohol % is verplicht' })} />
                     </div>
                     <div>
-                       <label>IBU</label>
-                    <input name="IBU" step="0.1" min="0.1" type="number" id="ibu"  placeholder="Voer hier de IBU van het bier in."{...register('ibu')}/>
+                        <label>IBU</label>
+                        <input name="IBU" step="0.1" min="0.1" type="number" id="ibu"  placeholder="Voer hier de IBU van het bier in."{...register('ibu is niet verplicht')}/>
                     </div>
                     <div>
                         <label>Kleur:</label>
@@ -146,19 +104,14 @@ function InschrijfFormProduct() {
                         <label>Volume(cc):</label>
                         <input name="volume" step="0.1" min="100.0" max="1000.0" type="number" id="volume" placeholder="Voer hier de indoud van het flesje in." {...register('volume', { required: 'volume is verplicht' })} />
                     </div>
-                    <div>
-                        <label>Voeg een foto toe:</label>
-                        <input name="file" type="file" accept="image/*" onChange={(e) => handleFileSubmit({ file: e.target.files[0] })} required />
-                    </div>
-                    <div>
-                        <label>Voeg nog een foto toe:</label>
-                        <input type="file" name="file2" accept="image/*" onChange={(e) => handleFileSubmit({ file2: e.target.files[0] })} required />
-                    </div>
+                    <InschrijfFormFile setFileData={setFileData} />
+                    <InschrijfFormFile setFileData={setFileData} />
                     <button className="bttn" type="submit" disabled={isSubmitting}>
                         {isSubmitting ? 'Bezig met een product toevoegen...' : 'toevoegen'}
                     </button>
+
                 </form>
-                <p>Ander pagina's</p>
+                <p>Ander leuks</p>
                 <Cubes
                     button_1="Hoe maak je bier"
                     navigate_1="/productie_Informatie"
