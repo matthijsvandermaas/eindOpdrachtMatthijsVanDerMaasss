@@ -10,9 +10,9 @@
     "tast": "Fruity",
     "volume": "330",
     "productionLocation": "Location A",
-    "photo": "../src/assets/general pics/hop_and_barley.png",
-    "photo2": "../src/assets/general pics/beer_On_Table_1.png",
-    "photo3": "../src/assets/general pics/Taps.png"
+    "file": "../src/assets/general pics/hop_and_barley.png",
+    "file2": "../src/assets/general pics/beer_On_Table_1.png"
+
   },
   {
     "id": 2,
@@ -25,8 +25,8 @@
     "tast": "Roasted",
     "volume": "500",
     "productionLocation": "Location B",
-    "photo": "../src/assets/general pics/beer_On_Table_1.png",
-    "photo2": "../src/assets/general pics/four_glasses.png"
+    "file": "../src/assets/general pics/beer_On_Table_1.png",
+    "file2": "../src/assets/general pics/four_glasses.png"
 
   },
   {
@@ -40,8 +40,8 @@
     "tast": "Roasted",
     "volume": "550",
     "productionLocation": "Location c",
-    "photo": "../src/assets/general pics/beer_On_Table_1.png",
-    "photo2": "../src/assets/general pics/four_glasses.png"
+    "file": "../src/assets/general pics/alle_Beers.png",
+    "file2": "../src/assets/general pics/four_glasses.png"
 
   },
   {
@@ -55,8 +55,8 @@
     "tast": "Roasted",
     "volume": "550",
     "productionLocation": "Location c",
-    "photo": "../src/assets/general pics/beer_On_Table_1.png",
-    "photo2": "../src/assets/general pics/four_glasses.png"
+    "file": "../src/assets/general pics/beer_On_Table_1.png",
+    "file2": "../src/assets/general pics/four_glasses.png"
 
   }
 ]

@@ -61,8 +61,8 @@ Table of Contents:
 .outer-outer-container {
     height: auto;
     width: 100vw;
-    min-width: 100vh;
-    max-height: 20000px;
+    min-width: 99vh;
+    max-height: 1800px;
     max-width: 3000px;
     background-image: var(--background-gradient-lightmode);
     backdrop-filter: blur(5px);
@@ -82,10 +82,9 @@ Table of Contents:
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
-    max-height: 3000px;
-    max-width: 3000px;
+    height: 99%;
+    width: 99%;
+
 }
 .header-container {
     display: flex;
@@ -93,7 +92,7 @@ Table of Contents:
     justify-content: space-between;
     align-items: center;
     height: 20vw;
-    width: 100vw;
+    width: 99vw;
     min-height: 250px;
     max-height: 400px;
     padding: 10px 0;
@@ -102,7 +101,7 @@ Table of Contents:
 .header-logo-container{
     justify-content: center;
     height: 80%;
-    width: 100%;
+    width: 99%;
     margin: 10px 10px;
     flex: 1;
     transition: 1s ease-in-out;
@@ -260,7 +259,7 @@ p a {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    width: 100%;
+    width: 99%;
     height: auto;
 }
 .background_fade {
@@ -269,7 +268,7 @@ p a {
     background-position: center;
     background-attachment: fixed;
 
-    width: 100%;
+    width: 99%;
     height: auto;
 }
 .background_Home {
