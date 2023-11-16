@@ -8,7 +8,7 @@
         <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
     </filter>
     <g transform="translate(0.000000,2728.000000) scale(0.100000,-0.100000)"
-       fill="#211F19CC" stroke="none" filter="url(#blur-filter)" opacity="0.012">
+       fill="#211F19CC" stroke="none" filter="url(#blur-filter)" opacity="0.02">
 
 
 <path d="M96 27176 c-91 -97 -96 -106 -96 -147 l0 -43 33 30 32 29 -33 -36

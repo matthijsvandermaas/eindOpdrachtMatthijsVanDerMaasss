@@ -76,7 +76,7 @@ function App() {
         <div className={`outer-outer-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
 
             <div className="outer-container background_fade">
-                <div className="header-container border_bottom_left">
+                <div className="header-container border_bottom_left background_fade2">
                     <div className="headerlogo-container">
                         <NavLink to="/home"><img  className="logo-img" src={logoSrc} alt="B&B Logo" /></NavLink>
                         <div className="dropdown">
