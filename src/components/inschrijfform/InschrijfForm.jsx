@@ -1,42 +1,45 @@
-import React, {useState} from 'react';
+import react,  {useState} from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import './InschrijfForm.css';
-import Cubes from "../cubes/Cubes"; // Zorg ervoor dat je de juiste stijlen importeert
+import Cubes from "../cubes/Cubes";
+
 
 function InschrijfForm() {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
-
-
+    axios.create({
+        baseURL: 'http://localhost:8081',
+        withCredentials: true,
+    });
     async function handleFormSubmit(data) {
+        const rolesArray = data.roles ? [data.roles]: [];
+        const newData = {data, roles: rolesArray}
         setIsSubmitting(true);
         console.log(data);
-
         try {
-            await axios.post('http://localhost:8081/users/createWithProfile', data, {
-
-                withCredentials: true,
+            data.roles = [data.roles];
+         await axios.post('http://localhost:8081/users/createUser', newData,{
                 headers: {
                     'Content-Type': 'application/json',
-                    jwt: localStorage.getItem('token'),
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
-            });
-
+                },
+         });
+            console.log(newData)
             console.log(data);
             navigate('/signIn');
             console.log("de gegevens zijn verstuurd")
 
         } catch (e) {
-
             console.error("Er gaat iets fout met het verwerken van de gegevens",e);
+            console.log(newData)
 
         }
     finally {
         setIsSubmitting(false);
+            console.log("Form submission completed");
+            console.log(newData)
     }
     }
 
@@ -64,17 +67,13 @@ function InschrijfForm() {
                             <option value="" disabled>
                                 Ik ben een:
                             </option>
-                            <option value='["USER"]'>liefhebber</option>
-                            {/*<option  value='["ADMIN"]'>admin</option>*/}
-                            <option value='["BREWER"]'>brouwer</option>
-
+                            <option value='USER'>liefhebber</option>
+                            <option value='BREWER'>brouwer</option>
                         </select>
                         <button className="bttn" type="submit" disabled={isSubmitting}>
 
                             {isSubmitting ? 'Momentje ik kom zo bij u...' : 'toevoegen'}
                         </button>
-                        <p>{isSubmitting ? 'Klik anders even op  een de knoppen hier onder voor ander leuks.' : ''}</p>
-                        {/*/TODO via auth zorgen dat tekst veranderd naar "verzenden"*/}
                     </form>
 
                 <Cubes

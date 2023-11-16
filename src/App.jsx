@@ -20,7 +20,9 @@ import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
 import Music from './pages/music/DrankOrgel';
 import { Footer } from "./components/footer/Footer";
-import InEnDecreaseFont  from "../src/helpers/InEnDecreaseFont";
+// import InEnDecreaseFont  from "../src/helpers/InEnDecreaseFont";
+
+
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(false);
