@@ -4,16 +4,14 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes";
+import error from "../../pages/error/Error.jsx";
 
 
 function InschrijfForm() {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
-    axios.create({
-        baseURL: 'http://localhost:8081',
-        withCredentials: true,
-    });
+
     async function handleFormSubmit(data) {
         const rolesArray = data.roles ? [data.roles]: [];
         const newData = {data, roles: rolesArray}
@@ -21,16 +19,17 @@ function InschrijfForm() {
         console.log(data);
         try {
             data.roles = [data.roles];
-         await axios.post('http://localhost:8081/users/createUser', newData,{
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+       const createUser =   await axios.post('http://localhost:8081/users/createUser', newData, {
+           headers: {
+               'Content-Type': 'application/json',
+           },
+           withCredentials: true,
+
+
          });
-            console.log(newData)
-            console.log(data);
             navigate('/signIn');
             console.log("de gegevens zijn verstuurd")
-
+            console.log(createUser)
         } catch (e) {
             console.error("Er gaat iets fout met het verwerken van de gegevens",e);
             console.log(newData)
@@ -40,7 +39,8 @@ function InschrijfForm() {
         setIsSubmitting(false);
             console.log("Form submission completed");
             console.log(newData)
-    }
+
+        }
     }
 
 
