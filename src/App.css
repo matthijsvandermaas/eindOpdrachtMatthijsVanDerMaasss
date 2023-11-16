@@ -163,7 +163,6 @@ Table of Contents:
     max-height:  1000px;
     width: 98vw;
     overflow-y: auto; /* Voeg een scrollbar toe indien nodig */
-    margin: 20px 20px 0 20px;
     padding: 0;
 }
 .footer-container {
