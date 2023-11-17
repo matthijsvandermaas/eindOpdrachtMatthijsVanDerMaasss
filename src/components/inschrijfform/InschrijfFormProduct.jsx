@@ -55,7 +55,10 @@ function InschrijfFormProduct() {
                 'http://localhost:8081/fileDocuments/upload',
                 fileInfo,
                 {
-                    headers: {'Content-Type': 'multipart/form-data'},
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+
                     withCredentials: true,
                 }
             );

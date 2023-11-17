@@ -1,6 +1,9 @@
 import React from 'react';
+import {useForm} from "react-hook-form";
 
-function InschrijfFormFileCompontent({ register }) {
+function InschrijfFormFileCompontent() {
+    const { register, handleSubmit } = useForm();
+
     return (
         <div className="form-content border_top_bottom background">
             <div>
