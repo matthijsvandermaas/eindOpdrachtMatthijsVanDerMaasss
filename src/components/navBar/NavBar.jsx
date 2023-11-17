@@ -9,7 +9,8 @@ function Navbar() {
     const algemene_infoRef = useRef(null);
     const { isAuth, logout } = useContext(AuthenticationContext);
     const navigate = useNavigate();
-
+    const roles = ['USER', 'BREWER']; // Replace this with your actual roles
+    const isBrewerOrAdmin = roles.includes('BREWER') || roles.includes('ADMIN');
     const handleLogout = () => {
         logout();
         navigate('/');
@@ -50,9 +51,11 @@ function Navbar() {
                     <NavLink to={isAuth ?"/mijn_pagina"  : "/inschrijfformulier"}>
                         {isAuth ? 'mijn_pagina' : 'inschrijven'}
                     </NavLink>
-                    <NavLink to="/inschrijfformulier_product">
-                        {isAuth ? 'Een biertje' : ''}
-                    </NavLink>
+                    {isBrewerOrAdmin && (
+                        <NavLink to="/inschrijfformulier_product">
+                            Een biertje toevoegen
+                        </NavLink>
+                    )}
                     <NavLink to="/mijn_bieren">{isAuth && 'Mijn bieren'}</NavLink>
                     <NavLink to="/alle_producten">Alle Bieren</NavLink>
                     <div className="submenu" onClick={() => toggleSubmenu(2)}>

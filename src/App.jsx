@@ -13,7 +13,6 @@ import SignIn from "./components/login en signup/signin";
 import SignUp from "./components/login en signup/signup";
 import Error from "./pages/error/Error";
 import Mijn_bieren from "./pages/mijn_bieren/myProducts";
-import axios from "axios";
 import Home from './pages/Home/Home';
 import AgeVerification from '../src/components/leeftijds_check/AgeVerification';
 import Feedback from './pages/feedback/Feedback';
@@ -26,7 +25,6 @@ import { Footer } from "./components/footer/Footer";
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(false);
-    const [scale, setScale] = useState(1);
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('Home');
     const [logoSrc, setLogoSrc] = useState("");

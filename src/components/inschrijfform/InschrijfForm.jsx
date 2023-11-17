@@ -23,15 +23,14 @@ function InschrijfForm() {
             });
             navigate('/signIn');
             console.log("De gegevens zijn verstuurd");
-            console.log(createUser);
             console.log(newData);
         } catch (e) {
             console.error("Er gaat iets fout met het verwerken van de gegevens", e);
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: " + e.message);
-            navigate('/'); // Navigeer naar de startpagina of een andere pagina naar keuze
+            navigate('/*');
         } finally {
             setIsSubmitting(false);
-            console.log("Form submission completed");
+            console.log("User form submission completed");
         }
     }
 
@@ -58,6 +57,7 @@ function InschrijfForm() {
                             <option value="" disabled>Ik ben een:</option>
                             <option value='USER'>liefhebber</option>
                             <option value='BREWER'>brouwer</option>
+                            <option value='ADMIN' disabled>beheerder</option>
                         </select>
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
                         <button className="bttn" type="submit" disabled={isSubmitting}>
