@@ -1,48 +1,39 @@
-import react,  {useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import './InschrijfForm.css';
 import Cubes from "../cubes/Cubes";
-import error from "../../pages/error/Error.jsx";
-
 
 function InschrijfForm() {
-    const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const { register, handleSubmit } = useForm();
+    const [errorMessage, setErrorMessage] = useState("");
 
     async function handleFormSubmit(data) {
-        const rolesArray = data.roles ? [data.roles]: [];
-        const newData = {data, roles: rolesArray}
+        const newData = { ...data, roles: [data.roles] };
         setIsSubmitting(true);
         console.log(data);
+
         try {
-            data.roles = [data.roles];
-       const createUser =   await axios.post('http://localhost:8081/users/createUser', newData, {
-           headers: {
-               'Content-Type': 'application/json',
-           },
-           withCredentials: true,
-
-
-         });
+            const createUser = await axios.post('http://localhost:8081/users/createUser', newData, {
+                headers: { 'Content-Type': 'application/json' },
+                withCredentials: true,
+            });
             navigate('/signIn');
-            console.log("de gegevens zijn verstuurd")
-            console.log(createUser)
+            console.log("De gegevens zijn verstuurd");
+            console.log(createUser);
+            console.log(newData);
         } catch (e) {
-            console.error("Er gaat iets fout met het verwerken van de gegevens",e);
-            console.log(newData)
-
-        }
-    finally {
-        setIsSubmitting(false);
+            console.error("Er gaat iets fout met het verwerken van de gegevens", e);
+            setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: " + e.message);
+            navigate('/'); // Navigeer naar de startpagina of een andere pagina naar keuze
+        } finally {
+            setIsSubmitting(false);
             console.log("Form submission completed");
-            console.log(newData)
-
         }
     }
-
 
     return (
         <>
@@ -64,28 +55,25 @@ function InschrijfForm() {
                         <input type="email" id="email" placeholder="Voer hier je e-mailadres in." {...register('email', { required: 'E-mail is verplicht' })} />
                         <label>Account type:</label>
                         <select name="roles" id="roles" {...register('roles', { required: 'Brouw je bier of drink je het alleen?' })}>
-                            <option value="" disabled>
-                                Ik ben een:
-                            </option>
+                            <option value="" disabled>Ik ben een:</option>
                             <option value='USER'>liefhebber</option>
                             <option value='BREWER'>brouwer</option>
                         </select>
+                        {errorMessage && <p className="error-message">{errorMessage}</p>}
                         <button className="bttn" type="submit" disabled={isSubmitting}>
-
                             {isSubmitting ? 'Momentje ik kom zo bij u...' : 'toevoegen'}
                         </button>
                     </form>
-
-                <Cubes
-                    button_1="Hoe maak je bier"
-                    navigate_1="/productie_Informatie"
-                    button_2="Het drankorgel"
-                    navigate_2="/drankorgel"
-                    button_3="Home"
-                    navigate_3="/home"
-                    button_4="News"
-                    navigate_4="/news"
-                />
+                    <Cubes
+                        button_1="Hoe maak je bier"
+                        navigate_1="/productie_Informatie"
+                        button_2="Het drankorgel"
+                        navigate_2="/drankorgel"
+                        button_3="Home"
+                        navigate_3="/home"
+                        button_4="News"
+                        navigate_4="/news"
+                    />
                 </div>
             </div>
         </>

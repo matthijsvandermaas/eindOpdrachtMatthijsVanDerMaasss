@@ -106,6 +106,7 @@ function App() {
                         <Route path="/news" element={<News />} />
                         <Route path="/drankorgel" element={<Music />} />
                         <Route path="/*" element={<Error />} />
+
                     </Routes>
                 </div>
                 <Footer />

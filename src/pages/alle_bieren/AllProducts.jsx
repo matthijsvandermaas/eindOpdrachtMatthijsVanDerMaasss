@@ -12,7 +12,7 @@ function AllProducts() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/Data.json');
+                const response = await axios.get('http://localhost:8081/users');
                 setProducts(response.data);
             } catch (error) {
                 console.error('Fout bij het ophalen van gegevens:', error);
