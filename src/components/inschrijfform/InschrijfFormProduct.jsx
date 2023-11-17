@@ -18,23 +18,22 @@ function InschrijfFormProduct() {
     }, []); // Lege array betekent dat dit effect alleen wordt uitgevoerd bij de montage en demontage van het component.
 
     async function handleFormSubmit(data) {
-        const newData = {...data};
         setIsSubmitting(true);
 
         if (fileData.file) {
-            newData.file = fileData.file;
+            data.file = fileData.file;
         }
 
         try {
             const createProductWithPhoto = await axios.post(
                 'http://localhost:8081/products/createProduct',
-                newData,
+                data,
                 {
                     headers: {'Content-Type': 'multipart/form-data'},
                     withCredentials: true,
                 }
             );
-            console.log('De gegevens zijn verstuurd', newData, createProductWithPhoto.data);
+            console.log('De gegevens zijn verstuurd', data, createProductWithPhoto.data);
         } catch (e) {
             console.error('Er gaat iets fout met het verwerken van de gegevens', e);
             setErrorMessage('Er gaat iets fout met het verwerken van de gegevens: ' + e.message);
@@ -45,23 +44,23 @@ function InschrijfFormProduct() {
     }
 
     async function handleFileSubmit() {
-        const newData = new FormData();
-
+        setIsSubmitting(true);
+        const fileInfo = new FormData();
         if (fileData.file) {
-            newData.append('file', fileData.file);
+            fileInfo.append('file', fileData.file);
         }
 
         try {
             const createProductWithPhoto = await axios.post(
                 'http://localhost:8081/fileDocuments/upload',
-                newData,
+                fileInfo,
                 {
                     headers: {'Content-Type': 'multipart/form-data'},
                     withCredentials: true,
                 }
             );
             navigate('/alle_producten');
-            console.log('De gegevens zijn verstuurd', newData, createProductWithPhoto.data);
+            console.log('De gegevens zijn verstuurd', fileInfo, createProductWithPhoto.data);
         } catch (e) {
             console.error('Er gaat iets fout met het verwerken van de files', e);
             setErrorMessage('Er gaat iets fout met het verwerken van de files: ' + e.message);
