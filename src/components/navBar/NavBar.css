@@ -22,7 +22,7 @@
     justify-content: flex-start;
     align-items: center; /* Verticaal centreren */
     position: relative;
-    transform: translateY(-30px) translateX(70px);
+    transform: translateY(-30px) translateX(7px);
     margin-right: 0px;
     margin-left:  -20px;
     font-family: 'Poppins', sans-serif;
@@ -59,12 +59,12 @@
 .dropdown-content {
     justify-content: flex-start;
     display: none;
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: rgba(255, 255, 255, 0.05);
     width: 400px;
     white-space: nowrap;
     z-index: 1;
     opacity: 0;
-    transform: translateY(-46px) translateX(-20px);
+    transform: translateY(-35px) translateX(-20px);
     transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Voeg overgangen toe aan opacity en transform */
     position: absolute;
     top: 100%;
@@ -88,6 +88,7 @@
     display: block;
     box-shadow: var(--box-shadow_1);
     transition: 0.5s ease-in-out;
+    text-shadow: 2px 2px 2px var(--line-blue-1); /* Hier voeg je de tekstschaduw toe */
 }
 .dropdown-content a:hover {
     display: block;

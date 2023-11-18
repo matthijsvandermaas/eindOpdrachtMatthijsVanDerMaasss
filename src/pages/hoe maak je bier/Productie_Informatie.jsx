@@ -10,6 +10,7 @@ import gist from "../../assets/hoe maak je bier/yeast.png"
 import all_Soorten_Bieren from "../../assets/hoe maak je bier/all_kinds_of_beer.png";
 import bier_gisten from "../../assets/hoe maak je bier/biergisten.jpeg";
 import IBU from "../../assets/hoe maak je bier/ibu.jpg";
+import ECB from "../../assets/hoe maak je bier/De-Bierparade-EBC.jpg";
 
 function Productie_Informatie() {
     const hetProcesRef = useRef(null);
@@ -100,6 +101,27 @@ function Productie_Informatie() {
                         </div>
                         <div className="text-image">
                             <img src={IBU} alt="IBU tabel"/>
+                        </div>
+                    </div>
+                    <div className="text-component content_2 border_left">
+                        <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('ecb')}
+                             onMouseLeave={() => handleMouseLeave('ecb')}>
+                            <Text_component
+                                Text_Title="ECB🞃"
+                            />
+                            {dropdownStates.ibu && (
+                                <div className="submenu-content">
+                                    <Text_component
+                                        Text_Message2="Om bieren te kunnen beschrijven wordt er in de brouwerswereld ook de kleur van het bier vastgelegd. Deze kleur wordt vastgelegd in een kleurcode EBC (European Brewers Convention)."
+                                        Text_Message3="Brouwers kunnen door met verschillende mouten te werken kun je een donkerder of een lichter bier krijgen. De kleur van mout hangt samen met de brandingen die de mouter heeft toegepast."
+                                        Text_Message5="bijvoorbeeld geen gebrande mout, een dubbel bevat een beetje donker gebrande mout en stout bevat relatief veel gebrande mout."
+                                        Text_Message6="Mouten zijn in de handel te koop met kleurcodes. Ook de kleur van mout wordt uitgedrukt in EBC (European Brewers Convention)."
+                                    />
+                                </div>
+                            )}
+                        </div>
+                        <div className="text-image">
+                            <img src={ECB} alt="ECb tabel"/>
                         </div>
                     </div>
                     <div className="text-component content_2">

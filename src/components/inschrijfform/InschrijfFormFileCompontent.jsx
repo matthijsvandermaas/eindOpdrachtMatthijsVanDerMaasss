@@ -5,7 +5,7 @@ function InschrijfFormFileCompontent() {
     const { register, handleSubmit } = useForm();
 
     return (
-        <div className="form-content border_top_bottom background">
+        <div className="form-content">
             <div>
                 <label>Voeg een foto toe:</label>
                 <input name="file" type="file" accept="image/*" {...register('file', { required: 'Bestand is verplicht' })} />

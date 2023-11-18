@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import {Link, NavLink, useNavigate} from 'react-router-dom';
 import InschrijfFormFileComponent from '../../components/inschrijfform/InschrijfFormFileCompontent';
 import Cubes from "../cubes/Cubes";
 
@@ -13,27 +13,26 @@ function InschrijfFormProduct() {
     const [errorMessage, setErrorMessage] = useState('');
     const [fileData, setFileData] = useState({ file: null });
 
-    useEffect(() => {
-        // Voer hier de gewenste code uit voor useEffect
-    }, []); // Lege array betekent dat dit effect alleen wordt uitgevoerd bij de montage en demontage van het component.
+    const scrollToAlgemene_info = () => {
+        algemene_infoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    };
 
-    async function handleFormSubmit(data) {
+
+
+
+    async function handleFormSubmit(formData) {
         setIsSubmitting(true);
-
-        if (fileData.file) {
-            data.file = fileData.file;
-        }
 
         try {
             const createProductWithPhoto = await axios.post(
                 'http://localhost:8081/products/createProduct',
-                data,
+                formData,
                 {
                     headers: {'Content-Type': 'multipart/form-data'},
                     withCredentials: true,
                 }
             );
-            console.log('De gegevens zijn verstuurd', data, createProductWithPhoto.data);
+            console.log('De gegevens zijn verstuurd',formData, createProductWithPhoto.data);
         } catch (e) {
             console.error('Er gaat iets fout met het verwerken van de gegevens', e);
             setErrorMessage('Er gaat iets fout met het verwerken van de gegevens: ' + e.message);
@@ -46,6 +45,7 @@ function InschrijfFormProduct() {
     async function handleFileSubmit() {
         setIsSubmitting(true);
         const fileInfo = new FormData();
+
         if (fileData.file) {
             fileInfo.append('file', fileData.file);
         }
@@ -77,8 +77,8 @@ function InschrijfFormProduct() {
             <div className="form-container">
                 <h1>Een biertje toevoegen</h1>
                 <div className="form-content" >
-                    <form className="background" onSubmit={handleSubmit((data) => handleFormSubmit(data, fileData.file))}
-                          encType="multipart/form-data"><label>Productnaam:</label>
+                    <form className="background  border_top_bottom"      onSubmit={handleSubmit(handleFormSubmit)} encType="multipart/form-data">
+                        <label>Productnaam:</label>
                         <input name="Productnaam" type="text" id="productName"
                                placeholder="Voer hier de productnaam in." {...register('productName', {required: 'productnaam is verplicht'})} />
                         <label>Naam brouwer:</label>
@@ -117,9 +117,19 @@ function InschrijfFormProduct() {
                         </div>
                         <div>
                             <label>Kleur:</label>
-                            <input type="text" id="color"
-                                   placeholder="Voer hier de kleur van het bier in." {...register('color', {required: 'kleur is verplicht'})} />
+                            <select name="color" id="color" {...register('color', {required: 'Kleur is verplicht'})}>
+                                <option value="">Selecteer een kleur</option>
+                                <option value="bleek/licht blond">Bleek/licht blond (6-9 EBC)</option>
+                                <option value="blond/geel">Blond/geel (9-12 EBC)</option>
+                                <option value="goud">Goud (12-20 EBC)</option>
+                                <option value="amber">Amber (20-30 EBC)</option>
+                                <option value="koper">Koper (30-45 EBC)</option>
+                                <option value="donker koper/bruin">Donker koper/bruin (45-75 EBC)</option>
+                                <option value="zeer donker bruin (doorschijnend)">Zeer donker bruin (doorschijnend) (>75 EBC)</option>
+                                <option value="zwart (niet doorschijnend)">Zwart (niet doorschijnend) (>120 EBC)</option>
+                            </select>
                         </div>
+
                         <div>
                             <label>Smaak:</label>
                             <input type="text" id="tast"
@@ -131,25 +141,30 @@ function InschrijfFormProduct() {
                                    placeholder="Voer hier de indoud van het flesje in." {...register('volume', {required: 'volume is verplicht'})} />
                         </div>
                         <div>
+                            <p>
+                                Vragen over de terminologie in het bierproces of wilt u meer informatie?</p>
+                            <p>Ga dan naar<NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}><strong> Hoe maak je bier</strong></NavLink>.</p>
+                        </div>
+                        <div className="border_top_bottom background"  >
                             <InschrijfFormFileComponent setFileData={setFileData} OnChangeLink={handleFileSubmit}/>
                             <InschrijfFormFileComponent setFileData={setFileData} OnChangeLink={handleFileSubmit}/>
                         </div>
                         <button className="bttn" type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Bezig met een product toevoegen momentje...' : 'toevoegen'}
-                        </button>
+                                                </button>
                     </form>
 
-                </div>
-                <Cubes
-                    button_1="Hoe maak je bier"
-                    navigate_1="/productie_Informatie"
-                    button_2="Het drankorgel"
-                    navigate_2="/drankorgel"
-                    button_3="Home"
-                    navigate_3="/home"
-                    button_4="News"
-                    navigate_4="/news"
-                />
+                </div> <Cubes
+                button_1="Hoe maak je bier"
+                navigate_1="/productie_Informatie"
+                button_2="Het drankorgel"
+                navigate_2="/drankorgel"
+                button_3="Home"
+                navigate_3="/home"
+                button_4="News"
+                navigate_4="/news"
+            />
+
             </div>
         );
     }

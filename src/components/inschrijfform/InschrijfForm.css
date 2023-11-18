@@ -9,11 +9,8 @@
     min-width: 350px;
     max-width: 1800px;
     padding: 20px;
-    border: 2px solid var(--line-blue);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
-    border-left: var(--line-blue);
-    border-right: var(--line-blue);
     background-size: cover;
     background-position: center;
     object-fit: contain;

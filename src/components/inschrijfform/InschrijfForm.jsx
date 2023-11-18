@@ -38,8 +38,8 @@ function InschrijfForm() {
         <>
             <div className="form-container">
                 <h1>inschrijven</h1>
-                <div className="form-content border_top_bottom background">
-                    <form onSubmit={handleSubmit(handleFormSubmit)}>
+                <div>
+                    <form className=" form-container form-content border_top_bottom background" onSubmit={handleSubmit(handleFormSubmit)}>
                         <label>Gebruikersnaam:</label>
                         <input name="Gebruikersnaam" type="text" id="username" placeholder="Voer hier je gebruikersnaam in." {...register('username', { required: 'Gebruikersnaam is verplicht' })} />
                         <label>Wachtwoord:</label>
