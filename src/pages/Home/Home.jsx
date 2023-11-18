@@ -34,6 +34,8 @@ function Home() {
                     <div className="informatie_container">
                         <h1>Welcome {isAuth ? "matthijs van der maas" : " Bier liefhebbers"}</h1>
                         <h4> Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij</h4>
+                        <br/>
+                        <p>zet eventueel een lekker muziekje op  met<NavLink to="/drankorgel"><strong>  Het drankorgel</strong></NavLink>.</p>
                         <div>
                             {!isAuth ? (
                                 <>

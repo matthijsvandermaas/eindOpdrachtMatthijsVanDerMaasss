@@ -86,8 +86,8 @@
 
 .text-component:hover {
     box-shadow: 5px 5px var(--box-shadow_2);
-    border-left: 3px solid var(--line-blue-2);
-    border-top: 3px solid var(--line-blue-2);
+    border-left: 3px solid var(--blue-2);
+    border-top: 3px solid var(--blue-2);
     border-bottom: none;
     border-radius: 15px 0 0 15px;
     transform: scale(1.001);
@@ -101,29 +101,29 @@
 }
 /*borders*/
 .border_top_bottom {
-    border-top: 2px solid var(--line-blue-2);
-    border-bottom: 2px solid var(--line-blue-2);
+    border-top: 2px solid var(--blue-2);
+    border-bottom: 2px solid var(--blue-2);
     border-radius: 15px 0 0 15px;
 }
 .border_top_left {
-    border-top: 2px solid var(--line-blue-2);
-    border-left: 2px solid var(--line-blue-2);
+    border-top: 2px solid var(--blue-2);
+    border-left: 2px solid var(--blue-2);
     border-bottom: 2px solid transparent;
     border-radius: 15px 0 0 0;
 }
 .border_bottom_left {
-    border-bottom: 2px solid var(--line-blue-2);
-    border-left: 2px solid var(--line-blue-2);
+    border-bottom: 2px solid var(--blue-2);
+    border-left: 2px solid var(--blue-2);
     border-radius: 0 0 0 15px;
 }
 .border_left {
-    border-left: 2px solid var(--line-blue-2);
+    border-left: 2px solid var(--blue-2);
     border-top: 2px solid transparent;
     border-bottom: 2px solid transparent;
     border-radius: 15px 0 0 15px;
 }
 .border_top {
-    border-top: 2px solid var(--line-blue-2);
+    border-top: 2px solid var(--blue-2);
     border-left: 2px solid transparent;
     border-bottom: 2px solid transparent;
     border-radius: 15px 0 0 15px;

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, {useRef, useState} from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import { useForm } from 'react-hook-form';
 import {Link, NavLink, useNavigate} from 'react-router-dom';
-import InschrijfFormFileComponent from './FormFileCompontent.jsx';
+import FormFileComponent from './FormFileCompontent.jsx';
 import Cubes from "../cubes/Cubes";
 
 function InschrijfFormProduct() {
@@ -12,13 +12,12 @@ function InschrijfFormProduct() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [fileData, setFileData] = useState({ file: null });
+    const algemene_infoRef = useRef(null);
+    const [fileData2, setFileData2] = useState({ file: null });
+
 
     const scrollToAlgemene_info = () => {
-        algemene_infoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-    };
-
-
-
+        algemene_infoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });    };
 
     async function handleFormSubmit(formData) {
         setIsSubmitting(true);
@@ -45,25 +44,29 @@ function InschrijfFormProduct() {
     async function handleFileSubmit() {
         setIsSubmitting(true);
         const fileInfo = new FormData();
-
         if (fileData.file) {
             fileInfo.append('file', fileData.file);
         }
 
-        try {
-            const createProductWithPhoto = await axios.post(
-                'http://localhost:8081/fileDocuments/upload',
-                fileInfo,
-                {
-                    headers: {
-                        // 'Content-Type': 'multipart/form-data',
-                    },
+        const fileInfo2 = new FormData();
+        if (fileData2.file) {
+            fileInfo2.append('file', fileData2.file);
+        }
 
-                    withCredentials: true,
-                }
-            );
-            navigate('/alle_producten');
+        try {
+            // Verstuur beide bestanden naar de server
+            const createProductWithPhoto = await axios.post('http://localhost:8081/fileDocuments/upload', fileInfo, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+                withCredentials: true,
+            });
+
+            const createProductWithPhoto2 = await axios.post('http://localhost:8081/fileDocuments/upload', fileInfo2, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+                withCredentials: true,
+            });
+
             console.log('De gegevens zijn verstuurd', fileInfo, createProductWithPhoto.data);
+            console.log('De gegevens van het tweede bestand zijn verstuurd', fileInfo2, createProductWithPhoto2.data);
         } catch (e) {
             console.error('Er gaat iets fout met het verwerken van de files', e);
             setErrorMessage('Er gaat iets fout met het verwerken van de files: ' + e.message);
@@ -75,9 +78,9 @@ function InschrijfFormProduct() {
 
         return (
             <div className="form-container">
-                <h1>Een biertje toevoegen</h1>
+                <h1>Bier toevoegen</h1>
                 <div className="form-content" >
-                    <form className="background  border_top_bottom"      onSubmit={handleSubmit(handleFormSubmit)} encType="multipart/form-data">
+                    <form className="background  border_top_bottom" onSubmit={handleSubmit(handleFormSubmit)} encType="multipart/form-data">
                         <div>
                         <label>Productnaam:</label>
                         <input name="Productnaam" type="text" id="productName"
@@ -96,7 +99,7 @@ function InschrijfFormProduct() {
                             <div>
                             <label>Smaak:</label>
                             <input type="text" id="tast"
-                                   placeholder="Voer in hier het bier smaakt." {...register('tast', {required: 'smaak is verplicht'})} />
+                                   placeholder="Omschijf hier de smaken van jouw jouw bier." {...register('tast', {required: 'smaak is verplicht'})} />
                         </div>
                         <div>
                             <br/>
@@ -143,17 +146,16 @@ function InschrijfFormProduct() {
                         </div>
                         <div>
                             <label>Volume(cc):</label>
-                            <input name="volume" step="0.1" min="100.0" max="1000.0" type="number" id="volume"
+                            <input name="volume" step="1.0" min="100.0" max="1000.0" type="number" id="volume"
                                    placeholder="Voer hier de indoud van het flesje in." {...register('volume', {required: 'volume is verplicht'})} />
                         </div>
                         <div>
-                            <p>Vragen over de terminologie in het bierproces of wilt u meer informatie?</p>
+                            <p>Vragen over de terminologie in het bierproces en omschrijving of wilt je meer informatie?</p>
                             <p>Ga dan naar<NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}><strong> Hoe maak je bier</strong></NavLink>.</p>
                         </div>
                         <div className="border_top_bottom background"  >
-                            <InschrijfFormFileComponent setFileData={setFileData} OnChangeLink={handleFileSubmit}/>
-                            <InschrijfFormFileComponent setFileData={setFileData} OnChangeLink={handleFileSubmit}/>
-                        </div>
+                            <FormFileComponent setFileData={setFileData} OnChangeLink={handleFileSubmit}/>
+                            <FormFileComponent setFileData={setFileData2} OnChangeLink={handleFileSubmit} />                        </div>
                         <button className="bttn" type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Bezig met een product toevoegen momentje...' : 'toevoegen'}
                                                 </button>

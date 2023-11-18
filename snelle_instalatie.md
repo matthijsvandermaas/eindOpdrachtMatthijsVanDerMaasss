@@ -10,7 +10,12 @@ installeert jwt token `npm install jwt-decode`
 installeer kalender `npm install react-calendar`
 installeer react-dom `npm install react react-dom`
 installer `npm install -g typescript`
-run `npm run dev`
+run dev `npm run dev`
+
+
+
+
+
 
 
 

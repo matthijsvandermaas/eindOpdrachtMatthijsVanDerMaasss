@@ -15,7 +15,7 @@
     text-align: center;
     margin: 5px 10px;
     padding: 10px 60px;
-    background-color: var(--line-blue);
+    background-color: var(--blue-1);
     color: white;
     border: none;
     border-radius: var(--border-radius);
@@ -47,7 +47,7 @@
 
 .cube-bttn:hover {
     cursor: pointer;
-    border: 2px var(--line-blue) solid;
+    border: 2px var(--blue-1) solid;
     box-shadow: var(--box-shadow_2);
     color: rgba(253, 246, 153, 0.70);
 }

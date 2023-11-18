@@ -1,7 +1,5 @@
 
-.form-container {
-    margin: 10px 20px;
-}
+
 .form-content {
     display: flex;
     flex-direction: column;
@@ -15,10 +13,11 @@
     padding: 20px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
+    text-shadow: var(--box-shadow_1);
     background-size: cover;
     background-position: center;
     object-fit: contain;
-    margin-bottom: 20px;
+
 }
 .form-content:hover {
     box-shadow: var(--box-shadow_2);
@@ -34,27 +33,43 @@ label {
     font-weight: bold;
     flex: 1;
 }
-
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="username"],
-input[type="number"],
 input[type="file"],
-input[type="date"],
-select {
+input[type="date"]
+{
+    margin-top: 10px;
+  font-size: 0.7em;
+    flex: 2;
+    padding: 8px;
+    color: var(--blue-1);
+    border: var(--input-border);
+    border-radius: var(--border-radius);
+    background-color: var(--input-background);
+    );
+}
+input[type="number"]{
+    font-size: 0.7em;
     flex: 2;
     padding: 8px;
     width: 80%;
+    color: var(--blue-1);
+    border: var(--input-border);
+    border-radius: var(--border-radius);
+    background-color: var(--input-background);
 }
-{
-    flex: 1;
+select {
+    font-size: 0.7em;    flex: 2;
     padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 80%;
+    color: var(--blue-1);
+    border: var(--input-border);
+    border-radius: var(--border-radius);
+    background-color: var(--input-background);
 }
 form div {
-    margin-bottom: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -63,7 +78,7 @@ form div {
 form div label {
     font-weight: bold;
     flex: 1;
-    margin-right: 10px; /* Ruimte tussen label en invoerveld */
+    margin-right: 10px;
 }
 form div input[type="text"],
 form div input[type="email"],
@@ -74,11 +89,7 @@ form div input[type="date"],
 form div input[type="username"],
 form div select {
     flex: 2;
-    padding: 8px;
-background-color: rgba(222, 235, 251, 0.2);
-    border: 1px solid var(--line-blue-3
     );
-    border-radius: var(--border-radius);
     display: flex;
     flex-direction: column;
 }

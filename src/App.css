@@ -28,17 +28,18 @@ Table of Contents:
     --background-gradient-color:#fffef3;
     --green-blue-gradient: linear-gradient(44deg, #78a80f 30%, rgb(68, 88, 132) 100%);
     --light-dark-gradient: linear-gradient(44deg, rgba(68, 88, 132, 0.5) 0%, rgb(68, 88, 132) 95%);
-    --line-blue: rgb(68, 88, 132);
-    --line-blue-1: #deebfb;
-    --line-blue-2: rgba(68, 88, 132, 0.5);
-    --line-blue-3: rgba(68, 88, 132, 0.2);
+    --blue-1: rgb(68, 88, 132);
+    --blue-4: #deebfb;
+    --blue-2: rgba(68, 88, 132, 0.5);
+    --blue-3: rgba(68, 88, 132, 0.2);
     --extra-background-color: rgba(255, 237, 45, 0.1);
     --shadow: rgba(255, 237, 45, 0.02);
     --box-shadow_1: inset  20px 20px 200px 30px var(--shadow);
     --box-shadow_2: inset -20px -20px 200px -30px var(--shadow);
     --titles: #efcb23;
     --border-radius: 20px;
-
+    --input-background: rgba(222, 235, 251, 0.15);
+    --input-border: 1px solid rgba(222, 235, 251, 0.5);
 }
 
 /*-font-size-*/
@@ -124,7 +125,7 @@ Table of Contents:
     margin: 10px 10px;
 }
 .logo-img:hover{
-    box-shadow: inset 12px 12px 10px var(--line-blue);
+    box-shadow: inset 12px 12px 10px var(--blue-1);
 }
 .small_logo{
     width: 100px;
@@ -186,17 +187,17 @@ Table of Contents:
 /*///2. Typography///*/
 h1, h2, h3 {
     font-family: 'Roboto', sans-serif;
-    color: var(--line-blue);
+    color: var(--blue-1);
     margin: 2vh 1vw 2vh 1vw;
 }
 h1 {
     font-size: 3em;
-    text-shadow: 2px 2px 2px var(--line-blue-1);
+    text-shadow: 2px 2px 2px var(--blue-4);
 }
 h2 {
     font-size: 1.6em;
     margin: 2vh 0.7vw 2vh 0.7vw;
-    text-shadow: 2px 2px 2px var(--line-blue-1);
+    text-shadow: 2px 2px 2px var(--blue-4);
 }
 h3, h4 {
     font-size: 1.6em;
@@ -207,7 +208,7 @@ h5{
     font-size: 1.2em;
     margin-top: 0;
     margin-left: 12px;
-    color: var(--line-blue);
+    color: var(--blue-1);
 }
 p{
     font-size: 1em;
@@ -218,6 +219,7 @@ p a {
     text-decoration: none;
     color: black;
 }
+
 .debug {
     border: 2px solid red;
 }
@@ -228,7 +230,7 @@ p a {
     border: 2px solid whitesmoke;
     border-radius: var(--border-radius);
     box-shadow: 3px 3px var(--background-gradient-lightmode);
-    background-color: var(--line-blue);
+    background-color: var(--blue-1);
     color: whitesmoke;
     padding: 0 10px;
     text-decoration: none;
@@ -242,17 +244,17 @@ p a {
 .bttn:hover{
     background-color: var(--light-dark-gradient);
     color: black;
-    box-shadow: inset 6px 6px 25px var(--line-blue-2);
-    border: 2px solid var(--line-blue);
+    box-shadow: inset 6px 6px 25px var(--blue-2);
+    border: 2px solid var(--blue-1);
 }
 
 .bttn_small{
     background-color: var(--gradient);
-    border: 2px solid var(--line-blue);
+    border: 2px solid var(--blue-1);
     width: auto;
     height: 3vh;
     color: black;
-    box-shadow: 6px 6px 25px var(--line-blue-3);
+    box-shadow: 6px 6px 25px var(--blue-3);
 }
 .background {
     background-image: url('../src/assets/logos and backgrounds/grain.svg');
@@ -337,11 +339,11 @@ background: var(--background-gradient-color);
     background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--line-blue);
+    background: var(--blue-1);
     border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--line-blue-2);
+    background: var(--blue-2);
 }
 
 

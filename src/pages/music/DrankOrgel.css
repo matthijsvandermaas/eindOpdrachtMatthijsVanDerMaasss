@@ -26,8 +26,7 @@
     font-weight: bold;
 }
 .music-btn:hover{
-    color: rgba(245, 245, 245, 0.01);
-    border: 2px solid var(--line-blue);
+    border: 2px solid var(--blue-1);
 }
 .bttn_spotify {
     color: black;

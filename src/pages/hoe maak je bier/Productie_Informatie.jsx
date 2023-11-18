@@ -10,7 +10,7 @@ import gist from "../../assets/hoe maak je bier/yeast.png"
 import all_Soorten_Bieren from "../../assets/hoe maak je bier/all_kinds_of_beer.png";
 import bier_gisten from "../../assets/hoe maak je bier/biergisten.jpeg";
 import IBU from "../../assets/hoe maak je bier/ibu.jpg";
-import ECB from "../../assets/hoe maak je bier/De-Bierparade-EBC.jpg";
+import color_EBC from "../../assets/hoe maak je bier/De-Bierparade-EBC.png";
 
 function Productie_Informatie() {
     const hetProcesRef = useRef(null);
@@ -23,7 +23,8 @@ function Productie_Informatie() {
         hop: false,
         mout: false,
         water: false,
-        gist: false
+        gist: false,
+        color_EBC: false
     });
     useEffect(() => {
         // Scroll to the corresponding section when the component mounts
@@ -37,14 +38,14 @@ function Productie_Informatie() {
     const handleMouseEnter = (item) => {
         setDropdownStates((prevStates) => ({
             ...prevStates,
-            [item]: true
+            [item]: true,
         }));
     };
 
     const handleMouseLeave = (item) => {
         setDropdownStates((prevStates) => ({
             ...prevStates,
-            [item]: false
+            [item]: false,
         }));
     };
 
@@ -104,24 +105,23 @@ function Productie_Informatie() {
                         </div>
                     </div>
                     <div className="text-component content_2 border_left">
-                        <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('ecb')}
-                             onMouseLeave={() => handleMouseLeave('ecb')}>
+                        <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('color_EBC')}
+                             onMouseLeave={() => handleMouseLeave('color_EBC')}>
                             <Text_component
-                                Text_Title="ECB🞃"
+                                Text_Title="kleur volgens de EBC🞃"
                             />
-                            {dropdownStates.ibu && (
+                            {dropdownStates.color_EBC && (
                                 <div className="submenu-content">
                                     <Text_component
                                         Text_Message2="Om bieren te kunnen beschrijven wordt er in de brouwerswereld ook de kleur van het bier vastgelegd. Deze kleur wordt vastgelegd in een kleurcode EBC (European Brewers Convention)."
                                         Text_Message3="Brouwers kunnen door met verschillende mouten te werken kun je een donkerder of een lichter bier krijgen. De kleur van mout hangt samen met de brandingen die de mouter heeft toegepast."
                                         Text_Message5="bijvoorbeeld geen gebrande mout, een dubbel bevat een beetje donker gebrande mout en stout bevat relatief veel gebrande mout."
-                                        Text_Message6="Mouten zijn in de handel te koop met kleurcodes. Ook de kleur van mout wordt uitgedrukt in EBC (European Brewers Convention)."
                                     />
                                 </div>
                             )}
                         </div>
                         <div className="text-image">
-                            <img src={ECB} alt="ECb tabel"/>
+                            <img src={color_EBC} alt="kleur tabel volgende de EBC"/>
                         </div>
                     </div>
                     <div className="text-component content_2">
@@ -212,7 +212,10 @@ function Productie_Informatie() {
                                         Text_Message2="Mout is een essentieel ingrediënt in het brouwproces van bier en wordt gemaakt door granen, meestal gerst, in water te laten ontkiemen en vervolgens te drogen en te roosteren. Tijdens dit proces worden enzymen geactiveerd die zetmeel in de granen omzetten in suikers."
                                         Text_Message3="Deze suikers zijn nodig voor de fermentatie, waarbij gist de suikers omzet in alcohol en koolstofdioxide."
                                         Text_Message4="Mout speelt een cruciale rol in het brouwproces van bier. Tijdens het mouten worden zetmeelketens in granen omgezet in suikers, die essentieel zijn voor fermentatie. Verschillende moutsoorten en roosteringsgraden beïnvloeden de kleur, smaak en aroma van het bier."
-                                        Text_Message5="Brouwers kunnen ook speciale mouten en moutextracten gebruiken om diverse smaakprofielen te creëren, van lichte blond bier tot donkere, rijke stouts."
+                                        Text_Message5="Brouwers kunnen ook speciale mouten en moutextracten gebruiken om diverse smaakprofielen te creëren."
+                                        Text_Message6="Mouten die in de handel te koop met kleurcodes , van lichte blond bier tot donkere."
+                                        Text_Message7="De kleur van mout wordt uitgedrukt in EBC (European Brewers Convention)."
+                                        Text_Message8="De kleur van mout hangt samen met de brandingen die de mouter heeft toegepast."
                                     />
                                 </div>
                             )}

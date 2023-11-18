@@ -26,7 +26,7 @@
 
 
 .carousel.carousel-slider .control-arrow.control-prev {
-    background-color:var(--line-blue-2);
+    background-color:var(--blue-2);
     border: 2px solid transparent;
     border-radius: var(--border-radius);
 }
@@ -36,7 +36,7 @@
 }
 
 .carousel.carousel-slider .control-arrow.control-next {
-    background-color:var(--line-blue-2);
+    background-color:var(--blue-2);
 
     border: 2px solid transparent;
     border-radius: var(--border-radius);
@@ -46,7 +46,7 @@
     border: 2px solid whitesmoke;
 }
 .carousel.carousel-slider h2, h3 {
-    border-top: 2px solid var(--line-blue-2);
+    border-top: 2px solid var(--blue-2);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
     padding-left: 2vw;
