@@ -18,10 +18,6 @@ function Home() {
     const [slideIndex, setSlideIndex] = useState(1);
 
 
-    // const handleLogout = () => {
-    //     logout();
-    //     navigate('/');
-    // };
 
     return (
         <>

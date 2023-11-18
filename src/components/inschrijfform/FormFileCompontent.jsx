@@ -1,7 +1,7 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
 
-function InschrijfFormFileCompontent() {
+function FormFileCompontent() {
     const { register, handleSubmit } = useForm();
 
     return (
@@ -14,4 +14,4 @@ function InschrijfFormFileCompontent() {
     );
 }
 
-export default InschrijfFormFileCompontent;
+export default FormFileCompontent;

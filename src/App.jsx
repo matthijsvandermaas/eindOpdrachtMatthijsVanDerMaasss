@@ -80,7 +80,7 @@ function App() {
                         <div className="dropdown">
                             <button className="navBar-bttn">
                                 <img className="small_logo" src={wheat} alt="wheat-logo" />
-                                <h1>menu</h1>
+                                <h1 style={{ textShadow: "none" }}>menu</h1>
                             </button>
                             <Navbar activeTab={activeTab} handleTabChange={handleTabChange} />
                         </div>

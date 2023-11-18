@@ -40,18 +40,29 @@ function InschrijfForm() {
                 <h1>inschrijven</h1>
                 <div>
                     <form className=" form-container form-content border_top_bottom background" onSubmit={handleSubmit(handleFormSubmit)}>
+                      <div>
                         <label>Gebruikersnaam:</label>
-                        <input name="Gebruikersnaam" type="text" id="username" placeholder="Voer hier je gebruikersnaam in." {...register('username', { required: 'Gebruikersnaam is verplicht' })} />
+                          <input name="Gebruikersnaam" type="text" id="username" placeholder="Voer hier je gebruikersnaam in." {...register('username', { required: 'Gebruikersnaam is verplicht' })} />
+                      </div>
+                       <div>
                         <label>Wachtwoord:</label>
-                        <input name="Wachtwoord" type="password" id="password" placeholder="Voer hier je wachtwoord in." {...register('password', { required: 'Wachtwoord is verplicht' })} />
-                        <label>Voornaam:</label>
+                           <input name="Wachtwoord" type="password" id="password" placeholder="Voer hier je wachtwoord in." {...register('password', { required: 'Wachtwoord is verplicht' })} />
+                       </div>
+                        <div>
+                           <label>Voornaam:</label>
                         <input name="Voornaam" type="text" id="firstName" placeholder="Voer hier je voornaam in." {...register('firstName', { required: 'Voornaam is verplicht' })} />
-                        <label>Achternaam:</label>
+                        </div>
+                        <div>
+                            <label>Achternaam:</label>
                         <input name="Achternaam" type="text" id="lastName" placeholder="Voer hier je (tussenvoegsel en) achternaam in." {...register('lastName', { required: '(tussenvoegsel en)achternaam is verplicht' })} />
-                        <label>Bedrijfsnaam:</label>
+                        </div>
+                        <div>
+                            <label>Bedrijfsnaam:</label>
                         <input name="Bedrijfsnaam" type="text" id="company" placeholder="Voer hier je bedrijfsnaam in." {...register('company')} />
-                        <label>e-mail:</label>
+                        </div>
+                            <label>e-mail:</label>
                         <input type="email" id="email" placeholder="Voer hier je e-mailadres in." {...register('email', { required: 'E-mail is verplicht' })} />
+                        <div>
                         <label>Account type:</label>
                         <select name="roles" id="roles" {...register('roles', { required: 'Brouw je bier of drink je het alleen?' })}>
                             <option value="" disabled>Ik ben een:</option>
@@ -59,7 +70,8 @@ function InschrijfForm() {
                             <option value='BREWER'>brouwer</option>
                             <option value='ADMIN' disabled>beheerder</option>
                         </select>
-                        {errorMessage && <p className="error-message">{errorMessage}</p>}
+                        </div>
+                            {errorMessage && <p className="error-message">{errorMessage}</p>}
                         <button className="bttn" type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Momentje ik kom zo bij u...' : 'toevoegen'}
                         </button>

@@ -59,7 +59,6 @@
 .dropdown-content {
     justify-content: flex-start;
     display: none;
-    background-color: rgba(255, 255, 255, 0.05);
     width: 400px;
     white-space: nowrap;
     z-index: 1;
@@ -88,7 +87,7 @@
     display: block;
     box-shadow: var(--box-shadow_1);
     transition: 0.5s ease-in-out;
-    text-shadow: 2px 2px 2px var(--line-blue-1); /* Hier voeg je de tekstschaduw toe */
+    text-shadow: 2px 2px 2px var(--line-blue-1);
 }
 .dropdown-content a:hover {
     display: block;

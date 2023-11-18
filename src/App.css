@@ -191,10 +191,12 @@ h1, h2, h3 {
 }
 h1 {
     font-size: 3em;
+    text-shadow: 2px 2px 2px var(--line-blue-1);
 }
 h2 {
     font-size: 1.6em;
     margin: 2vh 0.7vw 2vh 0.7vw;
+    text-shadow: 2px 2px 2px var(--line-blue-1);
 }
 h3, h4 {
     font-size: 1.6em;

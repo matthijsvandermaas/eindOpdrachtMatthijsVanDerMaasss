@@ -3,7 +3,7 @@ import axios from 'axios';
 import './InschrijfForm.css';
 import { useForm } from 'react-hook-form';
 import {Link, NavLink, useNavigate} from 'react-router-dom';
-import InschrijfFormFileComponent from '../../components/inschrijfform/InschrijfFormFileCompontent';
+import InschrijfFormFileComponent from './FormFileCompontent.jsx';
 import Cubes from "../cubes/Cubes";
 
 function InschrijfFormProduct() {
@@ -56,7 +56,7 @@ function InschrijfFormProduct() {
                 fileInfo,
                 {
                     headers: {
-                        'Content-Type': 'multipart/form-data',
+                        // 'Content-Type': 'multipart/form-data',
                     },
 
                     withCredentials: true,
@@ -78,16 +78,28 @@ function InschrijfFormProduct() {
                 <h1>Een biertje toevoegen</h1>
                 <div className="form-content" >
                     <form className="background  border_top_bottom"      onSubmit={handleSubmit(handleFormSubmit)} encType="multipart/form-data">
+                        <div>
                         <label>Productnaam:</label>
                         <input name="Productnaam" type="text" id="productName"
                                placeholder="Voer hier de productnaam in." {...register('productName', {required: 'productnaam is verplicht'})} />
+                            </div>
+                            <div>
                         <label>Naam brouwer:</label>
                         <input name="Naam brouwer" type="text" id="nameBrewer"
                                placeholder="Voer hier de naam van de brouwer in." {...register('nameBrewer', {required: 'naam brouwer is verplicht'})} />
+                            </div>
+                            <div>
                         <label>Locatie brouwer:</label>
                         <input name="Locatie brouwer" type="text" id="productionLocation"
                                placeholder="Voer hier de locatie van de brouwer in." {...register('productionLocation',)} />
+                            </div>
+                            <div>
+                            <label>Smaak:</label>
+                            <input type="text" id="tast"
+                                   placeholder="Voer in hier het bier smaakt." {...register('tast', {required: 'smaak is verplicht'})} />
+                        </div>
                         <div>
+                            <br/>
                             <label>Type:</label>
                             <select name="type" id="type" {...register('type', {required: 'type is verplicht'})}>
                                 <option value="">Selecteer een bierstijl</option>
@@ -129,20 +141,13 @@ function InschrijfFormProduct() {
                                 <option value="zwart (niet doorschijnend)">Zwart (niet doorschijnend) (>120 EBC)</option>
                             </select>
                         </div>
-
-                        <div>
-                            <label>Smaak:</label>
-                            <input type="text" id="tast"
-                                   placeholder="Voer in hier het bier smaakt." {...register('tast', {required: 'smaak is verplicht'})} />
-                        </div>
                         <div>
                             <label>Volume(cc):</label>
                             <input name="volume" step="0.1" min="100.0" max="1000.0" type="number" id="volume"
                                    placeholder="Voer hier de indoud van het flesje in." {...register('volume', {required: 'volume is verplicht'})} />
                         </div>
                         <div>
-                            <p>
-                                Vragen over de terminologie in het bierproces of wilt u meer informatie?</p>
+                            <p>Vragen over de terminologie in het bierproces of wilt u meer informatie?</p>
                             <p>Ga dan naar<NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}><strong> Hoe maak je bier</strong></NavLink>.</p>
                         </div>
                         <div className="border_top_bottom background"  >
