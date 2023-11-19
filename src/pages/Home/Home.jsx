@@ -10,10 +10,10 @@ import slider_Img_Four from '../../assets/rockcity/rockcity_ketel.jpg';
 
 
 import {NavLink, useNavigate} from "react-router-dom";
-import {AuthenticationContext} from "../../context/AuthenticationContext.jsx";
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Home() {
-    const { isAuth, logout } = useContext(AuthenticationContext);
+    const { isAuth, logout } = useContext(AuthContext);
     const navigate = useNavigate();
     const [slideIndex, setSlideIndex] = useState(1);
 

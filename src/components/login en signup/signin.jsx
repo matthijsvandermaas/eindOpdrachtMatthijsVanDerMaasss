@@ -2,7 +2,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { AuthenticationContext } from "../../context/AuthenticationContext";
+import { AuthContext } from '../../context/AuthContext';
 import '../inschrijfform/InschrijfForm.css';
 
 
@@ -12,7 +12,7 @@ function SignIn() {
     const [password, setPassword] = useState('');
     const [role, setRole] = useState(''); // Voeg state toe voor het geselecteerde accounttype
     const [error, setError] = useState(false);
-    const { loginContext } = useContext(AuthenticationContext);
+    const { login } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -23,14 +23,14 @@ function SignIn() {
             setError(false);
             setLoading(true);
     try {
-    const response = await axios.post('http://localhost:3000/login', {
-        email,
+        const response = await axios.post("http://localhost:8081/authenticate", {
+        username: email,
         password,
-        role,});
+        role,
+        });
         console.log(response.data);
         console.log(response.data.accessToken);
-            loginContext(response.data.accessToken);
-
+            login(response.data.accessToken);
             navigate("/home");
         } catch (e) {
             console.error(e);
@@ -60,7 +60,7 @@ function SignIn() {
                         </select>
                     </label>
                     <button className="bttn" type="submit" disabled={loading}>
-                        {loading ? 'Momentje we zijn je an het zoeken...' : 'Inloggen'}
+                        {loading ? 'Momentje even kijken wie je bent...' : 'Inloggen'}
                     </button>
                     {error && <p className="error">Combinatie van e-mailadres en wachtwoord is onjuist</p>}
                 </form>

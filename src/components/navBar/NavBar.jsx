@@ -2,12 +2,12 @@
 import React, { useRef, useState, useContext } from 'react';
 import './navbar.css';
 import { NavLink, useNavigate } from 'react-router-dom';
-import {AuthenticationContext} from "../../context/AuthenticationContext";
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Navbar() {
     const hetProcesRef = useRef(null);
     const algemene_infoRef = useRef(null);
-    const { isAuth, logout } = useContext(AuthenticationContext);
+    const { isAuth, logout } = useContext(AuthContext);
     const navigate = useNavigate();
     const roles = ['USER', 'BREWER']; // Replace this with your actual roles
     const isBrewerOrAdmin = roles.includes('BREWER') || roles.includes('ADMIN');
