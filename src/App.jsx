@@ -8,13 +8,12 @@ import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 import InschrijfForm from "./components/inschrijfform/InschrijfForm.jsx";
 import ProductieInformatie from "./pages/hoe maak je bier/Productie_Informatie";
 import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProduct";
-import AlleBieren from "./pages/alle_bieren/AllProducts";
-import SignIn from "./components/login en signup/signin";
-import SignUp from "./components/login en signup/signup";
+import AlleBieren from "./pages/all_products/AllProducts";
+import SignIn from "./pages/signin/signin";
 import Error from "./pages/error/Error";
-import Mijn_bieren from "./pages/mijn_bieren/myProducts";
+import Mijn_bieren from "./pages/my_bieren/myProducts";
 import Home from './pages/Home/Home';
-import AgeVerification from '../src/components/leeftijds_check/AgeVerification';
+import AgeVerification from './components/agecheck/AgeVerification';
 import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
 import Music from './pages/music/DrankOrgel';
@@ -98,7 +97,6 @@ function App() {
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />
                         <Route path="/alle_producten" element={<AlleBieren />} />
-                        <Route path="/signUp" element={<SignUp />} />
                         <Route path="/signIn" element={<SignIn />} />
                         <Route path="/feedback" element={<Feedback />} />
                         <Route path="/news" element={<News />} />

@@ -1,33 +1,44 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
-import '../inschrijfform/InschrijfForm.css';
-
-
+import '../../components/inschrijfform/InschrijfForm.css';
+import jwt_Decode from "jwt-decode";
 
 function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [role, setRole] = useState(''); // Voeg state toe voor het geselecteerde accounttype
+    const [role, setRole] = useState('');
     const [error, setError] = useState(false);
-    const { login } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    const { login } = useContext(AuthContext);
+
     async function handleSubmit(e) {
-            e.preventDefault();
-            setError(false);
-            setLoading(true);
-    try {
-        const response = await axios.post("http://localhost:8081/authenticate", {
-        username: email,
-        password,
-        role,
-        });
-        console.log(response.data);
-        console.log(response.data.accessToken);
+        e.preventDefault();
+        setError(false);
+        setLoading(true);
+
+        try {
+            const token = localStorage.getItem('token');
+
+
+            const response = await axios.post("http://localhost:8081/authenticate", {
+                username: email,
+                password,
+                role,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            console.log('Authorization Header:', `Bearer ${token}`);
+
+            console.log(response.data);
+            console.log(response.data.accessToken);
+
             login(response.data.accessToken);
             navigate("/home");
         } catch (e) {
@@ -60,11 +71,9 @@ function SignIn() {
                     <button className="bttn" type="submit" disabled={loading}>
                         {loading ? 'Momentje even kijken wie je bent...' : 'Inloggen'}
                     </button>
-                    {error && <p className="error">Combinatie van e-mailadres en wachtwoord is onjuist</p>}
+                    {error && <p className="error">Combinatie van e-mailadres en wachtwoord is onjuist.</p>}
                 </form>
-                <p>
-                    Heb je nog geen account? <Link to="/inschrijfformulier"><strong>schrijf je snel in</strong></Link>.
-                </p>
+                <p>Heb je nog geen account? <Link to="/inschrijfformulier"><strong>schrijf je snel in!</strong></Link>.</p>
             </div>
         </>
     );

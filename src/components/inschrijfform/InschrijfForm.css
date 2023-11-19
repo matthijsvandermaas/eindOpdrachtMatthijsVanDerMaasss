@@ -37,11 +37,10 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="username"],
-input[type="file"],
-input[type="date"]
+input[type="file"]
 {
     margin-top: 10px;
-  font-size: 0.7em;
+  font-size: 0.9em;
     flex: 2;
     padding: 8px;
     color: var(--blue-1);
@@ -51,7 +50,7 @@ input[type="date"]
     );
 }
 input[type="number"]{
-    font-size: 0.7em;
+    font-size: 0.9em;
     flex: 2;
     padding: 8px;
     width: 80%;
@@ -60,8 +59,20 @@ input[type="number"]{
     border-radius: var(--border-radius);
     background-color: var(--input-background);
 }
+input[type="date"]{
+    font-size: 1.1em;
+    text-shadow: 2px 1px 2px var(--blue-1);
+    flex: 2;
+    padding: 8px;
+
+    color: var(--background-gradient-color);
+    border: var(--input-border);
+    border-radius: var(--border-radius);
+    background-color: var(--input-background);
+}
 select {
-    font-size: 0.7em;    flex: 2;
+    font-size: 0.9em;
+    flex: 2;
     padding: 8px;
     width: 80%;
     color: var(--blue-1);

@@ -1,7 +1,9 @@
 import * as React from 'react';
 import TextComponent from "../../components/texts_components/Text-component";
 import IMG from "../../assets/general pics/img.png";
-import Bierkroket from "../../assets/biernews/Cornet-en-Rodenbach-kroketten.png";
+import Bierkroket from "../../assets/newsfeed/Cornet-en-Rodenbach-kroketten.png";
+import logo_small from "../../assets/logos and backgrounds/B & B logo2 klein.jpg";
+import Hob from "../../assets/newsfeed/HoB.jpeg";
 
 
 
@@ -15,6 +17,11 @@ function News() {
         <div className="text-component">
             <div className="border_top_left  background">
                 <h1>bier nieuws</h1>
+                <TextComponent
+                    Text_Header="lancering Beers & Brewskys"
+                    Text_Message1={["Op ... december zal Beers & Breskys online komen ," +
+                    "Het nieuwe platform voor bierliefhebbers en brouwers om hun passie te delen over dit gezellige en ambachtelijke product."]}
+                />
                 <TextComponent
                     Text_Header="House of Bird Kwintelooijen"
                     Text_Message1={["Op de Kwintelooijen is een nieuw bier gebrouwen door de brouwerij van Kwintelooijen. Op 2 december zal 'House of Bird Kwintelooijen' zijn deuren openen. Dit is het eerste proeflokaal en brouwer op de Kwintelooijen. Je kunt hier een biertje proeven, lekker lunchen of koffie drinken daarnaast wordt er voor elke liter gebrouwen bier wordt een boom geplant."]}
@@ -40,15 +47,16 @@ function News() {
                     Text_Header="Opening House of Bird Kwintelooijen"
                     Text_Message1={[
                         "2 december 2023",
-                        <p key="link"><a href="https://www.houseofbird.nl/kwintelooijen/" target="_blank" rel="noopener noreferrer">https://www.houseofbird.nl/kwintelooijen/</a></p>
+                        <p key="link"><a href="https://www.houseofbird.nl/kwintelooijen/" target="_blank" rel="noopener noreferrer">www.houseofbird.nl</a></p>
                     ]}
                 />
-
+                <img className="general_Img" src={Hob} alt="House of Bird brouwerij"/>
                 <TextComponent
-                    Text_Header="agenda punt2"
-                    Text_Message1={["Hier komt de omschrijving."]}
+                    Text_Header="Lancering Beers & Brewskys"
+                    Text_Message1={["... december 2023",
+                    <p key="link"><a href="https://localhost:5173/home" target="_blank" rel="noopener noreferrer">www.beersandbrewskys.nl</a></p>]}
                 />
-                <img className="general_Img" src={IMG} alt="IBU tabel"/>
+                <img className="general_Img" src={logo_small} alt="B&B logo"/>
 
         </div>
             </div>

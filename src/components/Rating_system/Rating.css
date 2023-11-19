@@ -3,7 +3,7 @@
     cursor: pointer;
 }
 .star-rating h4{
-    margin-left: 25px;
+    margin-left: 1em;
 }
 .star-rating-container{
     width: 3vw;

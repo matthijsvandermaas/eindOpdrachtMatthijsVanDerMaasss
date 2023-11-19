@@ -46,7 +46,7 @@ export const AgeVerification = () => {
                 />
                 <button className="bttn " type="submit"><p>controleren</p></button>
                 {error && (
-                    <h5 className="error"><p style={{ color: '#fffef3', textShadow: '2px 2px 2px #2a365c' }}>Je bent nog geen 18, je moet nog even jaar wachten.</p></h5>
+                    <h5 className="error"><p style={{ color: '#fffef3', textShadow: '2px 2px 2px #2a365c' }}>Je bent nog geen 18, je moet nog even wachten.</p></h5>
                 )}
             </form>
             </div>

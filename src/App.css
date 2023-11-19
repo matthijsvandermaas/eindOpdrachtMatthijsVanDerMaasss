@@ -175,10 +175,7 @@ Table of Contents:
     height: 10vh;
     max-height: 400px;
     min-height: 200px;
-    /*background-image: url('../src/assets/logos and backgrounds/grain.svg');*/
-    /*background-size: cover;*/
-    /*background-position: center;*/
-    /*object-fit: contain;*/
+
 }
 .footer-container p{
     text-align: center;
@@ -279,9 +276,12 @@ p a {
     background-attachment: fixed;
     width: 99%;
     height: auto;
+
+    shadow-box: inset 10px 10px rgba(139, 69, 19, 0.01);
+    shadow-box: inset 10px 10px red;
 }
 .background_Home {
-    background-image: url('../src/assets/general pics/Bierbrouwerij-1140x4832.jpg');
+    background-image: url('src/assets/brewers/Bierbrouwerij-1140x4832.jpg');
     background-size: cover;
     background-position: center;
     width: inherit;
@@ -318,7 +318,6 @@ background: var(--background-gradient-color);
     background-attachment: fixed;
     width: 100%;
     height: auto;
-    box-shadow: inset 1000px 1000px rgba(139, 69, 19, 0.01);
 }
 .text-input {
 

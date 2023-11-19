@@ -1,4 +1,3 @@
-
 import React, { createContext, useEffect, useState } from "react";
 import jwt_Decode from "jwt-decode";
 
@@ -26,7 +25,6 @@ const AuthContextProvider = ({ children }) => {
                 });
             }
         };
-
         void fetchData();
     }, []);
 
@@ -54,13 +52,13 @@ const AuthContextProvider = ({ children }) => {
         });
     };
 
-    const contextData = {
-        ...authState,
-        logout: logout,
-        login: login,
-    };
+    const contextData = { ...authState, logout: logout, login: login };
 
-    return <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>;
+    return (
+        <AuthContext.Provider value={contextData}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
 
 export default AuthContextProvider;

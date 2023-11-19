@@ -5,6 +5,7 @@
     text-align: left;
     margin: 0 10px 0 10px;
 }
-.productInfo_content p h5 h4 {
-    font-weight: bold ;
+
+.productInfo_content p {
+    font-size: 1.4em;
 }

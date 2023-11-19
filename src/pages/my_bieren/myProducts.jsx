@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../pages/alle_bieren/AllProducts.css';
+import '../all_products/AllProducts.css';
 import CarouselComponent from '../../components/carousel/Carousel';
-import NieuweProductenComponent from '../../components/New_Product_Component/NieuweProductenComponents';
+import NieuweProductenComponent from '../../components/product_Component/NieuweProductenComponents';
 import { UseProductContext } from '../../components/productcontext/ProductContext';
 
 function MyProducts() {

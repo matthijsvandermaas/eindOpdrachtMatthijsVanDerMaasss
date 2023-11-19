@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react';
 import './Home.css';
 import Cubes from '../../components/cubes/Cubes';
 import Slider from '../../components/slider/Slider';
-import slider_Img_One from '../../assets/rockcity/rockcity_products.png';
-import slider_Img_Two from '../../assets/rockcity/rockcity_brewer.png';
-import slider_Img_Three from '../../assets/rockcity/rockcity_taps.png';
-import slider_Img_Four from '../../assets/rockcity/rockcity_ketel.jpg';
+import slider_Img_One from '../../assets/brewers/rockcity_products.png';
+import slider_Img_Two from '../../assets/brewers/rockcity_brewer.png';
+import slider_Img_Three from '../../assets/brewers/rockcity_taps.png';
+import slider_Img_Four from '../../assets/brewers/rockcity_ketel.jpg';
 
 
 
@@ -55,7 +55,7 @@ function Home() {
                 </div>
                 <Cubes
                     button_1={isAuth ? "Mijn bieren" : "Inschrijven"}
-                    navigate_1={isAuth ? "/mijn_bieren" : "/inschrijfformulier"}
+                    navigate_1={isAuth ? "/my_bieren" : "/inschrijfformulier"}
                     button_2={isAuth ? "Algemene bierkennis": "Inloggen"}
                     navigate_2={isAuth ? "/Productie_Informatie#algemene-informatie": "/signIn"}
                     button_3="Al onze producten"

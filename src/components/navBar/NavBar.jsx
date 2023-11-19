@@ -48,8 +48,8 @@ function Navbar() {
                     ) : (
                         <NavLink to="/signIn">Inloggen</NavLink>
                     )}
-                    <NavLink to={isAuth ?"/mijn_pagina"  : "/inschrijfformulier"}>
-                        {isAuth ? 'mijn_pagina' : 'inschrijven'}
+                    <NavLink to={isAuth ?"/my_page"  : "/inschrijfformulier"}>
+                        {isAuth ? 'my_page' : 'inschrijven'}
                     </NavLink>
                     {isBrewerOrAdmin && (
                         <NavLink to="/inschrijfformulier_product">

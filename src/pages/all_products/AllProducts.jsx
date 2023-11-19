@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './AllProducts.css';
 import CarouselComponent from '../../components/carousel/Carousel';
-import NieuweProductenComponent from '../../components/New_Product_Component/NieuweProductenComponents';
+import NieuweProductenComponent from '../../components/product_Component/NieuweProductenComponents';
 import axios from "axios";
 import {UseProductContext} from "../../components/productcontext/ProductContext";
 
@@ -35,7 +35,7 @@ function AllProducts() {
     };
 
     return (
-        <div className="informatie_container background">
+        <div className="informatie_container">
             <h1>alle bieren</h1>
             {renderUniqueProducts(products)}
         </div>
