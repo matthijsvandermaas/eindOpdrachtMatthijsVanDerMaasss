@@ -3,7 +3,6 @@ import axios from 'axios';
 import './InschrijfForm.css';
 import { useForm } from 'react-hook-form';
 import {Link, NavLink, useNavigate} from 'react-router-dom';
-import FormFileComponent from './FormFileCompontent';
 import Cubes from "../cubes/Cubes";
 
 function InschrijfFormProduct() {
@@ -107,8 +106,8 @@ function InschrijfFormProduct() {
                                 <option value="amber">Amber (20-30 EBC)</option>
                                 <option value="koper">Koper (30-45 EBC)</option>
                                 <option value="donker koper/bruin">Donker koper/bruin (45-75 EBC)</option>
-                                <option value="zeer donker bruin (doorschijnend)">Zeer donker bruin (doorschijnend) (>75 EBC)</option>
-                                <option value="zwart (niet doorschijnend)">Zwart (niet doorschijnend) (>120 EBC)</option>
+                                <option value="zeer donker bruin (doorschijnend)">Zeer donker bruin (doorschijnend) ( groter dan 75 EBC)</option>
+                                <option value="zwart (niet doorschijnend)">Zwart (niet doorschijnend) ( groter dan 120 EBC)</option>
                             </select>
                         </div>
                         <div>
@@ -116,15 +115,15 @@ function InschrijfFormProduct() {
                             <input name="volume" step="1.0" min="100.0" max="1000.0" type="number" id="volume"
                                    placeholder="Voer hier de indoud van het flesje in." {...register('volume', {required: 'volume is verplicht'})} />
                         </div>
-                        <div>
-                            <p>Vragen over de terminologie in het bierproces en omschrijving of wilt je meer informatie?</p>
-                            <p>Ga dan naar<NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}><strong> Hoe maak je bier</strong></NavLink>.</p>
-                        </div>
 
                         <button className="bttn" type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Bezig met een product toevoegen momentje...' : 'toevoegen'}
                                                 </button>
                     </form>
+                        <div>
+                            <p>Vragen over de terminologie in het bierproces en omschrijving of wilt je meer informatie?</p>
+                            <p>Ga dan naar<NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}><strong> Hoe maak je bier</strong></NavLink>.</p>
+                        </div>
                 </div>
                 <Cubes
                 button_1="Hoe maak je bier"

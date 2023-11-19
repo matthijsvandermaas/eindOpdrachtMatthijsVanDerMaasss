@@ -1,84 +1,73 @@
-import { useContext, useState } from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {AuthenticationContext} from "../../context/AuthenticationContext";
+import { AuthenticationContext } from "../../context/AuthenticationContext";
 import '../inschrijfform/InschrijfForm.css';
 
-// import {response} from "../../context/AuthenticationContext";
 
 
 function SignIn() {
     const [email, setEmail] = useState('');
-    const navigate = useNavigate();
     const [password, setPassword] = useState('');
-    const [error, toggleError] = useState(false);
-    const { login } = useContext(AuthenticationContext);
-    const [loading, toggleLoading] = useState(false);
+    const [role, setRole] = useState(''); // Voeg state toe voor het geselecteerde accounttype
+    const [error, setError] = useState(false);
+    const { loginContext } = useContext(AuthenticationContext);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+
+
+
     async function handleSubmit(e) {
-        e.preventDefault();
-        toggleError(false);
+            e.preventDefault();
+            setError(false);
+            setLoading(true);
+    try {
+    const response = await axios.post('http://localhost:3000/login', {
+        email,
+        password,
+        role,});
+        console.log(response.data);
+        console.log(response.data.accessToken);
+            loginContext(response.data.accessToken);
 
-        try {
-            const result = await axios.post('http://localhost:8081/Auth', {
-                email: "tonystark@starktech.com",
-                password: "ironman",
-                role: 'USER',
-
-            });
-            // log het resultaat in de console
-            console.log(result.data);
-            toggleLoading(true);
             navigate("/home");
-
-            // geef de JWT-token aan de login-functie van de context mee
-            login(result.data.accessToken);
-
-        } catch(e) {
+        } catch (e) {
             console.error(e);
-            toggleError(true);
-            toggleLoading(false);
-
+            setError(true);
+        } finally {
+            setLoading(false);
         }
     }
 
     return (
         <>
             <div className="form-container">
-            <h1>Inloggen</h1>
-                <form  className="form-content border_top_bottom background" onSubmit={handleSubmit}>
-                <label htmlFor="email">
-                    E-mailadres:
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </label>
-
-                <label htmlFor="password">
-                    Wachtwoord:
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </label>
-
-
-                    <button className="bttn"
-                            type="submit">
-                        Inschrijven
+                <h1>Inloggen</h1>
+                <form className="form-content border_top_bottom background" onSubmit={handleSubmit}>
+                    <label htmlFor="email">E-mailadres:
+                        <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </label>
+                    <label htmlFor="password">Wachtwoord:
+                        <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    </label>
+                    <label htmlFor="roles">Account type:
+                        <select name="roles" id="roles" value={role} onChange={(e) => setRole(e.target.value)}>
+                            <option value="" disabled>Ik ben een:</option>
+                            <option value='USER'>liefhebber</option>
+                            <option value='BREWER'>brouwer</option>
+                            <option value='ADMIN' disabled>beheerder</option>
+                        </select>
+                    </label>
+                    <button className="bttn" type="submit" disabled={loading}>
+                        {loading ? 'Momentje we zijn je an het zoeken...' : 'Inloggen'}
                     </button>
-            </form>
-
-            <p>Heb je nog geen account? <Link to="/inschrijfformulier"><strong>schrijf je snel in</strong></Link>.</p>
-                {error && <p className="error">Combinatie van e-mailadres en wachtwoord is onjuist</p>}
-
-        </div>
+                    {error && <p className="error">Combinatie van e-mailadres en wachtwoord is onjuist</p>}
+                </form>
+                <p>
+                    Heb je nog geen account? <Link to="/inschrijfformulier"><strong>schrijf je snel in</strong></Link>.
+                </p>
+            </div>
         </>
     );
 }
