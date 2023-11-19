@@ -3,7 +3,7 @@ import axios from 'axios';
 import './InschrijfForm.css';
 import { useForm } from 'react-hook-form';
 import {Link, NavLink, useNavigate} from 'react-router-dom';
-import FormFileComponent from './FormFileCompontent.jsx';
+import FormFileComponent from './FormFileCompontent';
 import Cubes from "../cubes/Cubes";
 
 function InschrijfFormProduct() {
@@ -11,76 +11,43 @@ function InschrijfFormProduct() {
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const [fileData, setFileData] = useState({ file: null });
     const algemene_infoRef = useRef(null);
-    const [fileData2, setFileData2] = useState({ file: null });
+
 
 
     const scrollToAlgemene_info = () => {
         algemene_infoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });    };
 
-    async function handleFormSubmit(formData) {
+    async function handleFormSubmit(data) {
+        const newData = { ...data };
         setIsSubmitting(true);
+        console.log(newData);
 
         try {
-            const createProductWithPhoto = await axios.post(
-                'http://localhost:8081/products/createProduct',
-                formData,
-                {
-                    headers: {'Content-Type': 'multipart/form-data'},
-                    withCredentials: true,
-                }
-            );
-            console.log('De gegevens zijn verstuurd',formData, createProductWithPhoto.data);
-        } catch (e) {
-            console.error('Er gaat iets fout met het verwerken van de gegevens', e);
-            setErrorMessage('Er gaat iets fout met het verwerken van de gegevens: ' + e.message);
-        } finally {
-            setIsSubmitting(false);
-            console.log('Form submission completed');
-        }
-    }
-
-    async function handleFileSubmit() {
-        setIsSubmitting(true);
-        const fileInfo = new FormData();
-        if (fileData.file) {
-            fileInfo.append('file', fileData.file);
-        }
-
-        const fileInfo2 = new FormData();
-        if (fileData2.file) {
-            fileInfo2.append('file', fileData2.file);
-        }
-
-        try {
-            // Verstuur beide bestanden naar de server
-            const createProductWithPhoto = await axios.post('http://localhost:8081/fileDocuments/upload', fileInfo, {
-                headers: { 'Content-Type': 'multipart/form-data' },
+            await axios.post('http://localhost:8081/products/createProduct', newData, {
+                headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
-
-            const createProductWithPhoto2 = await axios.post('http://localhost:8081/fileDocuments/upload', fileInfo2, {
-                headers: { 'Content-Type': 'multipart/form-data' },
-                withCredentials: true,
-            });
-
-            console.log('De gegevens zijn verstuurd', fileInfo, createProductWithPhoto.data);
-            console.log('De gegevens van het tweede bestand zijn verstuurd', fileInfo2, createProductWithPhoto2.data);
+            navigate('/alle_producten');
+            console.log("De gegevens zijn verstuurd");
+            console.log(newData);
+            console.log(newData);
         } catch (e) {
-            console.error('Er gaat iets fout met het verwerken van de files', e);
-            setErrorMessage('Er gaat iets fout met het verwerken van de files: ' + e.message);
+            console.error("Er gaat iets fout met het verwerken van de gegevens", e);
+            setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: " + e.message);
+            navigate('/*');
         } finally {
             setIsSubmitting(false);
-            console.log('Product form submission completed');
+            console.log("Product form submission completed");
         }
     }
 
         return (
+            <>
             <div className="form-container">
                 <h1>Bier toevoegen</h1>
-                <div className="form-content" >
-                    <form className="background  border_top_bottom" onSubmit={handleSubmit(handleFormSubmit)} encType="multipart/form-data">
+                <div>
+                    <form className=" form-container form-content border_top_bottom background" onSubmit={handleSubmit(handleFormSubmit)}>
                         <div>
                         <label>Productnaam:</label>
                         <input name="Productnaam" type="text" id="productName"
@@ -121,14 +88,14 @@ function InschrijfFormProduct() {
                             </select>
                         </div>
                         <div>
-                            <label>Alcoholpercentage:</label>
+                            <label>Alcohol%:</label>
                             <input name="alcohol" type="number" step="0.1" min="0.1" max="14.0" id="alcohol"
                                    placeholder="Voer hier het alcohol% van het bier in." {...register('alcohol', {required: 'alcohol % is verplicht'})} />
                         </div>
                         <div>
                             <label>IBU</label>
                             <input name="IBU" step="0.1" min="0.1" type="number" id="ibu"
-                                   placeholder="Voer hier de IBU van het bier in."{...register('ibu is niet verplicht')}/>
+                                   placeholder="Voer hier de IBU van het bier in."{...register('ibu', { required: false })}/>
                         </div>
                         <div>
                             <label>Kleur:</label>
@@ -153,15 +120,13 @@ function InschrijfFormProduct() {
                             <p>Vragen over de terminologie in het bierproces en omschrijving of wilt je meer informatie?</p>
                             <p>Ga dan naar<NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}><strong> Hoe maak je bier</strong></NavLink>.</p>
                         </div>
-                        <div className="border_top_bottom background"  >
-                            <FormFileComponent setFileData={setFileData} OnChangeLink={handleFileSubmit}/>
-                            <FormFileComponent setFileData={setFileData2} OnChangeLink={handleFileSubmit} />                        </div>
+
                         <button className="bttn" type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Bezig met een product toevoegen momentje...' : 'toevoegen'}
                                                 </button>
                     </form>
-
-                </div> <Cubes
+                </div>
+                <Cubes
                 button_1="Hoe maak je bier"
                 navigate_1="/productie_Informatie"
                 button_2="Het drankorgel"
@@ -173,6 +138,7 @@ function InschrijfFormProduct() {
             />
 
             </div>
+            </>
         );
     }
 export default InschrijfFormProduct;

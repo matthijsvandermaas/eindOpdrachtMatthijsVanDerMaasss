@@ -19,10 +19,6 @@ function Error() {
                 Je hebt een glaasje teveel op denk ik, <br/>
                 {isAuth ? 'waar je was?' : <span>ga naar <Link to="/home"><strong>Home</strong></Link></span>}
             </h1>
-            <div className="text-content content_1">
-                <Text_component Text_Header="" />
-                <div className="error-image"></div>
-            </div>
             <Cubes
                 button_1="inschrijven"
                 navigate_1="/inschrijfformulier"

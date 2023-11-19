@@ -14,10 +14,9 @@ function InschrijfForm() {
     async function handleFormSubmit(data) {
         const newData = { ...data, roles: [data.roles] };
         setIsSubmitting(true);
-        console.log(data);
-
+        console.log(newData);
         try {
-            const createUser = await axios.post('http://localhost:8081/users/createUser', newData, {
+            await axios.post('http://localhost:8081/users/createUser', newData, {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
@@ -76,6 +75,7 @@ function InschrijfForm() {
                             {isSubmitting ? 'Momentje ik kom zo bij u...' : 'toevoegen'}
                         </button>
                     </form>
+                </div>
                     <Cubes
                         button_1="Hoe maak je bier"
                         navigate_1="/productie_Informatie"
@@ -86,7 +86,7 @@ function InschrijfForm() {
                         button_4="News"
                         navigate_4="/news"
                     />
-                </div>
+
             </div>
         </>
     );
