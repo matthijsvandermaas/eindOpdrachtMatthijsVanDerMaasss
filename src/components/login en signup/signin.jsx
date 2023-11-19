@@ -16,8 +16,6 @@ function SignIn() {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-
-
     async function handleSubmit(e) {
             e.preventDefault();
             setError(false);
@@ -56,7 +54,7 @@ function SignIn() {
                             <option value="" disabled>Ik ben een:</option>
                             <option value='USER'>liefhebber</option>
                             <option value='BREWER'>brouwer</option>
-                            <option value='ADMIN' disabled>beheerder</option>
+                            <option value='ADMIN'>beheerder</option>
                         </select>
                     </label>
                     <button className="bttn" type="submit" disabled={loading}>

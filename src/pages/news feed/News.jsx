@@ -1,6 +1,7 @@
 import * as React from 'react';
 import TextComponent from "../../components/texts_components/Text-component";
-import IBU from "../../assets/hoe maak je bier/ibu.jpg";
+import IMG from "../../assets/general pics/img.png";
+import Bierkroket from "../../assets/biernews/Cornet-en-Rodenbach-kroketten.png";
 
 
 
@@ -14,39 +15,40 @@ function News() {
         <div className="text-component">
             <div className="border_top_left  background">
                 <h1>bier nieuws</h1>
-            <TextComponent
-                Text_Header="titel1"
-                Text_Message1={["Hier komt het nieuws."]}
-            />
                 <TextComponent
-                    Text_Header="titel1"
-                    Text_Message1={["Hier komt het nieuws."]}
+                    Text_Header="House of Bird Kwintelooijen"
+                    Text_Message1={["Op de Kwintelooijen is een nieuw bier gebrouwen door de brouwerij van Kwintelooijen. Op 2 december zal 'House of Bird Kwintelooijen' zijn deuren openen. Dit is het eerste proeflokaal en brouwer op de Kwintelooijen. Je kunt hier een biertje proeven, lekker lunchen of koffie drinken daarnaast wordt er voor elke liter gebrouwen bier wordt een boom geplant."]}
                 />
-                    <img className="general_Img" src={IBU} alt="IBU tabel"/>
+                <TextComponent
+                    Text_Header="Brouwerijen Rodenbach en Cornet lanceren kroketten."
+                    Text_Message1={[
+                        "Voor de ontwikkeling van de Rodenbach garnalenkroket en de Cornet kaaskroket gingen de brouwers van Rodenbach en Cornet te rade bij de ambachtelijke kroketten-maker Bubba, bij de consument onder andere bekend voor hun merkwaardige aanwezigheid onder de vorm van een vuurtoren op de 32 grootste markten van België.",
 
-                <TextComponent
-                    Text_Header="titel1"
-                    Text_Message1={["Hier komt het nieuws."]}
+                        "Sinds 1997 verkoopt Bubba door heel België verse, artisanale kroketten van hoge kwaliteit.",
+                        "De huisgemaakte kroketten worden bereid met de beste ingrediënten zodat de authentieke smaak gegarandeerd kan worden. Samen met de brouwers werd nagedacht over de ontwikkeling van een kroket waarin enerzijds Rodenbach en anderzijds Cornet is verwerkt."
+                    ]}
                 />
+                <img className="general_Img" src={Bierkroket} alt="foto van bierkroketen"/>
+
             </div>
         </div>
-            <div className="text-component">
+            <div className="text-component background_fade2">
             <div className="border_top_left background2">
 
                 <h1>Bier agenda</h1>
                 <TextComponent
-                    Text_Header="agenda punt1"
-                    Text_Message1={["Hier komt het nieuws."]}
+                    Text_Header="Opening House of Bird Kwintelooijen"
+                    Text_Message1={[
+                        "2 december 2023",
+                        <p key="link"><a href="https://www.houseofbird.nl/kwintelooijen/" target="_blank" rel="noopener noreferrer">https://www.houseofbird.nl/kwintelooijen/</a></p>
+                    ]}
                 />
+
                 <TextComponent
-                    Text_Header="agenda punt1"
-                    Text_Message1={["Hier komt het nieuws."]}
+                    Text_Header="agenda punt2"
+                    Text_Message1={["Hier komt de omschrijving."]}
                 />
-                <TextComponent
-                    Text_Header="agenda punt1"
-                    Text_Message1={["Hier komt het nieuws."]}
-                />
-                <img className="general_Img" src={IBU} alt="IBU tabel"/>
+                <img className="general_Img" src={IMG} alt="IBU tabel"/>
 
         </div>
             </div>
