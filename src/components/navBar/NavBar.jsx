@@ -1,13 +1,13 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useRef, useState, useContext } from 'react';
+import React, {useRef, useState, useContext} from 'react';
 import './navbar.css';
-import { NavLink, useNavigate } from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Navbar() {
     const hetProcesRef = useRef(null);
     const algemene_infoRef = useRef(null);
-    const { isAuth, logout } = useContext(AuthContext);
+    const {isAuth, logout} = useContext(AuthContext);
     const navigate = useNavigate();
     const roles = ['USER', 'BREWER']; // Replace this with your actual roles
     const isBrewerOrAdmin = roles.includes('BREWER') || roles.includes('ADMIN');
@@ -17,11 +17,11 @@ function Navbar() {
     };
 
     const scrollToHetProces = () => {
-        hetProcesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        hetProcesRef.current.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
     };
 
     const scrollToAlgemene_info = () => {
-        algemene_infoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        algemene_infoRef.current.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
     };
 
     const [submenuStatus, setSubmenuStatus] = useState({
@@ -41,16 +41,19 @@ function Navbar() {
             <ul className="navList">
                 <li>
                     <NavLink to="/home">Home</NavLink>
+                    <NavLink to="/inschrijfformulier">Inschrijven</NavLink>
                     {isAuth ? (
                         <NavLink to="/home" onClick={handleLogout}>
-                            Logout
+                            uitloggen
                         </NavLink>
                     ) : (
                         <NavLink to="/signIn">Inloggen</NavLink>
                     )}
-                    <NavLink to={isAuth ?"/my_page"  : "/inschrijfformulier"}>
-                        {isAuth ? 'my_page' : 'inschrijven'}
-                    </NavLink>
+                    {isAuth ? (
+                        <NavLink to='/my_page'> Mijn gegevens</NavLink>
+                    ) : (
+                        <NavLink to=''></NavLink>
+                    )}
                     {isBrewerOrAdmin && (
                         <NavLink to="/inschrijfformulier_product">
                             Een biertje toevoegen

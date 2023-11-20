@@ -18,7 +18,7 @@ import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
 import Music from './pages/music/DrankOrgel';
 import { Footer } from "./components/footer/Footer";
-// import InEnDecreaseFont  from "../src/helpers/InEnDecreaseFont";
+import Profile from "./pages/my_page/Profile";
 
 
 
@@ -93,6 +93,7 @@ function App() {
                         <Route path="/home" element={<Home />} />
                         {!verificationDone && <Route exact path="/" element={<AgeVerification handleAgeVerification={handleAgeVerification} />} />}
                         <Route path="/inschrijfformulier" element={<InschrijfForm />} />
+                        <Route path="/profile" element={<Profile />} />
                         <Route path="/mijn_bieren" element={<Mijn_bieren />} />
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />

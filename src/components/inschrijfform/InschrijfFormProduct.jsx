@@ -27,15 +27,16 @@ function InschrijfFormProduct() {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
-            navigate('/alle_producten');
+            // navigate('/alle_producten');
             console.log("De gegevens zijn verstuurd");
             console.log(newData);
             console.log(newData);
         } catch (e) {
             console.error("Er gaat iets fout met het verwerken van de gegevens", e);
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: " + e.message);
-            navigate('/*');
+            // navigate('/*');
         } finally {
+            // navigate('/alle_producten');
             setIsSubmitting(false);
             console.log("Product form submission completed");
         }
