@@ -29,7 +29,7 @@ function Profile() {
             if (userData) {
                 userData.forEach((user) => {
                     jsxElements.push(
-                        <div className=" form-content border_top_left"key={user.id}>
+                        <div className=" form-content border_top_left background" key={user.id}>
                             <h2>Gebruiker: {user.username}</h2>
                             <p>Voornaam: {user.firstName}</p>
                             <p>Achternaam: {user.lastName}</p>
@@ -45,7 +45,8 @@ function Profile() {
         return (
             <>
             <div >
-                <form className="form-content background">
+                <h1>Mijn gegevens</h1>
+                <form className="form-content">
                     {buildUserInfo(userData)}
                 </form>
                 <Cubes

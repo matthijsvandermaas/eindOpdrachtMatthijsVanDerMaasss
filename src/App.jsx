@@ -5,13 +5,13 @@ import logoImageKlein from './assets/logos and backgrounds/B & B logo2 klein.jpg
 import wheat from './assets/logos and backgrounds/wheat.png';
 import Navbar from "./components/navBar/Navbar.jsx";
 import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
-import InschrijfForm from "./components/inschrijfform/InschrijfForm.jsx";
+import InschrijfForm from "./pages/signupform/InschrijfForm.jsx";
 import ProductieInformatie from "./pages/hoe maak je bier/Productie_Informatie";
-import Inschrijf_Form_Product from "./components/inschrijfform/InschrijfFormProduct";
+import Inschrijf_Form_Product from "./pages/signupform/InschrijfFormProduct.jsx";
 import AlleBieren from "./pages/all_products/AllProducts";
 import SignIn from "./pages/signin/signin";
 import Error from "./pages/error/Error";
-import Mijn_bieren from "./pages/my_bieren/myProducts";
+// import Mijn_bieren from "./pages/my_bieren/myProducts";
 import Home from './pages/Home/Home';
 import AgeVerification from './components/agecheck/AgeVerification';
 import Feedback from './pages/feedback/Feedback';
@@ -77,9 +77,9 @@ function App() {
                     <div className="headerlogo-container">
                         <NavLink to="/home"><img  className="logo-img" src={logoSrc} alt="B&B Logo" /></NavLink>
                         <div className="dropdown">
-                            <button className="navBar-bttn">
-                                <img className="small_logo" src={wheat} alt="wheat-logo" />
-                                <h1 style={{ textShadow: "none" }}>menu</h1>
+                            <button className="navBar-bttn headerlogo-container ">
+                               <img className="small_logo" src={wheat} alt="wheat-logo"/>
+                                <h1 className="h1-header" style={{ textShadow: "none", zIndex:"0"}}>menu</h1>
                             </button>
                             <Navbar activeTab={activeTab} handleTabChange={handleTabChange} />
                         </div>
@@ -94,7 +94,7 @@ function App() {
                         {!verificationDone && <Route exact path="/" element={<AgeVerification handleAgeVerification={handleAgeVerification} />} />}
                         <Route path="/inschrijfformulier" element={<InschrijfForm />} />
                         <Route path="/profile" element={<Profile />} />
-                        <Route path="/mijn_bieren" element={<Mijn_bieren />} />
+                        {/*<Route path="/mijn_bieren" element={<Mijn_bieren />} />*/}
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />
                         <Route path="/alle_producten" element={<AlleBieren />} />

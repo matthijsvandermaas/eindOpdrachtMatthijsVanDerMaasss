@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './AllProducts.css';
-import CarouselComponent from '../../components/carousel/Carousel';
+import Cubes from "../../components/cubes/Cubes";
 import axios from "axios";
 
-import Cubes from "../../components/cubes/Cubes";
-import Carousel from "../../components/carousel/Carousel";
+
 
 function AllProducts() {
     const [productsData, setProductsData] = useState(null);
@@ -30,9 +29,9 @@ function AllProducts() {
         if (productsData) {
             productsData.forEach((products) => {
                 jsxElements.push(
-                    <div className=" form-content border_top_left" key={products.id}>
+                    <div className=" form-content border_top_left  background" key={products.id}>
                         <h2>product naam: {[products].productName}</h2>
-                        <h2>naam brouwer: {[products].nameBrewer}</h2>
+                        <p>naam brouwer: {[products].nameBrewer}</p>
                         <p>productie locatie: {[products].productionlocation}</p>
                         <p>smaak: {[products].tast}</p>
                         <p>biertype: {[products].type}</p>
@@ -40,7 +39,9 @@ function AllProducts() {
                         <p>IBU: {[products].ibu}</p>
                         <p>kleur: {[products].color}</p>
                         <p>volume: {[products].volume}</p>
+
                     </div>
+
                 );
             });
         }
@@ -51,23 +52,24 @@ function AllProducts() {
 
     return (
         <>
-
-            <div >
-                <form className="form-content background">
+            <div>
+                <h1>Alle bieren</h1>
+                <form className="form-content">
                     {buildProductsInfo(productsData)}
-                    <CarouselComponent />
+
                 </form>
-    <Cubes
-        button_1="Hoe maak je bier"
-        navigate_1="/productie_Informatie"
-        button_2="Het drankorgel"
-        navigate_2="/drankorgel"
-        button_3="Home"
-        navigate_3="/home"
-        button_4="News"
-        navigate_4="/news"
-    />
-                </div>
+
+                <Cubes
+                    button_1="Hoe maak je bier"
+                    navigate_1="/productie_Informatie"
+                    button_2="Het drankorgel"
+                    navigate_2="/drankorgel"
+                    button_3="Home"
+                    navigate_3="/home"
+                    button_4="News"
+                    navigate_4="/news"
+                />
+            </div>
         </>
     );
 }

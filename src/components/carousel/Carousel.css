@@ -1,16 +1,23 @@
-.carousel  {
-    box-shadow: var(--box-shadow_1);
-}
-
 
 .carousel {
     box-shadow: var(--box-shadow_1);
     max-width: 25vw;
     max-height: 30vh;
-    width: auto;
+    width: 50vw;
     height: auto;
     border-radius: var(--border-radius);
     overflow: hidden;
+    margin: auto 0;
+}
+
+.carousel:hover {
+    box-shadow: var(--box-shadow_2);
+}
+.carousel-item{;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--border-radius-form);
 }
 .img-carousel {
     width: 100%;

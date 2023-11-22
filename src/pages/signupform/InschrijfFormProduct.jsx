@@ -2,14 +2,14 @@ import React, {useRef, useState} from 'react';
 import axios from 'axios';
 import './InschrijfForm.css';
 import { useForm } from 'react-hook-form';
-import {Link, NavLink, useNavigate} from 'react-router-dom';
-import Cubes from "../cubes/Cubes";
+import { NavLink, useNavigate} from 'react-router-dom';
+import Cubes from "../../components/cubes/Cubes.jsx";
 
 function InschrijfFormProduct() {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState("");
     const algemene_infoRef = useRef(null);
 
 
@@ -31,9 +31,11 @@ function InschrijfFormProduct() {
             console.log("De gegevens zijn verstuurd");
             console.log(newData);
             console.log(newData);
+            navigate('/alle_producten');
         } catch (e) {
             console.error("Er gaat iets fout met het verwerken van de gegevens", e);
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: " + e.message);
+            navigate('/*');
             // navigate('/*');
         } finally {
             // navigate('/alle_producten');
@@ -93,8 +95,8 @@ function InschrijfFormProduct() {
                                    placeholder="Voer hier het alcohol% van het bier in." {...register('alcohol', {required: 'alcohol % is verplicht'})} />
                         </div>
                         <div>
-                            <label>IBU</label>
-                            <input name="IBU" step="0.1" min="0.1" type="number" id="ibu"
+                            <label>IBU:</label>
+                            <input name="IBU" step="1" min="1" type="number" id="ibu"
                                    placeholder="Voer hier de IBU van het bier in."{...register('ibu', { required: false })}/>
                         </div>
                         <div>
@@ -112,18 +114,16 @@ function InschrijfFormProduct() {
                             </select>
                         </div>
                         <div>
-                            <label>Volume(cc):</label>
-                            <input name="volume" step="1.0" min="100.0" max="1000.0" type="number" id="volume"
-                                   placeholder="Voer hier de indoud van het flesje in." {...register('volume', {required: 'volume is verplicht'})} />
+                            <label data-inhoud="(1 dl is 100 cc)">⍰Volume(in cc):</label>
+                            <input name="volume" step="1" min="100" max="1000" type="number" id="volume"  placeholder="Voer hier de inhoud in." {...register('volume', {required: 'volume is verplicht'})} />
                         </div>
-
+                        {errorMessage && <p className="error-message">{errorMessage}</p>}
                         <button className="bttn" type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Bezig met een product toevoegen momentje...' : 'toevoegen'}
                                                 </button>
                     </form>
                         <div>
-                            <p>Vragen over de terminologie in het bierproces en omschrijving of wilt je meer informatie?</p>
-                            <p>Ga dan naar<NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}><strong> Hoe maak je bier</strong></NavLink>.</p>
+                            <p>Vragen over de terminologie in het bierproces en omschrijving of wilt je meer informatie, ga dan naar<NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}><strong> Hoe maak je bier</strong></NavLink>.</p>
                         </div>
                 </div>
                 <Cubes

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import './InschrijfForm.css';
-import Cubes from "../cubes/Cubes";
+import Cubes from "../../components/cubes/Cubes.jsx";
 
 function InschrijfForm() {
     const navigate = useNavigate();
@@ -59,8 +59,10 @@ function InschrijfForm() {
                             <label>Bedrijfsnaam:</label>
                         <input name="Bedrijfsnaam" type="text" id="company" placeholder="Voer hier je bedrijfsnaam in." {...register('company')} />
                         </div>
+                        <div>
                             <label>e-mail:</label>
                         <input type="email" id="email" placeholder="Voer hier je e-mailadres in." {...register('email', { required: 'E-mail is verplicht' })} />
+                        </div>
                         <div>
                         <label>Account type:</label>
                         <select name="roles" id="roles" {...register('roles', { required: 'Brouw je bier of drink je het alleen?' })}>

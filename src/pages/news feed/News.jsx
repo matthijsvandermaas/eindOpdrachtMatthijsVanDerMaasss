@@ -4,6 +4,8 @@ import IMG from "../../assets/general pics/img.png";
 import Bierkroket from "../../assets/newsfeed/Cornet-en-Rodenbach-kroketten.png";
 import logo_small from "../../assets/logos and backgrounds/B & B logo2 klein.jpg";
 import Hob from "../../assets/newsfeed/HoB.jpeg";
+import CarouselComponent from "../../components/carousel/Carousel.jsx";
+
 
 
 
@@ -50,15 +52,16 @@ function News() {
                         <p key="link"><a href="https://www.houseofbird.nl/kwintelooijen/" target="_blank" rel="noopener noreferrer">www.houseofbird.nl</a></p>
                     ]}
                 />
-                <img className="general_Img" src={Hob} alt="House of Bird brouwerij"/>
+                <CarouselComponent src1={Hob} alt1="House of Bird" src2={IMG} alt2="foto1" />
                 <TextComponent
                     Text_Header="Lancering Beers & Brewskys"
                     Text_Message1={["... december 2023",
                     <p key="link"><a href="https://localhost:5173/home" target="_blank" rel="noopener noreferrer">www.beersandbrewskys.nl</a></p>]}
                 />
-                <img className="general_Img" src={logo_small} alt="B&B logo"/>
+                <img className="general_Img" src={IMG} alt="img"/>
 
-        </div>
+
+            </div>
             </div>
 
 </div>

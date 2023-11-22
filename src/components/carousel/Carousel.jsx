@@ -6,7 +6,6 @@ import { Carousel } from 'react-responsive-carousel';
 import './Carousel.css';
 
 
-// eslint-disable-next-line react/prop-types
 function CarouselComponent({ src1, src2,  alt1, alt2}) {
     return (
         <>

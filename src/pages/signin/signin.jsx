@@ -2,8 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
-import '../../components/inschrijfform/InschrijfForm.css';
-import jwt_Decode from "jwt-decode";
+import '../signupform/InschrijfForm.css';
 
 function SignIn() {
     const [email, setEmail] = useState('');
@@ -22,6 +21,12 @@ function SignIn() {
 
         try {
             const token = localStorage.getItem('token');
+            console.log("Token in localStorage:", token);
+            if(!token){
+                console.log("token is null");
+            }else{
+                console.log("token is not null");
+            }
             const response = await axios.post("http://localhost:8081/authenticate", {
                 username: email,
                 password,
@@ -30,10 +35,10 @@ function SignIn() {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
-                },
+                }
+
             });
             console.log('Authorization Header:', `Bearer ${token}`);
-
             console.log(response.data);
             console.log(response.data.accessToken);
 
@@ -42,6 +47,7 @@ function SignIn() {
         } catch (e) {
             console.error(e);
             setError(true);
+            localStorage.removeItem('token');
         } finally {
             setLoading(false);
         }
@@ -75,7 +81,7 @@ function SignIn() {
                     </button>
                     {error && <p className="error">Combinatie van e-mailadres en wachtwoord is onjuist.</p>}
                 </form>
-                <p>Heb je nog geen account? <Link to="/inschrijfformulier"><strong>schrijf je snel in!</strong></Link></p>
+                <p>Heb je nog geen account? <Link to="/inschrijfformulier">schrijf je snel in!</Link></p>
             </div>
         </>
     );
