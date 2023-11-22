@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import Text_component from '../../components/texts_components/Text-component';
 import Cubes from '../../components/cubes/Cubes';
 import { Link } from 'react-router-dom';
 import './Error.css';

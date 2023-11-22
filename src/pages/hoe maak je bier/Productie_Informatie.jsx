@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';import './Productie_Informatie.css';
+import React, { useState, useRef, useEffect } from 'react';
 import '../../components/navBar/NavBar.css';
 import Text_component from "../../components/texts_components/Text-component";
 import hop from "../../assets/hoe maak je bier/hop.png"
@@ -34,22 +34,18 @@ function Productie_Informatie() {
             targetRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
         }
     }, []);
-
     const handleMouseEnter = (item) => {
         setDropdownStates((prevStates) => ({
             ...prevStates,
             [item]: true,
         }));
     };
-
     const handleMouseLeave = (item) => {
         setDropdownStates((prevStates) => ({
             ...prevStates,
             [item]: false,
         }));
     };
-
-
     return (
         <>
             <div className="informatie_container background ">
@@ -195,7 +191,6 @@ function Productie_Informatie() {
                                 </div>
                             )}
                         </div>
-
                         <div className="text-image">
                             <img src={hop} alt="Hop"/>
                         </div>
@@ -220,7 +215,6 @@ function Productie_Informatie() {
                                 </div>
                             )}
                         </div>
-
                         <div className="text-image">
                             <img src={malt} alt="mout"/>
                         </div>
@@ -238,7 +232,6 @@ function Productie_Informatie() {
                                 </div>
                             )}
                         </div>
-
                         <div className="text-image">
                             <img src={water} alt="water"/>
                         </div>
@@ -258,7 +251,6 @@ function Productie_Informatie() {
                                 </div>
                             )}
                         </div>
-
                         <div className="text-image">
                             <img src={gist} alt="gist"/>
                         </div>

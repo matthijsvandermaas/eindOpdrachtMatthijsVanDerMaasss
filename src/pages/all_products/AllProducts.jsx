@@ -13,15 +13,14 @@ function AllProducts() {
         // Haal gebruikersgegevens op van de API
         const fetchUserData = async () => {
             try {
-                const response = await fetch('http://localhost:8081/products');
-                const data = await response.json();
-                setProductsData(data);
+                const response = await axios.get('http://localhost:8081/products');
+                setProductsData(response.data);
             } catch (error) {
                 console.error('Fout bij het ophalen van productgegevens:', error);
             }
         };
 
-        fetchUserData();
+       void fetchUserData();
     }, []);
 
     const buildProductsInfo = (productsData) => {
@@ -30,15 +29,15 @@ function AllProducts() {
             productsData.forEach((products) => {
                 jsxElements.push(
                     <div className=" form-content border_top_left  background" key={products.id}>
-                        <h2>product naam: {[products].productName}</h2>
-                        <p>naam brouwer: {[products].nameBrewer}</p>
-                        <p>productie locatie: {[products].productionlocation}</p>
-                        <p>smaak: {[products].tast}</p>
-                        <p>biertype: {[products].type}</p>
-                        <p>alcohol %: {[products].alcohol}</p>
-                        <p>IBU: {[products].ibu}</p>
-                        <p>kleur: {[products].color}</p>
-                        <p>volume: {[products].volume}</p>
+                        <h2>product naam: {products.productName}</h2>
+                        <p>naam brouwer: {products.nameBrewer}</p>
+                        <p>productie locatie: {products.productionlocation}</p>
+                        <p>smaak: {products.tast}</p>
+                        <p>biertype: {products.type}</p>
+                        <p>alcohol %: {products.alcohol}</p>
+                        <p>IBU: {products.ibu}</p>
+                        <p>kleur: {products.color}</p>
+                        <p>volume: {products.volume}</p>
 
                     </div>
 

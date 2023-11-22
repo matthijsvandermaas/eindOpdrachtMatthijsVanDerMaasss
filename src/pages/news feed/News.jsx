@@ -4,14 +4,10 @@ import IMG from "../../assets/general pics/img.png";
 import Bierkroket from "../../assets/newsfeed/Cornet-en-Rodenbach-kroketten.png";
 import logo_small from "../../assets/logos and backgrounds/B & B logo2 klein.jpg";
 import Hob from "../../assets/newsfeed/HoB.jpeg";
+import Orloff from "../../assets/newsfeed/CafeOrloff.jpeg";
 import CarouselComponent from "../../components/carousel/Carousel.jsx";
 
-
-
-
 function News() {
-
-
     return (
         <>
         <div className="outer_news_Container">
@@ -22,11 +18,11 @@ function News() {
                 <TextComponent
                     Text_Header="lancering Beers & Brewskys"
                     Text_Message1={["Op ... december zal Beers & Breskys online komen ," +
-                    "Het nieuwe platform voor bierliefhebbers en brouwers om hun passie te delen over dit gezellige en ambachtelijke product."]}
+                    " Het nieuwe platform voor bierliefhebbers en brouwers om hun passie te delen over dit gezellige en ambachtelijke product."]}
                 />
                 <TextComponent
                     Text_Header="House of Bird Kwintelooijen"
-                    Text_Message1={["Op de Kwintelooijen is een nieuw bier gebrouwen door de brouwerij van Kwintelooijen. Op 2 december zal 'House of Bird Kwintelooijen' zijn deuren openen. Dit is het eerste proeflokaal en brouwer op de Kwintelooijen. Je kunt hier een biertje proeven, lekker lunchen of koffie drinken daarnaast wordt er voor elke liter gebrouwen bier wordt een boom geplant."]}
+                    Text_Message1={["Op de Kwintelooijen wordt er bier gebrouwen door de brouwerij van Kwintelooijen. Op 2 december zal 'House of Bird Kwintelooijen' zijn deuren openen. Dit is het eerste proeflokaal en brouwer op de Kwintelooijen. Je kunt hier een biertje proeven, lekker lunchen of koffie drinken daarnaast wordt er voor elke liter gebrouwen bier wordt een boom geplant."]}
                 />
                 <TextComponent
                     Text_Header="Brouwerijen Rodenbach en Cornet lanceren kroketten."
@@ -38,12 +34,10 @@ function News() {
                     ]}
                 />
                 <img className="general_Img" src={Bierkroket} alt="foto van bierkroketen"/>
-
             </div>
         </div>
             <div className="text-component background_fade2">
-            <div className="border_top_left background2">
-
+                <div className="border_top_left background2">
                 <h1>Bier agenda</h1>
                 <TextComponent
                     Text_Header="Opening House of Bird Kwintelooijen"
@@ -58,15 +52,11 @@ function News() {
                     Text_Message1={["... december 2023",
                     <p key="link"><a href="https://localhost:5173/home" target="_blank" rel="noopener noreferrer">www.beersandbrewskys.nl</a></p>]}
                 />
-                <img className="general_Img" src={IMG} alt="img"/>
-
-
+                <CarouselComponent src1={logo_small} alt1="logo BenB" src2={Orloff} alt2="Cakfe Orloff Utrecht" />
+                </div>
             </div>
-            </div>
-
 </div>
         </>
     );
 }
-
 export default News;

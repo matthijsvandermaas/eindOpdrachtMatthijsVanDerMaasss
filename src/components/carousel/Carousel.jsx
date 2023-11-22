@@ -1,11 +1,11 @@
-// TravelCarousel-component
-// eslint-disable-next-line no-unused-vars
+
 import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import './Carousel.css';
 
 
+// eslint-disable-next-line react/prop-types
 function CarouselComponent({ src1, src2,  alt1, alt2}) {
     return (
         <>

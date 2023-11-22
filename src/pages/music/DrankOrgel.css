@@ -1,5 +1,5 @@
 
-
+/*Font*/
 .font_music_page {
     font-family: "Comic Sans MS", "cursive", "Brush Script", cursive;
     color: saddlebrown;
@@ -8,7 +8,7 @@
     color: #fbb026;
 
 }
-
+/*Buttons*/
 .music-btn {
     width: 14vw;
     max-width: 400px;

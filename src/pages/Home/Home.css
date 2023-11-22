@@ -1,12 +1,5 @@
-.text-row {
-    border: none;
-    background-size: cover;
-    background-position: center;
-    object-fit: contain;
-}
-.text-content{
-    width: 80vw;
-}
+
+/*//Img*/
 .home_Img {
     justify-content: flex-end;
     justify-self: flex-end;
@@ -16,8 +9,5 @@
 .home_Img img {
     justify-self: flex-end;
     max-width: 15vw;
-}
-.text-component-dropdown{
-    padding-top: 50px;
 }
 

@@ -43,35 +43,21 @@ function Navbar() {
                     <NavLink to="/home">Home</NavLink>
                     <NavLink to="/inschrijfformulier">Inschrijven</NavLink>
                     {isAuth ? (
-                        <NavLink to="/home" onClick={handleLogout}>
-                            uitloggen
-                        </NavLink>
-                    ) : (
-                        <NavLink to="/signIn">Inloggen</NavLink>
-                    )}
-                    {isAuth ? (
-                        <NavLink to='/my_page'> Mijn gegevens</NavLink>
-                    ) : (
-                        <NavLink to=''></NavLink>
-                    )}
-                    {isBrewerOrAdmin && (
-                        <NavLink to="/inschrijfformulier_product">
-                            Een biertje toevoegen
-                        </NavLink>
-                    )}
+                        <NavLink to="/home" onClick={handleLogout}> uitloggen </NavLink>)
+                        :
+                        (<NavLink to="/signIn">Inloggen</NavLink>)}
+                    {isAuth ? (<NavLink to='/my_page'> Mijn gegevens</NavLink>)
+                        :
+                        (<NavLink to=''></NavLink>)}
+                    {isBrewerOrAdmin && (<NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>)}
                     <NavLink to="/mijn_bieren">{isAuth && 'Mijn bieren'}</NavLink>
                     <NavLink to="/alle_producten">Alle Bieren</NavLink>
                     <div className="submenu" onClick={() => toggleSubmenu(2)}>
                         <NavLink to="/Productie_informatie">Hoe maak je bier🞃</NavLink>
                         {submenuStatus.isSubmenuOpen2 && (
                             <div className="submenu-content">
-                                <NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}>
-                                    Algemene Informatie
-                                </NavLink>
-                                <NavLink to="/Productie_Informatie#het-proces" onClick={scrollToHetProces}>
-                                    Het brouw proces
-                                </NavLink>
-
+                                <NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}>Algemene Informatie</NavLink>
+                                <NavLink to="/Productie_Informatie#het-proces" onClick={scrollToHetProces}>Het brouw proces</NavLink>
                             </div>
                         )}
                     </div>
@@ -83,5 +69,4 @@ function Navbar() {
         </div>
     );
 }
-
 export default Navbar;

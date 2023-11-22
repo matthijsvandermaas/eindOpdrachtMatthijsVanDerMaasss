@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 import './App.css';
+// Img
 import logoImage from './assets/logos and backgrounds/B & B logo2.jpg';
 import logoImageKlein from './assets/logos and backgrounds/B & B logo2 klein.jpg';
 import wheat from './assets/logos and backgrounds/wheat.png';
+// Components
 import Navbar from "./components/navBar/Navbar.jsx";
-import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import AgeVerification from './components/agecheck/AgeVerification';
+import { Footer } from "./components/footer/Footer";
+// Pages
 import InschrijfForm from "./pages/signupform/InschrijfForm.jsx";
 import ProductieInformatie from "./pages/hoe maak je bier/Productie_Informatie";
 import Inschrijf_Form_Product from "./pages/signupform/InschrijfFormProduct.jsx";
@@ -13,14 +18,10 @@ import SignIn from "./pages/signin/signin";
 import Error from "./pages/error/Error";
 // import Mijn_bieren from "./pages/my_bieren/myProducts";
 import Home from './pages/Home/Home';
-import AgeVerification from './components/agecheck/AgeVerification';
 import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
 import Music from './pages/music/DrankOrgel';
-import { Footer } from "./components/footer/Footer";
 import Profile from "./pages/my_page/Profile";
-
-
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -28,16 +29,13 @@ function App() {
     const [activeTab, setActiveTab] = useState('Home');
     const [logoSrc, setLogoSrc] = useState("");
     const [verificationDone, setVerificationDone] = useState(false);
-
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
     };
-
-
     const handleTabChange = (tabName) => {
         setActiveTab(tabName);
     };
-
+// Age verification
     useEffect(() => {
         const isVerified = localStorage.getItem('isAgeVerified');
         if (isVerified) {
@@ -45,13 +43,11 @@ function App() {
             navigate('/home');
         }
     }, [navigate]);
-
     const handleAgeVerification = () => {
         localStorage.setItem('isAgeVerified', 'true');
         setVerificationDone(true);
         navigate('/home');
     };
-
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth <= 600) {
@@ -60,7 +56,7 @@ function App() {
                 setLogoSrc(logoImage);
             }
         };
-
+        // Logo adjusting
         window.addEventListener('resize', handleResize);
         handleResize();
 
@@ -68,10 +64,8 @@ function App() {
             window.removeEventListener('resize', handleResize);
         };
     }, [logoImage, logoImageKlein]);
-
     return (
         <div className={`outer-outer-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-
             <div className="outer-container background_fade">
                 <div className="header-container border_bottom_left background_fade2">
                     <div className="headerlogo-container">
@@ -103,7 +97,6 @@ function App() {
                         <Route path="/news" element={<News />} />
                         <Route path="/drankorgel" element={<Music />} />
                         <Route path="/*" element={<Error />} />
-
                     </Routes>
                 </div>
                 <Footer />
@@ -111,5 +104,4 @@ function App() {
         </div>
     );
 }
-
 export default App;

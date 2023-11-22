@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import '../Home/Home.css';
 import './DrankOrgel.css';
 import Slider from '../../components/slider/Slider';
 import slider_Img_One from '../../assets/hoe maak je bier/hop.png';
@@ -8,17 +7,12 @@ import slider_Img_Three from '../../assets/hoe maak je bier/malt.png';
 import slider_Img_Four from '../../assets/hoe maak je bier/gist.png';
 import Cubes from "../../components/cubes/Cubes.jsx";
 
-
-
 function Drankorgel() {
     const [slideIndex, setSlideIndex] = useState(1);
-
     const slider_Img_1 = slider_Img_One;
     const slider_Img_2 = slider_Img_Two;
     const slider_Img_3 = slider_Img_Three;
     const slider_Img_4 = slider_Img_Four;
-
-
     return (
         <>
             <div className="title-content">
@@ -45,7 +39,6 @@ function Drankorgel() {
                         <button className="music-btn bttn_youtube" onClick={() => window.open("https://www.youtube.com/results?search_query=top+100+00")}></button>
 
                     </div>
-
                 </div>
                 <Cubes
                     button_1="Hoe maak je bier"
@@ -58,8 +51,6 @@ function Drankorgel() {
                     navigate_4="/news"
                 />
             </div>
-
-
         </>
     );
 }

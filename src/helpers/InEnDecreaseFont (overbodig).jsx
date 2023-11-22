@@ -1,8 +1,8 @@
-// InEnDecreaseFont.jsx
+// InEnDecreaseFont (overbodig).jsx
 
 import React, { useState } from 'react';
 
-export function InEnDecreaseFont() {
+export function InEnDecreaseFontOverbodig() {
     const [scale, setScale] = useState(1);
 
     const increaseScale = () => {
@@ -22,4 +22,4 @@ export function InEnDecreaseFont() {
     );
 }
 
-export default InEnDecreaseFont;
+export default InEnDecreaseFontOverbodig;
