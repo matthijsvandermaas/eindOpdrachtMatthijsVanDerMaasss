@@ -36,8 +36,8 @@ function SignIn() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 }
-
-            });
+            }
+            );
             console.log('Authorization Header:', `Bearer ${token}`);
             console.log(response.data);
             console.log(response.data.accessToken);
@@ -46,8 +46,12 @@ function SignIn() {
             navigate("/home");
         } catch (e) {
             console.error(e);
-            setError(true);
-            localStorage.removeItem('token');
+
+            // Voeg hier specifieke foutafhandeling toe op basis van de foutstatus
+            if (e.response && e.response.status === 401) {
+                setError(true);
+                localStorage.removeItem('token');
+            }
         } finally {
             setLoading(false);
         }

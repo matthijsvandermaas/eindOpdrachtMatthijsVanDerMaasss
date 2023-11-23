@@ -30,8 +30,8 @@ const AuthContextProvider = ({ children }) => {
 
     const login = (token) => {
         localStorage.setItem("token", token);
-        const info = jwt_Decode(token);
-        const username = info.sub;
+        const decodedToken = jwt_Decode(token);
+        const username = decodedToken.sub;
 
         setAuthState({
             isAuthenticated: true,
