@@ -3,9 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cubes from "../../components/cubes/Cubes";
 
-
-
-
 function Profile() {
         const [userData, setUserData] = useState(null);
 
@@ -13,17 +10,14 @@ function Profile() {
             // Haal gebruikersgegevens op van de API
             const fetchUserData = async () => {
                 try {
-                    const response = await fetch('http://localhost:8081/users');
-                    const data = await response.json();
-                    setUserData(data);
+                    const response = await axios.get('http://localhost:8081/users');
+                    setUserData(response.data);
                 } catch (error) {
                     console.error('Fout bij het ophalen van gebruikersgegevens:', error);
                 }
             };
-
-            fetchUserData();
+           void fetchUserData();
         }, []);
-
         const buildUserInfo = (userData) => {
             const jsxElements = [];
             if (userData) {
@@ -41,7 +35,6 @@ function Profile() {
             }
             return jsxElements;
         };
-
         return (
             <>
             <div >
@@ -62,9 +55,5 @@ function Profile() {
             </div>
             </>
         );
-    };
-
-
-
-
+    }
 export default Profile;

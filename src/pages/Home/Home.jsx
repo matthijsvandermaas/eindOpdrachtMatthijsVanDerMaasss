@@ -54,7 +54,7 @@ function Home() {
                 </div>
                 <Cubes
                     button_1={isAuth ? "Mijn bieren" : "Inschrijven"}
-                    navigate_1={isAuth ? "/my_bieren" : "/inschrijfformulier"}
+                    navigate_1={isAuth ? "/my_products" : "/inschrijfformulier"}
                     button_2={isAuth ? "Algemene bierkennis": "Inloggen"}
                     navigate_2={isAuth ? "/Productie_Informatie#algemene-informatie": "/signIn"}
                     button_3="Al onze producten"

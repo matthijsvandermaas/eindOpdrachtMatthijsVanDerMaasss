@@ -16,7 +16,7 @@ import Inschrijf_Form_Product from "./pages/signupform/InschrijfFormProduct.jsx"
 import AlleBieren from "./pages/all_products/AllProducts";
 import SignIn from "./pages/signin/signin";
 import Error from "./pages/error/Error";
-// import Mijn_bieren from "./pages/my_bieren/myProducts";
+// import Mijn_bieren from "./pages/my_products/myProducts";
 import Home from './pages/Home/Home';
 import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
