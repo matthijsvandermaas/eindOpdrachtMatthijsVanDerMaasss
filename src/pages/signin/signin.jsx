@@ -2,56 +2,26 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
+import { useForm } from 'react-hook-form';  // Voeg deze import toe
 import '../signupform/InschrijfForm.css';
+import Cubes from "../../components/cubes/Cubes.jsx";
 
 function SignIn() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [selectedRole, setSelectedRole] = useState('USER');
     const navigate = useNavigate();
-
+    const { isAuth, logout } = useContext(AuthContext);
     const { login } = useContext(AuthContext);
-
-    async function handleSubmit(e) {
-        e.preventDefault();
-        setError(false);
-        setLoading(true);
-
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    async function handleFormSubmit(data) {
         try {
-            const token = localStorage.getItem('token');
-            console.log("Token in localStorage:", token);
-            if(!token){
-                console.log("token is null");
-            }else{
-                console.log("token is not null");
-            }
-            const response = await axios.post("http://localhost:8081/authenticate", {
-                username: email,
-                password,
-                role: selectedRole,
-            }, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                }
-            }
-            );
-            console.log('Authorization Header:', `Bearer ${token}`);
-            console.log(response.data);
-            console.log(response.data.accessToken);
-
-            login(response.data.accessToken);
-            navigate("/home");
+            setError(false);
+            setLoading(true);
+            const response = await axios.post("http://localhost:8081/authenticate", data);
+            login(response.data.Authorization[0]);
+            navigate('/alle_producten')
         } catch (e) {
-            console.error(e);
-
-            // Voeg hier specifieke foutafhandeling toe op basis van de foutstatus
-            if (e.response && e.response.status === 401) {
-                setError(true);
-                localStorage.removeItem('token');
-            }
+            setError(true);
         } finally {
             setLoading(false);
         }
@@ -61,35 +31,48 @@ function SignIn() {
         <>
             <div className="form-container">
                 <h1>Inloggen</h1>
-                <form className="form-content border_top_bottom background" onSubmit={handleSubmit}>
+                <form className="form-content border_top_bottom background" onSubmit={handleSubmit(handleFormSubmit)}>
                     <label htmlFor="email">E-mailadres:
-                        <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input
+                            type="text"
+                            id="email"
+                            placeholder="Voer hier je e-mailadrs in."
+                            {...register("username", {
+                                required: { value: true, message: "A username is required" }
+                            })}
+                        />
                     </label>
                     <label htmlFor="password">Wachtwoord:
-                        <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Vier hier je wachtwoord in."
+                            {...register("password", {
+                                required: { value: true, message: "A password is required" }
+                            })}
+                        />
                     </label>
-                        <label htmlFor="roles">Account type:
-                            <select
-                                name="roles"
-                                id="roles"
-                                value={selectedRole}
-                                onChange={(e) => setSelectedRole(e.target.value)}
-                            >
-                                <option value="USER">liefhebber</option>
-                                <option value="BREWER">brouwer</option>
-                                <option value="ADMIN">beheerder</option>
-                            </select>
-                        </label>
-                        <button className="bttn" type="submit" disabled={loading}>
+                    <button className="bttn" type="submit" disabled={loading}>
                         {loading ? 'Momentje even kijken wie je bent...' : 'Inloggen'}
                     </button>
+                    {isAuth ? <button className="bttn" type="submit" onClick={logout}>uitloggen</button> : null}
                     {error && <p className="error">Combinatie van e-mailadres en wachtwoord is onjuist.</p>}
                 </form>
                 <p>Heb je nog geen account? <Link to="/inschrijfformulier">schrijf je snel in!</Link></p>
+                <Cubes
+                    button_1="Hoe maak je bier"
+                    navigate_1="/productie_Informatie"
+                    button_2="Het drankorgel"
+                    navigate_2="/drankorgel"
+                    button_3="Home"
+                    navigate_3="/home"
+                    button_4="News"
+                    navigate_4="/news"
+                />
             </div>
         </>
     );
 }
-
 
 export default SignIn;

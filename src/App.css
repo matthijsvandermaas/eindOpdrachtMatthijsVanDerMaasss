@@ -37,7 +37,7 @@ Table of Contents:
     /*Input*/
     --input-background: rgba(222, 235, 251, 0.15);
     --input-border: 1px solid rgba(222, 235, 251, 0.5);
-    --border-radius-form: 20px 10px 20px 10px;
+    --border-radius-form: 19px 10px 19px 10px;
     /*Shadow*/
     --shadow: rgba(255, 237, 45, 0.02);
     --box-shadow_1: inset  20px 20px 200px 30px var(--shadow);
@@ -214,8 +214,7 @@ p a {
 /*///6. Areas///*/
 /*6.1 background*/
 /*Background*/
-.background {
-    background-image: url('../src/assets/logos and backgrounds/grain.svg');
+.background { background-image: url('../src/assets/logos and backgrounds/grain.svg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
