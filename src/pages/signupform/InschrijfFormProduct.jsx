@@ -20,30 +20,19 @@ function InschrijfFormProduct() {
     async function handleFormSubmit(data) {
         const newData = { ...data };
         setIsSubmitting(true);
-        console.log(newData);
-
         try {
             await axios.post('http://localhost:8081/products/createProduct', newData, {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
             // navigate('/alle_producten');
-            console.log("De gegevens zijn verstuurd");
-            console.log(newData);
-            console.log(newData);
             navigate('/alle_producten');
         } catch (e) {
-            console.error("Er gaat iets fout met het verwerken van de gegevens", e);
-            setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: " + e.message);
-            navigate('/*');
-            // navigate('/*');
+            setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
         } finally {
-            // navigate('/alle_producten');
             setIsSubmitting(false);
-            console.log("Product form submission completed");
         }
     }
-
         return (
             <>
             <div className="form-container">

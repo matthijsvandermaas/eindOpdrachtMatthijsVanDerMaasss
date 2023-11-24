@@ -19,7 +19,6 @@ function SignIn() {
             setLoading(true);
             const response = await axios.post("http://localhost:8081/authenticate", data);
             login(response.data.Authorization[0]);
-            navigate('/alle_producten')
         } catch (e) {
             setError(true);
         } finally {

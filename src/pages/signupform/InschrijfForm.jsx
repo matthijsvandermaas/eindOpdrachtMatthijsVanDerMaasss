@@ -14,22 +14,16 @@ function InschrijfForm() {
     async function handleFormSubmit(data) {
         const newData = { ...data, roles: [data.roles] };
         setIsSubmitting(true);
-        console.log(newData);
         try {
             await axios.post('http://localhost:8081/users/createUser', newData, {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
             navigate('/signIn');
-            console.log("De gegevens zijn verstuurd");
-            console.log(newData);
         } catch (e) {
-            console.error("Er gaat iets fout met het verwerken van de gegevens", e);
-            setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: " + e.message);
-            navigate('/*');
+            setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
         } finally {
             setIsSubmitting(false);
-            console.log("User form submission completed");
         }
     }
 

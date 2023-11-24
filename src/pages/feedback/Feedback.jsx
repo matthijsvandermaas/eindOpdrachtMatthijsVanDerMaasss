@@ -4,8 +4,6 @@ import Rating from "../../components/Rating_system/Rating";
 import { useState} from "react";
 import Cubes from "../../components/cubes/Cubes";
 
-
-
 function Feedback() {
 
     const [rating, setRating] = useState(0);

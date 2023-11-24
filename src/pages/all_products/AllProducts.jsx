@@ -43,7 +43,7 @@ function AllProducts() {
     return (
         <>
             <div>
-                <h1>Alle bieren</h1>
+                <h1>Alle onze bieren</h1>
                 <form className="form-content">
                     {buildProductsInfo(productsData)}
                 </form>

@@ -31,7 +31,7 @@ function Home() {
                         <div>
                             {!isAuth ? (
                                 <>
-                                    <button className=" bttn bttn_small" onClick={() => { window.location.href = "/login_page"; }}>
+                                    <button className=" bttn bttn_small" onClick={() => { window.location.href = "/signIn"; }}>
                                         Inloggen
                                     </button>
                                 </>
@@ -50,8 +50,8 @@ function Home() {
                     navigate_1="/productie_Informatie"
                     button_2="Het drankorgel"
                     navigate_2="/drankorgel"
-                    button_3="Home"
-                    navigate_3="/home"
+                    button_3="Al onze bieren"
+                    navigate_3="/alle_producten"
                     button_4="News"
                     navigate_4="/news"
                 />
