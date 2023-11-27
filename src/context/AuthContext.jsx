@@ -1,18 +1,19 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, {createContext, useContext, useEffect, useState} from "react";
 import jwt_Decode from "jwt-decode";
 import {useNavigate} from "react-router-dom";
 export const AuthContext = createContext({});
+
 const AuthContextProvider = ({ children }) => {
 
-    const [ageUser, setAgeUser] = useState(0);
+    // const [ageUser, setAgeUser] = useState(0);
     const [authState, setAuthState] = useState({
         isAuthenticated: false,
         user: null,
+        username: null,
         token: null,
         role: null,
         status: "pending",
     });
-    console.log(ageUser)
     const navigate = useNavigate()
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -37,7 +38,7 @@ const AuthContextProvider = ({ children }) => {
 
         setAuthState({
             isAuthenticated: true,
-            user: { username: username },
+            user: { username },
             token: token,
             status: "done",
         });
@@ -52,11 +53,12 @@ const AuthContextProvider = ({ children }) => {
             status: "done",
         });
     };
-    const contextData = { ...authState, logout: logout, login: login, isAuth: authState.isAuthenticated, user: authState.user, setAge: setAgeUser, ageUser: ageUser};
+    const contextData = { ...authState, logout, login, isAuth: authState.isAuthenticated, user: authState.user };
     return (
         <AuthContext.Provider value={contextData}>
             {children}
         </AuthContext.Provider>
     );
 };
+export const useAuth = () => useContext(AuthContext);
 export default AuthContextProvider;

@@ -1,47 +1,63 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Cubes from "../../components/cubes/Cubes";
+import { AuthContext, useAuth } from '../../context/AuthContext';
 
 function Profile() {
-        const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState(null);
+    const { username } = useAuth();
+    const { token } = useContext(AuthContext);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
-        useEffect(() => {
-            // Haal gebruikersgegevens op van de API
-            const fetchUserData = async () => {
-                try {
-                    const response = await axios.get('http://localhost:8081/users');
-                    setUserData(response.data);
-                } catch (error) {
-                    console.error('Fout bij het ophalen van gebruikersgegevens:', error);
-                }
-            };
-           void fetchUserData();
-        }, []);
-        const buildUserInfo = (userData) => {
-            const jsxElements = [];
-            if (userData) {
-                userData.forEach((user) => {
-                    jsxElements.push(
-                        <div className=" form-content border_top_left background" key={user.id}>
-                            <h2>Gebruiker: {user.username}</h2>
-                            <p>Voornaam: {user.firstName}</p>
-                            <p>Achternaam: {user.lastName}</p>
-                            <p>E-mail: {user.email}</p>
-                            <p>Bedrijf: {user.company}</p>
-                        </div>
-                    );
+    useEffect(() => {
+        const fetchUserData = async () => {
+            setError(false);
+            setLoading(true);
+
+            try {
+                console.log('Sending request with token:', token);
+                const response = await axios.get(`http://localhost:8081/users/${username}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
                 });
+
+                setUserData(response.data);
+            } catch (error) {
+                console.error('Fout bij het ophalen van gebruikersgegevens:', error);
+                setError(true);
+            } finally {
+                setLoading(false);
             }
-            return jsxElements;
         };
+
+        void fetchUserData();
+    }, [username, token]);
+
+
+    const buildUserInfo = (userData) => {
+        if (!userData) {
+            return null;
+        }
+
         return (
-            <>
-            <div >
+            <div className="form-content border_top_left background" key={userData.username}>
+                <h2>Gebruiker: {userData.username}</h2>
+                <p>Voornaam: {userData.firstName}</p>
+                <p>Achternaam: {userData.lastName}</p>
+                <p>E-mail: {userData.email}</p>
+                <p>Bedrijf: {userData.company}</p>
+            </div>
+        );
+    };
+
+    return (
+        <>
+            <div>
                 <h1>Mijn gegevens</h1>
-                <form className="form-content">
-                    {buildUserInfo(userData)}
-                </form>
+                <form className="form-content">{buildUserInfo(userData)}</form>
                 <Cubes
                     button_1="Hoe maak je bier"
                     navigate_1="/productie_Informatie"
@@ -53,7 +69,8 @@ function Profile() {
                     navigate_4="/news"
                 />
             </div>
-            </>
-        );
-    }
+        </>
+    );
+}
+
 export default Profile;

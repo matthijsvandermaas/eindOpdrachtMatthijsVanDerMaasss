@@ -16,7 +16,7 @@ import Inschrijf_Form_Product from "./pages/signupform/InschrijfFormProduct.jsx"
 import AlleBieren from "./pages/all_products/AllProducts";
 import SignIn from "./pages/signin/signin";
 import Error from "./pages/error/Error";
-// import Mijn_bieren from "./pages/my_products/myProducts";
+import MijnBieren from "./pages/my_products/myProducts";
 import Home from './pages/Home/Home';
 import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
@@ -88,7 +88,7 @@ function App() {
                         {!verificationDone && <Route exact path="/" element={<AgeVerification handleAgeVerification={handleAgeVerification} />} />}
                         <Route path="/inschrijfformulier" element={<InschrijfForm />} />
                         <Route path="/profile" element={<Profile />} />
-                        {/*<Route path="/mijn_bieren" element={<Mijn_bieren />} />*/}
+                        <Route path="/mijn_bieren" element={<MijnBieren />} />
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />
                         <Route path="/alle_producten" element={<AlleBieren />} />
@@ -97,6 +97,7 @@ function App() {
                         <Route path="/news" element={<News />} />
                         <Route path="/drankorgel" element={<Music />} />
                         <Route path="/*" element={<Error />} />
+                        <Route path="/AgeVerification" element={<AgeVerification />} />
                     </Routes>
                 </div>
                 <Footer />

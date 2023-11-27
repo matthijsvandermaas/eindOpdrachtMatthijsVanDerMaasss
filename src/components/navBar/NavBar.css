@@ -53,8 +53,6 @@
     transform: translateY(40px) translateX(-100px);
     right: 10px;
     transition: 0.5s ease-in-out;
-    border-top: var(--blue-1);
-    border-bottom: var(--blue-1);
 }
 .dropdown-content {
     justify-content: flex-start;
@@ -64,15 +62,15 @@
     z-index: 1;
     opacity: 0;
     transform: translateY(-35px) translateX(-20px);
-    transition: opacity 3s ease-in-out, transform 3s ease-in-out; /* Voeg overgangen toe aan opacity en transform */
+    transition: opacity 3s ease-in-out, transform 3s ease-in-out;
     position: absolute;
     top: 100%;
     list-style-type: none;
     font-size: 1.7em;
-    border: 2px solid var(--blue-1);
+    border: 2px solid var(--blue-2);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
-    border-left: var(--blue-1);
+    border-bottom: var(--blue-1);
     border-right: var(--blue-1);
     padding: 10px 0  0 70px;
 }

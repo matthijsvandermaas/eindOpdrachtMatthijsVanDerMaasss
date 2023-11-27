@@ -7,15 +7,15 @@ export const AgeVerification = () => {
     const navigate = useNavigate();
     const [error, setError] = useState(false); // Gebruik 'setError' in plaats van 'toggleError'
 
-    const { ageUser, setAge } = useContext(AuthContext);
+    // const { ageUser, setAge } = useContext(AuthContext);
 
     const handleVerification = (date) => {
         const today = new Date();
         const selectedDate = new Date(date);
         let age = today.getFullYear() - selectedDate.getFullYear();
         const month = today.getMonth() - selectedDate.getMonth();
-        console.log(date)
-        setAge(age)
+        // console.log(date)
+        // setAge(age)
 
         if (month < 0 || (month === 0 && today.getDate() < selectedDate.getDate())) {
             age--;

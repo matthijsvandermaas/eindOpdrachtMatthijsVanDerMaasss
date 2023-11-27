@@ -7,11 +7,12 @@ import slider_Img_One from '../../assets/brewers/rockcity_products.png';
 import slider_Img_Two from '../../assets/brewers/rockcity_brewer.png';
 import slider_Img_Three from '../../assets/brewers/rockcity_taps.png';
 import slider_Img_Four from '../../assets/brewers/rockcity_ketel.jpg';
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 
 function Home() {
     const { isAuth, logout } = useContext(AuthContext);
     const [slideIndex, setSlideIndex] = useState(1);
+    const navigate = useNavigate();
     return (
         <>
             <div className="title-content">
@@ -29,9 +30,12 @@ function Home() {
                         <h4> Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij</h4>
                         <p>zet eventueel een lekker muziekje op  met<NavLink to="/drankorgel"><strong>  Het drankorgel</strong></NavLink>.</p>
                         <div>
+                            <button className="bttn bttn_small" onClick={() => navigate('/AgeVerification')}>
+                                Leeftijd check
+                            </button>
                             {!isAuth ? (
                                 <>
-                                    <button className=" bttn bttn_small" onClick={() => { window.location.href = "/login_page"; }}>
+                                    <button className=" bttn bttn_small" onClick={() => { window.location.href = "/SignIn"; }}>
                                         Inloggen
                                     </button>
                                 </>

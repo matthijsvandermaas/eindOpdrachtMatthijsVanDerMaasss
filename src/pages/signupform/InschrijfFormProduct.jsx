@@ -6,11 +6,12 @@ import { NavLink, useNavigate} from 'react-router-dom';
 import Cubes from "../../components/cubes/Cubes.jsx";
 
 function InschrijfFormProduct() {
-    const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const { register, handleSubmit } = useForm();
     const [errorMessage, setErrorMessage] = useState("");
     const algemene_infoRef = useRef(null);
+
 
 
 
@@ -30,13 +31,10 @@ function InschrijfFormProduct() {
             // navigate('/alle_producten');
             console.log("De gegevens zijn verstuurd");
             console.log(newData);
-            console.log(newData);
             navigate('/alle_producten');
         } catch (e) {
             console.error("Er gaat iets fout met het verwerken van de gegevens", e);
-            setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: " + e.message);
-            navigate('/*');
-            // navigate('/*');
+            setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
         } finally {
             // navigate('/alle_producten');
             setIsSubmitting(false);
@@ -63,7 +61,7 @@ function InschrijfFormProduct() {
                             <div>
                         <label>Locatie brouwer:</label>
                         <input name="Locatie brouwer" type="text" id="productionLocation"
-                               placeholder="Voer hier de locatie van de brouwer in." {...register('productionLocation',)} />
+                               placeholder="Voer hier de locatie van de brouwer in." {...register('productionLocation')} />
                             </div>
                             <div>
                             <label>Smaak:</label>
@@ -123,7 +121,7 @@ function InschrijfFormProduct() {
                                                 </button>
                     </form>
                         <div>
-                            <p>Vragen over de terminologie in het bierproces en omschrijving of wilt je meer informatie, ga dan naar<NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}><strong> Hoe maak je bier</strong></NavLink>.</p>
+                            <p>Vragen over de terminologie in het bierproces en omschrijving of wilt je meer informatie, ga dan naar: <NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}>Hoe maak je bier</NavLink>.</p>
                         </div>
                 </div>
                 <Cubes

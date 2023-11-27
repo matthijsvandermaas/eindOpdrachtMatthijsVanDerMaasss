@@ -6,10 +6,8 @@ import {AuthContext} from "../../context/AuthContext.jsx";
 function Navbar() {
     const hetProcesRef = useRef(null);
     const algemene_infoRef = useRef(null);
-    const {isAuth, logout, ageUser} = useContext(AuthContext);
+    const {isAuth, logout} = useContext(AuthContext);
     const navigate = useNavigate();
-    const roles = ['USER', 'BREWER']; // Replace this with your actual roles
-    const isBrewerOrAdmin = roles.includes('BREWER') || roles.includes('ADMIN');
     const handleLogout = () => {
         logout();
         navigate('/');
@@ -32,7 +30,6 @@ function Navbar() {
     };
     return (
         <>
-            {ageUser >= 18 ?
                 <div className="dropdown-content">
                     <ul className="navList">
                         <li>
@@ -42,11 +39,10 @@ function Navbar() {
                                     <NavLink to="/home" onClick={handleLogout}> uitloggen </NavLink>)
                                 :
                                 (<NavLink to="/signIn">Inloggen</NavLink>)}
-                            {isAuth ? (<NavLink to='/my_page'> Mijn gegevens</NavLink>)
+                            {isAuth ? (<NavLink to='/profile'> Mijn gegevens</NavLink>)
                                 :
                                 (<NavLink to=''></NavLink>)}
-                            {isBrewerOrAdmin && (
-                                <NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>)}
+                                <NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>
                             <NavLink to="/mijn_bieren">{isAuth && 'Mijn bieren'}</NavLink>
                             <NavLink to="/alle_producten">Alle Bieren</NavLink>
                             <div className="submenu" onClick={() => toggleSubmenu(2)}>
@@ -65,7 +61,7 @@ function Navbar() {
                             <NavLink to="/drankorgel"> Het Drankorgel</NavLink>
                         </li>
                     </ul>
-                </div>: ''}
+                </div>
         </>);
 }
 export default Navbar;

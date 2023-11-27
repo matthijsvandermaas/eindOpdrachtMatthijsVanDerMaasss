@@ -20,12 +20,9 @@ function InschrijfForm() {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
-            navigate('/signIn');
-            console.log("De gegevens zijn verstuurd");
-            console.log(newData);
+            navigate('/SignIn');
         } catch (e) {
-            console.error("Er gaat iets fout met het verwerken van de gegevens", e);
-            setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: " + e.message);
+            setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
             navigate('/*');
         } finally {
             setIsSubmitting(false);
