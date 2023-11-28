@@ -19,7 +19,9 @@ function InschrijfForm() {
             await axios.post('http://localhost:8081/users/createUser', newData, {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
+
             });
+                console.log("User form submission completed");
             navigate('/SignIn');
         } catch (e) {
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");

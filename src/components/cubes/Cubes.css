@@ -19,7 +19,6 @@
     color: white;
     border: none;
     border-radius: var(--border-radius);
-    box-shadow: 2px 2px 58px 4px rgba(255, 255, 255, 0.7), 2px 2px 58px 4px rgba(255, 253, 229, 0.5);
     cursor: pointer;
     font-size: 1em;
     display: flex;
@@ -49,7 +48,6 @@
     cursor: pointer;
     border: 2px var(--blue-1) solid;
     box-shadow: var(--box-shadow_2);
-    box-shadow: 2px 2px 58px 4px rgba(255, 255, 255, 0.7), 2px 2px 58px 4px rgba(255, 253, 229, 0.5);
     color: rgba(253, 246, 153, 0.70);
 }
 .cube-bttn1, .cube-bttn2, .cube-bttn3, .cube-bttn4{

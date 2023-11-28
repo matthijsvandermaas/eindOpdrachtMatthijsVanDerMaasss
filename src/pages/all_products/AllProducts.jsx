@@ -4,15 +4,21 @@ import axios from "axios";
 
 const AllProducts = () => {
     const [productsData, setProductsData] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
+        setError(false);
+        setLoading(true);
         const fetchUserData = async () => {
             try {
                 const response = await axios.get('http://localhost:8081/products');
                 setProductsData(response.data);
             } catch (error) {
-                console.error('Fout bij het ophalen van productgegevens:', error);
-            }
+
+            }finally {
+            setLoading(false);
+        }
         };
 
         void fetchUserData();
@@ -39,7 +45,7 @@ const AllProducts = () => {
             <div>
                 <h1>Alle bieren</h1>
                 <form className="form-content">
-                    {productsData ? buildProductsInfo(productsData) : <p>Loading...</p>}
+                    {productsData ? buildProductsInfo(productsData) : <p>Even kijken wat je lekker vindt...</p>}
                 </form>
                 <Cubes
                     button_1="Hoe maak je bier"
