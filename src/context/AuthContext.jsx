@@ -1,18 +1,16 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import jwt_Decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 
 export const AuthContext = createContext({});
 
 const AuthContextProvider = ({ children }) => {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [authState, setAuthState] = useState({
         isAuthenticated: false,
         user: null,
         username: null,
-        token: null,
         role: null,
         status: "pending",
     });
@@ -23,12 +21,30 @@ const AuthContextProvider = ({ children }) => {
         const fetchData = async () => {
             setError(false);
             setLoading(true);
+
             try {
                 const token = localStorage.getItem("token");
                 console.log("Token from localStorage:", token);
+
                 if (token) {
-                    await login(token);
+                    // We hebben de token, laten we proberen te decoderen
+                    const decodedToken = jwt_Decode(token);
+                    console.log(decodedToken);
+
+                    // Als de token succesvol wordt gedecodeerd, log in de gebruiker in
+                    if (decodedToken) {
+                        login(token, decodedToken);
+                        console.log(decodedToken);
+                    } else {
+                        setAuthState({
+                            isAuthenticated: false,
+                            user: null,
+                            status: "done",
+                        });
+                        console.log(decodedToken);
+                    }
                 } else {
+                    // Geen token gevonden
                     setAuthState({
                         isAuthenticated: false,
                         user: null,
@@ -36,30 +52,28 @@ const AuthContextProvider = ({ children }) => {
                     });
                 }
             } catch (error) {
-                console.error("Error fetching user data:", error);
+                // console.error("Error fetching user data:", error);
                 setError(true);
             } finally {
                 setLoading(false);
+
             }
         };
 
         fetchData();
-    }, []);
+    }, []); // Geen dependencies hier, omdat we geen externe variabelen gebruiken
 
-    const login = (token) => {
-        localStorage.setItem("token", token);
+    const login = (token, decodedToken) => {
         console.log("Token from localStorage:", token);
-
-        const decodedToken = jwt_Decode(token);
         console.log("Decoded Token:", decodedToken);
-
         const username = decodedToken.sub;
         navigate('/home');
+
+        localStorage.setItem('token', token);
 
         setAuthState({
             isAuthenticated: true,
             user: { username },
-            token: token,
             status: "done",
         });
     };

@@ -18,8 +18,10 @@ function SignIn() {
             setError(false);
             setLoading(true);
             const response = await axios.post("http://localhost:8081/authenticate", data);
-            login(response.data.authorization, data.username);
-            navigate('/alle_producten')
+            console.log("Response from authentication endpoint:", response);
+            login(response.data.Authorization[0], data.username);
+            console.log("Navigating to /alle_producten");
+            navigate('/alle_producten');
         } catch (e) {
             setError(true);
         } finally {
@@ -36,6 +38,7 @@ function SignIn() {
                         <input
                             type="text"
                             id="username"
+                            name="username"
                             placeholder="Voer hier je gebruiksnaam in."
                             {...register("username", {
                                 required: { value: true, message: "Gebruikersnaam is verplicht." }

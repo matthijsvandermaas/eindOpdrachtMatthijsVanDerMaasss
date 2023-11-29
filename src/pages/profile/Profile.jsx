@@ -6,24 +6,24 @@ import { useAuth } from '../../context/AuthContext';
 
 function Profile() {
     const { authState } = useAuth();
-    const { username, token } = authState || {};
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
     useEffect(() => {
         console.log('Inside useEffect');
-        console.log('Username:', username);
+        console.log('Username:', authState.username);
 
         const fetchData = async () => {
             setError(false);
             setLoading(true);
 
             try {
+                const token = localStorage.getItem('token');
                 console.log('Sending request with token:', token);
-                console.log('Sending request with username:', username);
+                console.log('Sending request with username:', authState.username);
 
-                const response = await axios.get(`http://localhost:8081/users/${username}`, {
+                const response = await axios.get(`http://localhost:8081/users/${authState.username}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                         'Content-Type': 'application/json',
@@ -39,10 +39,8 @@ function Profile() {
             }
         };
 
-        if (token && username) {
             fetchData();
-        }
-    }, [token, username]);
+    }, []);
 
 
 
