@@ -10,18 +10,18 @@ const AllProducts = () => {
     useEffect(() => {
         setError(false);
         setLoading(true);
-        const fetchUserData = async () => {
+        const fetchProductsData = async () => {
             try {
                 const response = await axios.get('http://localhost:8081/products');
                 setProductsData(response.data);
             } catch (error) {
-
+                setError(error.message);
             }finally {
             setLoading(false);
         }
         };
 
-        void fetchUserData();
+        void fetchProductsData();
     }, []);
 
     const buildProductsInfo = (productsData) => {

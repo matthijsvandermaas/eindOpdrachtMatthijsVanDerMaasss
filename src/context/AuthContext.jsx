@@ -9,7 +9,6 @@ const AuthContextProvider = ({ children }) => {
     const [error, setError] = useState(false);
     const [authState, setAuthState] = useState({
         isAuthenticated: false,
-        user: null,
         username: null,
         role: null,
         status: "pending",
@@ -18,13 +17,16 @@ const AuthContextProvider = ({ children }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        console.log('Inside useEffect');
         const fetchData = async () => {
             setError(false);
             setLoading(true);
 
             try {
                 const token = localStorage.getItem("token");
+                const username = localStorage.getItem("username");
                 console.log("Token from localStorage:", token);
+
 
                 if (token) {
                     // We hebben de token, laten we proberen te decoderen
@@ -38,7 +40,7 @@ const AuthContextProvider = ({ children }) => {
                     } else {
                         setAuthState({
                             isAuthenticated: false,
-                            user: null,
+                            username: null,
                             status: "done",
                         });
                         console.log(decodedToken);
@@ -47,7 +49,7 @@ const AuthContextProvider = ({ children }) => {
                     // Geen token gevonden
                     setAuthState({
                         isAuthenticated: false,
-                        user: null,
+                        username: null,
                         status: "done",
                     });
                 }
@@ -70,10 +72,11 @@ const AuthContextProvider = ({ children }) => {
         navigate('/home');
 
         localStorage.setItem('token', token);
+        localStorage.setItem('username', username);
 
         setAuthState({
             isAuthenticated: true,
-            user: { username },
+            username: { username },
             status: "done",
         });
     };
@@ -83,7 +86,7 @@ const AuthContextProvider = ({ children }) => {
         setAuthState({
             isAuthenticated: false,
             token: null,
-            user: null,
+            username: null,
             role: null,
             status: "done",
         });
@@ -96,7 +99,7 @@ const AuthContextProvider = ({ children }) => {
         logout,
         login,
         isAuth: authState.isAuthenticated,
-        user: authState.user,
+        username: authState.username,
         token: authState.token };
 
     return <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>;
