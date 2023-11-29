@@ -10,19 +10,21 @@ function Profile() {
     const [error, setError] = useState(false);
 
     useEffect(() => {
+        const token = localStorage.getItem("token");
         setError(false);
         setLoading(true);
-
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:8081/users', {
-                    // headers: {
-                    //     Authorization: `Bearer ${token}`,
-                    //     'Content-Type': 'application/json',
-                    // },
+                const response = await axios.get(`http://localhost:8081/user/${authState.username}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+
+                    },
                 });
                 setUserData(response.data);
             } catch (error) {
+                console.error('Fout bij het ophalen van gebruikersgegevens:', error);
                 setError(error.message);
             } finally {
                 setLoading(false);
@@ -30,7 +32,7 @@ function Profile() {
         };
 
         void fetchUserData();
-    }, []);
+    }, [authState]);
 
     const buildUserInfo = (userData) => {
         return userData.map((user) => (
