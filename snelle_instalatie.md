@@ -9,7 +9,6 @@ installeer react router dom `npm install react-router-dom`
 installeert jwt token `npm install jwt-decode`
 installeer kalender `npm install react-calendar`
 installeer react-dom `npm install react react-dom`
-installer `npm install -g typescript`
 run dev `npm run dev`
 
 

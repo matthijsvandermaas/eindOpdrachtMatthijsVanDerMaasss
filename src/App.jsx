@@ -21,7 +21,7 @@ import Home from './pages/Home/Home';
 import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
 import Music from './pages/music/DrankOrgel';
-import Profile from "./pages/my_page/Profile";
+import Profile from "./pages/profile/Profile";
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(false);

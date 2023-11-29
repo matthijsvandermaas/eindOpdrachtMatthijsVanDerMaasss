@@ -3,23 +3,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
 import { useForm } from 'react-hook-form';
-import '../signupform/InschrijfForm.css';
 import Cubes from "../../components/cubes/Cubes.jsx";
-
-
+import '../signupform/InschrijfForm.css';
 
 function SignIn() {
+    const { isAuth, logout, login} = useContext(AuthContext);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const { isAuth, logout, login} = useContext(AuthContext);
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     async function handleFormSubmit(data) {
         try {
             setError(false);
             setLoading(true);
             const response = await axios.post("http://localhost:8081/authenticate", data);
-            login(response.data.Authorization[0], data.username);
+            login(response.data.authorization, data.username);
             navigate('/alle_producten')
         } catch (e) {
             setError(true);
@@ -39,7 +38,7 @@ function SignIn() {
                             id="username"
                             placeholder="Voer hier je gebruiksnaam in."
                             {...register("username", {
-                                required: { value: true, message: "A username is required" }
+                                required: { value: true, message: "Gebruikersnaam is verplicht." }
                             })}
                         />
                     </label>
@@ -48,9 +47,9 @@ function SignIn() {
                             type="password"
                             id="password"
                             name="password"
-                            placeholder="Vier hier je wachtwoord in."
+                            placeholder="Voer hier je wachtwoord in."
                             {...register("password", {
-                                required: { value: true, message: "A password is required" }
+                                required: { value: true, message: "Wachtwoord is verplicht" }
                             })}
                         />
                     </label>

@@ -22,10 +22,11 @@ function InschrijfForm() {
 
             });
                 console.log("User form submission completed");
+            console.log(newData);
             navigate('/SignIn');
         } catch (e) {
+            console.error('Response fout:', newData);
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
-            navigate('/*');
         } finally {
             setIsSubmitting(false);
             console.log("User form submission completed");

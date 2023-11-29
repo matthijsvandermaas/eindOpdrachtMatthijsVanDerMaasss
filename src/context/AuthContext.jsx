@@ -77,7 +77,13 @@ const AuthContextProvider = ({ children }) => {
 
     const { username, token } = authState;
 
-    const contextData = { ...authState, logout, login, isAuth: authState.isAuthenticated, user: authState.user, token: authState.token };
+    const contextData = {
+        ...authState,
+        logout,
+        login,
+        isAuth: authState.isAuthenticated,
+        user: authState.user,
+        token: authState.token };
 
     return <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>;
 };
