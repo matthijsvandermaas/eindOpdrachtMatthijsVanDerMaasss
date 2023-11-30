@@ -43,7 +43,7 @@ function Navbar() {
                                 :
                                 (<NavLink to=''></NavLink>)}
                                 <NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>
-                            <NavLink to="/mijn_bieren">{isAuth && 'Mijn bieren'}</NavLink>
+                            <NavLink to="/mijn_bieren">Mijn bieren</NavLink>
                             <NavLink to="/alle_producten">Alle Bieren</NavLink>
                             <div className="submenu" onClick={() => toggleSubmenu(2)}>
                                 <NavLink to="/Productie_informatie">Hoe maak je bier🞃</NavLink>
