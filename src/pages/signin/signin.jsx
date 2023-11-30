@@ -21,7 +21,7 @@ function SignIn() {
             console.log("Response from authentication endpoint:", response);
             const username = response.data.username;
             localStorage.setItem('username', username);
-            login(response.data.Authorization[0], data.username);
+            login(response.data.Authorization, data.username);
             console.log("Navigating to /alle_producten");
             navigate('/alle_producten');
         } catch (e) {

@@ -13,6 +13,9 @@ function Home() {
     const { isAuth, logout } = useContext(AuthContext);
     const [slideIndex, setSlideIndex] = useState(1);
     const navigate = useNavigate();
+    const username = localStorage.getItem('username');
+
+
     return (
         <>
             <div className="title-content">
@@ -26,7 +29,7 @@ function Home() {
                 />
                 <div className="text-content">
                     <div className="informatie_container">
-                        <h1>Welcome Bier liefhebbers</h1>
+                        <h1>Welkom,</h1>
                         <h4> Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij</h4>
                         <p>zet eventueel een lekker muziekje op  met<NavLink to="/drankorgel"><strong>  Het drankorgel</strong></NavLink>.</p>
                         <div>

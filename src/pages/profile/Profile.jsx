@@ -12,7 +12,6 @@ function Profile() {
 
     useEffect(() => {
         console.log('Inside useEffect');
-        console.log('Username:', authState.username);
 
         const fetchData = async () => {
             setError(false);
@@ -20,16 +19,15 @@ function Profile() {
 
             try {
                 const token = localStorage.getItem('token');
+                const username = localStorage.getItem('username');
+                console.log(username)
                 console.log('Sending request with token:', token);
-                console.log('Sending request with username:', authState.username);
-
-                const response = await axios.get(`http://localhost:8081/users/${authState.username}`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
+                const response = await axios.get(`http://localhost:8081/users/${username}`, {
+                    // headers: {
+                    //     Authorization: `Bearer ${token}`,
+                    //     'Content-Type': 'application/json',
+                    // },
                 });
-
                 setUserData(response.data);
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -39,20 +37,23 @@ function Profile() {
             }
         };
 
-            fetchData();
+        fetchData();
     }, []);
 
 
 
-    const buildUserInfo = (user) => (
-        <div className="form-content border_top_left background" key={user.username}>
-            <h2>Gebruiker: {user.username}</h2>
-            <p>Voornaam: {user.firstName}</p>
-            <p>Achternaam: {user.lastName}</p>
-            <p>E-mail: {user.email}</p>
-            <p>Bedrijf: {user.company}</p>
-        </div>
-    );
+    const buildUserInfo = (userData) => {
+        const userArray = Array.isArray(userData) ? userData : [userData];
+        return userArray.map((user) => (
+            <div className="form-content border_top_left background" key={user.username}>
+                <h2>Gebruiker: {user.username}</h2>
+                <p>Voornaam: {user.firstName}</p>
+                <p>Achternaam: {user.lastName}</p>
+                <p>E-mail: {user.email}</p>
+                <p>Bedrijf: {user.company}</p>
+            </div>
+        ));
+    };
 
     return (
         <>
