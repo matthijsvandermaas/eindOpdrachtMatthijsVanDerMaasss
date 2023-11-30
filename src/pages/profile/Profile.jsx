@@ -11,7 +11,6 @@ function Profile() {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        console.log('Inside useEffect');
 
         const fetchData = async () => {
             setError(false);
@@ -21,7 +20,6 @@ function Profile() {
                 const token = localStorage.getItem('token');
                 const username = localStorage.getItem('username');
                 console.log(username)
-                console.log('Sending request with token:', token);
                 const response = await axios.get(`http://localhost:8081/users/${username}`, {
                     // headers: {
                     //     Authorization: `Bearer ${token}`,
@@ -30,7 +28,6 @@ function Profile() {
                 });
                 setUserData(response.data);
             } catch (error) {
-                console.error('Error fetching user data:', error);
                 setError(true);
             } finally {
                 setLoading(false);
