@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React from "react";
+import {NavLink} from "react-router-dom";
 import insta from "../../assets/logos and backgrounds/insta.jpeg";
 import logoImageKlein from "../../assets/logos and backgrounds/B & B logo2 klein.jpg";
 
@@ -13,10 +13,10 @@ export function Footer() {
                 <p>Trademark <em>Van Der Maas P&C™</em></p>
                 <span>
           <NavLink to="https://www.instagram.com/beersenbrewskys/" target="_blank">
-            <img className="smaller_logo" src={insta} alt="instagram logo" />
+            <img className="smaller_logo" src={insta} alt="instagram logo"/>
           </NavLink>
           <NavLink to="http://localhost:5173/" target="_blank">
-            <img className="smaller_logo" src={logoImageKlein} alt="logo" />
+            <img className="smaller_logo" src={logoImageKlein} alt="logo"/>
           </NavLink>
         </span>
             </div>

@@ -1,27 +1,11 @@
 import {useEffect, useState} from "react";
 import Cubes from "../../components/cubes/Cubes";
 import axios from "axios";
-import json from '../../../productname.json'
 
 const AllProducts = () => {
     const [productsData, setProductsData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const [myProducts, setMyProducts] = useState([]);
-    const addProductToMyProducts = async (product) => {
-        setMyProducts((prevProducts) => [...prevProducts, product]);
-
-        try {
-            const productNamesResponse = await axios.get("/productname.json");
-            const currentProductNames = productNamesResponse.data.productnames || [];
-
-            const updatedProductNames = [...currentProductNames, product.productName];
-            await axios.put("/productname.json", { productnames: updatedProductNames });
-        } catch (error) {
-            console.error("Error updating product names:", error);
-        }
-    };
-
 
 
     useEffect(() => {
@@ -32,10 +16,11 @@ const AllProducts = () => {
                 const response = await axios.get('http://localhost:8081/products');
                 setProductsData(response.data);
             } catch (error) {
+                setError(true)
 
-            }finally {
-            setLoading(false);
-        }
+            } finally {
+                setLoading(false);
+            }
         };
 
         void fetchUserData();
@@ -53,10 +38,6 @@ const AllProducts = () => {
                 <p>IBU: {product.ibu}</p>
                 <p>kleur: {product.color}</p>
                 <p>volume(cc): {product.volume}</p>
-                <button className="bttn bttn_small" onClick={() => addProductToMyProducts(product)}>
-                    Voeg toe aan Mijn producten
-                </button>
-
             </div>
         ));
     };

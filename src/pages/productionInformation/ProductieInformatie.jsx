@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import '../../components/navBar/NavBar.css';
-import Text_component from "../../components/texts_components/Text-component";
+import Text_component from "../../components/textcomponents/TextComponent.jsx";
 import hop from "../../assets/hoe maak je bier/hop.png"
 import malt from "../../assets/hoe maak je bier/malt.png"
 import het_Proces1 from "../../assets/hoe maak je bier/staps_Of_Production.png"
@@ -12,7 +12,7 @@ import bier_gisten from "../../assets/hoe maak je bier/biergisten.jpeg";
 import IBU from "../../assets/hoe maak je bier/ibu.jpg";
 import color_EBC from "../../assets/hoe maak je bier/De-Bierparade-EBC.png";
 
-function Productie_Informatie() {
+function ProductieInformatie() {
     const hetProcesRef = useRef(null);
     const algemene_infoRef = useRef(null);
     const [dropdownStates, setDropdownStates] = useState({
@@ -31,7 +31,7 @@ function Productie_Informatie() {
         const hash = window.location.hash;
         const targetRef = hash === '#algemene-informatie' ? hetProcesRef : algemene_infoRef;
         if (targetRef && targetRef.current) {
-            targetRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+            targetRef.current.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
         }
     }, []);
     const handleMouseEnter = (item) => {
@@ -184,10 +184,10 @@ function Productie_Informatie() {
                                     <Text_component
                                         Text_Message2="Het zijn de bloemen of zaadkegels van deze plant die worden gebruikt in het brouwproces."
                                         Text_Message3="Hop voegt verschillende essentiële elementen toe aan bier."
-                                   Text_Message4="Bitterheid:De bitterheid komt van bepaalde zuren in de hop, vooral alfazuren."
-                                    Text_Message5=" Aroma: Hop voegt aroma en smaak toe aan het bier de hopvariëteiten en het moment waarop ze  worden toegevoegd beïnvloeden de smaak."
-                                    Text_Message6="Schuimstabiliteit: Hop draagt bij aan de stabiliteit van het schuim op bier."
-                                        />
+                                        Text_Message4="Bitterheid:De bitterheid komt van bepaalde zuren in de hop, vooral alfazuren."
+                                        Text_Message5=" Aroma: Hop voegt aroma en smaak toe aan het bier de hopvariëteiten en het moment waarop ze  worden toegevoegd beïnvloeden de smaak."
+                                        Text_Message6="Schuimstabiliteit: Hop draagt bij aan de stabiliteit van het schuim op bier."
+                                    />
                                 </div>
                             )}
                         </div>
@@ -200,7 +200,7 @@ function Productie_Informatie() {
                              onMouseLeave={() => handleMouseLeave('mout')}>
                             <Text_component
                                 Text_Title="mout"
-                                />
+                            />
                             {dropdownStates.mout && (
                                 <div className="submenu-content">
                                     <Text_component
@@ -241,7 +241,7 @@ function Productie_Informatie() {
                              onMouseLeave={() => handleMouseLeave('gist')}>
                             <Text_component
                                 Text_Title="Gist🞃"
-                                />
+                            />
                             {dropdownStates.gist && (
                                 <div className="submenu-content">
                                     <Text_component
@@ -261,4 +261,4 @@ function Productie_Informatie() {
     );
 }
 
-export default Productie_Informatie;
+export default ProductieInformatie;

@@ -1,8 +1,9 @@
-.productInfo_content{
+.productInfo_content {
     display: flex;
     flex-direction: row;
     margin: 0 10px;
 }
-.img_content-left{
+
+.img_content-left {
     margin-left: 100%;
 }

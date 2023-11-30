@@ -1,19 +1,19 @@
-
 /*Font*/
 .font_music_page {
     font-family: "Comic Sans MS", "cursive", "Brush Script", cursive;
     color: saddlebrown;
 }
-.dutch{
-    color: #fbb026;
 
+.dutch {
+    color: #fbb026;
 }
+
 /*Buttons*/
 .music-btn {
     width: 14vw;
     max-width: 400px;
     height: 5.5vh;
- max-height: 200px;
+    max-height: 200px;
     text-decoration: none;
     text-align: center;
     margin: 5px 10px;
@@ -25,9 +25,11 @@
     font-size: 1.4em;
     font-weight: bold;
 }
-.music-btn:hover{
+
+.music-btn:hover {
     border: 2px solid var(--blue-1);
 }
+
 .bttn_spotify {
     color: black;
     background-size: cover;

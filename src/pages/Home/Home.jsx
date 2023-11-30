@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react';
-import './Home.css';
+import React, {useContext, useState} from 'react';
 import Cubes from '../../components/cubes/Cubes';
 import Slider from '../../components/slider/Slider';
 import {AuthContext} from "../../context/AuthContext";
@@ -10,10 +9,9 @@ import slider_Img_Four from '../../assets/brewers/rockcity_ketel.jpg';
 import {NavLink, useNavigate} from "react-router-dom";
 
 function Home() {
-    const { isAuth, logout } = useContext(AuthContext);
+    const {isAuth, logout} = useContext(AuthContext);
     const [slideIndex, setSlideIndex] = useState(1);
     const navigate = useNavigate();
-    const username = localStorage.getItem('username');
 
 
     return (
@@ -29,22 +27,29 @@ function Home() {
                 />
                 <div className="text-content">
                     <div className="informatie_container">
-                        <h1>Welkom,</h1>
-                        <h4> Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij</h4>
-                        <p>zet eventueel een lekker muziekje op  met<NavLink to="/drankorgel"><strong>  Het drankorgel</strong></NavLink>.</p>
+                        <h1>Welkom Bierliefhebbers</h1>
+                        <h4> Bij <em>beers&brewskys</em> de plek voor iedereen met een passie voor dit mooie product,
+                            dus schrijf je in en kom erbij</h4>
+                        <p>zet eventueel een lekker muziekje op met<NavLink to="/drankorgel"><strong> Het
+                            drankorgel</strong></NavLink>.</p>
                         <div>
                             <button className="bttn bttn_small" onClick={() => navigate('/AgeVerification')}>
                                 Leeftijd check
                             </button>
                             {!isAuth ? (
                                 <>
-                                    <button className=" bttn bttn_small" onClick={() => { window.location.href = "/SignIn"; }}>
+                                    <button className=" bttn bttn_small" onClick={() => {
+                                        window.location.href = "/Signin";
+                                    }}>
                                         Inloggen
                                     </button>
                                 </>
                             ) : (
                                 <>
-                                    <button className=" bttn bttn_small" onClick={() => { logout(); window.location.href = "/"; }}>
+                                    <button className=" bttn bttn_small" onClick={() => {
+                                        logout();
+                                        window.location.href = "/";
+                                    }}>
                                         Uitloggen
                                     </button>
                                 </>
@@ -67,4 +72,5 @@ function Home() {
         </>
     );
 }
+
 export default Home;

@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {AuthContext} from "../../context/AuthContext.jsx";
 
 export const AgeVerification = () => {
@@ -24,7 +24,7 @@ export const AgeVerification = () => {
         if (age >= 18) {
             navigate('/home');
         } else {
-             setError(true);
+            setError(true);
 
         }
     };
@@ -36,23 +36,24 @@ export const AgeVerification = () => {
 
     return (
 
-        <div  className="background_Home ">
-        <div className="informatie_container">
+        <div className="background_Home ">
+            <div className="informatie_container">
 
-            <form  onSubmit={handleSubmit} >
-                <h1 style={{ color: '#fffef3', textShadow: '2px 2px 2px #2a365c' }}>Welkom bij Beers & Brewkys</h1>
-                <h2 style={{ color: '#fffef3', textShadow: '2px 2px 2px #2a365c' }}
-                >Geef je geboortedatum om door te kunnen gaan</h2>
-                <input
-                    type="date"
-                    value={birthdate}
-                    onChange={(e) => setBirthdate(e.target.value)}
-                />
-                <button className="bttn " type="submit"><p>controleren</p></button>
-                {error && (
-                    <h5 className="error"><p style={{ color: '#fffef3', textShadow: '2px 2px 2px #2a365c' }}>Je bent nog geen 18, je moet nog even wachten.</p></h5>
-                )}
-            </form>
+                <form onSubmit={handleSubmit}>
+                    <h1 style={{color: '#fffef3', textShadow: '2px 2px 2px #2a365c'}}>Welkom bij Beers & Brewkys</h1>
+                    <h2 style={{color: '#fffef3', textShadow: '2px 2px 2px #2a365c'}}
+                    >Geef je geboortedatum om door te kunnen gaan</h2>
+                    <input
+                        type="date"
+                        value={birthdate}
+                        onChange={(e) => setBirthdate(e.target.value)}
+                    />
+                    <button className="bttn " type="submit"><p>controleren</p></button>
+                    {error && (
+                        <h5 className="error"><p style={{color: '#fffef3', textShadow: '2px 2px 2px #2a365c'}}>Je bent
+                            nog geen 18, je moet nog even wachten.</p></h5>
+                    )}
+                </form>
             </div>
         </div>
     );

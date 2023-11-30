@@ -1,0 +1,11 @@
+.outer_news_Container{
+    flex-direction: row;
+}
+.news_Img {
+    width: 40vw;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-left: 20px;
+
+}
+

@@ -1,10 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {createContext, useContext, useEffect, useState} from "react";
 import jwt_Decode from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 export const AuthContext = createContext({});
 
-const AuthContextProvider = ({ children }) => {
+const AuthContextProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [authState, setAuthState] = useState({
@@ -73,7 +73,7 @@ const AuthContextProvider = ({ children }) => {
 
         setAuthState({
             isAuthenticated: true,
-            user: { username },
+            user: {username},
             status: "done",
         });
     };
@@ -89,7 +89,7 @@ const AuthContextProvider = ({ children }) => {
         });
     };
 
-    const { username, token } = authState;
+    const {username, token} = authState;
 
     const contextData = {
         ...authState,
@@ -97,7 +97,8 @@ const AuthContextProvider = ({ children }) => {
         login,
         isAuth: authState.isAuthenticated,
         user: authState.user,
-        token: authState.token };
+        token: authState.token
+    };
 
     return <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>;
 };

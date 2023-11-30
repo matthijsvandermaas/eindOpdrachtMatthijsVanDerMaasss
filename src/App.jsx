@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import React, {useState, useEffect} from 'react';
+import {NavLink, Route, Routes, useNavigate} from "react-router-dom";
 import './App.css';
 // Img
 import logoImage from './assets/logos and backgrounds/B & B logo2.jpg';
@@ -8,18 +8,16 @@ import wheat from './assets/logos and backgrounds/wheat.png';
 // Components
 import Navbar from "./components/navBar/Navbar.jsx";
 import AgeVerification from './components/agecheck/AgeVerification';
-import { Footer } from "./components/footer/Footer";
+import {Footer} from "./components/footer/Footer";
 // Pages
 import InschrijfForm from "./pages/signupform/InschrijfForm.jsx";
-import ProductieInformatie from "./pages/hoe maak je bier/Productie_Informatie";
+import ProductieInformatie from "./pages/productionInformation/ProductieInformatie.jsx";
 import Inschrijf_Form_Product from "./pages/signupform/InschrijfFormProduct.jsx";
 import AlleBieren from "./pages/allProducts/AllProducts";
-import SignIn from "./pages/signin/signin";
+import Signin from "./pages/signin/Signin.jsx";
 import Error from "./pages/error/Error";
-import MijnBieren from "./pages/my_products/myProducts";
 import Home from './pages/Home/Home';
-import Feedback from './pages/feedback/Feedback';
-import News from './pages/news feed/News';
+import News from './pages/news/News';
 import Music from './pages/music/DrankOrgel';
 import Profile from "./pages/profile/Profile";
 
@@ -69,40 +67,40 @@ function App() {
             <div className="outer-container background_fade">
                 <div className="header-container border_bottom_left background_fade2">
                     <div className="headerlogo-container">
-                        <NavLink to="/home"><img  className="logo-img" src={logoSrc} alt="B&B Logo" /></NavLink>
+                        <NavLink to="/home"><img className="logo-img" src={logoSrc} alt="B&B Logo"/></NavLink>
                         <div className="dropdown">
                             <button className="navBar-bttn headerlogo-container ">
-                               <img className="small_logo" src={wheat} alt="wheat-logo"/>
-                                <h1 className="h1-header" style={{ textShadow: "none", zIndex:"0"}}>menu</h1>
+                                <img className="menu_logo" src={wheat} alt="wheat-logo"/>
+                                <h1 className="h1-header" style={{textShadow: "none", zIndex: "0"}}>menu</h1>
                             </button>
-                            <Navbar activeTab={activeTab} handleTabChange={handleTabChange} />
+                            <Navbar activeTab={activeTab} handleTabChange={handleTabChange}/>
                         </div>
                     </div>
                     <button className="bttn bttn_small" onClick={toggleDarkMode}>
-                        <p style={{textShadow: '1px 3px 3px #fffef3' }}>{isDarkMode ? ' naar Light Mode' : ' naar Dark Mode'}</p>
+                        <p style={{textShadow: '1px 3px 3px #fffef3'}}>{isDarkMode ? ' naar Light Mode' : ' naar Dark Mode'}</p>
                     </button>
                 </div>
                 <div className="main-container">
                     <Routes>
-                        <Route path="/home" element={<Home />} />
-                        {!verificationDone && <Route exact path="/" element={<AgeVerification handleAgeVerification={handleAgeVerification} />} />}
-                        <Route path="/inschrijfformulier" element={<InschrijfForm />} />
-                        <Route path="/profile" element={<Profile />} />
-                        <Route path="/mijn_bieren" element={<MijnBieren />} />
-                        <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
-                        <Route path="/productie_Informatie" element={<ProductieInformatie />} />
-                        <Route path="/alle_producten" element={<AlleBieren />} />
-                        <Route path="/signIn" element={<SignIn />} />
-                        <Route path="/feedback" element={<Feedback />} />
-                        <Route path="/news" element={<News />} />
-                        <Route path="/drankorgel" element={<Music />} />
-                        <Route path="/*" element={<Error />} />
-                        <Route path="/AgeVerification" element={<AgeVerification />} />
+                        <Route path="/home" element={<Home/>}/>
+                        {!verificationDone && <Route exact path="/" element={<AgeVerification
+                            handleAgeVerification={handleAgeVerification}/>}/>}
+                        <Route path="/inschrijfformulier" element={<InschrijfForm/>}/>
+                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product/>}/>
+                        <Route path="/productie_Informatie" element={<ProductieInformatie/>}/>
+                        <Route path="/alle_producten" element={<AlleBieren/>}/>
+                        <Route path="/signIn" element={<Signin/>}/>
+                        <Route path="/news" element={<News/>}/>
+                        <Route path="/drankorgel" element={<Music/>}/>
+                        <Route path="/*" element={<Error/>}/>
+                        <Route path="/AgeVerification" element={<AgeVerification/>}/>
                     </Routes>
                 </div>
-                <Footer />
+                <Footer/>
             </div>
         </div>
     );
 }
+
 export default App;

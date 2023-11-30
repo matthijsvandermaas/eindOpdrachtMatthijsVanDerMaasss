@@ -6,6 +6,7 @@
     padding-bottom: 20px;
     padding-top: 50px;
 }
+
 .cube-bttn {
     width: 15vw;
     min-width: 10vw;
@@ -23,9 +24,10 @@
     font-size: 1em;
     display: flex;
     align-items: center;
-    justify-content: center ;
+    justify-content: center;
     flex-direction: column;
 }
+
 @media screen and (max-width: 800px) {
     .cube-bttn {
         font-size: 1.2em;
@@ -37,12 +39,12 @@
 
 @media screen and (max-width: 480px) {
     .container .cube-bttn p {
-            font-size: 0.2em;
-            padding: 10px 20px;
+        font-size: 0.2em;
+        padding: 10px 20px;
         max-width: 80vw;
-        }
-
     }
+
+}
 
 .cube-bttn:hover {
     cursor: pointer;
@@ -50,22 +52,27 @@
     box-shadow: var(--box-shadow_2);
     color: rgba(253, 246, 153, 0.70);
 }
-.cube-bttn1, .cube-bttn2, .cube-bttn3, .cube-bttn4{
+
+.cube-bttn1, .cube-bttn2, .cube-bttn3, .cube-bttn4 {
     transition: background 1.2s ease-in-out;
 }
-.cube-bttn1:hover{
+
+.cube-bttn1:hover {
     background-size: cover;
     background: url("../../assets/general pics/beers_With_friends.png") center;
 }
-.cube-bttn2:hover{
+
+.cube-bttn2:hover {
     background-size: cover;
     background: url("../../assets/general pics/four_Glasses.png") center;
 }
-.cube-bttn3:hover{
+
+.cube-bttn3:hover {
     background-size: cover;
     background: url("../../assets/general pics/in_The_Sun.png") center;
 }
-.cube-bttn4:hover{
+
+.cube-bttn4:hover {
     background-size: cover;
     background: url("../../assets/general pics/hop_and_barley.png") center;
 }

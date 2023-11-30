@@ -3,6 +3,7 @@ import React, {useRef, useState, useContext} from 'react';
 import './navbar.css';
 import {NavLink, useNavigate} from 'react-router-dom';
 import {AuthContext} from "../../context/AuthContext.jsx";
+
 function Navbar() {
     const hetProcesRef = useRef(null);
     const algemene_infoRef = useRef(null);
@@ -30,38 +31,39 @@ function Navbar() {
     };
     return (
         <>
-                <div className="dropdown-content">
-                    <ul className="navList">
-                        <li>
-                            <NavLink to="/home">Home</NavLink>
-                            <NavLink to="/inschrijfformulier">Inschrijven</NavLink>
-                            {isAuth ? (
-                                    <NavLink to="/home" onClick={handleLogout}> uitloggen </NavLink>)
-                                :
-                                (<NavLink to="/signIn">Inloggen</NavLink>)}
-                            {isAuth ? (<NavLink to='/profile'> Mijn gegevens</NavLink>)
-                                :
-                                (<NavLink to=''></NavLink>)}
-                                <NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>
-                            <NavLink to="/mijn_bieren">Mijn bieren</NavLink>
-                            <NavLink to="/alle_producten">Alle Bieren</NavLink>
-                            <div className="submenu" onClick={() => toggleSubmenu(2)}>
-                                <NavLink to="/Productie_informatie">Hoe maak je bier🞃</NavLink>
-                                {submenuStatus.isSubmenuOpen2 && (
-                                    <div className="submenu-content">
-                                        <NavLink to="/Productie_Informatie#algemene-informatie"
-                                                 onClick={scrollToAlgemene_info}>Algemene Informatie</NavLink>
-                                        <NavLink to="/Productie_Informatie#het-proces" onClick={scrollToHetProces}>Het
-                                            brouw proces</NavLink>
-                                    </div>
-                                )}
-                            </div>
-                            <NavLink to="/feedback">Geef ons je feedback?</NavLink>
-                            <NavLink to="/news"> Bier nieuws</NavLink>
-                            <NavLink to="/drankorgel"> Het Drankorgel</NavLink>
-                        </li>
-                    </ul>
-                </div>
+            <div className="dropdown-content">
+                <ul className="navList">
+                    <li>
+                        <NavLink to="/home">Home</NavLink>
+                        <NavLink to="/inschrijfformulier">Inschrijven</NavLink>
+                        {isAuth ? (
+                                <NavLink to="/home" onClick={handleLogout}> uitloggen </NavLink>)
+                            :
+                            (<NavLink to="/signIn">Inloggen</NavLink>)}
+                        {isAuth ? (<NavLink to='/profile'> Mijn gegevens</NavLink>)
+                            :
+                            (<NavLink to=''></NavLink>)}
+                        <NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>
+                        <NavLink to="/mijn_bieren">Mijn bieren</NavLink>
+                        <NavLink to="/alle_producten">Alle Bieren</NavLink>
+                        <div className="submenu" onClick={() => toggleSubmenu(2)}>
+                            <NavLink to="/Productie_informatie">Hoe maak je bier🞃</NavLink>
+                            {submenuStatus.isSubmenuOpen2 && (
+                                <div className="submenu-content">
+                                    <NavLink to="/ProductieInformatie#algemene-informatie"
+                                             onClick={scrollToAlgemene_info}>Algemene Informatie</NavLink>
+                                    <NavLink to="/ProductieInformatie#het-proces" onClick={scrollToHetProces}>Het
+                                        brouw proces</NavLink>
+                                </div>
+                            )}
+                        </div>
+                        <NavLink to="/feedback">Geef ons je feedback?</NavLink>
+                        <NavLink to="/news"> Bier nieuws</NavLink>
+                        <NavLink to="/drankorgel"> Het Drankorgel</NavLink>
+                    </li>
+                </ul>
+            </div>
         </>);
 }
+
 export default Navbar;

@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, {createContext, useContext, useState} from 'react';
 
 const ProductContext = createContext();
 
-export const ProductProvider = ({ children }) => {
+export const ProductProvider = ({children}) => {
     const [selectedProducts, setSelectedProducts] = useState([]);
 
     const addToSelectedProducts = (productIds) => {
@@ -17,7 +17,7 @@ export const ProductProvider = ({ children }) => {
 
     return (
         <ProductContext.Provider
-            value={{ selectedProducts, addToSelectedProducts, removeFromSelectedProducts }}
+            value={{selectedProducts, addToSelectedProducts, removeFromSelectedProducts}}
         >
             {children}
         </ProductContext.Provider>

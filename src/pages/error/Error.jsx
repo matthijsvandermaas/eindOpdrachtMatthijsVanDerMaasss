@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Cubes from '../../components/cubes/Cubes';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './Error.css';
 
 function Error() {
     const [isAuth, toggleIsAuth] = useState();
     const [previousLocation, setPreviousLocation] = useState(null);
-
 
     useEffect(() => {
         setPreviousLocation(document.referrer || '/');
@@ -16,7 +15,7 @@ function Error() {
         <div className="error-content">
             <h1>
                 Je hebt een glaasje teveel op denk ik, <br/>
-                {isAuth ? 'waar je was?' : <span>ga naar <Link to="/home"><strong>Home</strong></Link></span>}
+                {isAuth ? 'waar je was?' : <span>ga naar <Link to="/home"><u>Home</u></Link></span>}
             </h1>
             <Cubes
                 button_1="inschrijven"

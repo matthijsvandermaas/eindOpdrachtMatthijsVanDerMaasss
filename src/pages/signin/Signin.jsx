@@ -1,28 +1,27 @@
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, {useContext, useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
-import { AuthContext } from '../../context/AuthContext';
-import { useForm } from 'react-hook-form';
+import {AuthContext} from '../../context/AuthContext';
+import {useForm} from 'react-hook-form';
 import Cubes from "../../components/cubes/Cubes.jsx";
 import '../signupform/InschrijfForm.css';
 
-function SignIn() {
-    const { isAuth, logout, login} = useContext(AuthContext);
+function Signin() {
+    const {isAuth, logout, login} = useContext(AuthContext);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
+
     async function handleFormSubmit(data) {
         try {
             setError(false);
             setLoading(true);
             const response = await axios.post("http://localhost:8081/authenticate", data);
-            console.log("Response from authentication endpoint:", response);
             const username = response.data.username;
             localStorage.setItem('username', username);
             login(response.data.Authorization, data.username);
-            console.log("Navigating to /alle_producten");
             navigate('/alle_producten');
         } catch (e) {
             setError(true);
@@ -43,7 +42,7 @@ function SignIn() {
                             name="username"
                             placeholder="Voer hier je gebruiksnaam in."
                             {...register("username", {
-                                required: { value: true, message: "Gebruikersnaam is verplicht." }
+                                required: {value: true, message: "Gebruikersnaam is verplicht."}
                             })}
                         />
                     </label>
@@ -54,7 +53,7 @@ function SignIn() {
                             name="password"
                             placeholder="Voer hier je wachtwoord in."
                             {...register("password", {
-                                required: { value: true, message: "Wachtwoord is verplicht" }
+                                required: {value: true, message: "Wachtwoord is verplicht"}
                             })}
                         />
                     </label>
@@ -80,4 +79,4 @@ function SignIn() {
     );
 }
 
-export default SignIn;
+export default Signin;
