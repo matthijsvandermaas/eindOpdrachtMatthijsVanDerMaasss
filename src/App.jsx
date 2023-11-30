@@ -13,7 +13,7 @@ import { Footer } from "./components/footer/Footer";
 import InschrijfForm from "./pages/signupform/InschrijfForm.jsx";
 import ProductieInformatie from "./pages/hoe maak je bier/Productie_Informatie";
 import Inschrijf_Form_Product from "./pages/signupform/InschrijfFormProduct.jsx";
-import AlleBieren from "./pages/all_products/AllProducts";
+import AlleBieren from "./pages/allProducts/AllProducts";
 import SignIn from "./pages/signin/signin";
 import Error from "./pages/error/Error";
 import MijnBieren from "./pages/my_products/myProducts";
