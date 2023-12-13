@@ -39,9 +39,10 @@ function Navbar() {
                                     <NavLink to="/home" onClick={handleLogout}> uitloggen </NavLink>)
                                 :
                                 (<NavLink to="/signIn">Inloggen</NavLink>)}
-                            {isAuth ? (<NavLink to='/profile'> Mijn gegevens</NavLink>)
-                                :
-                                (<NavLink to=''></NavLink>)}
+                            {/*{isAuth ? */}
+                                (<NavLink to='/profile'> Mijn gegevens</NavLink>)
+                                {/*:*/}
+                                {/*(<NavLink to=''></NavLink>)}*/}
                                 <NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>
                             <NavLink to="/mijn_bieren">Mijn bieren</NavLink>
                             <NavLink to="/alle_producten">Alle Bieren</NavLink>

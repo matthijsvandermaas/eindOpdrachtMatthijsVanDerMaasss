@@ -20,9 +20,11 @@ const AllProducts = () => {
                 const response = await axios.get('http://localhost:8081/products');
                 setProductsData(response.data);
             } catch (error) {
-
+            setError(true);
+            console.error(error);
             }finally {
             setLoading(false);
+            setError(false);
         }
         };
 

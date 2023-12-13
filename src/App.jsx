@@ -18,7 +18,6 @@ import SignIn from "./pages/signin/signin";
 import Error from "./pages/error/Error";
 import MijnBieren from "./pages/my_products/myProducts";
 import Home from './pages/Home/Home';
-import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
 import Music from './pages/music/DrankOrgel';
 import Profile from "./pages/profile/Profile";
@@ -93,7 +92,6 @@ function App() {
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />
                         <Route path="/alle_producten" element={<AlleBieren />} />
                         <Route path="/signIn" element={<SignIn />} />
-                        <Route path="/feedback" element={<Feedback />} />
                         <Route path="/news" element={<News />} />
                         <Route path="/drankorgel" element={<Music />} />
                         <Route path="/*" element={<Error />} />

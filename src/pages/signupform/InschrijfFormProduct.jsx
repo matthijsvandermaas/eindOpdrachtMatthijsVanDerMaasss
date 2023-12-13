@@ -19,18 +19,18 @@ function InschrijfFormProduct() {
         algemene_infoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });    };
 
     async function handleFormSubmit(data) {
-        const newData = { ...data };
+
         setIsSubmitting(true);
-        console.log(newData);
+        console.log(data);
 
         try {
-            await axios.post('http://localhost:8081/products/createProduct', newData, {
+            await axios.post('http://localhost:8081/products', data, {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
             // navigate('/alle_producten');
             console.log("De gegevens zijn verstuurd");
-            console.log(newData);
+            console.log(data);
             navigate('/alle_producten');
         } catch (e) {
             console.error("Er gaat iets fout met het verwerken van de gegevens", e);
