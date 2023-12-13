@@ -6,12 +6,19 @@ const AllProducts = () => {
     const [productsData, setProductsData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const [myProducts, setMyProducts] = useState([]);
-    const addProductToMyProducts = (product) => {
-        setMyProducts((prevProducts) => [...prevProducts, product]);
-        localStorage.setItem("productname", product.productName);
-    };
+    const [favorites, setFavorites] = useState(() => {
+        const storedFavorites = localStorage.getItem("favorites");
+        return storedFavorites ? JSON.parse(storedFavorites) : [];
+    });
 
+    // Functie om een product aan favorieten toe te voegen
+    const addToFavorites = (product) => {
+        setFavorites((prevFavorites) => {
+            const updatedFavorites = [...prevFavorites, product];
+            localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+            return updatedFavorites;
+        });
+    };
     useEffect(() => {
         setError(false);
         setLoading(true);
@@ -43,7 +50,7 @@ const AllProducts = () => {
                 <p>IBU: {product.ibu}</p>
                 <p>kleur: {product.color}</p>
                 <p>volume(cc): {product.volume}</p>
-                <button className="bttn bttn_small" onClick={() => addProductToMyProducts(product)}>
+                <button className="bttn bttn_small" onClick={() => addToFavorites(product)}>
                     Voeg toe aan Mijn producten
                 </button>
 

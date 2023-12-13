@@ -17,7 +17,7 @@
 Informatie over het inlogproces.
 
 - ### 1.3 Product toevoegen
-  [Naar mijn bieren](src/pages/my_products/myProducts.jsx)
+  [Naar mijn bieren](src/pages/my_products/MyProducts.jsx)
   Uitleg over het toevoegen van producten.
 
 ## 2. Beveiliging en privacy
