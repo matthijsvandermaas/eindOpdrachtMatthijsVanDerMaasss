@@ -159,14 +159,20 @@ h5{
     margin-left: 12px;
     color: var(--blue-1);
 }
+h6{
+    font-size: 0.5em;
+    margin-top: 0;
+    margin-left: 12px;
+    color: var(--blue-1);
+}
 p{
     font-size: 1em;
     margin-top: 0;
 }
 /*///4. utility///*/
-.debug {
-    border: 2px solid red;
-}
+/*.debug {*/
+/*    border: 2px solid red;*/
+/*}*/
 p a {
     text-decoration: none;
     color: black;
@@ -330,6 +336,15 @@ p a {
     max-height: 100px;
     border-radius: 10%;
     margin: 0 5px 0 5px;
+}
+.inline_logo {
+    background: none;
+    width: 25px;
+    height: 25px;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 5%;
+    margin: 0 2.5px 0 2.5px;
 }
 
 

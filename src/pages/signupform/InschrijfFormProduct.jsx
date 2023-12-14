@@ -19,26 +19,17 @@ function InschrijfFormProduct() {
         algemene_infoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });    };
 
     async function handleFormSubmit(data) {
-
         setIsSubmitting(true);
-        console.log(data);
-
         try {
             await axios.post('http://localhost:8081/products', data, {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
-            // navigate('/alle_producten');
-            console.log("De gegevens zijn verstuurd");
-            console.log(data);
             navigate('/alle_producten');
         } catch (e) {
-            console.error("Er gaat iets fout met het verwerken van de gegevens", e);
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
         } finally {
-            // navigate('/alle_producten');
             setIsSubmitting(false);
-            console.log("Product form submission completed");
         }
     }
 
@@ -47,7 +38,8 @@ function InschrijfFormProduct() {
             <div className="form-container">
                 <h1>Bier toevoegen</h1>
                 <div>
-                    <form className=" form-container form-content border_top_bottom background" onSubmit={handleSubmit(handleFormSubmit)}>
+                    <form className=" form-container form-content border_top_bottom background"
+                          onSubmit={handleSubmit(handleFormSubmit)}>
                         <div>
                         <label>Productnaam:</label>
                         <input name="Productnaam" type="text" id="productName"
@@ -72,19 +64,19 @@ function InschrijfFormProduct() {
                             <br/>
                             <label>Type:</label>
                             <select name="type" id="type" {...register('type', {required: 'type is verplicht'})}>
-                                <option value="">Selecteer een bierstijl</option>
-                                <option value="Lager">Lager</option>
+                                <option value="" disabled>Selecteer een bierstijl</option>
                                 <option value="Ale">Ale</option>
-                                <option value="Witbier">Witbier</option>
-                                <option value="Weizer">Weizer</option>
-                                <option value="IPA">IPA</option>
-                                <option value="Stout">Stout</option>
-                                <option value="Porter">Porter</option>
-                                <option value="Pilsner">Pilsner</option>
                                 <option value="Amber Ale">Amber Ale</option>
-                                <option value="Saison">Saison</option>
-                                <option value="Tripel">Tripel</option>
                                 <option value="Barleywine">Barleywine</option>
+                                <option value="IPA">IPA</option>
+                                <option value="Lager">Lager</option>
+                                <option value="Pilsner">Pilsner</option>
+                                <option value="Porter">Porter</option>
+                                <option value="Saison">Saison</option>
+                                <option value="Stout">Stout</option>
+                                <option value="Tripel">Tripel</option>
+                                <option value="Weizer">Weizer</option>
+                                <option value="Witbier">Witbier</option>
                             </select>
                         </div>
                         <div>

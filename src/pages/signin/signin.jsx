@@ -17,7 +17,7 @@ function SignIn() {
         try {
             setError(false);
             setLoading(true);
-            const response = await axios.post("http://localhost:8081/authenticate", data);
+            const response = await axios.post("http://localhost:8081/", data);
             console.log("Response from authentication endpoint:", response);
             const username = response.data.username;
             localStorage.setItem('username', username);
@@ -66,14 +66,15 @@ function SignIn() {
                 </form>
                 <p>Heb je nog geen account? <Link to="/inschrijfformulier">schrijf je snel in!</Link></p>
                 <Cubes
-                    button_1="Hoe maak je bier"
-                    navigate_1="/productie_Informatie"
-                    button_2="Het drankorgel"
-                    navigate_2="/drankorgel"
-                    button_3="Home"
-                    navigate_3="/home"
-                    button_4="News"
-                    navigate_4="/news"
+                    button_1="inschrijven"
+                    navigate_1="/inschrijfformulier"
+                    button_2="Hoe maak je bier"
+                    navigate_2="/productie_Informatie"
+                    button_3="Het drankorgel"
+                    navigate_3="/drankorgel"
+                    button_4="Home"
+                    navigate_4="/home"
+
                 />
             </div>
         </>

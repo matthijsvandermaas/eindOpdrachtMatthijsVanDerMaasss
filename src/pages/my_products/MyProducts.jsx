@@ -24,9 +24,9 @@ const MyProducts = () => {
         <>
             <div>
                 <h1>Mijn favorieten bieren</h1>
-                <form className="form-content border_top_left background">
+                <form className="form-content  border_top_left background">
                     {favorites.map((product) => (
-                        <div key={product.productName}>
+                        <div className="form-content" key={product.productName}>
                             <h2>product: {product.productName}</h2>
                             <p>naam brouwer: {product.nameBrewer}</p>
                             <p>productie locatie: {product.productionLocation}</p>
@@ -37,7 +37,7 @@ const MyProducts = () => {
                             <p>kleur: {product.color}</p>
                             <p>volume(cc): {product.volume}</p>
                             <button className="bttn bttn_small" onClick={() => removeFromFavorites(product)}>
-                                Verwijder uit favorieten
+                                <h6>Verwijder uit favorieten</h6>
                             </button>
                         </div>
                     ))}
