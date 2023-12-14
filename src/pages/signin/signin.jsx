@@ -11,19 +11,22 @@ function SignIn() {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const [username, setUsername] = useState(() => {
+        const storedUsername = localStorage.getItem('username');
+        return storedUsername ? JSON.parse(storedUsername) : "";
+    });
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     async function handleFormSubmit(data) {
         try {
             setError(false);
             setLoading(true);
-            const response = await axios.post("http://localhost:8081/", data);
-            console.log("Response from authentication endpoint:", response);
-            const username = response.data.username;
-            localStorage.setItem('username', username);
+            const response = await axios.post("http://localhost:8081/authenticate", data);
+            const receivedUsername = data.username;
+            setUsername(receivedUsername);
+            localStorage.setItem('username', receivedUsername);
             login(response.data.Authorization, data.username);
-            console.log("Navigating to /alle_producten");
-            navigate('/alle_producten');
+            navigate('/home');
         } catch (e) {
             setError(true);
         } finally {

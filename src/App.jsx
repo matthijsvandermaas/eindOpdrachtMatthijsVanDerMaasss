@@ -17,7 +17,7 @@ import AlleBieren from "./pages/allProducts/AllProducts";
 import SignIn from "./pages/signin/signin";
 import Error from "./pages/error/Error";
 import MijnBieren from "./pages/my_products/MyProducts.jsx";
-import Home from './pages/Home/Home';
+import Home from './pages/home/Home';
 import News from './pages/news feed/News';
 import Music from './pages/music/DrankOrgel';
 import Profile from "./pages/profile/Profile";

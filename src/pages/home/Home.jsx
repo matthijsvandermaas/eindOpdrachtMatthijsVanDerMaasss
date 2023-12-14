@@ -15,7 +15,6 @@ function Home() {
     const navigate = useNavigate();
     const username = localStorage.getItem('username');
 
-
     return (
         <>
             <div className="title-content">
@@ -29,9 +28,9 @@ function Home() {
                 />
                 <div className="text-content">
                     <div className="informatie_container">
-                        <h1>Welkom,</h1>
-                        <h4> Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij</h4>
-                        <p>zet eventueel een lekker muziekje op  met<NavLink to="/drankorgel"><strong>  Het drankorgel</strong></NavLink>.</p>
+                        <h1>Home</h1>
+                        <h2>Welkom {username || "bierliefhebber "}, bij Beers&Brewskys de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij</h2>
+                        <p>zet eventueel een lekker muziekje op  met<NavLink to="/drankorgel"><u>  Het drankorgel</u></NavLink>.</p>
                         <div>
                             <button className="bttn bttn_small" onClick={() => navigate('/AgeVerification')}>
                                 Leeftijd check
