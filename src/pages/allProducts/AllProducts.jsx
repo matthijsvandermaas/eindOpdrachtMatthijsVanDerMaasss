@@ -1,11 +1,18 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Cubes from "../../components/cubes/Cubes";
+import {NavLink, useNavigate} from 'react-router-dom';
+
 import axios from "axios";
 
 const AllProducts = () => {
+    const navigate = useNavigate();
     const [productsData, setProductsData] = useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+
+
     const [favorites, setFavorites] = useState(() => {
         const storedFavorites = localStorage.getItem("favorites");
         return storedFavorites ? JSON.parse(storedFavorites) : [];
@@ -38,6 +45,25 @@ const AllProducts = () => {
         void fetchUserData();
     }, []);
 
+    async function handleDeleteSubmit(data, productName) {
+        setIsSubmitting(true);
+        try {
+            await axios.delete(`http://localhost:8081/products/${productName}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            setProductsData((prevProductsData) =>
+                prevProductsData.filter((product) => product.productName !== productName));
+            navigate('/alle_producten');
+        } catch (e) {
+            setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
+        } finally {
+            setIsSubmitting(false);
+        }
+    }
+
+
     const buildProductsInfo = (productsData) => {
         return productsData.map((product) => (
             <div className="form-content border_top_left background" key={product.productName}>
@@ -51,7 +77,10 @@ const AllProducts = () => {
                 <p>kleur: {product.color}</p>
                 <p>volume(cc): {product.volume}</p>
                 <button className="bttn bttn_small" onClick={() => addToFavorites(product)}>
-                    Voeg toe aan Mijn producten
+                    {isSubmitting ? 'Bezig met een product toevoegen momentje...' : 'Voeg toe aan Mijn producten'}
+                </button>
+                <button className="bttn bttn_small" type="submit" disabled={isSubmitting} onClick={() => handleDeleteSubmit(null, product.productName)}>
+                    {isSubmitting ? 'Bezig met een product toevoegen momentje...' : 'Product verwijderen'}
                 </button>
 
             </div>
