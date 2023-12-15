@@ -20,7 +20,7 @@ function InschrijfForm() {
                 withCredentials: true,
 
             });
-            navigate('/SignIn');
+            navigate('/home');
             console.log(newData);
             console.log("User form submission completed");
         } catch (e) {
@@ -70,8 +70,8 @@ function InschrijfForm() {
                         </div>
                         <div>
                             <label>Account type:</label>
-                            <select name="role"
-                                    id="role" {...register('roles', {required: 'Brouw je bier of drink je het alleen?'})}>
+                            <select name="roles"
+                                    id="roles" {...register('roles', {required: 'Brouw je bier of drink je het alleen?'})}>
                                 <option value="" disabled>Ik ben een:</option>
                                 <option value='USER'>liefhebber</option>
                                 <option value='BREWER'>brouwer</option>

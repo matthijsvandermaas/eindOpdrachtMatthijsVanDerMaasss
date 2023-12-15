@@ -15,6 +15,10 @@ function SignIn() {
         const storedUsername = localStorage.getItem('username');
         return storedUsername ? JSON.parse(storedUsername) : "";
     });
+    const [role, setRole] = useState(() => {
+        const storedRole = localStorage.getItem('role');
+        return storedRole ? JSON.parse(storedRole) : "";
+    });
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     async function handleFormSubmit(data) {
@@ -22,10 +26,13 @@ function SignIn() {
             setError(false);
             setLoading(true);
             const response = await axios.post("http://localhost:8081/authenticate", data);
+            console.log(response.data);
             const receivedUsername = data.username;
-            setUsername(receivedUsername);
+            const receivedRole = data.role;
             localStorage.setItem('username', receivedUsername);
+            localStorage.setItem('role', receivedRole);
             login(response.data.Authorization, data.username);
+            login(response.data.Authorization, data.role);
             navigate('/home');
         } catch (e) {
             setError(true);

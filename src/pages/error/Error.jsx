@@ -16,7 +16,7 @@ function Error() {
         <div className="error-content">
             <h1>
                 Je hebt een glaasje teveel op denk ik, <br/>
-                {isAuth ? 'waar je was?' : <span>ga naar <Link to="/home"><strong>Home</strong></Link></span>}
+                {isAuth ? 'waar je was?' : <span>ga naar <Link to="/home"><u>Home</u></Link></span>}
             </h1>
             <Cubes
                 button_1="inschrijven"

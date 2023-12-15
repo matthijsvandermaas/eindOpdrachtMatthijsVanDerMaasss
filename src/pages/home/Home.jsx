@@ -52,14 +52,14 @@ function Home() {
                     </div>
                 </div>
                 <Cubes
-                    button_1="Hoe maak je bier"
-                    navigate_1="/productie_Informatie"
-                    button_2="Het drankorgel"
-                    navigate_2="/drankorgel"
-                    button_3="Home"
-                    navigate_3="/home"
-                    button_4="News"
-                    navigate_4="/news"
+                    button_1="inloggen"
+                    navigate_1="/signin"
+                    button_2="Hoe maak je bier"
+                    navigate_2="/productie_Informatie"
+                    button_3="Het drankorgel"
+                    navigate_3="/drankorgel"
+                    button_4="Home"
+                    navigate_4="/home"
                 />
 
             </div>
