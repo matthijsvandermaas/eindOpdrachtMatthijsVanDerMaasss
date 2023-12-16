@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import '../../components/navBar/NavBar.css';
 import Text_component from "../../components/texts_components/Text-component";
 import hop from "../../assets/hoe maak je bier/hop.png"
@@ -31,7 +31,7 @@ function Productie_Informatie() {
         const hash = window.location.hash;
         const targetRef = hash === '#algemene-informatie' ? hetProcesRef : algemene_infoRef;
         if (targetRef && targetRef.current) {
-            targetRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+            targetRef.current.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
         }
     }, []);
     const handleMouseEnter = (item) => {
@@ -65,7 +65,6 @@ function Productie_Informatie() {
                                         Text_Message2="Het brouwen van bier begint met het selecteren van hoogwaardige ingrediënten: water, mout, hop en gist."
                                         Text_Message3="Eerst wordt het mout gemout en vermalen tot een fijn poeder, waarna het wordt vermengd met warm water om enzymatische reacties te activeren en suikers vrij te maken."
                                         Text_Message4=" Dit mengsel wordt gekookt, waarbij hop wordt toegevoegd voor bitterheid, aroma en conservering."
-                                        Text_Message5=" "
                                         Text_Message6="Na het koken wordt het mengsel gekoeld en gist toegevoegd, waardoor fermentatie plaatsvindt,"
                                         Text_Message7="deze periode verandert de gist de suikers in alcohol en koolstofdioxide."
                                         Text_Message8="Het bier wordt vervolgens gerijpt, gefilterd en indien nodig gecarboniseerd. Ten slotte wordt het gebotteld."
@@ -78,6 +77,7 @@ function Productie_Informatie() {
                             <img src={het_Proces2} alt="Het brouwproces"/>
                         </div>
                     </div>
+
                     <div className="text-component content_2 border_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('ibu')}
                              onMouseLeave={() => handleMouseLeave('ibu')}>
@@ -100,6 +100,7 @@ function Productie_Informatie() {
                             <img src={IBU} alt="IBU tabel"/>
                         </div>
                     </div>
+
                     <div className="text-component content_2 border_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('color_EBC')}
                              onMouseLeave={() => handleMouseLeave('color_EBC')}>
@@ -120,6 +121,7 @@ function Productie_Informatie() {
                             <img src={color_EBC} alt="kleur tabel volgende de EBC"/>
                         </div>
                     </div>
+
                     <div className="text-component content_2">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('gisten')}
                              onMouseLeave={() => handleMouseLeave('gisten')}>
@@ -141,6 +143,7 @@ function Productie_Informatie() {
                             <img src={bier_gisten} alt="gist"/>
                         </div>
                     </div>
+
                     <div className="text-component content_2 border_bottom_left">
                         <div className="text-component-dropdown"
                              onMouseEnter={() => handleMouseEnter('verschillendeSoortenBier')}
@@ -171,6 +174,7 @@ function Productie_Informatie() {
                         </div>
                     </div>
                 </section>
+
                 <section id="het-proces" ref={algemene_infoRef}>
                     <h2>het brouw proces</h2>
                     <div className="text-component content_1 border_top_left">
@@ -184,10 +188,10 @@ function Productie_Informatie() {
                                     <Text_component
                                         Text_Message2="Het zijn de bloemen of zaadkegels van deze plant die worden gebruikt in het brouwproces."
                                         Text_Message3="Hop voegt verschillende essentiële elementen toe aan bier."
-                                   Text_Message4="Bitterheid:De bitterheid komt van bepaalde zuren in de hop, vooral alfazuren."
-                                    Text_Message5=" Aroma: Hop voegt aroma en smaak toe aan het bier de hopvariëteiten en het moment waarop ze  worden toegevoegd beïnvloeden de smaak."
-                                    Text_Message6="Schuimstabiliteit: Hop draagt bij aan de stabiliteit van het schuim op bier."
-                                        />
+                                        Text_Message4="Bitterheid:De bitterheid komt van bepaalde zuren in de hop, vooral alfazuren."
+                                        Text_Message5=" Aroma: Hop voegt aroma en smaak toe aan het bier de hopvariëteiten en het moment waarop ze  worden toegevoegd beïnvloeden de smaak."
+                                        Text_Message6="Schuimstabiliteit: Hop draagt bij aan de stabiliteit van het schuim op bier."
+                                    />
                                 </div>
                             )}
                         </div>
@@ -195,12 +199,13 @@ function Productie_Informatie() {
                             <img src={hop} alt="Hop"/>
                         </div>
                     </div>
+
                     <div className="text-component content_1 border_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('mout')}
                              onMouseLeave={() => handleMouseLeave('mout')}>
                             <Text_component
                                 Text_Title="mout"
-                                />
+                            />
                             {dropdownStates.mout && (
                                 <div className="submenu-content">
                                     <Text_component
@@ -219,6 +224,7 @@ function Productie_Informatie() {
                             <img src={malt} alt="mout"/>
                         </div>
                     </div>
+
                     <div className="text-component content_1 border_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('water')}
                              onMouseLeave={() => handleMouseLeave('water')}>
@@ -236,12 +242,13 @@ function Productie_Informatie() {
                             <img src={water} alt="water"/>
                         </div>
                     </div>
+
                     <div className="text-component content_1 border_bottom_left">
                         <div className="text-component-dropdown" onMouseEnter={() => handleMouseEnter('gist')}
                              onMouseLeave={() => handleMouseLeave('gist')}>
                             <Text_component
                                 Text_Title="Gist🞃"
-                                />
+                            />
                             {dropdownStates.gist && (
                                 <div className="submenu-content">
                                     <Text_component
