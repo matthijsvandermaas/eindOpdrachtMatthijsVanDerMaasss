@@ -27,7 +27,8 @@ function App() {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('Home');
     const [logoSrc, setLogoSrc] = useState("");
-    const [verificationDone, setVerificationDone] = useState(false);
+    const isVerified = localStorage.getItem('age');
+    const [verificationDone, setVerificationDone] = useState(!!isVerified && parseInt(isVerified, 10) >= 18);
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
     };
@@ -36,12 +37,11 @@ function App() {
     };
 // Age verification
     useEffect(() => {
-        const isVerified = localStorage.getItem('isAgeVerified');
-        if (isVerified) {
-            setVerificationDone(true);
-            navigate('/home');
+        if (!verificationDone) {
+            navigate('/ageVerification');
         }
-    }, [navigate]);
+    }, [verificationDone, navigate]);
+
     const handleAgeVerification = () => {
         localStorage.setItem('isAgeVerified', 'true');
         setVerificationDone(true);
@@ -82,6 +82,7 @@ function App() {
                     </button>
                 </div>
                 <div className="main-container">
+                    { !verificationDone && <AgeVerification handleAgeVerification={handleAgeVerification} /> }
                     <Routes>
                         <Route path="/home" element={<Home />} />
                         {!verificationDone && <Route exact path="/" element={<AgeVerification handleAgeVerification={handleAgeVerification} />} />}
@@ -95,7 +96,7 @@ function App() {
                         <Route path="/news" element={<News />} />
                         <Route path="/drankorgel" element={<Music />} />
                         <Route path="/*" element={<Error />} />
-                        <Route path="/AgeVerification" element={<AgeVerification />} />
+                        <Route path="/ageVerification" element={<AgeVerification />} />
                     </Routes>
                 </div>
                 <Footer />

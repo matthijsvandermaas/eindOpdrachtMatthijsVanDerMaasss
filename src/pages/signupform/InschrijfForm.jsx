@@ -12,20 +12,22 @@ function InschrijfForm() {
     const [errorMessage, setErrorMessage] = useState("");
 
     async function handleFormSubmit(data) {
-        const newData = {...data, roles: [data.roles]};
+        console.log("Received Role:", data.role);
+        const receivedRole = data.role;
+        localStorage.setItem('role', receivedRole);
         setIsSubmitting(true);
         try {
-            await axios.post('http://localhost:8081/users', newData, {
+            await axios.post('http://localhost:8081/users', data, {
                 headers: {'Content-Type': 'application/json'},
                 withCredentials: true,
 
             });
             navigate('/home');
-            console.log(newData);
+            console.log(data);
             console.log("User form submission completed");
         } catch (e) {
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
-            console.error('Response fout:', newData);
+            console.error('Response fout:', data);
         } finally {
             setIsSubmitting(false);
         }
@@ -70,8 +72,8 @@ function InschrijfForm() {
                         </div>
                         <div>
                             <label>Account type:</label>
-                            <select name="roles"
-                                    id="roles" {...register('roles', {required: 'Brouw je bier of drink je het alleen?'})}>
+                            <select name="role"
+                                    id="role" {...register('role', {required: 'Brouw je bier of drink je het alleen?'})}>
                                 <option value="" disabled>Ik ben een:</option>
                                 <option value='USER'>liefhebber</option>
                                 <option value='BREWER'>brouwer</option>

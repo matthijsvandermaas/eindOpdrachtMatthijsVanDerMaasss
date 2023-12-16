@@ -22,6 +22,7 @@ export const AgeVerification = () => {
         }
 
         if (age >= 18) {
+            localStorage.setItem('age', age);
             navigate('/home');
         } else {
              setError(true);

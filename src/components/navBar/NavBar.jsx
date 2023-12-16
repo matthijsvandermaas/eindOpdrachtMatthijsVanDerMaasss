@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, {useRef, useState, useContext} from 'react';
+import React, {useRef, useState, useContext, useEffect} from 'react';
 import './navbar.css';
 import {NavLink, useNavigate} from 'react-router-dom';
 import {AuthContext} from "../../context/AuthContext.jsx";
@@ -8,6 +8,8 @@ function Navbar() {
     const algemene_infoRef = useRef(null);
     const {isAuth, logout} = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const userRole = localStorage.getItem('role');
     const handleLogout = () => {
         logout();
         navigate('/');
@@ -28,6 +30,16 @@ function Navbar() {
             [`isSubmenuOpen${submenuNumber}`]: !prevStatus[`isSubmenuOpen${submenuNumber}`],
         }));
     };
+    useEffect(() => {
+        if (userRole === 'BREWER') {
+            console.log('De gebruiker is een brouwer!');
+        } else if (userRole === 'USER') {
+            console.log('De gebruiker is een liefhebber!');
+        } else if (userRole === 'ADMIN') {
+            console.log('De gebruiker is een beheerder!');
+        }
+    }, [userRole]);
+
     return (
         <>
                 <div className="dropdown-content">
@@ -43,7 +55,9 @@ function Navbar() {
                                 (<NavLink to='/profile'> Mijn gegevens</NavLink>)
                                 :
                                 (<NavLink to=''></NavLink>)}
-                                <NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>
+                            {userRole === 'BREWER' && (
+                                <NavLink to="/inschrijfformulier_product">Een biertje toevoegen (BREWER)</NavLink>
+                            )}
                             <NavLink to="/mijn_bieren">Mijn bieren</NavLink>
                             <NavLink to="/alle_producten">Alle Bieren</NavLink>
                             <div className="submenu" onClick={() => toggleSubmenu(2)}>

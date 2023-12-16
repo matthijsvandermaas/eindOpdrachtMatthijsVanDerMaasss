@@ -28,10 +28,10 @@ function SignIn() {
             const response = await axios.post("http://localhost:8081/authenticate", data);
             console.log(response.data);
             const receivedUsername = data.username;
-            const receivedRole = data.role;
             localStorage.setItem('username', receivedUsername);
-            localStorage.setItem('role', receivedRole);
             login(response.data.Authorization, data.username);
+            const receivedRole = data.role;
+            localStorage.setItem('role', receivedRole);
             login(response.data.Authorization, data.role);
             navigate('/home');
         } catch (e) {
