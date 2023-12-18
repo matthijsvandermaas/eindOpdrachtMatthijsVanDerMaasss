@@ -2,16 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cubes from "../../components/cubes/Cubes";
-import { useAuth } from '../../context/AuthContext';
 
 function Profile() {
-    const { authState } = useAuth();
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
     useEffect(() => {
-
         const fetchData = async () => {
             setError(false);
             setLoading(true);
@@ -19,13 +16,15 @@ function Profile() {
             try {
                 const token = localStorage.getItem('token');
                 const username = localStorage.getItem('username');
-                console.log(username)
-                const response = await axios.get(`http://localhost:8081/users/${username}`, {
-                    // headers: {
-                    //     Authorization: `Bearer ${token}`,
-                    //     'Content-Type': 'application/json',
-                    // },
+                console.log('Token:', token);
+                console.log('Username:', username);
+                const response = await axios.get(`https://localhost:8081/users/${username}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
                 });
+
                 setUserData(response.data);
             } catch (error) {
                 setError(true);
@@ -48,7 +47,13 @@ function Profile() {
                 <p>Achternaam: {user.lastName}</p>
                 <p>E-mail: {user.email}</p>
                 <p>Bedrijf: {user.company}</p>
+                console.log(user.username);
+                console.log(user.firstName);
+                console.log(user.lastName);
+                console.log(user.email);
+                console.log(user.company
             </div>
+
         ));
     };
 

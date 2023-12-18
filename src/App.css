@@ -248,8 +248,7 @@ p a {
     background-size: cover;
     background-position: center;
     width: inherit;
-    min-height: 59vh;
-    max-height:  990px;
+    height: 70vh;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
 }

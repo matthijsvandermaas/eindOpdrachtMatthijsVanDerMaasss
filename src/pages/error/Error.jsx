@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import Cubes from '../../components/cubes/Cubes';
 import { Link } from 'react-router-dom';
 import './Error.css';
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Error() {
-    const [isAuth, toggleIsAuth] = useState();
+    const { isAuth, logout } = useContext(AuthContext);
     const [previousLocation, setPreviousLocation] = useState(null);
 
 

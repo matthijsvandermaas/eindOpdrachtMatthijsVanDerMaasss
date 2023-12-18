@@ -12,16 +12,16 @@ function InschrijfForm() {
     const [errorMessage, setErrorMessage] = useState("");
 
     async function handleFormSubmit(data) {
-        console.log("Received Role:", data.role);
-        const receivedRole = data.role;
-        localStorage.setItem('role', receivedRole);
-        setIsSubmitting(true);
         try {
             await axios.post('http://localhost:8081/users', data, {
                 headers: {'Content-Type': 'application/json'},
                 withCredentials: true,
 
             });
+        console.log("Received Role:", data.role);
+        const receivedRole = data.role;
+        localStorage.setItem('role', receivedRole);
+        setIsSubmitting(true);
             navigate('/home');
             console.log(data);
             console.log("User form submission completed");

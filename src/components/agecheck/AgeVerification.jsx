@@ -14,8 +14,7 @@ export const AgeVerification = () => {
         const selectedDate = new Date(date);
         let age = today.getFullYear() - selectedDate.getFullYear();
         const month = today.getMonth() - selectedDate.getMonth();
-        // console.log(date)
-        // setAge(age)
+
 
         if (month < 0 || (month === 0 && today.getDate() < selectedDate.getDate())) {
             age--;

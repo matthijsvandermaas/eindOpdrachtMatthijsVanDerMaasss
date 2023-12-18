@@ -14,7 +14,7 @@ import InschrijfForm from "./pages/signupform/InschrijfForm.jsx";
 import ProductieInformatie from "./pages/hoe maak je bier/Productie_Informatie";
 import Inschrijf_Form_Product from "./pages/signupform/InschrijfFormProduct.jsx";
 import AlleBieren from "./pages/allProducts/AllProducts";
-import SignIn from "./pages/signin/signin";
+import Signin from "./pages/signin/signin";
 import Error from "./pages/error/Error";
 import MijnBieren from "./pages/my_products/MyProducts.jsx";
 import Home from './pages/home/Home';
@@ -92,7 +92,7 @@ function App() {
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />
                         <Route path="/alle_producten" element={<AlleBieren />} />
-                        <Route path="/signin" element={<SignIn />} />
+                        <Route path="/signin" element={<Signin />} />
                         <Route path="/news" element={<News />} />
                         <Route path="/drankorgel" element={<Music />} />
                         <Route path="/*" element={<Error />} />
