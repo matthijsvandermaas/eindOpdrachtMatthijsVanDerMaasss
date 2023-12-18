@@ -4,7 +4,7 @@ import axios from 'axios';
 import Cubes from "../../components/cubes/Cubes";
 import { useAuth } from '../../context/AuthContext';
 
-function AllAccounts() {
+function AllProfiles() {
     const { authState } = useAuth();
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -77,4 +77,4 @@ function AllAccounts() {
     );
 }
 
-export default AllAccounts;
+export default AllProfiles;

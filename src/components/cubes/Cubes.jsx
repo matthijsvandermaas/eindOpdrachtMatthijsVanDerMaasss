@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import './Cubes.css';
 
@@ -16,15 +15,6 @@ function Cubes({ button_1, button_2, button_3, button_4, navigate_1, navigate_2,
     );
 }
 
-Cubes.propTypes = {
-    button_1: PropTypes.string.isRequired,
-    button_2: PropTypes.string.isRequired,
-    button_3: PropTypes.string.isRequired,
-    button_4: PropTypes.string.isRequired,
-    navigate_1: PropTypes.string.isRequired,
-    navigate_2: PropTypes.string.isRequired,
-    navigate_3: PropTypes.string.isRequired,
-    navigate_4: PropTypes.string.isRequired,
-};
+
 
 export default Cubes;

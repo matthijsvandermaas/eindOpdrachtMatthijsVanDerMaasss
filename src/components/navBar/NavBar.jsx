@@ -47,12 +47,14 @@ function Navbar() {
                         <li>
                             <NavLink to="/home">Home</NavLink>
                             <NavLink to="/inschrijfformulier">Inschrijven</NavLink>
+                            {userRole === 'ADMIN' && (
+                            <NavLink to={"/all_profiles"}>alle profielen</NavLink>)}
                             {isAuth ? (
                                     <NavLink to="/home" onClick={handleLogout}> uitloggen </NavLink>)
                                 :
                                 (<NavLink to="/signin">Inloggen</NavLink>)}
                             {isAuth ?
-                                (<NavLink to='/profile'> Mijn gegevens</NavLink>)
+                                (<NavLink to='/profile'> Mijn profiel</NavLink>)
                                 :
                                 (<NavLink to=''></NavLink>)}
                             {userRole === 'BREWER' && (

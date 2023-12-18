@@ -13,6 +13,7 @@ import { Footer } from "./components/footer/Footer";
 import InschrijfForm from "./pages/signupform/InschrijfForm.jsx";
 import ProductieInformatie from "./pages/hoe maak je bier/Productie_Informatie";
 import Inschrijf_Form_Product from "./pages/signupform/InschrijfFormProduct.jsx";
+import Alle_profielen from "./pages/allProfiles/AllProfiles.jsx";
 import AlleBieren from "./pages/allProducts/AllProducts";
 import Signin from "./pages/signin/signin";
 import Error from "./pages/error/Error";
@@ -88,6 +89,7 @@ function App() {
                         {!verificationDone && <Route exact path="/" element={<AgeVerification handleAgeVerification={handleAgeVerification} />} />}
                         <Route path="/inschrijfformulier" element={<InschrijfForm />} />
                         <Route path="/profile" element={<Profile />} />
+                        <Route path="/all_profiles" element={<Alle_profielen />} />
                         <Route path="/mijn_bieren" element={<MijnBieren />} />
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />
