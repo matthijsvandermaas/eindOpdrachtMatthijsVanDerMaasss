@@ -20,10 +20,14 @@ function SignIn() {
             const response = await axios.post("http://localhost:8081/authenticate", data);
             console.log("Response from authentication endpoint:", response);
             const username = response.data.username;
+            const role = response.data.roles;
             localStorage.setItem('username', username);
-            login(response.data.Authorization, data.username);
+            localStorage.setItem('role', role);
+            login(response.data.Authorization, data.username, data.password, role, username);
             console.log("Navigating to /alle_producten");
             navigate('/alle_producten');
+            console.log('role', role);
+            console.log('username', username);
         } catch (e) {
             setError(true);
         } finally {
@@ -58,10 +62,9 @@ function SignIn() {
                             })}
                         />
                     </label>
-                    <button className="bttn" type="submit" disabled={loading}>
-                        {loading ? 'Momentje even kijken wie je bent...' : 'Inloggen'}
-                    </button>
-                    {isAuth ? <button className="bttn" type="submit" onClick={logout}>uitloggen</button> : null}
+
+                        {!isAuth && <button className="bttn" type="submit" disabled={loading}>{loading ? 'Momentje even kijken wie je bent...' : 'Inloggen'}</button>}
+                    {isAuth && <button className="bttn" type="button" onClick={logout}>uitloggen</button>}
                     {error && <p className="error">Combinatie van e-mailadres en wachtwoord is onjuist.</p>}
                 </form>
                 <p>Heb je nog geen account? <Link to="/inschrijfformulier">schrijf je snel in!</Link></p>

@@ -10,13 +10,13 @@ function InschrijfForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { register, handleSubmit } = useForm();
     const [errorMessage, setErrorMessage] = useState("");
-
+const userRole = localStorage.getItem('role');
     async function handleFormSubmit(data) {
         const newData = { ...data, roles: [data.roles] };
         setIsSubmitting(true);
         console.log(newData);
         try {
-            await axios.post('http://localhost:8081/users/createUser', newData, {
+            await axios.post('http://localhost:8081/users', newData, {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
 
@@ -66,10 +66,9 @@ function InschrijfForm() {
                         <div>
                         <label>Account type:</label>
                         <select name="roles" id="roles" {...register('roles', { required: 'Brouw je bier of drink je het alleen?' })}>
-                            <option value="" disabled>Ik ben een:</option>
                             <option value='USER'>liefhebber</option>
                             <option value='BREWER'>brouwer</option>
-                            <option value='ADMIN' disabled>beheerder</option>
+                            <option value='ADMIN' disabled={userRole !== 'ADMIN'}>beheerder</option>
                         </select>
                         </div>
                             {errorMessage && <p className="error-message">{errorMessage}</p>}

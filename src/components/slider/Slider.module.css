@@ -4,6 +4,7 @@
     height: 14vh;
     overflow: hidden;
     margin: 2px 20vw;
+    z-index: 0;
 }
 .mySlides {
     width: 100%;
@@ -15,6 +16,7 @@
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     border-radius: var(--border-radius-form);
+    z-index: 2;
 }
 .mySlides.active {
     opacity: 1;

@@ -30,7 +30,7 @@ function Navbar() {
     };
     return (
         <>
-                <div className="dropdown-content">
+                <div className="dropdown-content ">
                     <ul className="navList">
                         <li>
                             <NavLink to="/home">Home</NavLink>
