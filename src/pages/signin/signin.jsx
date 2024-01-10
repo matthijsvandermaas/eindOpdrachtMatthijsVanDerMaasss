@@ -3,10 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
 import { useForm } from 'react-hook-form';
-import Cubes from "../../components/cubes/Cubes.jsx";
+import Cubes from "../../components/cubes/Cubes";
 import '../signupform/InschrijfForm.css';
 
-function SignIn() {
+function SignIn(key) {
     const { isAuth, logout, login} = useContext(AuthContext);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ function SignIn() {
             const username = response.data.username;
             const role = response.data.roles;
             localStorage.setItem('username', username);
-            localStorage.setItem('role', role);
+            localStorage.setItem('roles', role);
             login(response.data.Authorization, data.username, data.password, role, username);
             console.log("Navigating to /alle_producten");
             navigate('/alle_producten');

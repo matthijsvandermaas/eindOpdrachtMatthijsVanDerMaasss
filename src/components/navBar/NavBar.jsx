@@ -31,7 +31,7 @@ function Navbar() {
     return (
         <>
                 <div className="dropdown-content  ">
-                    <ul className="navList background">
+                    <ul className="navList background ">
                         <li>
                             <NavLink to="/home">Home</NavLink>
                             <NavLink to="/inschrijfformulier">Inschrijven</NavLink>
