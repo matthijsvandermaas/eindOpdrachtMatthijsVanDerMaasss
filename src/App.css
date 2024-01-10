@@ -165,9 +165,7 @@ p{
     margin-top: 0;
 }
 /*///4. utility///*/
-.debug {
-    border: 2px solid red;
-}
+
 p a {
     text-decoration: none;
     color: black;

@@ -3,7 +3,6 @@
     padding: 0;
     margin: 0;
 }
-/*navbar*/
 .navBar-container {
     display: flex;
     flex-direction: column;
@@ -13,7 +12,6 @@
     height: 100%;
     max-height: 50vh;
     min-height: 20vh;
-    border: 3px solid #ff7592;
     padding: 30px 30px;
     opacity: 1;
     z-index: 1;
@@ -72,10 +70,9 @@
     list-style-type: none;
     font-size: 1.7em;
     background-size: cover;
-    background: url("../../assets/logos and backgrounds/beers-with-frienss-2.jpg") center;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
-    padding: 10px 0  0 70px;
+    padding: 2px 0 0 2px;
 
 }
 .dropdown-content:hover {
@@ -83,12 +80,13 @@
 }
 
 .dropdown-content a {
+    font-size: 1.2em;
     text-decoration: none;
-    color: var(--background-gradient-color);
+    color: rgba(33, 25, 25, 0.8);
     display: block;
     box-shadow: var(--box-shadow_1);
     transition: 0.5s ease-in-out;
-    text-shadow: 2px 2px 2px var(--blue-1);
+    text-shadow: 2px 5px 10px var(--blue-1), 2px 10px 10px var(--blue-4);
 }
 .dropdown-content a:hover {
     display: block;

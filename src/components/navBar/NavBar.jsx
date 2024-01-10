@@ -30,8 +30,8 @@ function Navbar() {
     };
     return (
         <>
-                <div className="dropdown-content ">
-                    <ul className="navList">
+                <div className="dropdown-content  ">
+                    <ul className="navList background">
                         <li>
                             <NavLink to="/home">Home</NavLink>
                             <NavLink to="/inschrijfformulier">Inschrijven</NavLink>
@@ -61,7 +61,7 @@ function Navbar() {
                             <NavLink to="/drankorgel"> Het Drankorgel</NavLink>
                         </li>
                     </ul>
-                </div>
+                    </div>
         </>);
 }
 export default Navbar;
