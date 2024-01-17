@@ -1,65 +1,65 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cubes from "../../components/cubes/Cubes";
 import { useAuth } from '../../context/AuthContext';
 
-function AllAccounts() {
-    const { authState } = useAuth();
-    const [userData, setUserData] = useState(null);
+const AllAccounts = () => {
+    const [profilesData, setProfilesData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        console.log('Inside useEffect');
-        console.log('Username:', authState.username);
-
-        const fetchData = async () => {
-            setError(false);
-            setLoading(true);
-
+        setError(false);
+        setLoading(true);
+        const fetchUserData = async () => {
             try {
-                const token = localStorage.getItem('token');
-                console.log('Sending request with token:', token);
-                console.log('Sending request with username:', authState.username);
-
-                const response = await axios.get(`http://localhost:8081/users/${authState.username}`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-
-                setUserData(response.data);
+                const response = await axios.get('http://localhost:8081/users');
+                setProfilesData(response.data);
             } catch (error) {
-                console.error('Error fetching user data:', error);
                 setError(true);
             } finally {
                 setLoading(false);
             }
         };
-
-            fetchData();
+        void fetchUserData();
     }, []);
+    const deleteProfile = async (username) => {
+        try {
+            // Voer de API-aanroep uit om het profiel te verwijderen
+            await axios.delete(`http://localhost:8081/users/${username}`);
+            // Verwijder het profiel
+            setProfilesData((prevUsersData) => prevUsersData.filter((user) => user.username !== username));
+        } catch (error) {
+            setError(true)
+        } finally {
+            setLoading(false);
+        }
+    };
 
-
-
-    const buildUserInfo = (user) => (
-        <div className="form-content border_top_left background" key={user.username}>
-            <h2>Gebruiker: {user.username}</h2>
-            <p>Voornaam: {user.firstName}</p>
-            <p>Achternaam: {user.lastName}</p>
-            <p>E-mail: {user.email}</p>
-            <p>Bedrijf: {user.company}</p>
-        </div>
-    );
+    const buildProfilesInfo = (profilesData) => {
+        return profilesData.map((profile) => (
+            <div className="form-content border_top_left background" key={profile.username}>
+                <h2>Profiel: {profile.username}</h2>
+                <p>Voornaam: {profile.firstName}</p>
+                <p>Achternaam: {profile.lastName}</p>
+                <p>Bedrijfsnaam: {profile.company}</p>
+                <p>Account type: {profile.roles}</p>
+                <button className="bttn bttn_small" onClick={() => deleteProfile(profile.username)}>
+                    Verwijder profiel
+                </button>
+                {/*<button className="bttn bttn_small" onClick={() => deleteProfile(profile.username)}>*/}
+                {/*    Wijzig profiel*/}
+                {/*</button>*/}
+            </div>
+        ));
+    };
 
     return (
         <>
             <div>
                 <h1>Alle accounts</h1>
                 <form className="form-content">
-                    {userData ? buildUserInfo(userData) : <p>Momentje even kijken wie je bent...</p>}
+                    {profilesData ? buildProfilesInfo(profilesData) : <p>Momentje even kijken wie je bent...</p>}
                     {error && <p>Fout bij het ophalen van gegevens.</p>}
                 </form>
                 <Cubes

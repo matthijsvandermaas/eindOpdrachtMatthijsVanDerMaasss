@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Cubes from "../../components/cubes/Cubes";
 import axios from "axios";
 
@@ -20,7 +20,7 @@ const AllProducts = () => {
                 const response = await axios.get('http://localhost:8081/products');
                 setProductsData(response.data);
             } catch (error) {
-
+            setError(true)
             }finally {
             setLoading(false);
         }
@@ -44,6 +44,9 @@ const AllProducts = () => {
                 <button className="bttn bttn_small" onClick={() => addProductToMyProducts(product)}>
                     Voeg toe aan Mijn producten
                 </button>
+                {/*<button className="bttn bttn_small" onClick={() => deleteProfile(profile.username)}>*/}
+                {/*    Wijzig product*/}
+                {/*</button>*/}
 
             </div>
         ));

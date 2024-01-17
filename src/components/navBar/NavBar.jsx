@@ -30,6 +30,8 @@ function Navbar() {
     const isBrewerOrAdmin = role === 'ROLE_BREWER' || role === 'ROLE_ADMIN';
     console.log(isBrewerOrAdmin);
 
+    const isAdmin = role === 'ROLE_ADMIN';
+
     const [submenuStatus, setSubmenuStatus] = useState({
         isSubmenuOpen1: false,
         isSubmenuOpen2: false,
@@ -51,9 +53,7 @@ function Navbar() {
                                 <NavLink to="/home" onClick={handleLogout}> uitloggen </NavLink>)
                             :
                             (<NavLink to="/signIn">Inloggen</NavLink>)}
-                        {isAuth ? (<NavLink to='/profile'> Mijn gegevens</NavLink>)
-                            :
-                            (<NavLink to=''></NavLink>)}
+                        {isAdmin && (<NavLink to='/all_profiles'> profielen</NavLink>)}
                         {isBrewerOrAdmin && (
                             <NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>
                         )}

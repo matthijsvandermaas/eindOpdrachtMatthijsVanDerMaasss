@@ -21,7 +21,7 @@ import Home from './pages/Home/Home';
 import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
 import Music from './pages/music/DrankOrgel';
-import Profile from "./pages/profile/Profile";
+import All_Accounts from './pages/allAccounts/AllAccounts';
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -87,7 +87,7 @@ function App() {
                         <Route path="/home" element={<Home />} />
                         {!verificationDone && <Route exact path="/" element={<AgeVerification handleAgeVerification={handleAgeVerification} />} />}
                         <Route path="/inschrijfformulier" element={<InschrijfForm />} />
-                        <Route path="/profile" element={<Profile />} />
+                        <Route path="/all_profiles" element={<All_Accounts />} />
                         <Route path="/mijn_bieren" element={<MijnBieren />} />
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />
