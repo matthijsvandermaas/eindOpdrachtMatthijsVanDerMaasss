@@ -24,7 +24,7 @@ function InschrijfFormProduct() {
         console.log(newData);
 
         try {
-            await axios.post('http://localhost:8081/products/createProduct', newData, {
+            await axios.post('http://localhost:8081/products/createProduct ', newData, {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
