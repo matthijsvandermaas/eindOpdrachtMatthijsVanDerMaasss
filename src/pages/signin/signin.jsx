@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
@@ -11,7 +11,6 @@ function SignIn() {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-
     const { register, handleSubmit, formState: { errors } } = useForm();
     async function handleFormSubmit(data) {
         try {
@@ -19,21 +18,19 @@ function SignIn() {
             setLoading(true);
             const response = await axios.post("http://localhost:8081/authenticate", data);
             console.log("Response from authentication endpoint:", response);
-            const username = response.data.username;
-            const role = response.data.roles;
-            localStorage.setItem('username', username);
-            localStorage.setItem('role', role);
-            login(response.data.Authorization, data.username, data.password, role, username);
+            let token = response.data.Authorization[0];
+            const jwt = token.replace('Bearer ', '');
+            login(jwt);
+
             console.log("Navigating to /alle_producten");
             navigate('/alle_producten');
-            console.log('role', role);
-            console.log('username', username);
         } catch (e) {
             setError(true);
         } finally {
             setLoading(false);
         }
     }
+
 
     return (
         <>

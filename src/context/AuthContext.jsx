@@ -33,7 +33,7 @@ const AuthContextProvider = ({ children }) => {
 
                     // Als de token succesvol wordt gedecodeerd, log in de gebruiker in
                     if (decodedToken) {
-                        login(token, decodedToken);
+                        login(token);
                         console.log(decodedToken);
                     } else {
                         setAuthState({
@@ -63,14 +63,15 @@ const AuthContextProvider = ({ children }) => {
         fetchData();
     }, []); // Geen dependencies hier, omdat we geen externe variabelen gebruiken
 
-    const login = (token, decodedToken) => {
+    const login = (token) => {
         console.log("Token from localStorage:", token);
-        console.log("Decoded Token:", decodedToken);
+         const decodedToken = jwt_Decode(token);
         const username = decodedToken.sub;
         navigate('/home');
 
         localStorage.setItem('token', token);
-
+        localStorage.setItem('username', username);
+        localStorage.setItem('role', decodedToken.roles[0].authority);
         setAuthState({
             isAuthenticated: true,
             user: { username },
