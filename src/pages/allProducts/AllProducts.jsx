@@ -28,6 +28,18 @@ const AllProducts = () => {
 
         void fetchUserData();
     }, []);
+    const deleteProduct = async (username) => {
+        try {
+            // Voer de API-aanroep uit om het profiel te verwijderen
+            await axios.delete(`http://localhost:8081/products/${productName}`);
+            // Verwijder het profiel
+            setProductsData((prevUsersData) => prevUsersData.filter((product) => product.productName !== productName));
+        } catch (error) {
+            setError(true)
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const buildProductsInfo = (productsData) => {
         return productsData.map((product) => (
