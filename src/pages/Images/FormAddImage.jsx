@@ -3,37 +3,43 @@ import axios from 'axios';
 import {useForm} from 'react-hook-form';
 import Cubes from "../../components/cubes/Cubes";
 
-const FormAddImage = ({productId}) => {
+const FormAddImage =() => {
     const [image, setImage] = useState(null);
     const {register, handleSubmit} = useForm();
 
     const onSubmit = async (data) => {
         try {
-            const response = await axios.post(`http://localhost:8081/single/uploadDB`, {...data, productId});
+
+            const formData = new FormData();
+            formData.append('file', data.file[0]);
+            const response = await axios.post(`http://localhost:8081/single/uploadDB`, formData,{
+            headers: {
+                'Content-Type': 'multipart/form-data'  },
+        });
             setImage(response.data);
         } catch (error) {
             console.error('Error fetching images:', error);
         }
     };
 
-    useEffect(() => {
-        const fetchImages = async () => {
-            try {
-                const response = await axios.post(
-                    'http://localhost:8081/single/uploadDB', { productId },{
-                headers: {
-                        'Content-Type': 'multipart/form-data'  },
-            });
-                console.log("response.data", response.data);
-                setImage(response.data);
-            } catch (error) {
-                console.error('Error fetching images:', error);
-            } finally {
-            }
-        };
-
-        fetchImages();
-    }, [productId]);
+    // useEffect(() => {
+    //     const fetchImages = async () => {
+    //         try {
+    //             const response = await axios.get(`http://localhost:8081/downloadFromDB/${image.fileName}`, {
+    //                 responseType: 'arraybuffer',
+    //             });
+    //
+    //             const base64String = Buffer.from(response.data, 'binary').toString('base64');
+    //             setImage({ ...image, base64: base64String });
+    //         } catch (error) {
+    //             console.error('Error fetching images:', error);
+    //         }
+    //     };
+    //
+    //     if (image) {
+    //         fetchImages();
+    //     }
+    // }, [image]);
 
 
     return (
@@ -47,6 +53,7 @@ const FormAddImage = ({productId}) => {
                     {/* Render hier je component met de ontvangen afbeeldingsgegevens */}
                     {/* Bijvoorbeeld: <img src={image && image.imageUrl} alt="Product" /> */}
                 </form>
+                {image && <img src={`data:image/jpeg;base64,${image.base64}`} alt="Uploaded" />}
             <Cubes
                 button_1="Hoe maak je bier"
                 navigate_1="/productie_Informatie"
