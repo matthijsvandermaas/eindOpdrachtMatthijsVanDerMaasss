@@ -28,7 +28,7 @@ const AllProducts = () => {
 
         void fetchUserData();
     }, []);
-    const deleteProduct = async (username) => {
+    const deleteProduct = async (productName) => {
         try {
             // Voer de API-aanroep uit om het profiel te verwijderen
             await axios.delete(`http://localhost:8081/products/${productName}`);

@@ -19,22 +19,29 @@ const FormAddImage = ({productId}) => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await axios.post(`http://localhost:8081/single/uploadDB`, {productId});
+                const response = await axios.post(
+                    'http://localhost:8081/single/uploadDB', { productId },{
+                headers: {
+                        'Content-Type': 'multipart/form-data'  },
+            });
+                console.log("response.data", response.data);
                 setImage(response.data);
             } catch (error) {
                 console.error('Error fetching images:', error);
+            } finally {
             }
         };
 
         fetchImages();
     }, [productId]);
 
+
     return (
         <>
             <div className="form-container">
                     <h1>Afbeelding uploaden</h1>
-                <form className=" form-container form-content border_top_bottom background" onSubmit={handleSubmit(onSubmit)}>
-                    <input type="file" {...register('image')} />
+                <form className="form-container form-content border_top_bottom background"  onSubmit={handleSubmit(onSubmit)}>
+                    <input type="file" name="file" {...register('file')} />
                     <button className="bttn" type="submit">Afbeelding toevoegen</button>
 
                     {/* Render hier je component met de ontvangen afbeeldingsgegevens */}
