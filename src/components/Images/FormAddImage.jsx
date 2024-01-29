@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useForm} from 'react-hook-form';
-import Cubes from "../cubes/Cubes.jsx";
-const FormAddImage =({entityName, form_titele}) => {
+const FormAddImage = ({ entityName, form_titele }) => {
     const [image, setImage] = useState(null);
-    const {register, handleSubmit} = useForm();
-
+    const { register, handleSubmit } = useForm();
 
 
     const onSubmit = async (data) => {
@@ -24,47 +22,37 @@ const FormAddImage =({entityName, form_titele}) => {
         }
     };
 
-    // useEffect(() => {
-    //     const fetchImages = async () => {
-    //         try {
-    //             const response = await axios.get(`http://localhost:8081/downloadFromDB/${image.fileName}`, {
-    //                 responseType: 'arraybuffer',
-    //             });
-    //
-    //             const base64String = Buffer.from(response.data, 'binary').toString('base64');
-    //             setImage({ ...image, base64: base64String });
-    //         } catch (error) {
-    //             console.error('Error fetching images:', error);
-    //         }
-    //     };
-    //
-    //     if (image) {
-    //         fetchImages();
-    //     }
-    // }, [image]);
+    useEffect(() => {
+        const fetchImages = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8081/downloadFromDB/${image.fileName}`, {
+                    responseType: 'arraybuffer',
+                });
+
+                const base64String = btoa(new Uint8Array(response.data).reduce((data, byte) => data + String.fromCharCode(byte), ''));
+                setImage({ ...image, base64: base64String });
+            } catch (error) {
+                console.error('Error fetching images:', error);
+            }
+        };
+
+        if (image) {
+            fetchImages();
+        }
+    }, [image]);
 
 
     return (
         <>
-            <div className="form-container">
+            <div>
                     <h5>{form_titele}</h5>
-                <form style={{ fontSize: '1em' }} className="form-container form-content border_top_bottom background" onSubmit={handleSubmit(onSubmit)}>
+                <div style={{ fontSize: '1em' }} className="form-content border_top_bottom">
                     <input type="file" name="file" {...register('file')} />
                     {/*<button className="bttn" type="submit">Afbeelding toevoegen</button>*/}
 
-                </form>
-                     {/*<img src={image && image.imageUrl} alt="Product" />*/}
+                </div>
                 {image && <img src={`data:image/jpeg;base64,${image.base64}`} alt="Uploaded" />}
-            <Cubes
-                button_1="Hoe maak je bier"
-                navigate_1="/productie_Informatie"
-                button_2="Het drankorgel"
-                navigate_2="/drankorgel"
-                button_3="Home"
-                navigate_3="/home"
-                button_4="News"
-                navigate_4="/news"
-            />
+
             </div>
         </>
     );

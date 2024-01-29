@@ -55,7 +55,6 @@ function Navbar() {
                             (<NavLink to="/signIn">Inloggen</NavLink>)}
                         {isAdmin && (<NavLink to='/all_profiles'> profielen</NavLink>)}
                         {isBrewerOrAdmin && (
-                            <NavLink to="/add_image">foto toevoegen</NavLink>,
                             <NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>
 
 

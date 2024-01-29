@@ -26,10 +26,10 @@ function InschrijfFormProduct() {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
-            // navigate('/alle_producten');
-            console.log("De gegevens zijn verstuurd");
+            await FormAddImage(newData.productName);
             console.log(newData);
             navigate('/alle_producten');
+            console.log("De gegevens zijn verstuurd");
         } catch (e) {
             console.error("Er gaat iets fout met het verwerken van de gegevens", e);
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
@@ -45,7 +45,7 @@ function InschrijfFormProduct() {
             <div className="form-container">
                 <h1>Bier toevoegen</h1>
                 <div>
-                    <form className=" form-container form-content border_top_bottom background" onSubmit={handleSubmit(FormAddImage, handleFormSubmit)}>
+                    <form className=" form-container form-content border_top_bottom background" onSubmit={handleSubmit(handleFormSubmit)}>
                         <div>
                         <label>Productnaam:</label>
                         <input name="Productnaam" type="text" id="productName"
@@ -113,10 +113,12 @@ function InschrijfFormProduct() {
                             <label data-inhoud="(1 dl is 100 cc)">⍰Volume(in cc):</label>
                             <input name="volume" step="1" min="100" max="1000" type="number" id="volume"  placeholder="Voer hier de inhoud in." {...register('volume', {required: 'volume is verplicht'})} />
                         </div>
+
                         <FormAddImage
                             entityName={newData.productName}
                             form_titele={"Afbeelding toevoegen"}
                         />
+
                         <button className="bttn" type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Bezig met een product toevoegen momentje...' : 'toevoegen'}
                         </button>

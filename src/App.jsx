@@ -91,7 +91,6 @@ function App() {
                         <Route path="/all_profiles" element={<All_Accounts />} />
                         <Route path="/mijn_bieren" element={<MijnBieren />} />
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
-                        <Route path="/add_image" element={<FormAddImage />} />
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />
                         <Route path="/alle_producten" element={<AlleBieren />} />
                         <Route path="/signIn" element={<SignIn />} />
