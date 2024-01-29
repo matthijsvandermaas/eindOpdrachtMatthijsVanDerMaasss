@@ -22,7 +22,7 @@ import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
 import Music from './pages/music/DrankOrgel';
 import All_Accounts from './pages/allAccounts/AllAccounts';
-import FormAddImage from "./pages/Images/FormAddImage";
+import FormAddImage from "./components/Images/FormAddImage";
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(false);

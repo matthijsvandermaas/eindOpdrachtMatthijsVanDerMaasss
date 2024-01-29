@@ -4,6 +4,7 @@ import './InschrijfForm.css';
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate} from 'react-router-dom';
 import Cubes from "../../components/cubes/Cubes.jsx";
+import FormAddImage from "../../components/Images/FormAddImage";
 
 function InschrijfFormProduct() {
     const navigate = useNavigate();
@@ -11,10 +12,7 @@ function InschrijfFormProduct() {
     const { register, handleSubmit } = useForm();
     const [errorMessage, setErrorMessage] = useState("");
     const algemene_infoRef = useRef(null);
-
-
-
-
+    const [newData, setNewData] = useState({});
     const scrollToAlgemene_info = () => {
         algemene_infoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });    };
 
@@ -47,7 +45,7 @@ function InschrijfFormProduct() {
             <div className="form-container">
                 <h1>Bier toevoegen</h1>
                 <div>
-                    <form className=" form-container form-content border_top_bottom background" onSubmit={handleSubmit(handleFormSubmit)}>
+                    <form className=" form-container form-content border_top_bottom background" onSubmit={handleSubmit(FormAddImage, handleFormSubmit)}>
                         <div>
                         <label>Productnaam:</label>
                         <input name="Productnaam" type="text" id="productName"
@@ -115,12 +113,16 @@ function InschrijfFormProduct() {
                             <label data-inhoud="(1 dl is 100 cc)">⍰Volume(in cc):</label>
                             <input name="volume" step="1" min="100" max="1000" type="number" id="volume"  placeholder="Voer hier de inhoud in." {...register('volume', {required: 'volume is verplicht'})} />
                         </div>
-                        {errorMessage && <p className="error-message">{errorMessage}</p>}
+                        <FormAddImage
+                            entityName={newData.productName}
+                            form_titele={"Afbeelding toevoegen"}
+                        />
                         <button className="bttn" type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Bezig met een product toevoegen momentje...' : 'toevoegen'}
-                                                </button>
+                        </button>
+                        {errorMessage && <p className="error-message">{errorMessage}</p>}
                     </form>
-                        <div>
+                    <div>
                             <p>Vragen over de terminologie in het bierproces en omschrijving of wilt je meer informatie, ga dan naar: <NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}>Hoe maak je bier</NavLink>.</p>
                         </div>
                 </div>

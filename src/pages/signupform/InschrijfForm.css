@@ -49,7 +49,9 @@ input[type="file"]
 
     );
 }
-input[type="number"]{
+input[type="number"],
+input[type="file"]
+{
     font-size: 0.9em;
     flex: 2;
     padding: 8px;
