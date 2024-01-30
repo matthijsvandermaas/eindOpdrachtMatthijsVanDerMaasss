@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
-import {validate} from "@babel/core/lib/config/validation/options.js";
 
-const FormAddImage = ({entityName}) => {
+const FormAddImage = ({productName }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [productsData, setProductsData] = useState(null);
@@ -15,16 +14,15 @@ const FormAddImage = ({entityName}) => {
         try {
             const formData = new FormData();
             formData.append('file', data.file[0]);
-            formData.append('entityName', entityName);
+            formData.append('productName', data.addImg);
 
-            const response = await axios.post(`http://localhost:8081/single/uploadDB/${entityName}`, formData, {
+            const response = await axios.post(`http://localhost:8081/single/uploadDB/${productName}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },
             });
 
             console.log("Image uploaded successfully:", response.data);
-            console.log(entityName);
             console.log(data.file[0]);
             console.log(productsData)
 
@@ -38,7 +36,7 @@ const FormAddImage = ({entityName}) => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await axios.get(`http://localhost:8081/downloadFromDB/${image.fileName}`, {
+                const response = await axios.get(`http://localhost:8081/downloadFromDB/${productsData.value}`, {
                     responseType: 'arraybuffer',
                 });
 
@@ -92,7 +90,7 @@ const FormAddImage = ({entityName}) => {
                                     <option key={product.value} value={product.value}>
                                 {product.label}
                             </option>
-                            ))} ))
+                            ))}
                         </select>
                         </div>
                         : ""}

@@ -186,7 +186,6 @@ p a {
     text-decoration: none;
     text-align: center;
     margin: 5px 10px;
-    transition: 0.5s ease-in-out;
     font-size: 1em;
  }
 .bttn:hover{

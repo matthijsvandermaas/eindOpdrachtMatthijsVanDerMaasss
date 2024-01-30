@@ -29,7 +29,7 @@ function Home() {
                 <div className="text-content">
                     <div className="informatie_container">
                         <h1>{`Welkom, ${isAuth ? (username ? `${username}` : ''): 'bierliefhebber'}`}</h1>
-                        <h4>Bij <em>beers&brewskys</em> de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij</h4>
+                        <h4>Bij beers&brewskys, de plek voor bierliefhebbers om hun passie voor dit mooie product te delen met iedereen, dus schrijf je in en kom erbij.</h4>
                         <p>zet eventueel een lekker muziekje op met <NavLink to="/drankorgel"><strong> Het drankorgel</strong></NavLink>.</p>
                         <div>
                             <button className="bttn bttn_small" onClick={() => navigate('/AgeVerification')}>Leeftijd check</button>
