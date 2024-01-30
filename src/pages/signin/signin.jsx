@@ -4,7 +4,7 @@ import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
 import { useForm } from 'react-hook-form';
 import Cubes from "../../components/cubes/Cubes.jsx";
-import '../signupform/InschrijfForm.css';
+import '../signupform/Form.css';
 
 function SignIn() {
     const { isAuth, logout, login} = useContext(AuthContext);

@@ -1,22 +1,27 @@
 import React, {useRef, useState} from 'react';
 import axios from 'axios';
-import './InschrijfForm.css';
+import './Form.css';
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate} from 'react-router-dom';
 import Cubes from "../../components/cubes/Cubes.jsx";
-import FormAddImage from "../../components/Images/FormAddImage";
+// import FormAddImage from "../../components/Images/FormAddImage";
 
-function InschrijfFormProduct() {
+function HookFormProduct() {
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { register, handleSubmit } = useForm();
     const [errorMessage, setErrorMessage] = useState("");
     const algemene_infoRef = useRef(null);
-    const [newData, setNewData] = useState({});
+    const [imageUploaded, setImageUploaded] = useState(false);
+    // const [newData, setNewData] = useState({});
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
     const scrollToAlgemene_info = () => {
         algemene_infoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });    };
 
     async function handleFormSubmit(data) {
+        setError(false);
+        setLoading(true);
         const newData = { ...data };
         setIsSubmitting(true);
         console.log(newData);
@@ -26,15 +31,16 @@ function InschrijfFormProduct() {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
-            await FormAddImage(newData.productName);
+            // await FormAddImage(newData.productName);
+            setImageUploaded(true);
             console.log(newData);
-            navigate('/alle_producten');
+            navigate('/add_image');
             console.log("De gegevens zijn verstuurd");
         } catch (e) {
             console.error("Er gaat iets fout met het verwerken van de gegevens", e);
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
         } finally {
-            // navigate('/alle_producten');
+            navigate('/alle_producten');
             setIsSubmitting(false);
             console.log("Product form submission completed");
         }
@@ -113,12 +119,6 @@ function InschrijfFormProduct() {
                             <label data-inhoud="(1 dl is 100 cc)">⍰Volume(in cc):</label>
                             <input name="volume" step="1" min="100" max="1000" type="number" id="volume"  placeholder="Voer hier de inhoud in." {...register('volume', {required: 'volume is verplicht'})} />
                         </div>
-
-                        <FormAddImage
-                            entityName={newData.productName}
-                            form_titele={"Afbeelding toevoegen"}
-                        />
-
                         <button className="bttn" type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Bezig met een product toevoegen momentje...' : 'toevoegen'}
                         </button>
@@ -127,6 +127,12 @@ function InschrijfFormProduct() {
                     <div>
                             <p>Vragen over de terminologie in het bierproces en omschrijving of wilt je meer informatie, ga dan naar: <NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}>Hoe maak je bier</NavLink>.</p>
                         </div>
+                    {/*{imageUploaded ? (*/}
+                    {/*    <p>Afbeelding succesvol toegevoegd!</p>*/}
+                    {/*) : (*/}
+                    {/*    <FormAddImage entityName={newData.productName} form_titele={"Afbeelding toevoegen"} />*/}
+                    {/*)}*/}
+
                 </div>
                 <Cubes
                 button_1="Hoe maak je bier"
@@ -143,4 +149,4 @@ function InschrijfFormProduct() {
             </>
         );
     }
-export default InschrijfFormProduct;
+export default HookFormProduct;

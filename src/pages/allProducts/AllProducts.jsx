@@ -2,11 +2,12 @@ import React, {useEffect, useState} from "react";
 import Cubes from "../../components/cubes/Cubes";
 import axios from "axios";
 
-const AllProducts = () => {
+const AllProducts = (product) => {
     const [productsData, setProductsData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [myProducts, setMyProducts] = useState([]);
+
     const addProductToMyProducts = (product) => {
         setMyProducts((prevProducts) => [...prevProducts, product]);
         localStorage.setItem("productname", product.productName);
@@ -15,7 +16,7 @@ const AllProducts = () => {
     useEffect(() => {
         setError(false);
         setLoading(true);
-        const fetchUserData = async () => {
+        const fetchProductData = async () => {
             try {
                 const response = await axios.get('http://localhost:8081/products');
                 setProductsData(response.data);
@@ -26,7 +27,7 @@ const AllProducts = () => {
         }
         };
 
-        void fetchUserData();
+        void fetchProductData();
     }, []);
     const deleteProduct = async (productName) => {
         try {

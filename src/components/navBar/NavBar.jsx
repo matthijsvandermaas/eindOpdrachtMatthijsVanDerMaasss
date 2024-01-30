@@ -28,7 +28,6 @@ function Navbar() {
     }, []);
 
     const isBrewerOrAdmin = role === 'ROLE_BREWER' || role === 'ROLE_ADMIN';
-    console.log(isBrewerOrAdmin);
 
     const isAdmin = role === 'ROLE_ADMIN';
 
@@ -56,8 +55,9 @@ function Navbar() {
                         {isAdmin && (<NavLink to='/all_profiles'> profielen</NavLink>)}
                         {isBrewerOrAdmin && (
                             <NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>
-
-
+                        )}
+                        {isBrewerOrAdmin && (
+                            <NavLink to="/add_image">foto toevoegen</NavLink>
                         )}
                         <NavLink to="/mijn_bieren">Mijn bieren</NavLink>
                         <NavLink to="/alle_producten">Alle Bieren</NavLink>

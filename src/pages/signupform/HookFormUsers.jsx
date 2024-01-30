@@ -2,18 +2,22 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import './InschrijfForm.css';
+import './Form.css';
 import Cubes from "../../components/cubes/Cubes.jsx";
 
-function InschrijfForm() {
+function HookFormUsers() {
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { register, handleSubmit } = useForm();
     const [errorMessage, setErrorMessage] = useState("");
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
 const userRole = localStorage.getItem('role');
     async function handleFormSubmit(data) {
         const newData = { ...data, roles: [data.roles] };
         setIsSubmitting(true);
+        setError(false);
+        setLoading(true);
         console.log(newData);
         try {
             await axios.post('http://localhost:8081/users', newData, {
@@ -93,4 +97,4 @@ const userRole = localStorage.getItem('role');
     );
 }
 
-export default InschrijfForm;
+export default HookFormUsers;

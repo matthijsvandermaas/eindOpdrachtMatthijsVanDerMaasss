@@ -10,9 +10,9 @@ import Navbar from "./components/navBar/Navbar.jsx";
 import AgeVerification from './components/agecheck/AgeVerification';
 import { Footer } from "./components/footer/Footer";
 // Pages
-import InschrijfForm from "./pages/signupform/InschrijfForm.jsx";
+import HookFormUsers from "./pages/signupform/HookFormUsers.jsx";
 import ProductieInformatie from "./pages/hoe maak je bier/Productie_Informatie";
-import Inschrijf_Form_Product from "./pages/signupform/InschrijfFormProduct.jsx";
+import Inschrijf_Form_Product from "./pages/signupform/HookFormProduct.jsx";
 import AlleBieren from "./pages/allProducts/AllProducts";
 import SignIn from "./pages/signin/signin";
 import Error from "./pages/error/Error";
@@ -87,10 +87,11 @@ function App() {
                     <Routes>
                         <Route path="/home" element={<Home />} />
                         {!verificationDone && <Route exact path="/" element={<AgeVerification handleAgeVerification={handleAgeVerification} />} />}
-                        <Route path="/inschrijfformulier" element={<InschrijfForm />} />
+                        <Route path="/inschrijfformulier" element={<HookFormUsers />} />
                         <Route path="/all_profiles" element={<All_Accounts />} />
                         <Route path="/mijn_bieren" element={<MijnBieren />} />
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
+                        <Route path="/add_image" element={<FormAddImage />} />
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />
                         <Route path="/alle_producten" element={<AlleBieren />} />
                         <Route path="/signIn" element={<SignIn />} />
