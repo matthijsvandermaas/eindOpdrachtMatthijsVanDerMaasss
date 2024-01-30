@@ -76,7 +76,7 @@ function HookFormProduct() {
                             <br/>
                             <label>Type:</label>
                             <select name="type" id="type" {...register('type', {required: 'type is verplicht'})}>
-                                <option value="">Selecteer een bierstijl</option>
+                                <option value="">Selecteer een bierstijl...</option>
                                 <option value="Lager">Lager</option>
                                 <option value="Ale">Ale</option>
                                 <option value="Witbier">Witbier</option>
