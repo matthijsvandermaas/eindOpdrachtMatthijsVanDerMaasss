@@ -22,7 +22,7 @@ import Feedback from './pages/feedback/Feedback';
 import News from './pages/news feed/News';
 import Music from './pages/music/DrankOrgel';
 import All_Accounts from './pages/allAccounts/AllAccounts';
-import FormAddImage from "./components/Images/FormAddImage";
+import HookFormAddImage from "./components/Images/HookFormAddImage.jsx";
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -91,7 +91,7 @@ function App() {
                         <Route path="/all_profiles" element={<All_Accounts />} />
                         <Route path="/mijn_bieren" element={<MijnBieren />} />
                         <Route path="/inschrijfformulier_product" element={<Inschrijf_Form_Product />} />
-                        <Route path="/add_image" element={<FormAddImage />} />
+                        <Route path="/add_image" element={<HookFormAddImage />} />
                         <Route path="/productie_Informatie" element={<ProductieInformatie />} />
                         <Route path="/alle_producten" element={<AlleBieren />} />
                         <Route path="/signIn" element={<SignIn />} />

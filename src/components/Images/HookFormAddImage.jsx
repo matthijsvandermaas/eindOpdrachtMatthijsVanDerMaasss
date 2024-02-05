@@ -3,7 +3,7 @@ import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 
-const FormAddImage = ({productName }) => {
+const HookFormAddImage = ({productName }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [productsData, setProductsData] = useState(null);
@@ -41,6 +41,7 @@ const FormAddImage = ({productName }) => {
                 });
 
                 const base64String = btoa(new Uint8Array(response.data).reduce((data, byte) => data + String.fromCharCode(byte), ''));
+                navigate('/alle_producten');
                 setImage({...image, base64: base64String});
             } catch (error) {
                 console.error('Error fetching images:', error);
@@ -108,4 +109,4 @@ const FormAddImage = ({productName }) => {
     );
 };
 
-export default FormAddImage;
+export default HookFormAddImage;

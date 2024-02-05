@@ -7,6 +7,7 @@ const AllProducts = (product) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [myProducts, setMyProducts] = useState([]);
+    const [searchText, setSearchText] = useState("");
 
     const addProductToMyProducts = (product) => {
         setMyProducts((prevProducts) => [...prevProducts, product]);
@@ -31,9 +32,7 @@ const AllProducts = (product) => {
     }, []);
     const deleteProduct = async (productName) => {
         try {
-            // Voer de API-aanroep uit om het profiel te verwijderen
             await axios.delete(`http://localhost:8081/products/${productName}`);
-            // Verwijder het profiel
             setProductsData((prevUsersData) => prevUsersData.filter((product) => product.productName !== productName));
         } catch (error) {
             setError(true)
@@ -41,6 +40,14 @@ const AllProducts = (product) => {
             setLoading(false);
         }
     };
+    const handleSearchChange = (e) => {
+        setSearchText(e.target.value);
+    };
+    const filteredProducts = productsData
+        ? productsData.filter((product) =>
+            product.productName.toLowerCase().includes(searchText.toLowerCase())
+        )
+        : [];
 
     const buildProductsInfo = (productsData) => {
         return productsData.map((product) => (
@@ -69,9 +76,25 @@ const AllProducts = (product) => {
         <>
             <div>
                 <h1>Alle bieren</h1>
-                <form className="form-content">
-                    {productsData ? buildProductsInfo(productsData) : <p>Even kijken wat je lekker vindt...</p>}
+                <div>
+                <form className=" form-container form-content">
+                    <input
+                        name="vind je bier:"
+                        type="search"
+                        placeholder="Vind je bieren..."
+                        value={searchText}
+                        onChange={handleSearchChange}
+                    />
+                    <form className="form-content">
+                        {filteredProducts.length > 0 ? (
+                            buildProductsInfo(filteredProducts)
+                        ) : (
+                            <p>Geen overeenkomende producten gevonden.</p>
+                        )}
+                    </form>
+                    {/*{productsData ? buildProductsInfo(productsData) : <p>Even kijken wat je lekker vindt...</p>}*/}
                 </form>
+                </div>
                 <Cubes
                     button_1="Hoe maak je bier"
                     navigate_1="/productie_Informatie"

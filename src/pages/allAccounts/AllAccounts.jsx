@@ -7,6 +7,7 @@ const AllAccounts = () => {
     const [profilesData, setProfilesData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
         setError(false);
@@ -36,6 +37,16 @@ const AllAccounts = () => {
         }
     };
 
+    const handleSearchChange = (e) => {
+        setSearchText(e.target.value);
+    };
+
+    const filteredProfiles = profilesData
+        ? profilesData.filter((profile) =>
+            profile.username.toLowerCase().includes(searchText.toLowerCase())
+        )
+        : [];
+
     const buildProfilesInfo = (profilesData) => {
         return profilesData.map((profile) => (
             <div className="form-content border_top_left background" key={profile.username}>
@@ -45,7 +56,7 @@ const AllAccounts = () => {
                 <p>Bedrijfsnaam: {profile.company}</p>
                 <p>Account type: {profile.roles}</p>
                 <button className="bttn bttn_small" onClick={() => deleteProfile(profile.username)}>
-                    Verwijder profiel
+                    <p>Verwijder profiel</p>
                 </button>
                 {/*<button className="bttn bttn_small" onClick={() => deleteProfile(profile.username)}>*/}
                 {/*    Wijzig profiel*/}
@@ -58,8 +69,22 @@ const AllAccounts = () => {
         <>
             <div>
                 <h1>Alle accounts</h1>
-                <form className="form-content">
-                    {profilesData ? buildProfilesInfo(profilesData) : <p>Momentje even kijken wie je bent...</p>}
+                <form className=" form-container form-content">
+                    <input
+                        type="search"
+                        placeholder="Zoek accounts..."
+                        value={searchText}
+                        onChange={handleSearchChange}
+                    />
+                    <form className="form-content">
+                        {filteredProfiles.length > 0 ? (
+                            buildProfilesInfo(filteredProfiles)
+                        ) : (
+                            <p>Geen overeenkomende accounts gevonden.</p>
+                        )}
+                        {error && <p>Fout bij het ophalen van gegevens.</p>}
+                    </form>
+                    {/*{profilesData ? buildProfilesInfo(profilesData) : <p>Momentje even kijken wie je bent...</p>}*/}
                     {error && <p>Fout bij het ophalen van gegevens.</p>}
                 </form>
                 <Cubes

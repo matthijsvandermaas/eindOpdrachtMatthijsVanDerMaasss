@@ -4,7 +4,7 @@ import './Form.css';
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate} from 'react-router-dom';
 import Cubes from "../../components/cubes/Cubes.jsx";
-// import FormAddImage from "../../components/Images/FormAddImage";
+// import HookFormAddImage from "../../components/Images/HookFormAddImage";
 
 function HookFormProduct() {
     const navigate = useNavigate();
@@ -31,7 +31,6 @@ function HookFormProduct() {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
-            // await FormAddImage(newData.productName);
             setImageUploaded(true);
             console.log(newData);
             navigate('/add_image');
@@ -40,7 +39,6 @@ function HookFormProduct() {
             console.error("Er gaat iets fout met het verwerken van de gegevens", e);
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
         } finally {
-            navigate('/alle_producten');
             setIsSubmitting(false);
             console.log("Product form submission completed");
         }
@@ -127,12 +125,6 @@ function HookFormProduct() {
                     <div>
                             <p>Vragen over de terminologie in het bierproces en omschrijving of wilt je meer informatie, ga dan naar: <NavLink to="/Productie_Informatie#algemene-informatie" onClick={scrollToAlgemene_info}>Hoe maak je bier</NavLink>.</p>
                         </div>
-                    {/*{imageUploaded ? (*/}
-                    {/*    <p>Afbeelding succesvol toegevoegd!</p>*/}
-                    {/*) : (*/}
-                    {/*    <FormAddImage entityName={newData.productName} form_titele={"Afbeelding toevoegen"} />*/}
-                    {/*)}*/}
-
                 </div>
                 <Cubes
                 button_1="Hoe maak je bier"
