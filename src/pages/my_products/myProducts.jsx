@@ -1,33 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Cubes from "../../components/cubes/Cubes";
-import { useAuth } from '../../context/AuthContext';
+import {useAuth} from '../../context/AuthContext';
 
-const localStorageKey = 'product-names';
-const localStorageUsernameKey = 'username';
-const localStorageProductnameKey = 'productname';
+
 
 function MyProducts() {
-    const { authState } = useAuth();
-    const [productsData, setProductsData] = useState(null);
+    const {authState} = useAuth();
+    const [productsData, setProductsData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [searchText, setSearchText] = useState("");
 
 
     useEffect(() => {
 
         const fetchUserData = async () => {
-        setError(false);
-        setLoading(true);
+            setError(false);
+            setLoading(true);
             try {
                 const productname = localStorage.getItem('productname')
                 console.log(productname)
-                const response = await axios.get(`http://localhost:8081/products/${productname}`, {
-                    // headers: {
-                    //     'X-Product-Name': productname,
-                    // },
-                });
+                const response = await axios.get(`http://localhost:8081/products/${productname}`);
+
                 setProductsData(response.data);
+            } catch (error) {
+                setError(true);
+            } finally {
+                setLoading(false);
+            }
+        // };werkt niet
+        const deleteProduct = async (productName) => {
+            try {
+                await axios.delete(`http://localhost:8081/products/${productName}`);
+                setProductsData((prevProductsData) => prevProductsData.filter((product) => product.productName !== productName));
             } catch (error) {
                 setError(true);
             } finally {
@@ -37,9 +43,18 @@ function MyProducts() {
 
         void fetchUserData();
     }, []);
+    const handleSearchChange = (e) => {
+        setSearchText(e.target.value);
+    };
+
+    const filteredProducts = productsData
+        ? productsData.filter((product) =>
+            product.productName.toLowerCase().includes(searchText.toLowerCase())
+        )
+        : [];
 
     const buildProductsInfo = (productsData) => {
-        const productsArray = Array.isArray(productsData) ? productsData :[productsData];
+        const productsArray = Array.isArray(productsData) ? productsData : [productsData];
 
         return productsArray.map((product) => (
             <div className="form-content border_top_left background" key={product.productName}>
@@ -52,9 +67,11 @@ function MyProducts() {
                 <p>IBU: {product.ibu}</p>
                 <p>kleur: {product.color}</p>
                 <p>volume(cc): {product.volume}</p>
-                {/*<button className="bttn bttn_small" onClick={() => deleteProductToMyProducts(product)}>*/}
-                {/*    Voeg toe aan Mijn producten*/}
-                {/*</button>*/}
+                <button className="bttn bttn_small" onClick={() => deleteProduct(product)}>
+                    Verwijderen uit Mijn producten
+                </button>
+
+
             </div>
         ));
     };
@@ -63,8 +80,19 @@ function MyProducts() {
         <>
             <div>
                 <h1>Mijn bieren</h1>
-                <form className="form-content">
-                    {productsData ? buildProductsInfo(productsData) : <p>Even kijken wat je lekker vindt...</p>}
+                <form className=" form-container form-content">
+                    <input
+                        name="search_funtion"
+                        type="search"
+                        placeholder="Vind je bier..."
+                        value={searchText}
+                        onChange={handleSearchChange}
+                    />
+                    {filteredProducts.length > 0 ? (
+                        buildProductsInfo(filteredProducts)
+                    ) : (
+                        <p>Geen overeenkomende producten gevonden.</p>
+                    )}
                     {error && <p>Fout bij het ophalen van gegevens.</p>}
                 </form>
                 <Cubes

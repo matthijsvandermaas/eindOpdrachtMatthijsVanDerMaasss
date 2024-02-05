@@ -26,9 +26,7 @@ const AllAccounts = () => {
     }, []);
     const deleteProfile = async (username) => {
         try {
-            // Voer de API-aanroep uit om het profiel te verwijderen
             await axios.delete(`http://localhost:8081/users/${username}`);
-            // Verwijder het profiel
             setProfilesData((prevUsersData) => prevUsersData.filter((user) => user.username !== username));
         } catch (error) {
             setError(true)
@@ -58,9 +56,9 @@ const AllAccounts = () => {
                 <button className="bttn bttn_small" onClick={() => deleteProfile(profile.username)}>
                     <p>Verwijder profiel</p>
                 </button>
-                {/*<button className="bttn bttn_small" onClick={() => deleteProfile(profile.username)}>*/}
-                {/*    Wijzig profiel*/}
-                {/*</button>*/}
+                <button className="bttn bttn_small" onClick={() => deleteProfile(profile.username)}>
+                    Wijzig profiel
+                </button>
             </div>
         ));
     };
@@ -71,6 +69,7 @@ const AllAccounts = () => {
                 <h1>Alle accounts</h1>
                 <form className=" form-container form-content">
                     <input
+                        name="search_funtion"
                         type="search"
                         placeholder="Zoek accounts..."
                         value={searchText}

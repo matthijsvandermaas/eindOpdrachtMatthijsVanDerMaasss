@@ -40,7 +40,7 @@ input[type="username"],
 input[type="file"]
 {
     margin-top: 10px;
-  font-size: 0.9em;
+  font-size: 0.7em;
     flex: 2;
     padding: 8px;
     border: var(--input-border);
@@ -52,7 +52,7 @@ input[type="file"]
 input[type="number"],
 input[type="file"]
 {
-    font-size: 0.9em;
+    font-size: 0.7em;
     flex: 2;
     padding: 8px;
     border: var(--input-border);
@@ -62,7 +62,7 @@ input[type="file"]
 }
 input[type="date"]{
     color: #fffef3;
-    font-size: 1.1em;
+    font-size: 1em;
     text-shadow: 2px 1px 2px var(--blue-1);
     flex: 2;
     padding: 8px;
@@ -72,7 +72,7 @@ input[type="date"]{
 
 }
 select {
-    font-size: 0.9em;
+    font-size: 0.7em;
     flex: 2;
     padding: 8px;
     width: 80%;
@@ -104,6 +104,18 @@ form div select {
     );
     display: flex;
     flex-direction: column;
+}
+input[type="search"]{
+    width: 80%;
+    padding: 0 10px;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px 10px;
+    font-size: 1em;
+    border-radius: var(--border-radius-form);
+    flex: 2;
+    border: var(--input-border);
+    background-color: var(--input-background);
 }
 
 label[data-inhoud]::before {

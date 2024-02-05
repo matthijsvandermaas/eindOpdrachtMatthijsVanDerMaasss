@@ -79,9 +79,9 @@ const AllProducts = (product) => {
                 <div>
                 <form className=" form-container form-content">
                     <input
-                        name="vind je bier:"
+                        name="search_funtion"
                         type="search"
-                        placeholder="Vind je bieren..."
+                        placeholder="Vind je bier..."
                         value={searchText}
                         onChange={handleSearchChange}
                     />

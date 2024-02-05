@@ -332,21 +332,8 @@ p a {
     border-radius: 10%;
     margin: 0 5px 0 5px;
 }
-/*search function*/
 
-/**/
 
-    input[type="search"]{
-        width: 80%;
-        padding: 0 10px;
-        text-decoration: none;
-        text-align: center;
-        margin-top: 10px;
-        font-size: 1em;
-        border-radius: var(--border-radius-form);
-        flex: 2;
-        border: var(--input-border);
-        background-color: var(--input-background);
-    }
+
 
 
