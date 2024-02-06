@@ -1,6 +1,6 @@
 import React from 'react';
 import TextComponent from "../../components/texts_components/Text-component";
-import Rating from "../../components/Rating_system/Rating";
+import Rating from "../../components/rating_system/Rating";
 import { useState} from "react";
 import Cubes from "../../components/cubes/Cubes";
 

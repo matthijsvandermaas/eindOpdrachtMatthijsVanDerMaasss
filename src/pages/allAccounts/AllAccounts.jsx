@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 import Cubes from "../../components/cubes/Cubes";
-import { useAuth } from '../../context/AuthContext';
+import {useAuth} from '../../context/AuthContext';
+import InputFormUsers from "../../components/profile/inputFormUsers";
 
 const AllAccounts = () => {
+    const Updateprofile = useRef(null);
     const [profilesData, setProfilesData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -24,16 +26,7 @@ const AllAccounts = () => {
         };
         void fetchUserData();
     }, []);
-    const deleteProfile = async (username) => {
-        try {
-            await axios.delete(`http://localhost:8081/users/${username}`);
-            setProfilesData((prevUsersData) => prevUsersData.filter((user) => user.username !== username));
-        } catch (error) {
-            setError(true)
-        } finally {
-            setLoading(false);
-        }
-    };
+
 
     const handleSearchChange = (e) => {
         setSearchText(e.target.value);
@@ -51,14 +44,8 @@ const AllAccounts = () => {
                 <h2>Profiel: {profile.username}</h2>
                 <p>Voornaam: {profile.firstName}</p>
                 <p>Achternaam: {profile.lastName}</p>
+                <p>Email adres: {profile.email} </p>
                 <p>Bedrijfsnaam: {profile.company}</p>
-                <p>Account type: {profile.roles}</p>
-                <button className="bttn bttn_small" onClick={() => deleteProfile(profile.username)}>
-                    <p>Verwijder profiel</p>
-                </button>
-                <button className="bttn bttn_small" onClick={() => deleteProfile(profile.username)}>
-                    Wijzig profiel
-                </button>
             </div>
         ));
     };
@@ -75,27 +62,20 @@ const AllAccounts = () => {
                         value={searchText}
                         onChange={handleSearchChange}
                     />
-                    <form className="form-content">
+                    <div className="form-content">
                         {filteredProfiles.length > 0 ? (
                             buildProfilesInfo(filteredProfiles)
                         ) : (
                             <p>Geen overeenkomende accounts gevonden.</p>
                         )}
                         {error && <p>Fout bij het ophalen van gegevens.</p>}
-                    </form>
-                    {/*{profilesData ? buildProfilesInfo(profilesData) : <p>Momentje even kijken wie je bent...</p>}*/}
-                    {error && <p>Fout bij het ophalen van gegevens.</p>}
+                    </div>
                 </form>
-                <Cubes
-                    button_1="Hoe maak je bier"
-                    navigate_1="/productie_Informatie"
-                    button_2="Het drankorgel"
-                    navigate_2="/drankorgel"
-                    button_3="Home"
-                    navigate_3="/home"
-                    button_4="News"
-                    navigate_4="/news"
-                />
+                <section id="updateProfile" ref={Updateprofile}>
+                    <InputFormUsers
+                        subTitleForm="Gebruiker wijzigen"/>
+                </section>
+
             </div>
         </>
     );

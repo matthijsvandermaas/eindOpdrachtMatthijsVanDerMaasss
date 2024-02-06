@@ -195,7 +195,7 @@ p a {
     border: 2px solid var(--blue-1);
 }
 .bttn_small{
-    font-size: 0.6em;
+    font-size: 0.7em;
     background-color: var(--gradient);
     border: 2px solid var(--blue-1);
     width: auto;

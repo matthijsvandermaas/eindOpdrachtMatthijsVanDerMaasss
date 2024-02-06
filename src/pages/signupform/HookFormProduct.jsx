@@ -39,6 +39,7 @@ function HookFormProduct() {
             console.error("Er gaat iets fout met het verwerken van de gegevens", e);
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
         } finally {
+            navigate('/alle_producten');
             setIsSubmitting(false);
             console.log("Product form submission completed");
         }
@@ -49,7 +50,7 @@ function HookFormProduct() {
             <div className="form-container">
                 <h1>Bier toevoegen</h1>
                 <div>
-                    <form className=" form-container form-content border_top_bottom background" onSubmit={handleSubmit(handleFormSubmit)}>
+                    <form className=" form-container form-content border_top_left background" onSubmit={handleSubmit(handleFormSubmit)}>
                         <div>
                         <label>Productnaam:</label>
                         <input name="Productnaam" type="text" id="productName"

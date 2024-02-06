@@ -29,7 +29,7 @@ function MyProducts() {
             } finally {
                 setLoading(false);
             }
-        // };werkt niet
+        };
         const deleteProduct = async (productName) => {
             try {
                 await axios.delete(`http://localhost:8081/products/${productName}`);
