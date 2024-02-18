@@ -19,6 +19,7 @@
     object-fit: contain;
     margin: 10px 0;
 
+
 }
 .form-content:hover {
     box-shadow: var(--box-shadow_2);

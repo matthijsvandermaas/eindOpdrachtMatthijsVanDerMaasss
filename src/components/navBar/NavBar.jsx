@@ -70,7 +70,7 @@ function Navbar() {
                     </div>
                     )}
                     {isBrewerOrAdmin && (
-                        <NavLink to="/inschrijfformulier_product">Een biertje toevoegen</NavLink>
+                        <NavLink to="/inschrijfformulier_product">Biertje toevoegen</NavLink>
                         )}
                     {isBrewerOrAdmin && (
                         <NavLink to="/add_image">foto toevoegen</NavLink>

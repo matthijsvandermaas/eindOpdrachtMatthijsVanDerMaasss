@@ -103,29 +103,29 @@
     border-bottom: 2px solid var(--blue-2);
     border-radius: var(--border-radius);
 }
+
+
 .border_top_left {
     border-top: 2px solid var(--blue-2);
     border-left: 2px solid var(--blue-2);
     border-bottom: 2px solid transparent;
     border-radius: var(--border-radius);
 }
+
+
 .border_bottom_left {
     border-bottom: 2px solid var(--blue-2);
     border-left: 2px solid var(--blue-2);
     border-radius: var(--border-radius);
 }
-.border_left {
-    border-left: 2px solid var(--blue-2);
-    border-top: 2px solid transparent;
-    border-bottom: 2px solid transparent;
-    border-radius: var(--border-radius);
-}
+
 .border_top {
     border-top: 2px solid var(--blue-2);
     border-left: 2px solid transparent;
     border-bottom: 2px solid transparent;
     border-radius: var(--border-radius);
 }
+
 /*Img*/
 .text-image img {
     justify-content: flex-end;
