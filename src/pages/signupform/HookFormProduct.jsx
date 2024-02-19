@@ -8,12 +8,12 @@ import HookFormAddImage from "../../components/Images/HookFormAddImage";
 
 function HookFormProduct() {
     const navigate = useNavigate();
-    const [isSubmitting, setIsSubmitting] = useState(false);
     const { register, handleSubmit } = useForm();
-    const [errorMessage, setErrorMessage] = useState("");
     const algemene_infoRef = useRef(null);
     const [imageUploaded, setImageUploaded] = useState(false);
     // const [newData, setNewData] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const scrollToAlgemene_info = () => {
@@ -22,25 +22,23 @@ function HookFormProduct() {
     async function handleFormSubmit(data) {
         setError(false);
         setLoading(true);
-        const newData = { ...data };
-        setIsSubmitting(true);
-        console.log(newData);
+        // const newData = { ...data };
+        // setIsSubmitting(true);
+        // console.log(newData);
 
         try {
-            await axios.post('http://localhost:8081/products/createProduct ', newData, {
+            await axios.post('http://localhost:8081/products/createProduct ', data, {
                 headers: { 'Content-Type': 'application/json' },
                 withCredentials: true,
             });
             setImageUploaded(true);
-            console.log(newData);
-            navigate('/add_image');
-            console.log("De gegevens zijn verstuurd");
+            navigate('/add_image', { state: { productName: data.productName } });
+            console.log("De gegevens zijn verstuurd", response.data);
         } catch (e) {
             console.error("Er gaat iets fout met het verwerken van de gegevens", e);
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");
         } finally {
             setIsSubmitting(false);
-            console.log("Product form submission completed");
         }
     }
 

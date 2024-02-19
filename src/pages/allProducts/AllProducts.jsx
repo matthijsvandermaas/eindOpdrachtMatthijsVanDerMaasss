@@ -8,6 +8,8 @@ const AllProducts = (product) => {
     const [error, setError] = useState(false);
     const [myProducts, setMyProducts] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const [imageUrl, setImageUrl] = useState(null);
+
 
     const addProductToMyProducts = (product) => {
         setMyProducts((prevProducts) => [...prevProducts, product]);
@@ -52,6 +54,7 @@ const AllProducts = (product) => {
     const buildProductsInfo = (productsData) => {
         return productsData.map((product) => (
             <div className="form-content border_top_left background" key={product.productName}>
+                { imageUrl&& <img src={product.imageUrl} alt={product.productName} />}
                 <h2>product naam: {product.productName}</h2>
                 <p>naam brouwer: {product.nameBrewer}</p>
                 <p>productie locatie: {product.productionLocation}</p>
