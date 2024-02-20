@@ -62,14 +62,12 @@ const AllAccounts = () => {
                         value={searchText}
                         onChange={handleSearchChange}
                     />
-                    <div className="form-content">
                         {filteredProfiles.length > 0 ? (
                             buildProfilesInfo(filteredProfiles)
                         ) : (
                             <p>Geen overeenkomende accounts gevonden.</p>
                         )}
                         {error && <p>Fout bij het ophalen van gegevens.</p>}
-                    </div>
                 </form>
                 <section id="updateProfile" ref={Updateprofile}>
                     <InputFormUsers

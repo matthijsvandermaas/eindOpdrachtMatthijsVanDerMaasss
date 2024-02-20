@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Cubes from "../../components/cubes/Cubes";
+import './AllProducts.css';
 import axios from "axios";
 
 const AllProducts = (product) => {
@@ -9,7 +10,7 @@ const AllProducts = (product) => {
     const [myProducts, setMyProducts] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [imageUrl, setImageUrl] = useState(null);
-
+    const [imageSrc, setImageSrc] = useState('src/assets/logos and backgrounds/B & B logo2 klein.jpg');
 
     const addProductToMyProducts = (product) => {
         setMyProducts((prevProducts) => [...prevProducts, product]);
@@ -23,11 +24,15 @@ const AllProducts = (product) => {
             try {
                 const response = await axios.get('http://localhost:8081/products');
                 setProductsData(response.data);
+                for (const product of response.data) {
+                    const imageResponse = await axios.get(`http://localhost:8081/downloadFromDB/${product.imageName}`);
+                    product.imageUrl = URL.createObjectURL(imageResponse.data);
+                }
             } catch (error) {
-            setError(true)
-            }finally {
-            setLoading(false);
-        }
+                setError(true)
+            } finally {
+                setLoading(false);
+            }
         };
 
         void fetchProductData();
@@ -53,8 +58,10 @@ const AllProducts = (product) => {
 
     const buildProductsInfo = (productsData) => {
         return productsData.map((product) => (
-            <div className="form-content border_top_left background" key={product.productName}>
-                { imageUrl&& <img src={product.imageUrl} alt={product.productName} />}
+            <div className=" img_products_displayed form-content border_top_left background" key={product.productName}>
+                <div>
+                    <img className="img_products" src={imageUrl ? imageUrl : imageSrc} alt={product.productName}/>
+                </div>
                 <h2>product naam: {product.productName}</h2>
                 <p>naam brouwer: {product.nameBrewer}</p>
                 <p>productie locatie: {product.productionLocation}</p>
@@ -80,23 +87,20 @@ const AllProducts = (product) => {
             <div>
                 <h1>Alle bieren</h1>
                 <div>
-                <form className=" form-container form-content">
-                    <input
-                        name="search_funtion"
-                        type="search"
-                        placeholder="Vind je bier..."
-                        value={searchText}
-                        onChange={handleSearchChange}
-                    />
-                    <form className="form-content">
+                    <form className=" form-container form-content">
+                        <input
+                            name="search_funtion"
+                            type="search"
+                            placeholder="Vind je bier..."
+                            value={searchText}
+                            onChange={handleSearchChange}
+                        />
                         {filteredProducts.length > 0 ? (
                             buildProductsInfo(filteredProducts)
                         ) : (
                             <p>Geen overeenkomende producten gevonden.</p>
                         )}
                     </form>
-                    {/*{productsData ? buildProductsInfo(productsData) : <p>Even kijken wat je lekker vindt...</p>}*/}
-                </form>
                 </div>
                 <Cubes
                     button_1="Hoe maak je bier"

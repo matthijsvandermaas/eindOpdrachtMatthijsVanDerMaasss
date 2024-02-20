@@ -1,8 +1,26 @@
-.productInfo_content{
+.productInfo_content {
     display: flex;
     flex-direction: row;
     margin: 0 10px;
 }
-.img_content-left{
+
+.img_content-left {
     margin-left: 100%;
 }
+
+.img_products{
+    width: 25vw;
+    height: auto;
+    max-width: 30vw;
+    max-height: 20vh;
+    border-radius: var(--border-radius-form);
+    box-shadow: var(--box-shadow_1);
+
+}
+
+.img_products img {
+    object-fit: contain;
+
+}
+
+

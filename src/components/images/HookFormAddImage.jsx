@@ -19,17 +19,15 @@ const HookFormAddImage = ({productName}) => {
 
     const onSubmit = async (data) => {
         const formData = new FormData();
-        formData.append("File", data.file[0])
+        formData.append("file", data.file[0]);
         console.log("formData", formData);
         console.log("productName", data.productName);
-
         try {
-            const response = await axios.post(`http://localhost:8081/single/uploadDB/${data.productName}`, formData, {
+            const response = await axios.post(`http://localhost:8080/single/uploadDB/${data.productName}`, formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
+                    'Content-Type': 'multipart/form-data'
+                }
             });
-
             console.log("Image uploaded successfully:", response.data);
             const uploadedImageUrl = response.data.url;
             setImageUrl(uploadedImageUrl);
@@ -38,6 +36,8 @@ const HookFormAddImage = ({productName}) => {
             console.error('Error uploading image:', error);
         }
     };
+
+
 
 
     return (
