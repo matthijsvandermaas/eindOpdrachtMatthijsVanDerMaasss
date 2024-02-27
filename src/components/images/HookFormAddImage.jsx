@@ -19,7 +19,7 @@ const HookFormAddImage = ({productName}) => {
 
     const onSubmit = async (data) => {
         const formData = new FormData();
-        formData.append("File", data.file[0])
+        formData.append("file", data.file[0])
         console.log("formData", formData);
         console.log("productName", data.productName);
 
