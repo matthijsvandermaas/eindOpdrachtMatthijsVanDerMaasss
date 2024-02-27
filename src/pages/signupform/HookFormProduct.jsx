@@ -22,9 +22,6 @@ function HookFormProduct() {
     async function handleFormSubmit(data) {
         setError(false);
         setLoading(true);
-        // const newData = { ...data };
-        // setIsSubmitting(true);
-        // console.log(newData);
 
         try {
             await axios.post('http://localhost:8081/products/createProduct ', data, {
@@ -50,7 +47,7 @@ function HookFormProduct() {
                     <form className=" form-container form-content border_top_left background" onSubmit={handleSubmit(handleFormSubmit)}>
                         <div>
                         <label>Productnaam:</label>
-                        <input name="Productnaam" type="text" id="productName"
+                        <input name="ProductName" type="text" id="productName"
                                placeholder="Voer hier de productnaam in." {...register('productName', {required: 'productnaam is verplicht'})} />
                             </div>
                             <div>

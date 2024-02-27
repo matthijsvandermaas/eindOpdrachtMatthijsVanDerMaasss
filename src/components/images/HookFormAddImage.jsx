@@ -20,6 +20,7 @@ const HookFormAddImage = ({productName}) => {
     const onSubmit = async (data) => {
         const formData = new FormData();
         formData.append("file", data.file[0])
+        formData.append("productName", data.productName);
         console.log("formData", formData);
         console.log("productName", data.productName);
 
@@ -48,7 +49,7 @@ const HookFormAddImage = ({productName}) => {
                       className="form-container form-content border_top_left background">
                     <div>
                         <label>Productnaam:</label>
-                        <input type="text" name="productName" {...register('productName')} />
+                        <input type="text" name="productName" id="productName" {...register('productName')} />
                     </div>
                     <div>
                         <label>foto:</label>

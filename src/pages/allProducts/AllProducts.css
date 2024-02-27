@@ -6,3 +6,26 @@
 .img_content-left{
     margin-left: 100%;
 }
+
+
+.img_products{
+    width: 15vw;
+    height: auto;
+    max-width: 20vw;
+    max-height: 20vh;
+    border-radius: var(--border-radius-form);
+    box-shadow: var(--box-shadow_1);
+    transition: transform 0.7s ease-in-out;
+
+}
+.img_products:hover{
+ transform: scale(1.5);
+    border: 2px solid var(--blue-4);
+    box-shadow: var(--box-shadow_2);
+
+}
+
+.img_products img {
+    object-fit: contain;
+
+}

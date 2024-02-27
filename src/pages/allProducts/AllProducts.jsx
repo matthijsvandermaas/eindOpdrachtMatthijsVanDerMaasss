@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
+import './AllProducts.css';
 import Cubes from "../../components/cubes/Cubes";
 import axios from "axios";
+import LogoBenB from "../../assets/logos and backgrounds/B & B logo2 klein.jpg";
 
 const AllProducts = (product) => {
     const [productsData, setProductsData] = useState(null);
@@ -14,7 +16,10 @@ const AllProducts = (product) => {
     const addProductToMyProducts = (product) => {
         setMyProducts((prevProducts) => [...prevProducts, product]);
         localStorage.setItem("productname", product.productName);
-    };
+
+    // setImageUrl(product.imageUrl);
+
+};
 
     useEffect(() => {
         setError(false);
@@ -28,20 +33,35 @@ const AllProducts = (product) => {
             }finally {
             setLoading(false);
         }
-        };
+
+            };
+
 
         void fetchProductData();
     }, []);
-    const deleteProduct = async (productName) => {
+    // const deleteProduct = async (productName) => {
+    //     try {
+    //         await axios.delete(`http://localhost:8081/products/${productName}`);
+    //         setProductsData((prevUsersData) => prevUsersData.filter((product) => product.productName !== productName));
+    //     } catch (error) {
+    //         setError(true)
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+    const fetchImage = async (productName, fileName) => {
         try {
-            await axios.delete(`http://localhost:8081/products/${productName}`);
-            setProductsData((prevUsersData) => prevUsersData.filter((product) => product.productName !== productName));
+            const response = await axios.get(`http://localhost:8081/downloadFromDB/${fileName}`, {
+                responseType: 'blob',
+            });
+            return window.URL.createObjectURL(new Blob([response.data]));
         } catch (error) {
-            setError(true)
-        } finally {
-            setLoading(false);
+            console.error('Fout bij laden van afbeelding:', error);
+
         }
     };
+    useEffect(() => {fetchImage('Bier 1', 'ironman.jpg');
+}, []);
     const handleSearchChange = (e) => {
         setSearchText(e.target.value);
     };
@@ -51,10 +71,28 @@ const AllProducts = (product) => {
         )
         : [];
 
-    const buildProductsInfo = (productsData) => {
+
+
+    const buildProductsInfo = async (productsData) => {
+        const imageUrl = {};
+
+        // Loop door elk product en haal de afbeelding op
+        await Promise.all(productsData.map(async (product) => {
+            product.imageUrl =  await fetchImage(product.fileName, product.productName);
+            const imageUrl = product.imageUrl;
+            imageUrl[product.productName] = await fetchImage(imageUrl);
+        }));
+
+        setImageUrl(imageUrl);
         return productsData.map((product) => (
+            <>
             <div className="form-content border_top_left background" key={product.productName}>
-                { imageUrl&& <img src={product.imageUrl} alt={product.productName} />}
+                <div>
+                    {/*<img className="img_products" src={LogoBenB} alt={product.productName} />*/}
+                    {/*<img src={imageUrl} alt={product.productName} />*/}
+                    {/*{imgUrls[product.productName] && <img src={imgUrls[product.productName]} alt={product.productName} />}*/}
+                    <img src={imageUrl} alt={product.productName} />
+                </div>
                 <h2>product naam: {product.productName}</h2>
                 <p>naam brouwer: {product.nameBrewer}</p>
                 <p>productie locatie: {product.productionLocation}</p>
@@ -72,6 +110,7 @@ const AllProducts = (product) => {
                 {/*</button>*/}
 
             </div>
+            </>
         ));
     };
 
@@ -88,14 +127,12 @@ const AllProducts = (product) => {
                         value={searchText}
                         onChange={handleSearchChange}
                     />
-                    <form className="form-content">
+
                         {filteredProducts.length > 0 ? (
                             buildProductsInfo(filteredProducts)
                         ) : (
                             <p>Geen overeenkomende producten gevonden.</p>
                         )}
-                    </form>
-                    {/*{productsData ? buildProductsInfo(productsData) : <p>Even kijken wat je lekker vindt...</p>}*/}
                 </form>
                 </div>
                 <Cubes
@@ -108,6 +145,9 @@ const AllProducts = (product) => {
                     button_4="News"
                     navigate_4="/news"
                 />
+            </div>
+            <div>
+
             </div>
         </>
     );
