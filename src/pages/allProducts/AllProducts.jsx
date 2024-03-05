@@ -39,6 +39,7 @@ const AllProducts = (product) => {
 
         void fetchProductData();
     }, []);
+
     // const deleteProduct = async (productName) => {
     //     try {
     //         await axios.delete(`http://localhost:8081/products/${productName}`);
@@ -49,49 +50,45 @@ const AllProducts = (product) => {
     //         setLoading(false);
     //     }
     // };
-    const fetchImage = async (productName, fileName) => {
+    const fetchImage = async (fileName, productName) => {
         try {
-            const response = await axios.get(`http://localhost:8081/downloadFromDB/${fileName}`, {
+            const response = await axios.get(`http://localhost:8081/downloadFromDB/${fileName}/${productName}`, {
                 responseType: 'blob',
             });
-            return window.URL.createObjectURL(new Blob([response.data]));
+            return response.data;
         } catch (error) {
-            console.error('Fout bij laden van afbeelding:', error);
-
+            console.error('Error fetching image:', error);
         }
     };
-    useEffect(() => {fetchImage('Bier 1', 'ironman.jpg');
-}, []);
+
+
     const handleSearchChange = (e) => {
         setSearchText(e.target.value);
     };
-    const filteredProducts = productsData
-        ? productsData.filter((product) =>
-            product.productName.toLowerCase().includes(searchText.toLowerCase())
-        )
-        : [];
+
 
 
 
     const buildProductsInfo = async (productsData) => {
-        const imageUrl = {};
-
-        // Loop door elk product en haal de afbeelding op
-        await Promise.all(productsData.map(async (product) => {
-            product.imageUrl =  await fetchImage(product.fileName, product.productName);
-            const imageUrl = product.imageUrl;
-            imageUrl[product.productName] = await fetchImage(imageUrl);
+        const updatedProducts = await Promise.all(productsData.map(async (product) => {
+            product.imageUrl = await fetchImage(product.fileName, product.productName);
+            return product;
         }));
 
-        setImageUrl(imageUrl);
-        return productsData.map((product) => (
+        // setImageUrl(updatedProducts);
+
+        return updatedProducts.map((product) => (
             <>
             <div className="form-content border_top_left background" key={product.productName}>
                 <div>
                     {/*<img className="img_products" src={LogoBenB} alt={product.productName} />*/}
                     {/*<img src={imageUrl} alt={product.productName} />*/}
                     {/*{imgUrls[product.productName] && <img src={imgUrls[product.productName]} alt={product.productName} />}*/}
-                    <img src={imageUrl} alt={product.productName} />
+                    {product.imageUrl ? (
+                        <img src={`data:image/png;base64,${product.imageUrl}`} alt={product.productName} />
+                    ) : (
+                        <img src={LogoBenB} alt={product.productName} />
+                    )}
                 </div>
                 <h2>product naam: {product.productName}</h2>
                 <p>naam brouwer: {product.nameBrewer}</p>
@@ -113,6 +110,11 @@ const AllProducts = (product) => {
             </>
         ));
     };
+    const filteredProducts = productsData
+        ? productsData.filter((product) =>
+            product.productName.toLowerCase().includes(searchText.toLowerCase())
+        )
+        : [];
 
     return (
         <>
