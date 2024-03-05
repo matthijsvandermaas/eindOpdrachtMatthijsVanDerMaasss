@@ -15,7 +15,7 @@ const AllProducts = (product) => {
 
     const addProductToMyProducts = (product) => {
         setMyProducts((prevProducts) => [...prevProducts, product]);
-        localStorage.setItem("productname", product.productName);
+        localStorage.setItem("productName", product.productName);
 
     // setImageUrl(product.imageUrl);
 
@@ -27,7 +27,10 @@ const AllProducts = (product) => {
         const fetchProductData = async () => {
             try {
                 const response = await axios.get('http://localhost:8081/products');
+                const fetchedProducts = response.data;
+                console.log("Fetched products:", fetchedProducts);
                 setProductsData(response.data);
+
             } catch (error) {
             setError(true)
             }finally {
@@ -40,26 +43,66 @@ const AllProducts = (product) => {
         void fetchProductData();
     }, []);
 
-    // const deleteProduct = async (productName) => {
-    //     try {
-    //         await axios.delete(`http://localhost:8081/products/${productName}`);
-    //         setProductsData((prevUsersData) => prevUsersData.filter((product) => product.productName !== productName));
-    //     } catch (error) {
-    //         setError(true)
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
-    const fetchImage = async (fileName, productName) => {
+
+
+    const fetchImage = async (filename, productName) => {
         try {
-            const response = await axios.get(`http://localhost:8081/downloadFromDB/${fileName}/${productName}`, {
+            console.log("Fetching image for:", productName);
+            console.log("Filename:", filename);
+            const response = await axios.get(`http://localhost:8081/downloadFromDB/${filename}/${productName}`, {
                 responseType: 'blob',
             });
-            return response.data;
-        } catch (error) {
-            console.error('Error fetching image:', error);
+            const imageUrl = URL.createObjectURL(response.data);
+            console.log("Fetched image URL for", productName, ":", imageUrl);
+            return imageUrl;
+        } catch (e) {
+            console.error('Error fetching image:', e);
+            return LogoBenB;
         }
     };
+
+    const buildProductsInfo = async (productsData) => {
+        try {
+            const updatedProducts = await Promise.all(productsData.map(async (product) => {
+                console.log("Fetching image for:", product.productName);
+                console.log("Filename:", product.filename);
+                const imageUrl = await fetchImage(product.filename, product.productName);
+                console.log("Fetched image for", product.productName, ":", imageUrl);
+                return {...product, imageUrl: imageUrl};
+            }));
+
+            return updatedProducts.map((product) => (
+                <div className="form-content border_top_left background" key={product.productName}>
+                    <div>
+                        {product.filename && product.productName ? (
+                            <img
+                                src={product.imageUrl}
+                                alt={product.productName}
+                            />
+                        ) : (
+                            <img src={LogoBenB} alt={product.productName}/>
+                        )}
+                    </div>
+                    <h2>product naam: {product.productName}</h2>
+                    <p>naam brouwer: {product.nameBrewer}</p>
+                    <p>productie locatie: {product.productionLocation}</p>
+                    <p>smaak: {product.tast}</p>
+                    <p>biertype: {product.type}</p>
+                    <p>alcohol %: {product.alcohol}</p>
+                    <p>IBU: {product.ibu}</p>
+                    <p>kleur: {product.color}</p>
+                    <p>volume(cc): {product.volume}</p>
+                    <button className="bttn bttn_small" onClick={() => addProductToMyProducts(product)}>
+                        Voeg toe aan Mijn producten
+                    </button>
+                </div>
+            ));
+        } catch (e) {
+            console.error('Error building products info:', e);
+            return null;
+        }
+    };
+
 
 
     const handleSearchChange = (e) => {
@@ -68,48 +111,6 @@ const AllProducts = (product) => {
 
 
 
-
-    const buildProductsInfo = async (productsData) => {
-        const updatedProducts = await Promise.all(productsData.map(async (product) => {
-            product.imageUrl = await fetchImage(product.fileName, product.productName);
-            return product;
-        }));
-
-        // setImageUrl(updatedProducts);
-
-        return updatedProducts.map((product) => (
-            <>
-            <div className="form-content border_top_left background" key={product.productName}>
-                <div>
-                    {/*<img className="img_products" src={LogoBenB} alt={product.productName} />*/}
-                    {/*<img src={imageUrl} alt={product.productName} />*/}
-                    {/*{imgUrls[product.productName] && <img src={imgUrls[product.productName]} alt={product.productName} />}*/}
-                    {product.imageUrl ? (
-                        <img src={`data:image/png;base64,${product.imageUrl}`} alt={product.productName} />
-                    ) : (
-                        <img src={LogoBenB} alt={product.productName} />
-                    )}
-                </div>
-                <h2>product naam: {product.productName}</h2>
-                <p>naam brouwer: {product.nameBrewer}</p>
-                <p>productie locatie: {product.productionLocation}</p>
-                <p>smaak: {product.tast}</p>
-                <p>biertype: {product.type}</p>
-                <p>alcohol %: {product.alcohol}</p>
-                <p>IBU: {product.ibu}</p>
-                <p>kleur: {product.color}</p>
-                <p>volume(cc): {product.volume}</p>
-                <button className="bttn bttn_small" onClick={() => addProductToMyProducts(product)}>
-                    Voeg toe aan Mijn producten
-                </button>
-                {/*<button className="bttn bttn_small" onClick={() => deleteProfile(profile.username)}>*/}
-                {/*    Wijzig product*/}
-                {/*</button>*/}
-
-            </div>
-            </>
-        ));
-    };
     const filteredProducts = productsData
         ? productsData.filter((product) =>
             product.productName.toLowerCase().includes(searchText.toLowerCase())
