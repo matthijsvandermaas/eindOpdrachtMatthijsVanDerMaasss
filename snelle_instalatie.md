@@ -7,7 +7,7 @@ installeer cors `npm install cors`
 installeer react router dom `npm install react-router-dom`
 
 [//]: # ( uninstall jwt token`npm uninstall jwt-decode`)
-installeert jwt token `npm install jwt-decode`
+installeer jwt token `npm install jwt-decode`
 installeer kalender `npm install react-calendar`
 installeer react-dom `npm install react react-dom`
 run dev `npm run dev`

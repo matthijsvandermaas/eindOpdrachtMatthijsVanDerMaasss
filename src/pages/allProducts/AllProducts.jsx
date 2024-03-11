@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './AllProducts.css';
 import Cubes from "../../components/cubes/Cubes";
-import axios from "axios";
+import axios, {all} from "axios";
 import LogoBenB from "../../assets/logos and backgrounds/B & B logo2 klein.jpg";
 
 const AllProducts = (product) => {
@@ -61,12 +61,13 @@ const AllProducts = (product) => {
         }
     };
 
-    const buildProductsInfo = async (productsData) => {
+    const buildProductsInfo = (productsData) => {
         try {
-            const updatedProducts = await Promise.all(productsData.map(async (product) => {
+            const updatedProducts = (productsData.map( (product) => {
                 console.log("Fetching image for:", product.productName);
-                console.log("Filename:", product.filename);
-                const imageUrl = await fetchImage(product.filename, product.productName);
+                console.log("Filename:", product);
+
+                const imageUrl = fetchImage(product.filename, product.productName);
                 console.log("Fetched image for", product.productName, ":", imageUrl);
                 return {...product, imageUrl: imageUrl};
             }));
@@ -110,7 +111,6 @@ const AllProducts = (product) => {
     };
 
 
-
     const filteredProducts = productsData
         ? productsData.filter((product) =>
             product.productName.toLowerCase().includes(searchText.toLowerCase())
@@ -134,7 +134,7 @@ const AllProducts = (product) => {
                         {filteredProducts.length > 0 ? (
                             buildProductsInfo(filteredProducts)
                         ) : (
-                            <p>Geen overeenkomende producten gevonden.</p>
+                            <p>Geen overeenkomend product gevonden.</p>
                         )}
                 </form>
                 </div>
