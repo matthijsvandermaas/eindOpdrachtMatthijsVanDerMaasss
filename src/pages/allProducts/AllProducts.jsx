@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './AllProducts.css';
 import Cubes from "../../components/cubes/Cubes";
-import axios, {all} from "axios";
+import axios from "axios";
 import LogoBenB from "../../assets/logos and backgrounds/B & B logo2 klein.jpg";
 
 const AllProducts = (product) => {
@@ -10,41 +10,50 @@ const AllProducts = (product) => {
     const [error, setError] = useState(false);
     const [myProducts, setMyProducts] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const [filename, setFilename] = useState(null);
     const [imageUrl, setImageUrl] = useState(null);
 
-
+// toevoegen aan favorieten
     const addProductToMyProducts = (product) => {
         setMyProducts((prevProducts) => [...prevProducts, product]);
         localStorage.setItem("productName", product.productName);
+    };
 
-    // setImageUrl(product.imageUrl);
 
-};
 
-    useEffect(() => {
+    // GET products
+    const fetchProductData = async () => {
         setError(false);
         setLoading(true);
-        const fetchProductData = async () => {
-            try {
-                const response = await axios.get('http://localhost:8081/products');
-                const fetchedProducts = response.data;
-                console.log("Fetched products:", fetchedProducts);
-                setProductsData(response.data);
+        try {
+            const response = await axios.get('http://localhost:8081/products');
+            const fetchedProducts = response.data;
+            console.log("Fetched products:", fetchedProducts);
+            const productsWithImageUrls = await Promise.all(
+                fetchedProducts.map(async (product) => {
+                    const imageUrl = await fetchImage(product.filename, product.productName);
+                    return {...product, imageUrl: imageUrl};
+                })
+            );
 
-            } catch (error) {
-            setError(true)
-            }finally {
+            setProductsData(productsWithImageUrls);
+
+            // Set imageUrl after productsData is fully updated
+            const firstProduct = productsWithImageUrls.length > 0 ? productsWithImageUrls[0] : null;
+            setImageUrl(firstProduct ? firstProduct.imageUrl : LogoBenB);
+        } catch (error) {
+            setError(true);
+        } finally {
             setLoading(false);
         }
+    };
 
-            };
 
-
+    useEffect(() => {
         void fetchProductData();
     }, []);
 
-
-
+// GET img
     const fetchImage = async (filename, productName) => {
         try {
             console.log("Fetching image for:", productName);
@@ -52,7 +61,9 @@ const AllProducts = (product) => {
             const response = await axios.get(`http://localhost:8081/downloadFromDB/${filename}/${productName}`, {
                 responseType: 'blob',
             });
+
             const imageUrl = URL.createObjectURL(response.data);
+            console.log("result GET", response.data);
             console.log("Fetched image URL for", productName, ":", imageUrl);
             return imageUrl;
         } catch (e) {
@@ -61,29 +72,12 @@ const AllProducts = (product) => {
         }
     };
 
+    // opbouw productinfo
     const buildProductsInfo = (productsData) => {
-        try {
-            const updatedProducts = (productsData.map( (product) => {
-                console.log("Fetching image for:", product.productName);
-                console.log("Filename:", product);
 
-                const imageUrl = fetchImage(product.filename, product.productName);
-                console.log("Fetched image for", product.productName, ":", imageUrl);
-                return {...product, imageUrl: imageUrl};
-            }));
-
-            return updatedProducts.map((product) => (
+        return productsData.map((product) => (
                 <div className="form-content border_top_left background" key={product.productName}>
-                    <div>
-                        {product.filename && product.productName ? (
-                            <img
-                                src={product.imageUrl}
-                                alt={product.productName}
-                            />
-                        ) : (
-                            <img src={LogoBenB} alt={product.productName}/>
-                        )}
-                    </div>
+                    <div><img src={product.imageUrl} alt={product.productName}/></div>
                     <h2>product naam: {product.productName}</h2>
                     <p>naam brouwer: {product.nameBrewer}</p>
                     <p>productie locatie: {product.productionLocation}</p>
@@ -98,14 +92,10 @@ const AllProducts = (product) => {
                     </button>
                 </div>
             ));
-        } catch (e) {
-            console.error('Error building products info:', e);
-            return null;
-        }
     };
 
 
-
+    // zoeken in producten
     const handleSearchChange = (e) => {
         setSearchText(e.target.value);
     };
@@ -117,26 +107,27 @@ const AllProducts = (product) => {
         )
         : [];
 
+            console.log("imageUrl", imageUrl);
     return (
         <>
             <div>
                 <h1>Alle bieren</h1>
                 <div>
-                <form className=" form-container form-content">
-                    <input
-                        name="search_funtion"
-                        type="search"
-                        placeholder="Vind je bier..."
-                        value={searchText}
-                        onChange={handleSearchChange}
-                    />
+                    <form className=" form-container form-content">
+                        <input
+                            name="search_funtion"
+                            type="search"
+                            placeholder="Vind je bier..."
+                            value={searchText}
+                            onChange={handleSearchChange}
+                        />
 
                         {filteredProducts.length > 0 ? (
                             buildProductsInfo(filteredProducts)
                         ) : (
                             <p>Geen overeenkomend product gevonden.</p>
                         )}
-                </form>
+                    </form>
                 </div>
                 <Cubes
                     button_1="Hoe maak je bier"
