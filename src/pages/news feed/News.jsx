@@ -27,11 +27,10 @@ function News() {
     return (
         <div className="outer_news_Container">
             <h1>Bier Nieuws ({posts.length} items)</h1>
-            <div className="text-component">
-                <div className=" background">
+            <div>
                     <ul className="post-list">
                         {posts.map((post) => (
-                            <li key={post.id}>
+                            <li className="border_top_left text-component background" key={post.id}>
                                 <TextComponent
                                     Text_Title={post.title}
                                     Text_Header={post.subtitle}
@@ -52,7 +51,6 @@ function News() {
                         ))}
                     </ul>
                 </div>
-            </div>
         </div>
     );
 }

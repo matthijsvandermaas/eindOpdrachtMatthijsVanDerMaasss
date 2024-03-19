@@ -9,8 +9,8 @@ function Text_component({ Text_Title, Text_Header, Text_Message1, Text_Message2,
         <>
             <div className="text-container">
 
-                    <h1>{Text_Title}</h1>
-                    <h2>{Text_Header}</h2>
+                    <h2>{Text_Title}</h2>
+                    <h3>{Text_Header}</h3>
                     <h4 className="underscore italic">{Text_Message1}</h4>
                     <h4>{Text_Message2}</h4>
                     <h4>{Text_Message3}</h4>

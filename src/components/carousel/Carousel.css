@@ -52,7 +52,7 @@
     opacity: 1.5;
     border: 2px solid whitesmoke;
 }
-.carousel.carousel-slider h2, h3 {
+.carousel.carousel-slider h2 {
     border-top: 2px solid var(--blue-2);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow_1);
