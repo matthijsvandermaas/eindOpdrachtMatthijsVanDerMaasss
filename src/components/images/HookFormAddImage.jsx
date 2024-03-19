@@ -1,37 +1,26 @@
-import React, {useState, useEffect} from 'react';
+// HookFormAddImage.jsx
+import React, { useState } from 'react';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
-import {useForm} from 'react-hook-form';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
-const HookFormAddImage = ({productName}) => {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
-    const [productsName, setProductsName] = useState(null);
+const HookFormAddImage = ({ productName }) => {
     const [imageUrl, setImageUrl] = useState(null);
     const navigate = useNavigate();
-    const {register, handleSubmit} = useForm();
-
-    HookFormAddImage.propTypes = {
-        productName: PropTypes.string.isRequired,
-    };
-
 
     const onSubmit = async (data) => {
         const formData = new FormData();
-        formData.append("file", data.file[0])
-        formData.append("productName", data.productName);
-        console.log("formData", formData);
-        console.log("productName", data.productName);
+        formData.append('file', data.file[0]);
+        formData.append('productName', productName);
 
         try {
-            const response = await axios.post(`http://localhost:8081/single/uploadDB/${data.productName}`, formData, {
+            const response = await axios.post('http://localhost:8081/fileDocument/single/uploadDb', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
 
-            console.log("Image uploaded successfully:", response.data);
+            console.log('Image uploaded successfully:', response.data);
             const uploadedImageUrl = response.data.url;
             setImageUrl(uploadedImageUrl);
             navigate('/alle_producten');
@@ -40,27 +29,27 @@ const HookFormAddImage = ({productName}) => {
         }
     };
 
-
     return (
-        <>
-            <div>
-                <h2>Foto of bestand toevoegen</h2>
-                <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data"
-                      className="form-container form-content border_top_left background">
-                    <div>
-                        <label>Productnaam:</label>
-                        <input type="text" name="productName" id="productName" {...register('productName')} />
-                    </div>
-                    <div>
-                        <label>foto:</label>
-                        <input type="file" name="file"  {...register('file')} />
-                    </div>
-                    { imageUrl && <img src={imageUrl} alt="Uploaded Image"/> }
-                    <button className="bttn" type="submit">Afbeelding toevoegen</button>
-                </form>
-            </div>
-        </>
+        <div>
+            <h2>Foto of bestand toevoegen</h2>
+            <form onSubmit={onSubmit} encType="multipart/form-data">
+                <div>
+                    <label>Productnaam:</label>
+                    <input type="text" name="productName" defaultValue={productName} disabled />
+                </div>
+                <div>
+                    <label>foto:</label>
+                    <input type="file" name="file" />
+                </div>
+                {imageUrl && <img src={imageUrl} alt="Uploaded Image" />}
+                <button type="submit">Afbeelding toevoegen</button>
+            </form>
+        </div>
     );
+};
+
+HookFormAddImage.propTypes = {
+    productName: PropTypes.string.isRequired,
 };
 
 export default HookFormAddImage;

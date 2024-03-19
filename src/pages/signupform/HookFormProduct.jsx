@@ -11,7 +11,6 @@ function HookFormProduct() {
     const { register, handleSubmit } = useForm();
     const algemene_infoRef = useRef(null);
     const [imageUploaded, setImageUploaded] = useState(false);
-    // const [newData, setNewData] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [error, setError] = useState(false);
@@ -30,7 +29,7 @@ function HookFormProduct() {
             });
             setImageUploaded(true);
             navigate('/add_image', { state: { productName: data.productName } });
-            console.log("De gegevens zijn verstuurd", response.data);
+            console.log("De gegevens zijn verstuurd", handleFormSubmit.data);
         } catch (e) {
             console.error("Er gaat iets fout met het verwerken van de gegevens", e);
             setErrorMessage("Er gaat iets fout met het verwerken van de gegevens: ");

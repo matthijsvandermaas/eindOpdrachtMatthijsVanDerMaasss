@@ -3,7 +3,6 @@ import './AllProducts.css';
 import Cubes from "../../components/cubes/Cubes";
 import axios from "axios";
 import LogoBenB from "../../assets/logos and backgrounds/B & B logo2 klein.jpg";
-import FileUpload from "../../components/images/FileUpload";
 
 const AllProducts = (product) => {
     const [productsData, setProductsData] = useState(null);
@@ -30,18 +29,8 @@ const AllProducts = (product) => {
             const response = await axios.get('http://localhost:8081/products');
             const fetchedProducts = response.data;
             console.log("Fetched products:", fetchedProducts);
-            const productsWithImageUrls = await Promise.all(
-                fetchedProducts.map(async (product) => {
-                    const imageUrl = await fetchImage(product.filename, product.productName);
-                    return {...product, imageUrl: imageUrl};
-                })
-            );
-
-            setProductsData(productsWithImageUrls);
-
-            // Set imageUrl after productsData is fully updated
-            const firstProduct = productsWithImageUrls.length > 0 ? productsWithImageUrls[0] : null;
-            setImageUrl(firstProduct ? firstProduct.imageUrl : LogoBenB);
+            setProductsData(fetchedProducts);
+            return fetchedProducts;
         } catch (error) {
             setError(true);
         } finally {
@@ -50,54 +39,32 @@ const AllProducts = (product) => {
     };
 
 
+
     useEffect(() => {
         void fetchProductData();
     }, []);
 
 // GET img
-    const fetchImage = async (filename, productName) => {
-        try {
-            console.log("Fetching image for:", productName);
-            console.log("Filename:", filename);
-            const response = await axios.get(`http://localhost:8081/downloadFromDB/${filename}/${productName}`, {
-                responseType: 'blob',
-            });
-
-            // const imageUrl = URL.createObjectURL(response.data);
-            const imageUrl = FileUpload
-            console.log(imageUrl)
-            console.log("response.data", response.data)
-            console.log("result GET", response.data);
-            console.log("Fetched image URL for", productName, ":", imageUrl);
-            return imageUrl;
-        } catch (e) {
-            console.error('Error fetching image:', e);
-            return LogoBenB;
-        }
-    };
-
-    // opbouw productinfo
-    const buildProductsInfo = (productsData) => {
-
-        return productsData.map((product) => (
-                <div className="form-content border_top_left background" key={product.productName}>
-                    <div><img src={product.imageUrl} alt={product.productName}/></div>
-                    <h2>product naam: {product.productName}</h2>
-                    <p>naam brouwer: {product.nameBrewer}</p>
-                    <p>productie locatie: {product.productionLocation}</p>
-                    <p>smaak: {product.tast}</p>
-                    <p>biertype: {product.type}</p>
-                    <p>alcohol %: {product.alcohol}</p>
-                    <p>IBU: {product.ibu}</p>
-                    <p>kleur: {product.color}</p>
-                    <p>volume(cc): {product.volume}</p>
-                    <button className="bttn bttn_small" onClick={() => addProductToMyProducts(product)}>
-                        Voeg toe aan Mijn producten
-                    </button>
-                </div>
-            ));
-    };
-
+//     const fetchImage = async (filename, productName) => {
+//         try {
+//             console.log("Fetching image for:", productName);
+//             console.log("Filename:", filename);
+//             const response = await axios.get(`http://localhost:8081/fileDocument/getAll/db`, {
+//                 responseType: 'blob',
+//             });
+//
+//             // const imageUrl = URL.createObjectURL(response.data);
+//             const imageUrl = FileUpload
+//             console.log(imageUrl)
+//             console.log("response.data", response.data)
+//             console.log("result GET", response.data);
+//             console.log("Fetched image URL for", productName, ":", imageUrl);
+//             return imageUrl;
+//         } catch (e) {
+//             console.error('Error fetching image:', e);
+//             return LogoBenB;
+//         }
+//     };
 
     // zoeken in producten
     const handleSearchChange = (e) => {
@@ -111,7 +78,6 @@ const AllProducts = (product) => {
         )
         : [];
 
-            console.log("imageUrl", imageUrl);
     return (
         <>
             <div>
@@ -125,9 +91,24 @@ const AllProducts = (product) => {
                             value={searchText}
                             onChange={handleSearchChange}
                         />
-
                         {filteredProducts.length > 0 ? (
-                            buildProductsInfo(filteredProducts)
+                            filteredProducts.map((product) =>(
+                        <div className="form-content border_top_left background" key={product.productName}>
+                                {/*<div><img src={product.imageUrl} alt={product.productName}/></div>*/}
+                                <h2>product naam: {product.productName}</h2>
+                                <p>naam brouwer: {product.nameBrewer}</p>
+                                <p>productie locatie: {product.productionLocation}</p>
+                                <p>smaak: {product.tast}</p>
+                                <p>biertype: {product.type}</p>
+                                <p>alcohol %: {product.alcohol}</p>
+                                <p>IBU: {product.ibu}</p>
+                                <p>kleur: {product.color}</p>
+                                <p>volume(cc): {product.volume}</p>
+                                <button className="bttn bttn_small" onClick={() => addProductToMyProducts(product)}>
+                                    Voeg toe aan Mijn producten
+                                </button>
+                            </div>
+                                ))
                         ) : (
                             <p>Geen overeenkomend product gevonden.</p>
                         )}
