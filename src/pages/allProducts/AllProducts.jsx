@@ -3,6 +3,7 @@ import './AllProducts.css';
 import Cubes from "../../components/cubes/Cubes";
 import axios from "axios";
 import LogoBenB from "../../assets/logos and backgrounds/B & B logo2 klein.jpg";
+import FileUpload from "../../components/images/FileUpload";
 
 const AllProducts = (product) => {
     const [productsData, setProductsData] = useState(null);
@@ -62,7 +63,10 @@ const AllProducts = (product) => {
                 responseType: 'blob',
             });
 
-            const imageUrl = URL.createObjectURL(response.data);
+            // const imageUrl = URL.createObjectURL(response.data);
+            const imageUrl = FileUpload
+            console.log(imageUrl)
+            console.log("response.data", response.data)
             console.log("result GET", response.data);
             console.log("Fetched image URL for", productName, ":", imageUrl);
             return imageUrl;

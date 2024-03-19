@@ -1,4 +1,9 @@
 .outer_news_Container{
     flex-direction: row;
 }
+ul.post-list {
+    list-style-type: none;
+}
+
+
 

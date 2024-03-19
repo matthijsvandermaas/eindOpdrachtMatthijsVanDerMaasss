@@ -98,6 +98,8 @@
     flex-direction: row-reverse;
 }
 /*borders*/
+
+
 .border_top_bottom {
     border-top: 2px solid var(--blue-2);
     border-bottom: 2px solid var(--blue-2);
@@ -151,6 +153,18 @@
         opacity: 0;
     }
 }
+
+/*font decoration*/
+.underscore {
+    text-decoration: underline;
+    font-size: 1.1em;
+    color: var(--blue-1);
+}
+
+.italic {
+    font-style: italic;
+}
+
 
 
 

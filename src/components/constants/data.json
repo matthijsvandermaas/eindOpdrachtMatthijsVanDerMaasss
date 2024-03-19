@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "lancering Beers & Brewskys",
+    "subtitle": "Op ... december zal Beers & Breskys online komen ,",
+    "date": "datum: 2 december 2021",
+    "content": "Het nieuwe platform voor bierliefhebbers en brouwers om hun passie te delen over dit gezellige en ambachtelijke product.",
+    "author": "Matthijs van der Maas",
+    "readTime": 0,
+    "comments": 0,
+    "shares": 0,
+    "image1": "/assets/logos and backgrounds/B & B logo2 klein.jpg",
+    "image2": "/assets/general/img.png"
+
+  },
+  {
+    "id": 2,
+    "title": "House of Bird Kwintelooijen",
+    "subtitle": "Opening House of Bird Kwintelooijen",
+    "date": "datum: 2 december 2021",
+    "content": "Op de Kwintelooijen wordt er bier gebrouwen door de brouwerij van Kwintelooijen. Op 2 december zal 'House of Bird Kwintelooijen' zijn deuren openen. Dit is het eerste proeflokaal en brouwer op de Kwintelooijen. Je kunt hier een biertje proeven, lekker lunchen of koffie drinken daarnaast wordt er voor elke liter gebrouwen bier wordt een boom geplant.",
+    "author": "Matthijs van der Maas",
+    "readTime": 0,
+    "comments": 0,
+    "shares": 0,
+    "image1": "/assets/newsfeed/HoB.jpeg",
+    "image2": "/assets/general/img.png"
+
+
+  }
+
+]
