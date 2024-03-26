@@ -11,7 +11,7 @@ const AllProducts = (product) => {
     const [myProducts, setMyProducts] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [filename, setFilename] = useState(null);
-    const [imageUrl, setImageUrl] = useState(null);
+    // const [imageUrl, setImageUrl] = useState(null);
 
 // toevoegen aan favorieten
     const addProductToMyProducts = (product) => {
@@ -38,33 +38,36 @@ const AllProducts = (product) => {
         }
     };
 
-
-
+// GET IMG
+// const getImg = await axios.get('http://localhost:8081/fileDocument/downloadFromDB/{{fileName}}'{
+//     responseType: 'blob',
+// });
+// const imageUrl = URL.createObjectURL(getImg.data);
+// console.log(imageUrl);
+//     }
     useEffect(() => {
         void fetchProductData();
     }, []);
 
 // GET img
-//     const fetchImage = async (filename, productName) => {
-//         try {
-//             console.log("Fetching image for:", productName);
-//             console.log("Filename:", filename);
-//             const response = await axios.get(`http://localhost:8081/fileDocument/getAll/db`, {
-//                 responseType: 'blob',
-//             });
-//
-//             // const imageUrl = URL.createObjectURL(response.data);
-//             const imageUrl = FileUpload
-//             console.log(imageUrl)
-//             console.log("response.data", response.data)
-//             console.log("result GET", response.data);
-//             console.log("Fetched image URL for", productName, ":", imageUrl);
-//             return imageUrl;
-//         } catch (e) {
-//             console.error('Error fetching image:', e);
-//             return LogoBenB;
-//         }
-//     };
+    const fetchImage = async (filename) => {
+        try {
+
+            console.log("Filename:", filename);
+            const response = await axios.get(`http://localhost:8081/fileDocument/downloadFromDB/${filename}`, { responseType: 'blob' });
+
+            // const imageUrl = URL.createObjectURL(response.data);
+            const imageUrl = response.data;
+            console.log(imageUrl)
+            console.log("response.data", response.data)
+            console.log("result GET", response.data);
+            console.log("Fetched image URL for",  imageUrl);
+            return imageUrl;
+        } catch (e) {
+            console.error('Error fetching image:', e);
+            return LogoBenB;
+        }
+    };
 
     // zoeken in producten
     const handleSearchChange = (e) => {
@@ -94,7 +97,8 @@ const AllProducts = (product) => {
                         {filteredProducts.length > 0 ? (
                             filteredProducts.map((product) =>(
                         <div className="form-content border_top_left background" key={product.productName}>
-                                {/*<div><img src={product.imageUrl} alt={product.productName}/></div>*/}
+                                <div><img src={imageUrl} alt={product.productName}/>
+                                    <img src={fetchImage(product.imageFilename)} alt={product.productName} />                                </div>
                                 <h2>product naam: {product.productName}</h2>
                                 <p>naam brouwer: {product.nameBrewer}</p>
                                 <p>productie locatie: {product.productionLocation}</p>

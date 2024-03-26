@@ -4,15 +4,14 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
-const HookFormAddImage = ({ productName }) => {
+const HookFormAddImage = ({ productName, filename}) => {
     const [imageUrl, setImageUrl] = useState(null);
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
         const formData = new FormData();
-        formData.append('file', data.file[0]);
+        formData.append('filename', data.file[0]);
         formData.append('productName', productName);
-
         try {
             const response = await axios.post('http://localhost:8081/fileDocument/single/uploadDb', formData, {
                 headers: {
@@ -35,11 +34,11 @@ const HookFormAddImage = ({ productName }) => {
             <form onSubmit={onSubmit} encType="multipart/form-data">
                 <div>
                     <label>Productnaam:</label>
-                    <input type="text" name="productName" defaultValue={productName} disabled />
+                    <input type="text" name="productName" defaultValue={productName} />
                 </div>
                 <div>
                     <label>foto:</label>
-                    <input type="file" name="file" />
+                    <input type="filename" name="filename" defaultValue={filename} />
                 </div>
                 {imageUrl && <img src={imageUrl} alt="Uploaded Image" />}
                 <button type="submit">Afbeelding toevoegen</button>
@@ -50,6 +49,7 @@ const HookFormAddImage = ({ productName }) => {
 
 HookFormAddImage.propTypes = {
     productName: PropTypes.string.isRequired,
+    filename: PropTypes.string.isRequired,
 };
 
 export default HookFormAddImage;
